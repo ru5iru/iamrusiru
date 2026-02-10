@@ -1,39 +1,50 @@
 const Hero = () => {
   return (
-    <section className="py-20 md:py-28">
-      <div className="blog-container text-center">
-        <p className="text-caption text-sm uppercase tracking-widest mb-6 animate-fade-in" style={{ animationDelay: '0.1s' }}>
-          Personal Essays & Reflections
-        </p>
-        
-        <h1 
-          className="font-display text-5xl md:text-6xl lg:text-7xl font-medium leading-tight mb-8 text-display animate-fade-in"
-          style={{ animationDelay: '0.2s' }}
-        >
-          Thoughts on life,<br />
-          <span className="italic text-primary">creativity</span>, and everything in between
-        </h1>
-        
-        <p 
-          className="text-body text-lg md:text-xl max-w-2xl mx-auto leading-relaxed mb-10 animate-fade-in"
-          style={{ animationDelay: '0.3s' }}
-        >
-          Welcome to my little corner of the internet. Here, I share personal stories, 
-          creative musings, and the occasional recipe that brings me joy.
-        </p>
-        
-        <div 
-          className="flex items-center justify-center gap-6 animate-fade-in"
-          style={{ animationDelay: '0.4s' }}
-        >
-          <div className="w-16 h-16 rounded-full bg-warm overflow-hidden">
-            <div className="w-full h-full bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center">
-              <span className="font-display text-2xl text-display">S</span>
+    <section className="py-16 md:py-24">
+      <div className="max-w-6xl mx-auto px-6">
+        <div className="flex flex-col md:flex-row items-center gap-12">
+          {/* Left text */}
+          <div className="flex-1 text-center md:text-left">
+            <h1
+              className="font-display text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-4 text-display animate-fade-in"
+              style={{ animationDelay: "0.1s" }}
+            >
+              Hi, I'm <span className="text-primary">Sarah</span>
+              <br />
+              This Is <span className="text-primary">My Blog</span>..
+            </h1>
+
+            <p
+              className="text-body text-lg mb-8 max-w-lg animate-fade-in"
+              style={{ animationDelay: "0.2s" }}
+            >
+              Welcome to my little corner of the internet — personal stories, creative musings, and the occasional recipe that brings me joy.
+            </p>
+
+            <div
+              className="flex flex-wrap gap-4 justify-center md:justify-start animate-fade-in"
+              style={{ animationDelay: "0.3s" }}
+            >
+              <button className="px-7 py-3 bg-primary text-primary-foreground rounded-full font-medium hover:bg-primary/90 transition-colors">
+                Contact me
+              </button>
+              <button className="px-7 py-3 border border-divider text-display rounded-full font-medium hover:border-primary hover:text-primary transition-colors">
+                About me
+              </button>
             </div>
           </div>
-          <div className="text-left">
-            <p className="font-medium text-display">Sarah Mitchell</p>
-            <p className="text-sm text-caption">Writer & Creative</p>
+
+          {/* Right profile image */}
+          <div
+            className="flex-shrink-0 animate-fade-in"
+            style={{ animationDelay: "0.3s" }}
+          >
+            <div className="relative w-64 h-64 md:w-80 md:h-80">
+              <div className="absolute inset-0 rounded-full bg-muted" />
+              <div className="absolute inset-0 rounded-full bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center">
+                <span className="font-display text-7xl md:text-8xl text-display">S</span>
+              </div>
+            </div>
           </div>
         </div>
       </div>
