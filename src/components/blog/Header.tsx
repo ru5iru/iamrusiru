@@ -24,8 +24,8 @@ const Header = () => {
         <nav className="flex items-center justify-between">
           <Link to="/" className="group">
             <h1 className="font-display text-2xl font-bold tracking-tight">
-              <span className="text-display">The Quiet</span>{" "}
-              <span className="text-primary">Corner</span>
+              <span className="text-display">Dev</span>{" "}
+              <span className="text-primary">Notes</span>
             </h1>
           </Link>
 

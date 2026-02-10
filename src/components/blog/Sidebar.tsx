@@ -1,19 +1,20 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { BookOpen, Palette, Heart, PenLine, User } from "lucide-react";
+import { Code, Lightbulb, Briefcase, BookOpen, Heart, Terminal } from "lucide-react";
 
 const topics = [
-  { label: "Lifestyle", icon: Heart },
-  { label: "Creativity", icon: Palette },
+  { label: "Engineering", icon: Code },
+  { label: "Career", icon: Briefcase },
+  { label: "Tutorials", icon: Terminal },
+  { label: "Side Projects", icon: Lightbulb },
   { label: "Reading", icon: BookOpen },
-  { label: "Essays", icon: PenLine },
-  { label: "Personal", icon: User },
+  { label: "Personal", icon: Heart },
 ];
 
 const tags = [
-  "#writing", "#creativity", "#slowliving", "#books",
-  "#journaling", "#mindfulness", "#personal", "#essays",
-  "#lifestyle", "#reflection", "#reading",
+  "#javascript", "#typescript", "#react", "#webdev",
+  "#career", "#productivity", "#opensource", "#devlife",
+  "#python", "#backend", "#frontend", "#codebits",
 ];
 
 interface SidebarProps {
@@ -88,12 +89,12 @@ const Sidebar = ({ activeTopic, activeTag, onTopicSelect, onTagSelect }: Sidebar
 
       {/* Let's talk */}
       <div>
-        <h3 className="font-display text-lg font-semibold text-display mb-3">Let's talk</h3>
+        <h3 className="font-display text-lg font-semibold text-display mb-3">Let's connect</h3>
         <p className="text-body text-sm leading-relaxed mb-4">
-          Want to connect or share your thoughts? I'd love to hear from you.
+          Find me on socials or drop me an email.
         </p>
         <div className="flex gap-3">
-          {["Twitter", "Instagram", "Email"].map((s) => (
+          {["GitHub", "Twitter", "Email"].map((s) => (
             <a
               key={s}
               href="#"
@@ -110,7 +111,7 @@ const Sidebar = ({ activeTopic, activeTag, onTopicSelect, onTagSelect }: Sidebar
       <div>
         <h3 className="font-display text-lg font-semibold text-primary mb-3">Newsletter</h3>
         <p className="text-body text-sm leading-relaxed mb-4">
-          Subscribe to get my latest essays delivered straight to your inbox.
+          Subscribe to get my latest posts on code, career, and side projects.
         </p>
         {subscribed ? (
           <p className="text-sm text-accent font-medium">Thanks for subscribing! ✓</p>
