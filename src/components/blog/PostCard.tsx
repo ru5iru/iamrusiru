@@ -7,26 +7,56 @@ interface PostCardProps {
   category: string;
   slug: string;
   readTime?: string;
+  imageUrl?: string;
 }
 
-const PostCard = ({ title, excerpt, date, category, slug, readTime = "5 min read" }: PostCardProps) => {
+const PostCard = ({
+  title,
+  excerpt,
+  date,
+  category,
+  slug,
+  readTime = "5 min read",
+  imageUrl,
+}: PostCardProps) => {
   return (
     <Link to={`/post/${slug}`} className="group block">
-      <article className="py-8 border-b border-divider transition-colors hover:border-primary/30">
-        <div className="flex items-center gap-4 mb-3">
-          <span className="blog-tag">{category}</span>
-          <span className="text-sm text-caption">{date}</span>
-          <span className="text-sm text-caption">·</span>
-          <span className="text-sm text-caption">{readTime}</span>
+      <article className="py-6 border-b border-divider flex gap-5 transition-colors hover:border-primary/30">
+        {/* Thumbnail */}
+        {imageUrl && (
+          <div className="hidden sm:block flex-shrink-0 w-40 h-28 md:w-48 md:h-32 rounded-lg overflow-hidden">
+            <img
+              src={imageUrl}
+              alt={title}
+              className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+              loading="lazy"
+            />
+          </div>
+        )}
+
+        {/* Content */}
+        <div className="flex-1 min-w-0">
+          <span className="blog-tag mb-2 inline-block">{category}</span>
+
+          <h3 className="font-display text-lg md:text-xl font-medium mb-2 text-display group-hover:text-primary transition-colors leading-snug line-clamp-2">
+            {title}
+          </h3>
+
+          <p className="text-body text-sm leading-relaxed line-clamp-2 mb-3">
+            {excerpt}
+          </p>
+
+          <div className="flex items-center gap-3">
+            <div className="w-7 h-7 rounded-full bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center flex-shrink-0">
+              <span className="font-display text-xs text-display">S</span>
+            </div>
+            <div className="flex items-center gap-2 text-xs text-caption">
+              <span className="font-medium text-display">Sarah Mitchell</span>
+              <span>·</span>
+              <span>{date}</span>
+            </div>
+          </div>
         </div>
-        
-        <h3 className="font-display text-xl md:text-2xl font-medium mb-3 text-display group-hover:text-primary transition-colors leading-snug">
-          {title}
-        </h3>
-        
-        <p className="text-body leading-relaxed line-clamp-2">
-          {excerpt}
-        </p>
       </article>
     </Link>
   );
