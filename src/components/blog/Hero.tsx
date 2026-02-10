@@ -1,3 +1,5 @@
+import profileHeadshot from "@/assets/profile-headshot.jpg";
+
 const Hero = () => {
   return (
     <section className="py-12 md:py-20">
@@ -5,14 +7,15 @@ const Hero = () => {
         <div className="flex flex-col md:flex-row items-center gap-4 md:gap-0">
           {/* Profile image - shows first on mobile */}
           <div
-            className="flex-shrink-0 animate-fade-in order-first md:order-last"
+            className="flex-shrink-0 animate-fade-in order-first md:order-last md:-ml-16"
             style={{ animationDelay: "0.3s" }}
           >
-              <div className="relative w-40 h-40 md:w-56 md:h-56">
-              <div className="absolute inset-0 rounded-full bg-muted" />
-              <div className="absolute inset-0 rounded-full bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center">
-                <span className="font-display text-5xl md:text-7xl text-display">A</span>
-              </div>
+            <div className="relative w-40 h-40 md:w-56 md:h-56">
+              <img
+                src={profileHeadshot}
+                alt="Alex's profile photo"
+                className="w-full h-full rounded-full object-cover"
+              />
             </div>
           </div>
 
