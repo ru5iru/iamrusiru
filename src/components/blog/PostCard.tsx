@@ -48,10 +48,10 @@ const PostCard = ({
 
           <div className="flex items-center gap-3">
             <div className="w-7 h-7 rounded-full bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center flex-shrink-0">
-              <span className="font-display text-xs text-display">S</span>
+              <span className="font-display text-xs text-display">A</span>
             </div>
             <div className="flex items-center gap-2 text-xs text-caption">
-              <span className="font-medium text-display">Sarah Mitchell</span>
+              <span className="font-medium text-display">Alex Chen</span>
               <span>·</span>
               <span>{date}</span>
             </div>
