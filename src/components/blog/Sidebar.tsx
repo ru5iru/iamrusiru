@@ -1,20 +1,29 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { BookOpen, Palette, Heart } from "lucide-react";
+import { BookOpen, Palette, Heart, PenLine, User } from "lucide-react";
 
 const topics = [
   { label: "Lifestyle", icon: Heart },
   { label: "Creativity", icon: Palette },
   { label: "Reading", icon: BookOpen },
+  { label: "Essays", icon: PenLine },
+  { label: "Personal", icon: User },
 ];
 
 const tags = [
   "#writing", "#creativity", "#slowliving", "#books",
   "#journaling", "#mindfulness", "#personal", "#essays",
-  "#lifestyle", "#reflection",
+  "#lifestyle", "#reflection", "#reading",
 ];
 
-const Sidebar = () => {
+interface SidebarProps {
+  activeTopic: string | null;
+  activeTag: string | null;
+  onTopicSelect: (topic: string) => void;
+  onTagSelect: (tag: string) => void;
+}
+
+const Sidebar = ({ activeTopic, activeTag, onTopicSelect, onTagSelect }: SidebarProps) => {
   const [email, setEmail] = useState("");
   const [subscribed, setSubscribed] = useState(false);
 
@@ -33,16 +42,26 @@ const Sidebar = () => {
         <h3 className="font-display text-lg font-semibold text-display mb-4">Topics</h3>
         <div className="space-y-3">
           {topics.map((t) => (
-            <Link
+            <button
               key={t.label}
-              to="/"
-              className="flex items-center gap-3 px-4 py-3 rounded-lg border border-divider hover:border-primary/40 transition-colors group"
+              onClick={() => onTopicSelect(t.label)}
+              className={`w-full flex items-center gap-3 px-4 py-3 rounded-lg border transition-colors group text-left ${
+                activeTopic === t.label
+                  ? "border-primary bg-primary/10"
+                  : "border-divider hover:border-primary/40"
+              }`}
             >
-              <div className="w-9 h-9 rounded-lg bg-warm flex items-center justify-center text-caption group-hover:text-primary transition-colors">
+              <div className={`w-9 h-9 rounded-lg flex items-center justify-center transition-colors ${
+                activeTopic === t.label
+                  ? "bg-primary/20 text-primary"
+                  : "bg-warm text-caption group-hover:text-primary"
+              }`}>
                 <t.icon size={18} />
               </div>
-              <span className="text-sm font-medium text-display">{t.label}</span>
-            </Link>
+              <span className={`text-sm font-medium ${
+                activeTopic === t.label ? "text-primary" : "text-display"
+              }`}>{t.label}</span>
+            </button>
           ))}
         </div>
       </div>
@@ -52,12 +71,17 @@ const Sidebar = () => {
         <h3 className="font-display text-lg font-semibold text-display mb-4">Tags</h3>
         <div className="flex flex-wrap gap-2">
           {tags.map((tag) => (
-            <span
+            <button
               key={tag}
-              className="px-3 py-1.5 text-xs font-medium rounded-full bg-warm text-caption hover:text-primary hover:bg-primary/10 transition-colors cursor-pointer"
+              onClick={() => onTagSelect(tag)}
+              className={`px-3 py-1.5 text-xs font-medium rounded-full transition-colors cursor-pointer ${
+                activeTag === tag
+                  ? "bg-primary text-primary-foreground"
+                  : "bg-warm text-caption hover:text-primary hover:bg-primary/10"
+              }`}
             >
               {tag}
-            </span>
+            </button>
           ))}
         </div>
       </div>
