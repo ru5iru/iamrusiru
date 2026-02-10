@@ -6,9 +6,12 @@ import Sidebar from "@/components/blog/Sidebar";
 import Footer from "@/components/blog/Footer";
 import allPosts from "@/data/posts";
 
+const POSTS_PER_PAGE = 6;
+
 const Index = () => {
   const [activeTag, setActiveTag] = useState<string | null>(null);
   const [activeTopic, setActiveTopic] = useState<string | null>(null);
+  const [visibleCount, setVisibleCount] = useState(POSTS_PER_PAGE);
 
   const filteredPosts = allPosts.filter((post) => {
     if (activeTopic && post.category !== activeTopic) return false;
@@ -16,9 +19,13 @@ const Index = () => {
     return true;
   });
 
+  const visiblePosts = filteredPosts.slice(0, visibleCount);
+  const hasMore = visibleCount < filteredPosts.length;
+
   const clearFilters = () => {
     setActiveTag(null);
     setActiveTopic(null);
+    setVisibleCount(POSTS_PER_PAGE);
   };
 
   return (
@@ -47,8 +54,8 @@ const Index = () => {
           <div className="flex flex-col lg:flex-row gap-12">
             {/* Posts */}
             <div className="flex-1 min-w-0">
-              {filteredPosts.length > 0 ? (
-                filteredPosts.map((post) => (
+              {visiblePosts.length > 0 ? (
+                visiblePosts.map((post) => (
                   <PostCard key={post.slug} {...post} />
                 ))
               ) : (
@@ -63,10 +70,13 @@ const Index = () => {
                 </div>
               )}
 
-              {filteredPosts.length > 0 && !activeTopic && !activeTag && (
+              {hasMore && (
                 <div className="mt-10 text-center">
-                  <button className="px-8 py-3 bg-primary text-primary-foreground rounded-full font-medium hover:bg-primary/90 transition-colors">
-                    Load more..
+                  <button
+                    onClick={() => setVisibleCount((c) => c + POSTS_PER_PAGE)}
+                    className="px-8 py-3 bg-primary text-primary-foreground rounded-full font-medium hover:bg-primary/90 transition-colors"
+                  >
+                    Load more ({filteredPosts.length - visibleCount} remaining)
                   </button>
                 </div>
               )}
@@ -80,10 +90,12 @@ const Index = () => {
                 onTopicSelect={(topic) => {
                   setActiveTopic(activeTopic === topic ? null : topic);
                   setActiveTag(null);
+                  setVisibleCount(POSTS_PER_PAGE);
                 }}
                 onTagSelect={(tag) => {
                   setActiveTag(activeTag === tag ? null : tag);
                   setActiveTopic(null);
+                  setVisibleCount(POSTS_PER_PAGE);
                 }}
               />
             </div>

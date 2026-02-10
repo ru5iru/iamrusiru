@@ -9,6 +9,10 @@ import sideProjectsKeepMeSane from "./side-projects-keep-me-sane";
 import codeReviewEtiquette from "./code-review-etiquette";
 import dotfileOneLiners from "./dotfile-one-liners";
 import burnoutAndRecovery from "./burnout-and-recovery";
+import debuggingProduction from "./debugging-production";
+import gitWorkflowTips from "./git-workflow-tips";
+import whyIJournal from "./why-i-journal-as-dev";
+import dockerComposeDev from "./docker-compose-dev";
 
 export type { BlogPost, ContentBlock } from "./types";
 
@@ -23,6 +27,10 @@ const allPosts = [
   codeReviewEtiquette,
   dotfileOneLiners,
   burnoutAndRecovery,
+  debuggingProduction,
+  gitWorkflowTips,
+  whyIJournal,
+  dockerComposeDev,
 ];
 
 export default allPosts;
