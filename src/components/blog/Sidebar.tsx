@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { Code, Lightbulb, Briefcase, BookOpen, Heart, Terminal } from "lucide-react";
+import { Code, Lightbulb, Briefcase, BookOpen, Heart, Terminal, Linkedin, Facebook, Instagram, Twitter, MessageCircle } from "lucide-react";
 
 const topics = [
   { label: "Engineering", icon: Code },
@@ -87,21 +87,29 @@ const Sidebar = ({ activeTopic, activeTag, onTopicSelect, onTagSelect }: Sidebar
         </div>
       </div>
 
-      {/* Let's talk */}
+      {/* Let's connect */}
       <div>
         <h3 className="font-display text-lg font-semibold text-display mb-3">Let's connect</h3>
         <p className="text-body text-sm leading-relaxed mb-4">
           Find me on socials or drop me an email.
         </p>
-        <div className="flex gap-3">
-          {["GitHub", "Twitter", "Email"].map((s) => (
+        <div className="flex gap-3 flex-wrap">
+          {[
+            { label: "LinkedIn", icon: Linkedin, href: "https://linkedin.com" },
+            { label: "Facebook", icon: Facebook, href: "https://facebook.com" },
+            { label: "Instagram", icon: Instagram, href: "https://instagram.com" },
+            { label: "X", icon: Twitter, href: "https://x.com" },
+            { label: "Reddit", icon: MessageCircle, href: "https://reddit.com" },
+          ].map(({ label, icon: Icon, href }) => (
             <a
-              key={s}
-              href="#"
+              key={label}
+              href={href}
+              target="_blank"
+              rel="noopener noreferrer"
               className="w-10 h-10 rounded-full bg-warm flex items-center justify-center text-caption hover:text-primary hover:bg-primary/10 transition-all"
-              aria-label={s}
+              aria-label={label}
             >
-              <span className="text-xs font-bold">{s[0]}</span>
+              <Icon size={18} />
             </a>
           ))}
         </div>
