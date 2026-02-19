@@ -7,7 +7,7 @@ const Hero = () => {
         <div className="flex flex-col md:flex-row items-center gap-4 md:gap-0">
           {/* Profile image - shows first on mobile */}
           <div
-            className="flex-shrink-0 animate-fade-in order-first md:order-last md:-ml-16"
+            className="flex-shrink-0 animate-fade-in order-first md:order-last md:-ml-8"
             style={{ animationDelay: "0.3s" }}
           >
             <div className="relative w-40 h-40 md:w-56 md:h-56">
