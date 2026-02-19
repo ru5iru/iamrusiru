@@ -1,6 +1,13 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { Code, Lightbulb, Briefcase, BookOpen, Heart, Terminal, Linkedin, Facebook, Instagram, Twitter, MessageCircle } from "lucide-react";
+import { Code, Lightbulb, Briefcase, BookOpen, Heart, Terminal, Linkedin, Facebook, Instagram, Github } from "lucide-react";
+
+// X (Twitter) icon as inline SVG since lucide-react doesn't have the new X logo
+const XIcon = ({ size = 18 }: { size?: number }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor">
+    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.741l7.73-8.835L1.254 2.25H8.08l4.258 5.632 5.906-5.632Zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+  </svg>
+);
 
 const topics = [
   { label: "Engineering", icon: Code },
@@ -98,8 +105,7 @@ const Sidebar = ({ activeTopic, activeTag, onTopicSelect, onTagSelect }: Sidebar
             { label: "LinkedIn", icon: Linkedin, href: "https://linkedin.com" },
             { label: "Facebook", icon: Facebook, href: "https://facebook.com" },
             { label: "Instagram", icon: Instagram, href: "https://instagram.com" },
-            { label: "X", icon: Twitter, href: "https://x.com" },
-            { label: "Reddit", icon: MessageCircle, href: "https://reddit.com" },
+            { label: "GitHub", icon: Github, href: "https://github.com" },
           ].map(({ label, icon: Icon, href }) => (
             <a
               key={label}
@@ -112,6 +118,15 @@ const Sidebar = ({ activeTopic, activeTag, onTopicSelect, onTagSelect }: Sidebar
               <Icon size={18} />
             </a>
           ))}
+          <a
+            href="https://x.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="w-10 h-10 rounded-full bg-warm flex items-center justify-center text-caption hover:text-primary hover:bg-primary/10 transition-all"
+            aria-label="X"
+          >
+            <XIcon size={18} />
+          </a>
         </div>
       </div>
 
