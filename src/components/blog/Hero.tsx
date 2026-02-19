@@ -4,10 +4,10 @@ const Hero = () => {
   return (
     <section className="py-12 md:py-20">
       <div className="max-w-6xl mx-auto px-6">
-        <div className="flex flex-col md:flex-row items-center gap-4 md:gap-0">
+        <div className="flex flex-col md:flex-row items-center gap-4 md:gap-10">
           {/* Profile image - shows first on mobile */}
           <div
-            className="flex-shrink-0 animate-fade-in order-first md:order-last md:-ml-8"
+            className="flex-shrink-0 animate-fade-in order-first md:order-last"
             style={{ animationDelay: "0.3s" }}
           >
             <div className="relative w-40 h-40 md:w-56 md:h-56">
