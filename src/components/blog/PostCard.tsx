@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import profileHeadshot from "@/assets/profile-headshot.jpg";
 
 interface PostCardProps {
   title: string;
@@ -47,8 +48,8 @@ const PostCard = ({
           </p>
 
           <div className="flex items-center gap-3">
-            <div className="w-7 h-7 rounded-full bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center flex-shrink-0">
-              <span className="font-display text-xs text-display">A</span>
+            <div className="w-7 h-7 rounded-full overflow-hidden flex-shrink-0">
+              <img src={profileHeadshot} alt="Alex Chen" className="w-full h-full object-cover" />
             </div>
             <div className="flex items-center gap-2 text-xs text-caption">
               <span className="font-medium text-display">Alex Chen</span>
