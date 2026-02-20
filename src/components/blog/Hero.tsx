@@ -4,7 +4,7 @@ const Hero = () => {
   return (
     <section className="py-12 md:py-20">
       <div className="max-w-6xl mx-auto px-6">
-        <div className="flex flex-col md:flex-row items-center gap-4 md:gap-10">
+        <div className="flex flex-col md:flex-row items-center gap-2 md:gap-4">
           {/* Text content */}
           <div className="flex-1 text-center md:text-left">
             <h1
@@ -41,7 +41,7 @@ const Hero = () => {
             className="flex-shrink-0 animate-fade-in order-first md:order-last"
             style={{ animationDelay: "0.3s" }}
           >
-            <div className="relative w-64 h-64 md:w-80 md:h-80">
+            <div className="relative w-72 h-72 md:w-96 md:h-96">
               {/* Scattered geometric shapes */}
               <svg className="absolute inset-0 w-full h-full" viewBox="0 0 320 320" fill="none" xmlns="http://www.w3.org/2000/svg">
                 {/* Triangles */}
