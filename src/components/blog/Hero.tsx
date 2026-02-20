@@ -13,7 +13,7 @@ const Hero = () => {
             >
               Hi, I'm <span className="text-primary">Rusiru</span>
               <br />
-              This Is <span className="text-primary">iam<span className="text-accent">rusiru</span></span>..
+              This Is <span className="text-primary">My Blog</span>..
             </h1>
 
             <p

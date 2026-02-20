@@ -7,8 +7,7 @@ const Footer = () => {
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-10">
           <div>
             <h3 className="font-display text-lg font-bold mb-4">
-              <span className="text-display">The Quiet</span>{" "}
-              <span className="text-primary">Corner</span>
+              <span className="text-display">iam</span><span className="text-primary">rusiru</span>
             </h3>
             <p className="text-body text-sm leading-relaxed">
               Subscribe to stay up to date with my latest posts and creative musings.
@@ -45,7 +44,7 @@ const Footer = () => {
 
         <div className="pt-6 border-t border-divider text-center">
           <p className="text-caption text-sm">
-            © {new Date().getFullYear()} The Quiet Corner. All rights reserved.
+            © {new Date().getFullYear()} iamrusiru. All rights reserved.
           </p>
         </div>
       </div>
