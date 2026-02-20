@@ -35,9 +35,10 @@ const Footer = () => {
           <div>
             <h4 className="font-medium text-display mb-4 text-sm">Connect</h4>
             <nav className="flex flex-col gap-2.5">
-              <a href="#" className="text-body text-sm hover:text-primary transition-colors">Twitter</a>
-              <a href="#" className="text-body text-sm hover:text-primary transition-colors">Instagram</a>
-              <a href="#" className="text-body text-sm hover:text-primary transition-colors">LinkedIn</a>
+              <a href="https://twitter.com/ru5iru" target="_blank" rel="noopener noreferrer" className="text-body text-sm hover:text-primary transition-colors">Twitter / X</a>
+              <a href="https://github.com/ru5iru" target="_blank" rel="noopener noreferrer" className="text-body text-sm hover:text-primary transition-colors">GitHub</a>
+              <a href="https://www.linkedin.com/in/ru5iru" target="_blank" rel="noopener noreferrer" className="text-body text-sm hover:text-primary transition-colors">LinkedIn</a>
+              <a href="https://web.facebook.com/ru5iru" target="_blank" rel="noopener noreferrer" className="text-body text-sm hover:text-primary transition-colors">Facebook</a>
             </nav>
           </div>
         </div>
