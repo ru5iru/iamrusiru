@@ -45,7 +45,7 @@ const Footer = () => {
 
         <div className="pt-6 border-t border-divider text-center">
           <p className="text-caption text-sm">
-            © 2024 The Quiet Corner. All rights reserved.
+            © {new Date().getFullYear()} The Quiet Corner. All rights reserved.
           </p>
         </div>
       </div>

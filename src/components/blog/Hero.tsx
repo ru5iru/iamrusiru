@@ -11,7 +11,7 @@ const Hero = () => {
               className="font-display text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-4 text-display animate-fade-in"
               style={{ animationDelay: "0.1s" }}
             >
-              Hi, I'm <span className="text-primary">Alex</span>
+              Hi, I'm <span className="text-primary">Steve</span>
               <br />
               This Is <span className="text-primary">My Blog</span>..
             </h1>
@@ -86,7 +86,7 @@ const Hero = () => {
               <div className="absolute inset-8 rounded-full overflow-hidden">
                 <img
                   src={profileHeadshot}
-                  alt="Alex's profile photo"
+                  alt="Steve's profile photo"
                   className="w-full h-full object-cover"
                 />
               </div>
