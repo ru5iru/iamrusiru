@@ -109,10 +109,10 @@ const BlogPost = () => {
 
           <div className="flex items-center gap-3 mb-10 pb-8 border-b border-divider">
             <div className="w-10 h-10 rounded-full overflow-hidden flex-shrink-0">
-              <img src={profileHeadshot} alt="Alex Chen" className="w-full h-full object-cover" />
+              <img src={profileHeadshot} alt="Rusiru Rathmina" className="w-full h-full object-cover" />
             </div>
             <div>
-              <p className="text-sm font-medium text-display">Alex Chen</p>
+              <p className="text-sm font-medium text-display">Rusiru Rathmina</p>
               <p className="text-xs text-caption">Software Engineer & Writer</p>
             </div>
           </div>
