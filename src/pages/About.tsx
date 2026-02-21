@@ -1,7 +1,14 @@
 import Header from "@/components/blog/Header";
 import Footer from "@/components/blog/Footer";
+import { useSEO } from "@/hooks/useSEO";
 
 const About = () => {
+  useSEO({
+    title: "About Rusiru Rathmina | iamrusiru",
+    description: "Learn about Rusiru Rathmina – Associate Software Engineer at Omobio, based in Colombo, Sri Lanka. Full-stack developer specializing in React, Java, Spring Boot, AWS, and DevOps.",
+    canonical: "/about",
+  });
+
   return (
     <div className="min-h-screen bg-background">
       <Header />

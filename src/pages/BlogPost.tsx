@@ -5,7 +5,8 @@ import { ArrowLeft, Linkedin, Facebook, Link2, Check } from "lucide-react";
 import allPosts from "@/data/posts";
 import type { ContentBlock } from "@/data/posts";
 import profileHeadshot from "@/assets/profile-headshot.jpg";
-import { useState } from "react";
+import { useState, useMemo } from "react";
+import { useSEO } from "@/hooks/useSEO";
 
 // WhatsApp icon SVG
 const WhatsAppIcon = ({ size = 18 }: { size?: number }) => (
@@ -20,6 +21,39 @@ const BlogPost = () => {
   const [copied, setCopied] = useState(false);
 
   const postUrl = typeof window !== "undefined" ? window.location.href : "";
+
+  const jsonLd = useMemo(() => post ? {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": post.title,
+    "description": post.excerpt,
+    "image": post.imageUrl,
+    "datePublished": post.date,
+    "author": {
+      "@type": "Person",
+      "name": "Rusiru Rathmina",
+      "url": "https://blog-heart-craft-97.lovable.app/about"
+    },
+    "publisher": {
+      "@type": "Person",
+      "name": "Rusiru Rathmina"
+    },
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": `https://blog-heart-craft-97.lovable.app/post/${post.slug}`
+    },
+    "keywords": post.tags.join(", "),
+    "articleSection": post.category
+  } : undefined, [post]);
+
+  useSEO({
+    title: post ? `${post.title} | iamrusiru` : "Post Not Found | iamrusiru",
+    description: post?.excerpt || "The blog post you're looking for doesn't exist.",
+    canonical: post ? `/post/${post.slug}` : undefined,
+    ogType: "article",
+    ogImage: post?.imageUrl,
+    jsonLd,
+  });
 
   const handleCopyLink = async () => {
     await navigator.clipboard.writeText(postUrl);

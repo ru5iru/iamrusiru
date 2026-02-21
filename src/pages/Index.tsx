@@ -5,6 +5,7 @@ import PostCard from "@/components/blog/PostCard";
 import Sidebar from "@/components/blog/Sidebar";
 import Footer from "@/components/blog/Footer";
 import allPosts from "@/data/posts";
+import { useSEO } from "@/hooks/useSEO";
 
 const POSTS_PER_PAGE = 6;
 
@@ -12,6 +13,12 @@ const Index = () => {
   const [activeTag, setActiveTag] = useState<string | null>(null);
   const [activeTopic, setActiveTopic] = useState<string | null>(null);
   const [visibleCount, setVisibleCount] = useState(POSTS_PER_PAGE);
+
+  useSEO({
+    title: "iamrusiru | Rusiru Rathmina – Full-Stack Software Engineer Blog",
+    description: "Read about software engineering, career lessons, side projects, and the human side of building software by Rusiru Rathmina.",
+    canonical: "/",
+  });
 
   const filteredPosts = allPosts.filter((post) => {
     if (activeTopic && post.category !== activeTopic) return false;
@@ -31,6 +38,7 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-background">
       <Header />
+      <main>
       <Hero />
 
       {/* Blog listing + Sidebar */}
@@ -102,6 +110,7 @@ const Index = () => {
           </div>
         </div>
       </section>
+      </main>
 
       <Footer />
     </div>
