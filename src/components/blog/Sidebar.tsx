@@ -119,7 +119,7 @@ const Sidebar = ({ activeTopic, activeTag, onTopicSelect, onTagSelect }: Sidebar
             </a>
           ))}
           <a
-            href="https://x.com"
+            href="https://x.com/ru5iru"
             target="_blank"
             rel="noopener noreferrer"
             className="w-10 h-10 rounded-full bg-warm flex items-center justify-center text-caption hover:text-primary hover:bg-primary/10 transition-all"
