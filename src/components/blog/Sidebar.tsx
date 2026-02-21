@@ -102,10 +102,10 @@ const Sidebar = ({ activeTopic, activeTag, onTopicSelect, onTagSelect }: Sidebar
         </p>
         <div className="flex gap-3 flex-wrap">
           {[
-            { label: "LinkedIn", icon: Linkedin, href: "https://linkedin.com" },
-            { label: "Facebook", icon: Facebook, href: "https://facebook.com" },
-            { label: "Instagram", icon: Instagram, href: "https://instagram.com" },
-            { label: "GitHub", icon: Github, href: "https://github.com" },
+            { label: "LinkedIn", icon: Linkedin, href: "https://www.linkedin.com/in/ru5iru" },
+            { label: "Facebook", icon: Facebook, href: "https://web.facebook.com/ru5iru" },
+            { label: "Instagram", icon: Instagram, href: "https://instagram.com/ru5iru" },
+            { label: "GitHub", icon: Github, href: "https://github.com/ru5iru" },
           ].map(({ label, icon: Icon, href }) => (
             <a
               key={label}
