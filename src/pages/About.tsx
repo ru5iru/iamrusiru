@@ -7,6 +7,21 @@ const About = () => {
     title: "About Rusiru Rathmina | iamrusiru",
     description: "Learn about Rusiru Rathmina – Associate Software Engineer at Omobio, based in Colombo, Sri Lanka. Full-stack developer specializing in React, Java, Spring Boot, AWS, and DevOps.",
     canonical: "/about",
+    jsonLd: {
+      "@context": "https://schema.org",
+      "@type": "ProfilePage",
+      "name": "About Rusiru Rathmina",
+      "url": "https://blog-heart-craft-97.lovable.app/about",
+      "mainEntity": {
+        "@type": "Person",
+        "name": "Rusiru Rathmina",
+        "jobTitle": "Associate Software Engineer",
+        "worksFor": { "@type": "Organization", "name": "Omobio (Pvt) Ltd" },
+        "address": { "@type": "PostalAddress", "addressLocality": "Colombo", "addressCountry": "LK" },
+        "alumniOf": { "@type": "EducationalOrganization", "name": "University of Colombo School of Computing" },
+        "knowsAbout": ["React", "Java", "Spring Boot", "AWS", "Docker", "Kubernetes", "PHP", "Drupal"],
+      },
+    },
   });
 
   return (

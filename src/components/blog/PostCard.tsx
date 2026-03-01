@@ -54,7 +54,9 @@ const PostCard = ({
             <div className="flex items-center gap-2 text-xs text-caption">
               <span className="font-medium text-display">Rusiru Rathmina</span>
               <span>·</span>
-              <span>{date}</span>
+              <time dateTime={date}>{date}</time>
+              <span>·</span>
+              <span>{readTime}</span>
             </div>
           </div>
         </div>

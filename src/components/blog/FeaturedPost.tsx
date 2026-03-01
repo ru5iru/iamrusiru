@@ -19,6 +19,7 @@ const FeaturedPost = ({ title, excerpt, date, category, slug, imageUrl }: Featur
               src={imageUrl} 
               alt={title}
               className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+              loading="lazy"
             />
           </div>
         )}

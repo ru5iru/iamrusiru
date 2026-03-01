@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import profileHeadshot from "@/assets/profile-headshot.jpg";
 
 const Hero = () => {
@@ -27,12 +28,12 @@ const Hero = () => {
               className="flex flex-wrap gap-4 justify-center md:justify-start animate-fade-in"
               style={{ animationDelay: "0.3s" }}
             >
-              <button className="px-7 py-3 bg-primary text-primary-foreground rounded-full font-medium hover:bg-primary/90 transition-colors">
+              <Link to="/contact" className="px-7 py-3 bg-primary text-primary-foreground rounded-full font-medium hover:bg-primary/90 transition-colors inline-block">
                 Contact me
-              </button>
-              <button className="px-7 py-3 border border-divider text-display rounded-full font-medium hover:border-primary hover:text-primary transition-colors">
+              </Link>
+              <Link to="/about" className="px-7 py-3 border border-divider text-display rounded-full font-medium hover:border-primary hover:text-primary transition-colors inline-block">
                 About me
-              </button>
+              </Link>
             </div>
           </div>
 

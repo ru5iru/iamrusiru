@@ -18,6 +18,23 @@ const Index = () => {
     title: "iamrusiru | Rusiru Rathmina – Full-Stack Software Engineer Blog",
     description: "Read about software engineering, career lessons, side projects, and the human side of building software by Rusiru Rathmina.",
     canonical: "/",
+    jsonLd: {
+      "@context": "https://schema.org",
+      "@type": "CollectionPage",
+      "name": "iamrusiru Blog",
+      "description": "Software engineering blog by Rusiru Rathmina covering code, career, side projects, and developer life.",
+      "url": "https://blog-heart-craft-97.lovable.app/",
+      "author": { "@type": "Person", "name": "Rusiru Rathmina" },
+      "mainEntity": {
+        "@type": "ItemList",
+        "itemListElement": allPosts.slice(0, 10).map((p, i) => ({
+          "@type": "ListItem",
+          "position": i + 1,
+          "url": `https://blog-heart-craft-97.lovable.app/post/${p.slug}`,
+          "name": p.title,
+        })),
+      },
+    },
   });
 
   const filteredPosts = allPosts.filter((post) => {

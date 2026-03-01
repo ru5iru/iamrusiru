@@ -2,6 +2,7 @@ import { useParams, Link } from "react-router-dom";
 import Header from "@/components/blog/Header";
 import Footer from "@/components/blog/Footer";
 import { ArrowLeft, Linkedin, Facebook, Link2, Check } from "lucide-react";
+import ReadingProgress from "@/components/blog/ReadingProgress";
 import allPosts from "@/data/posts";
 import type { ContentBlock } from "@/data/posts";
 import profileHeadshot from "@/assets/profile-headshot.jpg";
@@ -118,6 +119,7 @@ const BlogPost = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <ReadingProgress />
       <Header />
 
       <article className="py-12">
@@ -132,7 +134,7 @@ const BlogPost = () => {
 
           <div className="flex items-center gap-4 mb-4">
             <span className="blog-tag">{post.category}</span>
-            <span className="text-sm text-caption">{post.date}</span>
+            <time dateTime={post.date} className="text-sm text-caption">{post.date}</time>
             <span className="text-sm text-caption">·</span>
             <span className="text-sm text-caption">{post.readTime}</span>
           </div>
@@ -156,6 +158,7 @@ const BlogPost = () => {
               src={post.imageUrl}
               alt={post.title}
               className="w-full h-auto object-cover max-h-[400px]"
+              loading="lazy"
             />
           </div>
 
