@@ -5,23 +5,43 @@ import { useSEO } from "@/hooks/useSEO";
 const About = () => {
   useSEO({
     title: "About Rusiru Rathmina | iamrusiru",
-    description: "Learn about Rusiru Rathmina – Associate Software Engineer at Omobio, based in Colombo, Sri Lanka. Full-stack developer specializing in React, Java, Spring Boot, AWS, and DevOps.",
+    description: "Learn about Rusiru Rathmina, Associate Software Engineer at Omobio, based in Colombo, Sri Lanka. Full-stack developer specializing in React, Java, Spring Boot, AWS, and DevOps.",
     canonical: "/about",
-    jsonLd: {
-      "@context": "https://schema.org",
-      "@type": "ProfilePage",
-      "name": "About Rusiru Rathmina",
-      "url": "https://blog-heart-craft-97.lovable.app/about",
-      "mainEntity": {
-        "@type": "Person",
-        "name": "Rusiru Rathmina",
-        "jobTitle": "Associate Software Engineer",
-        "worksFor": { "@type": "Organization", "name": "Omobio (Pvt) Ltd" },
-        "address": { "@type": "PostalAddress", "addressLocality": "Colombo", "addressCountry": "LK" },
-        "alumniOf": { "@type": "EducationalOrganization", "name": "University of Colombo School of Computing" },
-        "knowsAbout": ["React", "Java", "Spring Boot", "AWS", "Docker", "Kubernetes", "PHP", "Drupal"],
+    jsonLd: [
+      {
+        "@type": "ProfilePage",
+        "name": "About Rusiru Rathmina",
+        "url": "https://blog-heart-craft-97.lovable.app/about",
+        "mainEntity": {
+          "@type": "Person",
+          "name": "Rusiru Rathmina",
+          "jobTitle": "Associate Software Engineer",
+          "worksFor": { "@type": "Organization", "name": "Omobio (Pvt) Ltd", "url": "https://www.omobio.com" },
+          "address": { "@type": "PostalAddress", "addressLocality": "Colombo", "addressCountry": "LK" },
+          "alumniOf": { "@type": "EducationalOrganization", "name": "University of Colombo School of Computing" },
+          "knowsAbout": ["React", "Java", "Spring Boot", "AWS", "Docker", "Kubernetes", "PHP", "Drupal", "Node.js", "PostgreSQL"],
+          "sameAs": [
+            "https://github.com/ru5iru",
+            "https://www.linkedin.com/in/ru5iru",
+            "https://x.com/ru5iru",
+            "https://instagram.com/rusiru.rathmina",
+            "https://web.facebook.com/ru5iru"
+          ],
+          "description": "Rusiru Rathmina is a Full-Stack Software Engineer at Omobio in Colombo, Sri Lanka, specializing in Java, Spring Boot, React, AWS, Docker, and Kubernetes."
+        },
+        "speakable": {
+          "@type": "SpeakableSpecification",
+          "cssSelector": ["h1", ".about-intro"]
+        }
       },
-    },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://blog-heart-craft-97.lovable.app/" },
+          { "@type": "ListItem", "position": 2, "name": "About", "item": "https://blog-heart-craft-97.lovable.app/about" }
+        ]
+      }
+    ],
   });
 
   return (
@@ -38,7 +58,7 @@ const About = () => {
           <h1 className="font-display text-4xl md:text-5xl font-bold text-display leading-tight">
             Hey, I'm <span className="text-primary">Rusiru</span>.
           </h1>
-          <p className="mt-4 text-lg text-caption leading-relaxed">
+          <p className="about-intro mt-4 text-lg text-caption leading-relaxed">
             Associate Software Engineer at Omobio. I build things, break things, and write about both.
           </p>
         </div>

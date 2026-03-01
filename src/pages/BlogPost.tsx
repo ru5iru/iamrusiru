@@ -23,29 +23,63 @@ const BlogPost = () => {
 
   const postUrl = typeof window !== "undefined" ? window.location.href : "";
 
-  const jsonLd = useMemo(() => post ? {
-    "@context": "https://schema.org",
-    "@type": "BlogPosting",
-    "headline": post.title,
-    "description": post.excerpt,
-    "image": post.imageUrl,
-    "datePublished": post.date,
-    "author": {
-      "@type": "Person",
-      "name": "Rusiru Rathmina",
-      "url": "https://blog-heart-craft-97.lovable.app/about"
+  // Estimate word count from content blocks for GEO
+  const wordCount = useMemo(() => {
+    if (!post) return 0;
+    return post.content.reduce((count, block) => {
+      if (typeof block === "string") return count + block.split(/\s+/).length;
+      if (block.type === "code") return count + block.code.split(/\s+/).length;
+      return count;
+    }, 0);
+  }, [post]);
+
+  const jsonLd = useMemo(() => post ? [
+    {
+      "@type": "BlogPosting",
+      "headline": post.title,
+      "description": post.excerpt,
+      "image": post.imageUrl,
+      "datePublished": post.date,
+      "dateModified": post.date,
+      "wordCount": wordCount,
+      "author": {
+        "@type": "Person",
+        "name": "Rusiru Rathmina",
+        "url": "https://blog-heart-craft-97.lovable.app/about",
+        "jobTitle": "Associate Software Engineer",
+        "sameAs": [
+          "https://github.com/ru5iru",
+          "https://www.linkedin.com/in/ru5iru",
+          "https://x.com/ru5iru",
+          "https://instagram.com/rusiru.rathmina"
+        ]
+      },
+      "publisher": {
+        "@type": "Person",
+        "name": "Rusiru Rathmina"
+      },
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": `https://blog-heart-craft-97.lovable.app/post/${post.slug}`
+      },
+      "keywords": post.tags.join(", "),
+      "articleSection": post.category,
+      "inLanguage": "en",
+      "isAccessibleForFree": true,
+      "speakable": {
+        "@type": "SpeakableSpecification",
+        "cssSelector": [".post-summary", "h1", ".post-content p:first-of-type"]
+      }
     },
-    "publisher": {
-      "@type": "Person",
-      "name": "Rusiru Rathmina"
-    },
-    "mainEntityOfPage": {
-      "@type": "WebPage",
-      "@id": `https://blog-heart-craft-97.lovable.app/post/${post.slug}`
-    },
-    "keywords": post.tags.join(", "),
-    "articleSection": post.category
-  } : undefined, [post]);
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://blog-heart-craft-97.lovable.app/" },
+        { "@type": "ListItem", "position": 2, "name": post.category, "item": "https://blog-heart-craft-97.lovable.app/" },
+        { "@type": "ListItem", "position": 3, "name": post.title, "item": `https://blog-heart-craft-97.lovable.app/post/${post.slug}` }
+      ]
+    }
+  ] : undefined, [post, wordCount]);
 
   useSEO({
     title: post ? `${post.title} | iamrusiru` : "Post Not Found | iamrusiru",
@@ -54,6 +88,12 @@ const BlogPost = () => {
     ogType: "article",
     ogImage: post?.imageUrl,
     jsonLd,
+    articleMeta: post ? {
+      publishedTime: post.date,
+      author: "Rusiru Rathmina",
+      section: post.category,
+      tags: post.tags,
+    } : undefined,
   });
 
   const handleCopyLink = async () => {
@@ -153,6 +193,12 @@ const BlogPost = () => {
             </div>
           </div>
 
+          {/* TL;DR summary for AI engines (GEO: citable snippet) */}
+          <div className="post-summary rounded-xl bg-primary/5 border border-primary/10 px-6 py-5 mb-10">
+            <p className="text-sm font-semibold text-primary uppercase tracking-wider mb-2">TL;DR</p>
+            <p className="text-body text-base leading-relaxed">{post.excerpt}</p>
+          </div>
+
           <div className="rounded-xl overflow-hidden mb-10">
             <img
               src={post.imageUrl}
@@ -162,7 +208,7 @@ const BlogPost = () => {
             />
           </div>
 
-          <div className="space-y-6">
+          <div className="post-content space-y-6">
             {post.content.map((block, i) => renderBlock(block, i))}
           </div>
 

@@ -19,25 +19,33 @@ const socials = [
 const Contact = () => {
   useSEO({
     title: "Contact Rusiru Rathmina | iamrusiru",
-    description: "Get in touch with Rusiru Rathmina – Full-Stack Software Engineer based in Colombo, Sri Lanka. Reach out for collaborations, freelance work, or just to say hi.",
+    description: "Get in touch with Rusiru Rathmina, Full-Stack Software Engineer based in Colombo, Sri Lanka. Reach out for collaborations, freelance work, or just to say hi.",
     canonical: "/contact",
-    jsonLd: {
-      "@context": "https://schema.org",
-      "@type": "ContactPage",
-      "name": "Contact Rusiru Rathmina",
-      "description": "Get in touch with Rusiru Rathmina for collaborations, freelance opportunities, or tech discussions.",
-      "url": "https://blog-heart-craft-97.lovable.app/contact",
-      "mainEntity": {
-        "@type": "Person",
-        "name": "Rusiru Rathmina",
-        "email": "mailto:r.rathmina@gmail.com",
-        "address": {
-          "@type": "PostalAddress",
-          "addressLocality": "Colombo",
-          "addressCountry": "LK",
+    jsonLd: [
+      {
+        "@type": "ContactPage",
+        "name": "Contact Rusiru Rathmina",
+        "description": "Get in touch with Rusiru Rathmina for collaborations, freelance opportunities, or tech discussions.",
+        "url": "https://blog-heart-craft-97.lovable.app/contact",
+        "mainEntity": {
+          "@type": "Person",
+          "name": "Rusiru Rathmina",
+          "email": "mailto:r.rathmina@gmail.com",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Colombo",
+            "addressCountry": "LK",
+          },
         },
       },
-    },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://blog-heart-craft-97.lovable.app/" },
+          { "@type": "ListItem", "position": 2, "name": "Contact", "item": "https://blog-heart-craft-97.lovable.app/contact" }
+        ]
+      }
+    ],
   });
 
   return (
