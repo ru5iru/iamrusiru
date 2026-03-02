@@ -21,7 +21,7 @@ const Header = () => {
   return (
     <header className="py-5 border-b border-divider bg-background sticky top-0 z-50">
       <div className="max-w-6xl mx-auto px-6">
-        <nav className="flex items-center justify-between">
+        <nav aria-label="Main navigation" className="flex items-center justify-between">
           <Link to="/" className="group">
             <h1 className="font-display text-2xl font-bold tracking-tight">
               <span className="text-display">iam</span><span className="text-primary">rusiru</span>

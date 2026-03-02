@@ -16,7 +16,7 @@ const Footer = () => {
 
           <div>
             <h4 className="font-medium text-display mb-4 text-sm">Quick Links</h4>
-            <nav className="flex flex-col gap-2.5">
+            <nav aria-label="Footer navigation" className="flex flex-col gap-2.5">
               <Link to="/" className="text-body text-sm hover:text-primary transition-colors">Home</Link>
               <Link to="/about" className="text-body text-sm hover:text-primary transition-colors">About me</Link>
               <Link to="/contact" className="text-body text-sm hover:text-primary transition-colors">Contact</Link>
@@ -25,7 +25,7 @@ const Footer = () => {
 
           <div>
             <h4 className="font-medium text-display mb-4 text-sm">Legal Stuff</h4>
-            <nav className="flex flex-col gap-2.5">
+            <nav aria-label="Legal links" className="flex flex-col gap-2.5">
               <a href="#" className="text-body text-sm hover:text-primary transition-colors">Privacy Notice</a>
               <a href="#" className="text-body text-sm hover:text-primary transition-colors">Cookie Policy</a>
               <a href="#" className="text-body text-sm hover:text-primary transition-colors">Terms of Use</a>
@@ -34,11 +34,12 @@ const Footer = () => {
 
           <div>
             <h4 className="font-medium text-display mb-4 text-sm">Connect</h4>
-            <nav className="flex flex-col gap-2.5">
-              <a href="https://twitter.com/ru5iru" target="_blank" rel="noopener noreferrer" className="text-body text-sm hover:text-primary transition-colors">Twitter / X</a>
-              <a href="https://github.com/ru5iru" target="_blank" rel="noopener noreferrer" className="text-body text-sm hover:text-primary transition-colors">GitHub</a>
-              <a href="https://www.linkedin.com/in/ru5iru" target="_blank" rel="noopener noreferrer" className="text-body text-sm hover:text-primary transition-colors">LinkedIn</a>
-              <a href="https://web.facebook.com/ru5iru" target="_blank" rel="noopener noreferrer" className="text-body text-sm hover:text-primary transition-colors">Facebook</a>
+            <nav aria-label="Social links" className="flex flex-col gap-2.5">
+              <a href="https://x.com/ru5iru" target="_blank" rel="noopener noreferrer me" className="text-body text-sm hover:text-primary transition-colors">Twitter / X</a>
+              <a href="https://github.com/ru5iru" target="_blank" rel="noopener noreferrer me" className="text-body text-sm hover:text-primary transition-colors">GitHub</a>
+              <a href="https://www.linkedin.com/in/ru5iru" target="_blank" rel="noopener noreferrer me" className="text-body text-sm hover:text-primary transition-colors">LinkedIn</a>
+              <a href="https://web.facebook.com/ru5iru" target="_blank" rel="noopener noreferrer me" className="text-body text-sm hover:text-primary transition-colors">Facebook</a>
+              <a href="https://instagram.com/rusiru.rathmina" target="_blank" rel="noopener noreferrer me" className="text-body text-sm hover:text-primary transition-colors">Instagram</a>
             </nav>
           </div>
         </div>

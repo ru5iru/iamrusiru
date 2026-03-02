@@ -38,7 +38,13 @@ Allow: /
 User-agent: cohere-ai
 Allow: /
 
+User-agent: YouBot
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
 User-agent: *
 Allow: /
 
-Sitemap: https://blog-heart-craft-97.lovable.app/sitemap.xml
+Sitemap: https://iamrusiru.lovable.app/sitemap.xml

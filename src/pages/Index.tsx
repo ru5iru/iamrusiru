@@ -8,6 +8,7 @@ import allPosts from "@/data/posts";
 import { useSEO } from "@/hooks/useSEO";
 
 const POSTS_PER_PAGE = 6;
+const SITE = "https://iamrusiru.lovable.app";
 
 const Index = () => {
   const [activeTag, setActiveTag] = useState<string | null>(null);
@@ -23,14 +24,14 @@ const Index = () => {
         "@type": "CollectionPage",
         "name": "iamrusiru Blog",
         "description": "Software engineering blog by Rusiru Rathmina covering code, career, side projects, and developer life.",
-        "url": "https://blog-heart-craft-97.lovable.app/",
+        "url": `${SITE}/`,
         "author": { "@type": "Person", "name": "Rusiru Rathmina" },
         "mainEntity": {
           "@type": "ItemList",
           "itemListElement": allPosts.slice(0, 10).map((p, i) => ({
             "@type": "ListItem",
             "position": i + 1,
-            "url": `https://blog-heart-craft-97.lovable.app/post/${p.slug}`,
+            "url": `${SITE}/post/${p.slug}`,
             "name": p.title,
           })),
         },
@@ -39,11 +40,11 @@ const Index = () => {
         "@type": "Blog",
         "name": "iamrusiru",
         "description": "A personal blog by Rusiru Rathmina about software engineering, career growth, side projects, and developer life.",
-        "url": "https://blog-heart-craft-97.lovable.app/",
+        "url": `${SITE}/`,
         "author": {
           "@type": "Person",
           "name": "Rusiru Rathmina",
-          "url": "https://blog-heart-craft-97.lovable.app/about",
+          "url": `${SITE}/about`,
           "jobTitle": "Associate Software Engineer",
           "sameAs": [
             "https://github.com/ru5iru",
@@ -58,14 +59,14 @@ const Index = () => {
           "headline": p.title,
           "description": p.excerpt,
           "datePublished": p.date,
-          "url": `https://blog-heart-craft-97.lovable.app/post/${p.slug}`,
+          "url": `${SITE}/post/${p.slug}`,
           "author": { "@type": "Person", "name": "Rusiru Rathmina" }
         })),
       },
       {
         "@type": "BreadcrumbList",
         "itemListElement": [
-          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://blog-heart-craft-97.lovable.app/" }
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": `${SITE}/` }
         ]
       }
     ],
