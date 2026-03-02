@@ -2,6 +2,8 @@ import Header from "@/components/blog/Header";
 import Footer from "@/components/blog/Footer";
 import { useSEO } from "@/hooks/useSEO";
 
+const SITE = "https://iamrusiru.lovable.app";
+
 const About = () => {
   useSEO({
     title: "About Rusiru Rathmina | iamrusiru",
@@ -11,7 +13,7 @@ const About = () => {
       {
         "@type": "ProfilePage",
         "name": "About Rusiru Rathmina",
-        "url": "https://blog-heart-craft-97.lovable.app/about",
+        "url": `${SITE}/about`,
         "mainEntity": {
           "@type": "Person",
           "name": "Rusiru Rathmina",
@@ -37,8 +39,8 @@ const About = () => {
       {
         "@type": "BreadcrumbList",
         "itemListElement": [
-          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://blog-heart-craft-97.lovable.app/" },
-          { "@type": "ListItem", "position": 2, "name": "About", "item": "https://blog-heart-craft-97.lovable.app/about" }
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": `${SITE}/` },
+          { "@type": "ListItem", "position": 2, "name": "About", "item": `${SITE}/about` }
         ]
       }
     ],

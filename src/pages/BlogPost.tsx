@@ -9,6 +9,8 @@ import profileHeadshot from "@/assets/profile-headshot.jpg";
 import { useState, useMemo } from "react";
 import { useSEO } from "@/hooks/useSEO";
 
+const SITE = "https://iamrusiru.lovable.app";
+
 // WhatsApp icon SVG
 const WhatsAppIcon = ({ size = 18 }: { size?: number }) => (
   <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor">
@@ -45,7 +47,7 @@ const BlogPost = () => {
       "author": {
         "@type": "Person",
         "name": "Rusiru Rathmina",
-        "url": "https://blog-heart-craft-97.lovable.app/about",
+        "url": `${SITE}/about`,
         "jobTitle": "Associate Software Engineer",
         "sameAs": [
           "https://github.com/ru5iru",
@@ -60,7 +62,7 @@ const BlogPost = () => {
       },
       "mainEntityOfPage": {
         "@type": "WebPage",
-        "@id": `https://blog-heart-craft-97.lovable.app/post/${post.slug}`
+        "@id": `${SITE}/post/${post.slug}`
       },
       "keywords": post.tags.join(", "),
       "articleSection": post.category,
@@ -74,9 +76,9 @@ const BlogPost = () => {
     {
       "@type": "BreadcrumbList",
       "itemListElement": [
-        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://blog-heart-craft-97.lovable.app/" },
-        { "@type": "ListItem", "position": 2, "name": post.category, "item": "https://blog-heart-craft-97.lovable.app/" },
-        { "@type": "ListItem", "position": 3, "name": post.title, "item": `https://blog-heart-craft-97.lovable.app/post/${post.slug}` }
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": `${SITE}/` },
+        { "@type": "ListItem", "position": 2, "name": post.category, "item": `${SITE}/` },
+        { "@type": "ListItem", "position": 3, "name": post.title, "item": `${SITE}/post/${post.slug}` }
       ]
     }
   ] : undefined, [post, wordCount]);
@@ -118,7 +120,6 @@ const BlogPost = () => {
 
   const renderBlock = (block: ContentBlock, i: number) => {
     if (typeof block === "string") {
-      // Render markdown-ish headings and paragraphs
       if (block.startsWith("## ")) {
         const parts = block.split("\n\n");
         return (
@@ -144,7 +145,6 @@ const BlogPost = () => {
       );
     }
 
-    // Code block
     return (
       <div key={i} className="my-6 rounded-xl overflow-hidden border border-divider">
         <div className="flex items-center justify-between px-4 py-2 bg-muted/50 border-b border-divider">
@@ -217,6 +217,23 @@ const BlogPost = () => {
             {post.tags.map((tag) => (
               <span key={tag} className="blog-tag">{tag}</span>
             ))}
+          </div>
+
+          {/* Author bio for E-E-A-T (GEO) */}
+          <div className="mt-12 p-6 rounded-xl bg-muted/30 border border-divider">
+            <div className="flex items-center gap-4 mb-3">
+              <div className="w-14 h-14 rounded-full overflow-hidden flex-shrink-0">
+                <img src={profileHeadshot} alt="Rusiru Rathmina" className="w-full h-full object-cover" />
+              </div>
+              <div>
+                <p className="font-display font-semibold text-display">Written by Rusiru Rathmina</p>
+                <p className="text-sm text-caption">Associate Software Engineer at Omobio, Colombo, Sri Lanka</p>
+              </div>
+            </div>
+            <p className="text-body text-sm leading-relaxed">
+              I build full-stack applications with React, Java, Spring Boot, and AWS. I write about code, career growth, side projects, and the human side of software engineering. 
+              <Link to="/about" className="text-primary font-medium ml-1 hover:underline">Learn more about me →</Link>
+            </p>
           </div>
 
           <div className="mt-12 pt-8 border-t border-divider flex items-center justify-between">

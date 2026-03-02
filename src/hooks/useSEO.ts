@@ -15,7 +15,7 @@ interface SEOProps {
   };
 }
 
-const BASE_URL = "https://blog-heart-craft-97.lovable.app";
+const BASE_URL = "https://iamrusiru.lovable.app";
 
 export function useSEO({ title, description, canonical, ogType = "website", ogImage, jsonLd, articleMeta }: SEOProps) {
   useEffect(() => {
