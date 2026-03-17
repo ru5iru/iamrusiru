@@ -9,7 +9,7 @@ const post: BlogPost = {
   category: "Side Projects",
   slug: "cli-tool-rust",
   readTime: "8 min read",
-  imageUrl: postCreativity,
+  imageUrl: postCliRust,
   tags: ["#opensource", "#devlife", "#backend"],
   content: [
     "I've been Rust-curious for a while. Every few months I'd read a blog post about memory safety or zero-cost abstractions and think, 'I should really learn this.' Last weekend, I finally did — by building something small and useful: a CLI tool that organises messy download folders.",

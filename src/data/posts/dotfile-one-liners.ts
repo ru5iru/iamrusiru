@@ -9,7 +9,7 @@ const post: BlogPost = {
   category: "Engineering",
   slug: "dotfile-one-liners",
   readTime: "4 min read",
-  imageUrl: postSlowMornings,
+  imageUrl: postDotfiles,
   tags: ["#codebits", "#productivity", "#backend"],
   content: [
     "I've been collecting shell aliases and tiny scripts for years. Here are the ones I actually use every day.",

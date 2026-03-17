@@ -9,7 +9,7 @@ const post: BlogPost = {
   category: "Tutorials",
   slug: "fastapi-quickstart",
   readTime: "5 min read",
-  imageUrl: featuredImage,
+  imageUrl: postFastapi,
   tags: ["#python", "#backend", "#codebits"],
   content: [
     "FastAPI has become my go-to for spinning up backends quickly. It's fast (obviously), has automatic OpenAPI docs, and the developer experience is excellent. Here's a 15-minute quickstart.",

@@ -9,7 +9,7 @@ const post: BlogPost = {
   category: "Personal",
   slug: "side-projects-keep-me-sane",
   readTime: "5 min read",
-  imageUrl: postCreativity,
+  imageUrl: postSideProjects,
   tags: ["#devlife", "#opensource", "#productivity"],
   content: [
     "At work, I write TypeScript in a monorepo with strict linting rules, mandatory code reviews, and a deployment pipeline that takes 45 minutes. It's good engineering. It's also exhausting.",

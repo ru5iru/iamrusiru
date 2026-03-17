@@ -9,7 +9,7 @@ const post: BlogPost = {
   category: "Career",
   slug: "first-remote-dev-job",
   readTime: "9 min read",
-  imageUrl: postLetter,
+  imageUrl: postRemoteJob,
   tags: ["#career", "#devlife", "#productivity"],
   content: [
     "It took me four months, 73 applications, 12 interviews, and 3 take-home tests to land my first remote developer job. Here's the unfiltered version of what that process looked like.",

@@ -9,7 +9,7 @@ const post: BlogPost = {
   category: "Personal",
   slug: "why-i-journal-as-dev",
   readTime: "4 min read",
-  imageUrl: postCreativity,
+  imageUrl: postJournaling,
   tags: ["#productivity", "#career", "#devlife"],
   content: [
     "Every evening, I spend 10 minutes writing down what I worked on, what I learned, and what confused me. I've been doing this for two years. It's the highest-ROI habit I've ever built.",

@@ -9,7 +9,7 @@ const post: BlogPost = {
   category: "Engineering",
   slug: "debugging-production",
   readTime: "7 min read",
-  imageUrl: postSlowMornings,
+  imageUrl: postDebugging,
   tags: ["#devlife", "#backend", "#productivity"],
   content: [
     "Production bugs are a different beast. Your beautiful stack traces are gone, replaced by cryptic error codes and angry Slack messages. Here's how I've learned to tame them.",

@@ -9,7 +9,7 @@ const post: BlogPost = {
   category: "Engineering",
   slug: "switched-to-typescript",
   readTime: "7 min read",
-  imageUrl: featuredImage,
+  imageUrl: postTypescript,
   tags: ["#typescript", "#javascript", "#webdev", "#frontend"],
   content: [
     "I'd been writing JavaScript for nearly six years before I seriously considered TypeScript. It always felt like extra ceremony — more syntax, more configuration, more things to learn. But after one particularly brutal production bug caused by a typo in a property name, I decided to give it a real shot.",

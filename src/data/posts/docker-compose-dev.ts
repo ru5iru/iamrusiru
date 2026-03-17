@@ -9,7 +9,7 @@ const post: BlogPost = {
   category: "Tutorials",
   slug: "docker-compose-dev",
   readTime: "7 min read",
-  imageUrl: postBooks,
+  imageUrl: postDocker,
   tags: ["#backend", "#codebits", "#devlife"],
   content: [
     "Every project I join has the same onboarding problem: a README with 47 steps to set up the local environment. Docker Compose reduces that to one command.",

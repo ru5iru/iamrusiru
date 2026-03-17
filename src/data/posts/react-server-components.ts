@@ -9,7 +9,7 @@ const post: BlogPost = {
   category: "Tutorials",
   slug: "react-server-components",
   readTime: "10 min read",
-  imageUrl: postSlowMornings,
+  imageUrl: postReactRsc,
   tags: ["#react", "#webdev", "#frontend", "#javascript"],
   content: [
     "React Server Components (RSCs) represent the biggest shift in React's architecture since hooks. But cutting through the hype, what do they actually mean for developers working on real apps?",
