@@ -31,16 +31,6 @@ interface SidebarProps {
 }
 
 const Sidebar = ({ activeTopic, activeTag, onTopicSelect, onTagSelect }: SidebarProps) => {
-  const [email, setEmail] = useState("");
-  const [subscribed, setSubscribed] = useState(false);
-
-  const handleSubscribe = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (email) {
-      setSubscribed(true);
-      setEmail("");
-    }
-  };
 
   return (
     <aside className="space-y-10">
