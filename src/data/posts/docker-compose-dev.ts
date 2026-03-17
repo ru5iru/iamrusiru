@@ -1,4 +1,4 @@
-import postBooks from "@/assets/post-books.jpg";
+import postDocker from "@/assets/post-docker.jpg";
 import type { BlogPost } from "@/data/posts/types";
 
 const post: BlogPost = {

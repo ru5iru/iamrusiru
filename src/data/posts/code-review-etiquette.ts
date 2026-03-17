@@ -1,4 +1,4 @@
-import postLetter from "@/assets/post-letter.jpg";
+import postCodeReview from "@/assets/post-code-review.jpg";
 import type { BlogPost } from "@/data/posts/types";
 
 const post: BlogPost = {

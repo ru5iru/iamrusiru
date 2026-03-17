@@ -1,4 +1,4 @@
-import featuredImage from "@/assets/featured-post.jpg";
+import postGitWorkflow from "@/assets/post-git-workflow.jpg";
 import type { BlogPost } from "@/data/posts/types";
 
 const post: BlogPost = {

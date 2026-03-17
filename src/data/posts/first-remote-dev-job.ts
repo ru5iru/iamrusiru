@@ -1,4 +1,4 @@
-import postLetter from "@/assets/post-letter.jpg";
+import postRemoteJob from "@/assets/post-remote-job.jpg";
 import type { BlogPost } from "@/data/posts/types";
 
 const post: BlogPost = {
