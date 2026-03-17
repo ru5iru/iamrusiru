@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-import { Link } from "react-router-dom";
 import { Code, Lightbulb, Briefcase, BookOpen, Heart, Terminal, Linkedin, Facebook, Instagram, Github } from "lucide-react";
 
 // X (Twitter) icon as inline SVG since lucide-react doesn't have the new X logo
