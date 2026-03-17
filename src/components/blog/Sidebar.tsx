@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Code, Lightbulb, Briefcase, BookOpen, Heart, Terminal, Linkedin, Facebook, Instagram, Github } from "lucide-react";
 
@@ -32,16 +31,6 @@ interface SidebarProps {
 }
 
 const Sidebar = ({ activeTopic, activeTag, onTopicSelect, onTagSelect }: SidebarProps) => {
-  const [email, setEmail] = useState("");
-  const [subscribed, setSubscribed] = useState(false);
-
-  const handleSubscribe = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (email) {
-      setSubscribed(true);
-      setEmail("");
-    }
-  };
 
   return (
     <aside className="space-y-10">
@@ -130,33 +119,6 @@ const Sidebar = ({ activeTopic, activeTag, onTopicSelect, onTagSelect }: Sidebar
         </div>
       </div>
 
-      {/* Newsletter */}
-      <div>
-        <h3 className="font-display text-lg font-semibold text-primary mb-3">Newsletter</h3>
-        <p className="text-body text-sm leading-relaxed mb-4">
-          Subscribe to get my latest posts on code, career, and side projects.
-        </p>
-        {subscribed ? (
-          <p className="text-sm text-accent font-medium">Thanks for subscribing! ✓</p>
-        ) : (
-          <form onSubmit={handleSubscribe} className="space-y-3">
-            <input
-              type="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              placeholder="Email Address"
-              className="w-full px-4 py-2.5 rounded-lg border border-divider bg-background text-display placeholder:text-caption text-sm focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-all"
-              required
-            />
-            <button
-              type="submit"
-              className="w-full px-4 py-2.5 bg-primary text-primary-foreground rounded-lg font-medium text-sm hover:bg-primary/90 transition-colors"
-            >
-              Subscribe
-            </button>
-          </form>
-        )}
-      </div>
     </aside>
   );
 };
