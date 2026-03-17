@@ -1,4 +1,4 @@
-import postBooks from "@/assets/post-books.jpg";
+import postBooksEngineer from "@/assets/post-books-engineer.jpg";
 import type { BlogPost } from "@/data/posts/types";
 
 const post: BlogPost = {
@@ -9,7 +9,7 @@ const post: BlogPost = {
   category: "Reading",
   slug: "books-better-engineer",
   readTime: "6 min read",
-  imageUrl: postBooks,
+  imageUrl: postBooksEngineer,
   tags: ["#career", "#productivity"],
   content: [
     "When people ask me for book recommendations, they usually expect titles like 'Clean Code' or 'Design Patterns.' And yes, those are solid. But the books that truly levelled me up as an engineer weren't always about code.",

@@ -1,4 +1,4 @@
-import featuredImage from "@/assets/featured-post.jpg";
+import postGitWorkflow from "@/assets/post-git-workflow.jpg";
 import type { BlogPost } from "@/data/posts/types";
 
 const post: BlogPost = {
@@ -9,7 +9,7 @@ const post: BlogPost = {
   category: "Engineering",
   slug: "git-workflow-tips",
   readTime: "6 min read",
-  imageUrl: featuredImage,
+  imageUrl: postGitWorkflow,
   tags: ["#codebits", "#productivity", "#devlife"],
   content: [
     "I used git for three years before I learned interactive rebase. Three years of messy commit histories that could have been clean, readable stories.",

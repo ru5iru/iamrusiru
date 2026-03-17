@@ -1,4 +1,4 @@
-import postLetter from "@/assets/post-letter.jpg";
+import postCodeReview from "@/assets/post-code-review.jpg";
 import type { BlogPost } from "@/data/posts/types";
 
 const post: BlogPost = {
@@ -9,7 +9,7 @@ const post: BlogPost = {
   category: "Career",
   slug: "code-review-etiquette",
   readTime: "6 min read",
-  imageUrl: postLetter,
+  imageUrl: postCodeReview,
   tags: ["#career", "#devlife", "#productivity"],
   content: [
     "Early in my career, I got a code review that simply said: 'This is wrong. Redo it.' No explanation, no suggestion, no context. I spent two hours trying to figure out what was wrong, only to discover the reviewer disagreed with a naming convention.",

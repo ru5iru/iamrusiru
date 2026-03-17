@@ -1,4 +1,4 @@
-import postBooks from "@/assets/post-books.jpg";
+import postBurnout from "@/assets/post-burnout.jpg";
 import type { BlogPost } from "@/data/posts/types";
 
 const post: BlogPost = {
@@ -9,7 +9,7 @@ const post: BlogPost = {
   category: "Personal",
   slug: "burnout-and-recovery",
   readTime: "8 min read",
-  imageUrl: postBooks,
+  imageUrl: postBurnout,
   tags: ["#devlife", "#career", "#productivity"],
   content: [
     "Six months ago, I couldn't open my laptop without a knot forming in my stomach. The thought of writing another line of code — something I'd loved since I was fourteen — made me feel physically ill. I was burned out.",

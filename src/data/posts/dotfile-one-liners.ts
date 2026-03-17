@@ -1,4 +1,4 @@
-import postSlowMornings from "@/assets/post-slow-mornings.jpg";
+import postDotfiles from "@/assets/post-dotfiles.jpg";
 import type { BlogPost } from "@/data/posts/types";
 
 const post: BlogPost = {
@@ -9,7 +9,7 @@ const post: BlogPost = {
   category: "Engineering",
   slug: "dotfile-one-liners",
   readTime: "4 min read",
-  imageUrl: postSlowMornings,
+  imageUrl: postDotfiles,
   tags: ["#codebits", "#productivity", "#backend"],
   content: [
     "I've been collecting shell aliases and tiny scripts for years. Here are the ones I actually use every day.",
