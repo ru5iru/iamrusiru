@@ -33,7 +33,7 @@ interface PostMeta {
 async function loadPosts(): Promise<PostMeta[]> {
   // Use Vite's own esbuild to bundle the posts index into a temp CJS file
   const { build } = await import("esbuild");
-  const outfile = path.resolve(__dirname, "../.tmp-posts-bundle.cjs");
+  const outfile = path.resolve(__dirname, "../.tmp-posts-bundle.mjs");
 
   await build({
     entryPoints: [path.resolve(__dirname, "../src/data/posts/index.ts")],
