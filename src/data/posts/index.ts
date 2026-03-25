@@ -2,7 +2,7 @@
 import switchedToTypescript from "./switched-to-typescript";
 import cliToolRust from "./cli-tool-rust";
 import booksBetterEngineer from "./books-better-engineer";
-import firstRemoteDevJob from "./first-remote-dev-job";
+
 import reactServerComponents from "./react-server-components";
 import fastapiQuickstart from "./fastapi-quickstart";
 import sideProjectsKeepMeSane from "./side-projects-keep-me-sane";
@@ -20,7 +20,7 @@ const allPosts = [
   switchedToTypescript,
   cliToolRust,
   booksBetterEngineer,
-  firstRemoteDevJob,
+  
   reactServerComponents,
   fastapiQuickstart,
   sideProjectsKeepMeSane,
