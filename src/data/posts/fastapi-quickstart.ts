@@ -51,7 +51,7 @@ def create_item(item: Item):
     items.append(item)
     return item`,
     },
-    "Run it with `uvicorn main:app --reload` and visit `http://localhost:8000/docs`. You'll see auto-generated Swagger documentation for every endpoint — including request/response schemas derived from your Pydantic models.",
+    "Run it with `uvicorn main:app --reload` and visit `http://localhost:8000/docs`. You'll see auto-generated Swagger documentation for every endpoint, including request/response schemas derived from your Pydantic models.",
     "## Adding a Database\n\nSQLModel (by the same creator as FastAPI) bridges SQLAlchemy and Pydantic beautifully:",
     {
       type: "code",

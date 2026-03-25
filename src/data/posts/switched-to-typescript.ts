@@ -18,12 +18,12 @@ const post: BlogPost = {
     {
       type: "code",
       language: "typescript",
-      code: `// Before: JavaScript — looks fine, silently broken
+      code: `// Before: JavaScript, looks fine, silently broken
 function getFullName(user) {
   return user.fistName + " " + user.lastName; // typo: fistName
 }
 
-// After: TypeScript — caught at compile time
+// After: TypeScript, caught at compile time
 interface User {
   firstName: string;
   lastName: string;

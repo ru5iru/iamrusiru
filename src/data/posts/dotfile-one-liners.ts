@@ -65,7 +65,7 @@ alias dprune='docker system prune -af --volumes'
 # Pretty JSON from clipboard
 alias jsonpretty='pbpaste | python3 -m json.tool | pbcopy && echo "✓ Formatted"'`,
     },
-    "The key isn't having hundreds of aliases — it's having a few that match your actual workflow. Start by noticing which commands you type most often, then alias those. Your future self will thank you.",
+    "The key isn't having hundreds of aliases. It's having a few that match your actual workflow. Start by noticing which commands you type most often, then alias those. Your future self will thank you.",
   ],
 };
 

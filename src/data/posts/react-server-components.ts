@@ -17,7 +17,7 @@ const post: BlogPost = {
     {
       type: "code",
       language: "typescript",
-      code: `// Server Component — runs on the server only
+      code: `// Server Component: runs on the server only
 // This code never reaches the browser
 async function BlogPosts() {
   const posts = await db.query("SELECT * FROM posts ORDER BY date DESC");
@@ -43,7 +43,7 @@ async function BlogPosts() {
 
 import { useState } from 'react';
 
-// Client Component — has interactivity
+// Client Component: has interactivity
 function LikeButton({ postId }: { postId: string }) {
   const [liked, setLiked] = useState(false);
 
