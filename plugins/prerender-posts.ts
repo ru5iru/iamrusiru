@@ -39,7 +39,7 @@ async function loadPosts(): Promise<PostMeta[]> {
     entryPoints: [path.resolve(__dirname, "../src/data/posts/index.ts")],
     bundle: true,
     platform: "node",
-    format: "cjs",
+    format: "esm",
     outfile,
     // Externalize image imports – we don't need actual images, just metadata
     loader: { ".jpg": "text", ".png": "text", ".webp": "text", ".svg": "text" },
@@ -47,8 +47,7 @@ async function loadPosts(): Promise<PostMeta[]> {
     logLevel: "silent",
   });
 
-  // eslint-disable-next-line @typescript-eslint/no-var-requires
-  const mod = require(outfile);
+  const mod = await import(`file://${outfile}`);
   const posts: PostMeta[] = (mod.default || mod).map((p: PostMeta) => ({
     ...p,
     // normalise image to an absolute URL for OG tags
