@@ -34,7 +34,7 @@ const logger = pino({
 logger.info({ userId, action: 'checkout', cartSize: items.length }, 'User initiated checkout');`,
     },
     "## The Incident Playbook\n\nEvery on-call rotation taught me something:\n\n1. **Don't panic.** Breathe. Read the alert carefully.\n2. **Check the dashboards** before touching any code.\n3. **Communicate early.** A quick 'investigating' message buys goodwill.\n4. **Roll back first, debug later.** If a deploy caused it, revert immediately.\n5. **Write a post-mortem.** Not to blame, but to learn.",
-    "The best debuggers I know aren't the smartest engineers — they're the most systematic. They form hypotheses, test them one at a time, and document what they find. It's science, not magic.",
+    "The best debuggers I know aren't the smartest engineers; they're the most systematic. They form hypotheses, test them one at a time, and document what they find. It's science, not magic.",
   ],
 };
 

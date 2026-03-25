@@ -38,7 +38,7 @@ git bisect good v1.2.0  # this tag was working
 git bisect good  # or 'git bisect bad'
 # Repeat until git finds the exact commit`,
     },
-    "## Worktrees\n\nNeed to check another branch without stashing your work? Worktrees let you have multiple branches checked out simultaneously in different directories:\n\n```bash\ngit worktree add ../hotfix-branch hotfix/urgent-fix\n```\n\nI use this constantly during code reviews — I can check out the PR branch in a separate directory without disrupting my current work.",
+    "## Worktrees\n\nNeed to check another branch without stashing your work? Worktrees let you have multiple branches checked out simultaneously in different directories:\n\n```bash\ngit worktree add ../hotfix-branch hotfix/urgent-fix\n```\n\nI use this constantly during code reviews. I can check out the PR branch in a separate directory without disrupting my current work.",
   ],
 };
 
