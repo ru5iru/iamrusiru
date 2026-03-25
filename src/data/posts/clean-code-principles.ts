@@ -1,0 +1,115 @@
+import postCleanCode from "@/assets/post-clean-code.jpg";
+import type { BlogPost } from "@/data/posts/types";
+
+const post: BlogPost = {
+  title: "Clean Code Principles Every Developer Should Know",
+  excerpt:
+    "Writing code that works is easy. Writing code that others can read, maintain, and extend is the real challenge. Here are the principles I follow.",
+  date: "March 20, 2026",
+  category: "Engineering",
+  slug: "clean-code-principles",
+  readTime: "8 min read",
+  imageUrl: postCleanCode,
+  tags: ["#cleancode", "#bestpractices", "#engineering", "#career"],
+  content: [
+    "We've all inherited a codebase that made us question humanity. Variable names like `x`, `temp2`, and `data_final_v3`. Functions that span 400 lines. Comments that say 'don't touch this' with no explanation. Clean code isn't about perfection; it's about respect for the people who come after you, including future you.",
+    "## Meaningful Names\n\nThe most impactful clean code habit is choosing names that reveal intent. A variable called `d` tells you nothing. A variable called `daysSinceLastLogin` tells you everything.\n\nThe same applies to functions. `processData()` is vague. `calculateMonthlyRevenue()` is precise. Good names eliminate the need for most comments.",
+    {
+      type: "code",
+      language: "typescript",
+      code: `// Bad: What does this do?
+function calc(u: any[], d: number) {
+  return u.filter(x => x.a > d).map(x => x.b);
+}
+
+// Good: Intent is immediately clear
+function getActiveUserEmails(users: User[], minLoginDays: number): string[] {
+  return users
+    .filter(user => user.daysSinceLastLogin > minLoginDays)
+    .map(user => user.email);
+}`,
+    },
+    "## Small Functions, Single Responsibility\n\nA function should do one thing, do it well, and do it only. If you find yourself writing a comment to separate sections within a function, those sections should probably be separate functions.\n\nThe ideal function is short enough to read without scrolling. If it takes more than a few seconds to understand what a function does, it's too complex.",
+    {
+      type: "code",
+      language: "typescript",
+      code: `// Bad: One function doing three things
+function processOrder(order: Order) {
+  // Validate
+  if (!order.items.length) throw new Error("Empty order");
+  if (!order.address) throw new Error("No address");
+
+  // Calculate total
+  let total = 0;
+  for (const item of order.items) {
+    total += item.price * item.quantity;
+    if (item.discount) total -= item.discount;
+  }
+
+  // Send confirmation
+  sendEmail(order.customer, \`Your total: \$\${total}\`);
+}
+
+// Good: Each function has one job
+function validateOrder(order: Order): void {
+  if (!order.items.length) throw new Error("Empty order");
+  if (!order.address) throw new Error("No address");
+}
+
+function calculateTotal(items: OrderItem[]): number {
+  return items.reduce((sum, item) =>
+    sum + item.price * item.quantity - (item.discount ?? 0), 0
+  );
+}
+
+function processOrder(order: Order): void {
+  validateOrder(order);
+  const total = calculateTotal(order.items);
+  sendOrderConfirmation(order.customer, total);
+}`,
+    },
+    "## Avoid Magic Numbers and Strings\n\nScattering raw values through your code is a readability killer. Extract them into well-named constants. This makes intent clear and changes easier.",
+    {
+      type: "code",
+      language: "typescript",
+      code: `// Bad: What do these numbers mean?
+if (password.length < 8) { /* ... */ }
+if (retries > 3) { /* ... */ }
+setTimeout(fn, 86400000);
+
+// Good: Self-documenting
+const MIN_PASSWORD_LENGTH = 8;
+const MAX_RETRY_ATTEMPTS = 3;
+const ONE_DAY_MS = 24 * 60 * 60 * 1000;
+
+if (password.length < MIN_PASSWORD_LENGTH) { /* ... */ }
+if (retries > MAX_RETRY_ATTEMPTS) { /* ... */ }
+setTimeout(fn, ONE_DAY_MS);`,
+    },
+    "## Don't Repeat Yourself (But Don't Over-Abstract)\n\nDRY is one of the most cited principles in software, and also one of the most misapplied. Duplication is bad, but premature abstraction is worse. The rule of three is a good guideline: if you see the same pattern three times, extract it. Before that, the duplication might just be coincidental similarity.",
+    "## Write Tests as Documentation\n\nGood tests serve double duty: they catch regressions and they document expected behaviour. When someone reads your test, they should understand what the function does without reading the implementation.",
+    {
+      type: "code",
+      language: "typescript",
+      code: `describe("calculateTotal", () => {
+  it("sums item prices multiplied by quantity", () => {
+    const items = [
+      { price: 10, quantity: 2, discount: 0 },
+      { price: 5, quantity: 1, discount: 0 },
+    ];
+    expect(calculateTotal(items)).toBe(25);
+  });
+
+  it("subtracts item-level discounts", () => {
+    const items = [
+      { price: 100, quantity: 1, discount: 15 },
+    ];
+    expect(calculateTotal(items)).toBe(85);
+  });
+});`,
+    },
+    "## The Boy Scout Rule\n\nLeave the code cleaner than you found it. You don't need to refactor the entire file, but if you touch a function, rename that unclear variable. Extract that duplicated block. Add a missing type annotation. Small improvements compound over time.\n\nClean code is a practice, not a destination. Every codebase has messy corners. The goal isn't perfection; it's progress. Write code that your teammates (and future you) will thank you for.",
+  ],
+};
+
+export default post;

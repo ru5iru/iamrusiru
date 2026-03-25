@@ -1,4 +1,4 @@
-// Central registry — import and add your post here, it auto-appears everywhere
+// Central registry: import and add your post here, it auto-appears everywhere
 import switchedToTypescript from "./switched-to-typescript";
 import cliToolRust from "./cli-tool-rust";
 import booksBetterEngineer from "./books-better-engineer";
@@ -13,10 +13,14 @@ import debuggingProduction from "./debugging-production";
 import gitWorkflowTips from "./git-workflow-tips";
 import whyIJournal from "./why-i-journal-as-dev";
 import dockerComposeDev from "./docker-compose-dev";
+import cleanCodePrinciples from "./clean-code-principles";
+import owaspTopTen from "./owasp-top-ten";
 
 export type { BlogPost, ContentBlock } from "./types";
 
 const allPosts = [
+  owaspTopTen,
+  cleanCodePrinciples,
   switchedToTypescript,
   cliToolRust,
   booksBetterEngineer,

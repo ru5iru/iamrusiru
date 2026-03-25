@@ -12,8 +12,8 @@ const post: BlogPost = {
   imageUrl: postCliRust,
   tags: ["#opensource", "#devlife", "#backend"],
   content: [
-    "I've been Rust-curious for a while. Every few months I'd read a blog post about memory safety or zero-cost abstractions and think, 'I should really learn this.' Last weekend, I finally did — by building something small and useful: a CLI tool that organises messy download folders.",
-    "## The Idea\n\nMy Downloads folder is a disaster. Screenshots mixed with PDFs mixed with random `.zip` files from months ago. I wanted a tool that would sort files into subdirectories by type — images, documents, archives, code — and optionally by date.",
+    "I've been Rust-curious for a while. Every few months I'd read a blog post about memory safety or zero-cost abstractions and think, 'I should really learn this.' Last weekend, I finally did it: I built something small and useful, a CLI tool that organises messy download folders.",
+    "## The Idea\n\nMy Downloads folder is a disaster. Screenshots mixed with PDFs mixed with random `.zip` files from months ago. I wanted a tool that would sort files into subdirectories by type (images, documents, archives, code) and optionally by date.",
     {
       type: "code",
       language: "rust",
@@ -49,8 +49,8 @@ fn organize_directory(dir: &Path) -> std::io::Result<u32> {
     Ok(count)
 }`,
     },
-    "The Rust compiler is famously strict, and it lived up to its reputation. My first attempt had about fifteen errors — mostly around ownership and borrowing. But here's the thing: every single error message was *helpful*. The compiler didn't just tell me what was wrong; it told me *why* and often suggested a fix.",
-    "## What I Learned\n\n**Pattern matching is incredible.** Coming from JavaScript's `switch` statements, Rust's `match` feels like a superpower. It's exhaustive by default — if you forget a case, the compiler tells you.\n\n**The ownership model makes sense once it clicks.** For the first hour, I was fighting the borrow checker. By the second hour, I started understanding *why* it was stopping me. By the end of the weekend, I was writing code that passed on the first try.",
+    "The Rust compiler is famously strict, and it lived up to its reputation. My first attempt had about fifteen errors, mostly around ownership and borrowing. But here's the thing: every single error message was *helpful*. The compiler didn't just tell me what was wrong; it told me *why* and often suggested a fix.",
+    "## What I Learned\n\n**Pattern matching is incredible.** Coming from JavaScript's `switch` statements, Rust's `match` feels like a superpower. It's exhaustive by default: if you forget a case, the compiler tells you.\n\n**The ownership model makes sense once it clicks.** For the first hour, I was fighting the borrow checker. By the second hour, I started understanding *why* it was stopping me. By the end of the weekend, I was writing code that passed on the first try.",
     "**Error handling is elegant.** The `Result` type and `?` operator make error propagation clean and explicit. No more try-catch pyramids.\n\nI published the tool on GitHub and it's already gotten a few stars. More importantly, I learned something new and had fun doing it. That's what side projects are for.",
   ],
 };
