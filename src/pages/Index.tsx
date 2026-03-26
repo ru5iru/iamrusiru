@@ -16,7 +16,7 @@ const Index = () => {
   const [visibleCount, setVisibleCount] = useState(POSTS_PER_PAGE);
 
   useSEO({
-    title: "iamrusiru | Rusiru Rathmina – Full-Stack Software Engineer Blog",
+    title: "iamrusiru | Rusiru Rathmina - Full-Stack Software Engineer Blog",
     description: "Read about software engineering, career lessons, side projects, and the human side of building software by Rusiru Rathmina.",
     canonical: "/",
     jsonLd: [

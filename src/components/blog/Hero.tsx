@@ -88,6 +88,8 @@ const Hero = () => {
                 <img
                   src={profileHeadshot}
                   alt="Rusiru's profile photo"
+                  width={320}
+                  height={320}
                   className="w-full h-full object-cover"
                 />
               </div>
