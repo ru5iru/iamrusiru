@@ -185,7 +185,7 @@ const BlogPost = () => {
 
           <div className="flex items-center gap-3 mb-10 pb-8 border-b border-divider">
             <div className="w-10 h-10 rounded-full overflow-hidden flex-shrink-0">
-              <img src={profileHeadshot} alt="Rusiru Rathmina" className="w-full h-full object-cover" />
+              <img src={profileHeadshot} alt="Rusiru Rathmina" width={40} height={40} className="w-full h-full object-cover" />
             </div>
             <div>
               <p className="text-sm font-medium text-display">Rusiru Rathmina</p>
@@ -203,6 +203,8 @@ const BlogPost = () => {
             <img
               src={post.imageUrl}
               alt={post.title}
+              width={800}
+              height={400}
               className="w-full h-auto object-cover max-h-[400px]"
               loading="lazy"
             />
@@ -223,7 +225,7 @@ const BlogPost = () => {
           <div className="mt-12 p-6 rounded-xl bg-muted/30 border border-divider">
             <div className="flex items-center gap-4 mb-3">
               <div className="w-14 h-14 rounded-full overflow-hidden flex-shrink-0">
-                <img src={profileHeadshot} alt="Rusiru Rathmina" className="w-full h-full object-cover" />
+                <img src={profileHeadshot} alt="Rusiru Rathmina" width={56} height={56} className="w-full h-full object-cover" />
               </div>
               <div>
                 <p className="font-display font-semibold text-display">Written by Rusiru Rathmina</p>

@@ -29,6 +29,8 @@ const PostCard = ({
             <img
               src={imageUrl}
               alt={title}
+              width={192}
+              height={128}
               className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
               loading="lazy"
             />
@@ -49,7 +51,7 @@ const PostCard = ({
 
           <div className="flex items-center gap-3">
             <div className="w-7 h-7 rounded-full overflow-hidden flex-shrink-0">
-              <img src={profileHeadshot} alt="Rusiru Rathmina" className="w-full h-full object-cover" />
+              <img src={profileHeadshot} alt="Rusiru Rathmina" width={28} height={28} className="w-full h-full object-cover" />
             </div>
             <div className="flex items-center gap-2 text-xs text-caption">
               <span className="font-medium text-display">Rusiru Rathmina</span>
