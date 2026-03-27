@@ -15,12 +15,6 @@ const Header = () => {
     localStorage.setItem("theme", dark ? "dark" : "light");
   }, [dark]);
 
-  useEffect(() => {
-    const saved = localStorage.getItem("theme");
-    if (saved === "dark" || (!saved && window.matchMedia("(prefers-color-scheme: dark)").matches)) {
-      setDark(true);
-    }
-  }, []);
 
   return (
     <header className="py-5 border-b border-divider bg-background sticky top-0 z-50">
