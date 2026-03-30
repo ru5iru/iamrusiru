@@ -26,9 +26,8 @@ const Footer = () => {
           <div>
             <h4 className="font-medium text-display mb-4 text-sm">Legal Stuff</h4>
             <nav aria-label="Legal links" className="flex flex-col gap-2.5">
-              <a href="#" className="text-body text-sm hover:text-primary transition-colors">Privacy Notice</a>
-              <a href="#" className="text-body text-sm hover:text-primary transition-colors">Cookie Policy</a>
-              <a href="#" className="text-body text-sm hover:text-primary transition-colors">Terms of Use</a>
+              <Link to="/privacy-policy" className="text-body text-sm hover:text-primary transition-colors">Privacy Policy</Link>
+              <Link to="/cookie-policy" className="text-body text-sm hover:text-primary transition-colors">Cookie Policy</Link>
             </nav>
           </div>
 
