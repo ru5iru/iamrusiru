@@ -4,7 +4,7 @@ import Footer from "@/components/blog/Footer";
 import { ArrowLeft, Linkedin, Facebook, Link2, Check } from "lucide-react";
 import ReadingProgress from "@/components/blog/ReadingProgress";
 import allPosts from "@/data/posts";
-import type { ContentBlock } from "@/data/posts";
+import type { ContentBlock, FAQ } from "@/data/posts";
 import profileHeadshot from "@/assets/profile-headshot.jpg";
 import { useState, useMemo } from "react";
 import { useSEO } from "@/hooks/useSEO";
