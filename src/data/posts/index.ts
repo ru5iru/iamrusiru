@@ -16,7 +16,7 @@ import dockerComposeDev from "./docker-compose-dev";
 import cleanCodePrinciples from "./clean-code-principles";
 import owaspTopTen from "./owasp-top-ten";
 
-export type { BlogPost, ContentBlock } from "./types";
+export type { BlogPost, ContentBlock, FAQ } from "./types";
 
 const allPosts = [
   owaspTopTen,
