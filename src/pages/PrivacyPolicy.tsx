@@ -1,7 +1,32 @@
 import Header from "@/components/blog/Header";
 import Footer from "@/components/blog/Footer";
+import { useSEO } from "@/hooks/useSEO";
+
+const SITE = "https://iamrusiru.lovable.app";
 
 const PrivacyPolicy = () => {
+  useSEO({
+    title: "Privacy Policy | iamrusiru",
+    description: "Privacy Policy for iamrusiru.com – learn how Rusiru Rathmina collects, uses, and protects your personal information.",
+    canonical: "/privacy-policy",
+    jsonLd: [
+      {
+        "@type": "WebPage",
+        "name": "Privacy Policy",
+        "description": "Privacy Policy for iamrusiru.com by Rusiru Rathmina.",
+        "url": `${SITE}/privacy-policy`,
+        "inLanguage": "en",
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": `${SITE}/` },
+          { "@type": "ListItem", "position": 2, "name": "Privacy Policy", "item": `${SITE}/privacy-policy` },
+        ],
+      },
+    ],
+  });
+
   return (
     <div className="min-h-screen bg-background text-foreground">
       <Header />
