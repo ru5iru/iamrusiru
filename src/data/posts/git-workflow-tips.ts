@@ -40,6 +40,11 @@ git bisect good  # or 'git bisect bad'
     },
     "## Worktrees\n\nNeed to check another branch without stashing your work? Worktrees let you have multiple branches checked out simultaneously in different directories:\n\n```bash\ngit worktree add ../hotfix-branch hotfix/urgent-fix\n```\n\nI use this constantly during code reviews. I can check out the PR branch in a separate directory without disrupting my current work.",
   ],
+  faq: [
+    { question: "What is git interactive rebase?", answer: "Git interactive rebase (git rebase -i HEAD~N) lets you rewrite commit history by squashing, reordering, editing, or dropping commits. It's the most powerful git feature for keeping clean, readable commit histories." },
+    { question: "What is git bisect used for?", answer: "Git bisect helps find the exact commit that introduced a bug. You mark the current commit as bad and a known-good commit, then git binary-searches through commits. You test each and mark good/bad until the problematic commit is found." },
+    { question: "What are git worktrees?", answer: "Git worktrees let you have multiple branches checked out simultaneously in different directories. This is useful during code reviews — you can check out a PR branch in a separate directory without stashing or disrupting your current work." },
+  ],
 };
 
 export default post;

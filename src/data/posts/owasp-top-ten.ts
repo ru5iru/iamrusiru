@@ -74,6 +74,12 @@ app.disable("x-powered-by");`,
     "## A10: Server-Side Request Forgery (SSRF)\n\nSSRF occurs when a web application fetches a remote resource without validating the user-supplied URL. Attackers can use this to access internal services, read cloud metadata, or scan internal networks.\n\n**How to prevent it:**\n- Validate and sanitise all user-supplied URLs.\n- Use allowlists for permitted domains.\n- Block requests to internal IP ranges (127.0.0.1, 10.x, 169.254.x, etc.).\n- Don't expose raw responses from server-side requests to users.",
     "## Putting It All Together\n\nSecurity is not a feature you add at the end. It's a mindset you carry through every line of code. Start by learning these ten categories, then look at your current project through this lens. You'll likely find at least one area to improve.\n\nThe OWASP Top 10 is updated periodically, so bookmark the official site and stay current. The threats evolve, and so should your defenses.",
   ],
+  faq: [
+    { question: "What is the OWASP Top 10?", answer: "The OWASP Top 10 is a standard awareness document listing the ten most critical web application security risks, published by the Open Web Application Security Project (OWASP). It is updated periodically and serves as a baseline for web security." },
+    { question: "What is broken access control?", answer: "Broken access control is the #1 OWASP risk. It occurs when users can act outside their intended permissions, such as viewing other users' data, modifying unauthorized records, or escalating privileges. Prevention includes denying access by default and enforcing server-side validation." },
+    { question: "How do you prevent SQL injection?", answer: "SQL injection is prevented by using parameterised queries or prepared statements, validating and sanitising all user input, and using ORMs with built-in protection. Never concatenate user input directly into SQL queries." },
+    { question: "Why is security important for developers?", answer: "Developers are the first line of defense against security vulnerabilities. Understanding risks like injection, broken access control, and cryptographic failures allows developers to write secure code from the start rather than patching issues after deployment." },
+  ],
 };
 
 export default post;

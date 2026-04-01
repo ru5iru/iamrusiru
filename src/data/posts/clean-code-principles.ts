@@ -110,6 +110,11 @@ setTimeout(fn, ONE_DAY_MS);`,
     },
     "## The Boy Scout Rule\n\nLeave the code cleaner than you found it. You don't need to refactor the entire file, but if you touch a function, rename that unclear variable. Extract that duplicated block. Add a missing type annotation. Small improvements compound over time.\n\nClean code is a practice, not a destination. Every codebase has messy corners. The goal isn't perfection; it's progress. Write code that your teammates (and future you) will thank you for.",
   ],
+  faq: [
+    { question: "What are clean code principles?", answer: "Clean code principles are guidelines for writing readable, maintainable software. Key principles include using meaningful names, writing small single-responsibility functions, avoiding magic numbers, following the DRY principle, writing tests as documentation, and applying the Boy Scout Rule of leaving code cleaner than you found it." },
+    { question: "What is the DRY principle in programming?", answer: "DRY stands for Don't Repeat Yourself. It means avoiding code duplication by extracting repeated patterns into reusable abstractions. However, premature abstraction can be worse than duplication — the rule of three suggests extracting only after seeing the same pattern three times." },
+    { question: "What is the Boy Scout Rule in software engineering?", answer: "The Boy Scout Rule means leaving the code cleaner than you found it. When you touch a function, rename unclear variables, extract duplicated blocks, and add missing type annotations. Small improvements compound over time into a significantly better codebase." },
+  ],
 };
 
 export default post;

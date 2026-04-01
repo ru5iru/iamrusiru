@@ -36,6 +36,10 @@ logger.info({ userId, action: 'checkout', cartSize: items.length }, 'User initia
     "## The Incident Playbook\n\nEvery on-call rotation taught me something:\n\n1. **Don't panic.** Breathe. Read the alert carefully.\n2. **Check the dashboards** before touching any code.\n3. **Communicate early.** A quick 'investigating' message buys goodwill.\n4. **Roll back first, debug later.** If a deploy caused it, revert immediately.\n5. **Write a post-mortem.** Not to blame, but to learn.",
     "The best debuggers I know aren't the smartest engineers; they're the most systematic. They form hypotheses, test them one at a time, and document what they find. It's science, not magic.",
   ],
+  faq: [
+    { question: "How do you debug production issues?", answer: "Use structured JSON logging with correlation IDs, check dashboards before touching code, communicate early with a quick 'investigating' message, roll back first if a deploy caused it, and write post-mortems to learn. The best debuggers are systematic — they form hypotheses and test them one at a time." },
+    { question: "What is structured logging?", answer: "Structured logging outputs log entries as JSON objects with consistent fields like correlation ID, timestamp, service name, and severity level. This makes logs searchable and filterable, which is critical for debugging production issues across distributed systems." },
+  ],
 };
 
 export default post;

@@ -61,6 +61,11 @@ function renderState<T>(state: AsyncState<T>) {
     },
     "## The Tradeoffs\n\nIt's not all sunshine. TypeScript adds compilation time. Some third-party libraries have poor or missing type definitions. Generics can get gnarly. And there's a learning curve, especially around utility types like `Partial`, `Pick`, and `Record`.\n\nBut every tradeoff has been worth it. I write code with more confidence, ship fewer bugs, and spend less time debugging. If you're on the fence, just try converting one file. You might not look back either.",
   ],
+  faq: [
+    { question: "Why should I switch from JavaScript to TypeScript?", answer: "TypeScript catches bugs at compile time that JavaScript misses at runtime, such as typos in property names. It makes refactoring fearless, speeds up onboarding for new team members, and significantly reduces runtime errors. Types serve as documentation and interfaces become contracts." },
+    { question: "What are the downsides of TypeScript?", answer: "TypeScript adds compilation time, some third-party libraries have poor or missing type definitions, generics can be complex, and there's a learning curve with utility types like Partial, Pick, and Record. Despite these tradeoffs, most developers find the benefits outweigh the costs." },
+    { question: "How do I start migrating from JavaScript to TypeScript?", answer: "Run npx tsc --init to create a TypeScript configuration, then rename your first .js file to .ts. The compiler will immediately flag issues. Start with one file at a time and gradually convert your codebase." },
+  ],
 };
 
 export default post;

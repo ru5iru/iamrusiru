@@ -2,6 +2,11 @@ export type ContentBlock =
   | string
   | { type: "code"; language: string; code: string };
 
+export interface FAQ {
+  question: string;
+  answer: string;
+}
+
 export interface BlogPost {
   title: string;
   excerpt: string;
@@ -12,4 +17,5 @@ export interface BlogPost {
   imageUrl: string;
   tags: string[];
   content: ContentBlock[];
+  faq?: FAQ[];
 }

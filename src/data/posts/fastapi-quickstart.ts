@@ -77,6 +77,11 @@ def create_item(item: Item):
     },
     "That's it. In 15 minutes you have a validated, documented, database-backed REST API. FastAPI handles serialisation, validation, error responses, and documentation automatically. For quick prototypes or microservices, it's hard to beat.",
   ],
+  faq: [
+    { question: "What is FastAPI?", answer: "FastAPI is a modern Python web framework for building REST APIs. It features automatic OpenAPI documentation, request validation via Pydantic models, async support, and excellent developer experience. It's one of the fastest Python frameworks available." },
+    { question: "How do I get started with FastAPI?", answer: "Create a virtual environment, install FastAPI and uvicorn with pip, create a main.py file with your endpoints and Pydantic models, then run uvicorn main:app --reload. Visit /docs to see auto-generated Swagger documentation." },
+    { question: "Can FastAPI connect to a database?", answer: "Yes. SQLModel (by the same creator) bridges SQLAlchemy and Pydantic, letting you define database models that also serve as API schemas. It supports SQLite, PostgreSQL, MySQL, and other databases through SQLAlchemy." },
+  ],
 };
 
 export default post;

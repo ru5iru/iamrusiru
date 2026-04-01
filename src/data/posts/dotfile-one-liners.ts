@@ -67,6 +67,10 @@ alias jsonpretty='pbpaste | python3 -m json.tool | pbcopy && echo "✓ Formatted
     },
     "The key isn't having hundreds of aliases. It's having a few that match your actual workflow. Start by noticing which commands you type most often, then alias those. Your future self will thank you.",
   ],
+  faq: [
+    { question: "What are dotfiles?", answer: "Dotfiles are configuration files in your home directory (like .bashrc, .zshrc, .gitconfig) that customise your shell and development environment. They typically contain aliases, functions, and settings that speed up your workflow." },
+    { question: "What are the most useful bash aliases for developers?", answer: "Useful aliases include git shortcuts (gs for git status, gl for pretty log), navigation helpers (root to jump to project root, mkcd to create and enter a directory), and development tools (killport to kill processes on a port, dprune for Docker cleanup)." },
+  ],
 };
 
 export default post;

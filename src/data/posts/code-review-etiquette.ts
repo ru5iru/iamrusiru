@@ -20,6 +20,10 @@ const post: BlogPost = {
     "## Praise Good Work\n\nCode reviews aren't just for criticism. When someone writes an elegant solution, say so. 'Nice use of discriminated unions here, really clean' costs you three seconds and might make someone's day.",
     "## Review the PR, Not the Person\n\nSay 'This function could be simplified' instead of 'You overcomplicated this.' It's a tiny shift in language that makes a big difference in how feedback lands.\n\nGood code reviews are an act of generosity. You're spending your time to make someone else's code, and someone else, better. Treat it that way.",
   ],
+  faq: [
+    { question: "How do you give good code reviews?", answer: "Lead with questions instead of commands, explain the reasoning behind suggestions, distinguish preferences from problems using prefixes like [nit], [suggestion], [issue], praise good work, and review the PR not the person. Use language like 'This function could be simplified' rather than 'You overcomplicated this.'" },
+    { question: "What is a code review prefix system?", answer: "A prefix system categorises code review comments: [nit] for style preferences (take it or leave it), [suggestion] for recommended improvements, [issue] for bugs or problems that must be fixed, and [question] for genuine questions. This helps authors prioritise feedback." },
+  ],
 };
 
 export default post;

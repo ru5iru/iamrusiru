@@ -61,6 +61,11 @@ function LikeButton({ postId }: { postId: string }) {
     },
     "## What This Means for Your App\n\n**Bundle size drops.** Server Components don't add to your JavaScript bundle. A markdown renderer, a syntax highlighter, a date formatting library: if they're only used in Server Components, they stay on the server.\n\n**Data fetching simplifies.** No more `useEffect` into loading state into error state dance for data that doesn't change after page load. Just `await` it directly.\n\n**The learning curve is real.** You need to understand the boundary between server and client, what can be passed across it (serialisable data only), and how composition patterns change.\n\nRSCs aren't a rewrite of React; they're an evolution. Start by identifying your data-fetching components and see if they can move to the server. The wins compound from there.",
   ],
+  faq: [
+    { question: "What are React Server Components?", answer: "React Server Components (RSCs) are components that run only on the server. They can access databases, read files, and call APIs directly without shipping that code to the client. This reduces bundle size and simplifies data fetching." },
+    { question: "What is the difference between Server Components and Client Components?", answer: "Server Components run on the server and cannot use hooks like useState or useEffect. Client Components (marked with 'use client') run in the browser and handle interactivity. If a component needs user interaction, it must be a Client Component." },
+    { question: "Do React Server Components reduce bundle size?", answer: "Yes, Server Components don't add to your JavaScript bundle. Libraries used only in Server Components (markdown renderers, syntax highlighters, date formatters) stay on the server, significantly reducing the code sent to the browser." },
+  ],
 };
 
 export default post;

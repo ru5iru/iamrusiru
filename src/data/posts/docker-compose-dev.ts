@@ -55,6 +55,10 @@ volumes:
     "Run `docker compose up` and everything starts. Run `docker compose down -v` to tear it all down cleanly. New developer onboarding goes from half a day to five minutes.",
     "## Tips I've Learned\n\n- **Use `depends_on` with health checks** so your app doesn't crash trying to connect before the database is ready.\n- **Mount source code as a volume** for hot-reloading during development.\n- **Exclude `node_modules`** from the mount to avoid platform-specific binary issues.\n- **Use named volumes** for database data so it persists between restarts.",
   ],
+  faq: [
+    { question: "What is Docker Compose used for in development?", answer: "Docker Compose lets you define your entire development stack (database, cache, app server) in a single YAML file. Running docker compose up starts everything, reducing new developer onboarding from half a day to five minutes." },
+    { question: "How do I set up Docker Compose for a web app?", answer: "Create a docker-compose.yml defining services like PostgreSQL, Redis, and your app. Use environment variables for configuration, depends_on with health checks for service ordering, volume mounts for hot-reloading, and named volumes for persistent data." },
+  ],
 };
 
 export default post;

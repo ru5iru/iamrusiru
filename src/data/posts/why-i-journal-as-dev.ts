@@ -17,6 +17,10 @@ const post: BlogPost = {
     "## Why It Works\n\nThree reasons:\n\n1. **Performance reviews write themselves.** When review season comes, I have a searchable log of every contribution. No more 'what did I do in March?'\n\n2. **Patterns emerge.** After a few months, I noticed I was consistently stuck on database query optimization. That led me to take a course on it.\n\n3. **Debugging gets faster.** Half the time, a problem I'm stuck on today is something I solved three months ago. A quick search finds my notes.",
     "Start today. Open a text file. Write three lines. Do it again tomorrow. In six months, you'll have a goldmine of personal documentation that no one else can give you.",
   ],
+  faq: [
+    { question: "Why should developers keep a journal?", answer: "A developer journal helps with performance reviews (searchable log of contributions), reveals learning patterns (identifying consistent knowledge gaps), and speeds up debugging (searchable notes of past solutions). It's a high-ROI habit that takes only 10 minutes per day." },
+    { question: "What format should a developer journal use?", answer: "A simple markdown file per week with three sections per day: Did (what you shipped), Learned (new concepts or insights), and Stuck (what blocked you and how you resolved it). Keep it simple — the goal is consistency, not perfection." },
+  ],
 };
 
 export default post;
