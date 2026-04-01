@@ -35,53 +35,73 @@ const BlogPost = () => {
     }, 0);
   }, [post]);
 
-  const jsonLd = useMemo(() => post ? [
-    {
-      "@type": "BlogPosting",
-      "headline": post.title,
-      "description": post.excerpt,
-      "image": post.imageUrl,
-      "datePublished": post.date,
-      "dateModified": post.date,
-      "wordCount": wordCount,
-      "author": {
-        "@type": "Person",
-        "name": "Rusiru Rathmina",
-        "url": `${SITE}/about`,
-        "jobTitle": "Associate Software Engineer",
-        "sameAs": [
-          "https://github.com/ru5iru",
-          "https://www.linkedin.com/in/ru5iru",
-          "https://x.com/ru5iru",
-          "https://instagram.com/rusiru.rathmina"
+  const jsonLd = useMemo(() => {
+    if (!post) return undefined;
+    const schemas: Record<string, unknown>[] = [
+      {
+        "@type": "BlogPosting",
+        "headline": post.title,
+        "description": post.excerpt,
+        "image": post.imageUrl,
+        "datePublished": post.date,
+        "dateModified": post.date,
+        "wordCount": wordCount,
+        "author": {
+          "@type": "Person",
+          "name": "Rusiru Rathmina",
+          "url": `${SITE}/about`,
+          "jobTitle": "Associate Software Engineer",
+          "sameAs": [
+            "https://github.com/ru5iru",
+            "https://www.linkedin.com/in/ru5iru",
+            "https://x.com/ru5iru",
+            "https://instagram.com/rusiru.rathmina"
+          ]
+        },
+        "publisher": {
+          "@type": "Person",
+          "name": "Rusiru Rathmina"
+        },
+        "mainEntityOfPage": {
+          "@type": "WebPage",
+          "@id": `${SITE}/post/${post.slug}`
+        },
+        "keywords": post.tags.join(", "),
+        "articleSection": post.category,
+        "inLanguage": "en",
+        "isAccessibleForFree": true,
+        "speakable": {
+          "@type": "SpeakableSpecification",
+          "cssSelector": [".post-summary", "h1", ".post-content p:first-of-type"]
+        }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": `${SITE}/` },
+          { "@type": "ListItem", "position": 2, "name": post.category, "item": `${SITE}/` },
+          { "@type": "ListItem", "position": 3, "name": post.title, "item": `${SITE}/post/${post.slug}` }
         ]
-      },
-      "publisher": {
-        "@type": "Person",
-        "name": "Rusiru Rathmina"
-      },
-      "mainEntityOfPage": {
-        "@type": "WebPage",
-        "@id": `${SITE}/post/${post.slug}`
-      },
-      "keywords": post.tags.join(", "),
-      "articleSection": post.category,
-      "inLanguage": "en",
-      "isAccessibleForFree": true,
-      "speakable": {
-        "@type": "SpeakableSpecification",
-        "cssSelector": [".post-summary", "h1", ".post-content p:first-of-type"]
       }
-    },
-    {
-      "@type": "BreadcrumbList",
-      "itemListElement": [
-        { "@type": "ListItem", "position": 1, "name": "Home", "item": `${SITE}/` },
-        { "@type": "ListItem", "position": 2, "name": post.category, "item": `${SITE}/` },
-        { "@type": "ListItem", "position": 3, "name": post.title, "item": `${SITE}/post/${post.slug}` }
-      ]
+    ];
+
+    // Add FAQPage schema if post has FAQs (AEO/GEO)
+    if (post.faq && post.faq.length > 0) {
+      schemas.push({
+        "@type": "FAQPage",
+        "mainEntity": post.faq.map((f) => ({
+          "@type": "Question",
+          "name": f.question,
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": f.answer,
+          },
+        })),
+      });
     }
-  ] : undefined, [post, wordCount]);
+
+    return schemas;
+  }, [post, wordCount]);
 
   useSEO({
     title: post ? `${post.title} | iamrusiru` : "Post Not Found | iamrusiru",
