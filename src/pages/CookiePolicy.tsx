@@ -1,7 +1,32 @@
 import Header from "@/components/blog/Header";
 import Footer from "@/components/blog/Footer";
+import { useSEO } from "@/hooks/useSEO";
+
+const SITE = "https://iamrusiru.lovable.app";
 
 const CookiePolicy = () => {
+  useSEO({
+    title: "Cookie Policy | iamrusiru",
+    description: "Cookie Policy for iamrusiru.com – learn what cookies are used, how they work, and how to manage them on this site.",
+    canonical: "/cookie-policy",
+    jsonLd: [
+      {
+        "@type": "WebPage",
+        "name": "Cookie Policy",
+        "description": "Cookie Policy for iamrusiru.com by Rusiru Rathmina.",
+        "url": `${SITE}/cookie-policy`,
+        "inLanguage": "en",
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": `${SITE}/` },
+          { "@type": "ListItem", "position": 2, "name": "Cookie Policy", "item": `${SITE}/cookie-policy` },
+        ],
+      },
+    ],
+  });
+
   return (
     <div className="min-h-screen bg-background text-foreground">
       <Header />

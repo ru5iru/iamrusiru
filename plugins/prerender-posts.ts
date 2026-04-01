@@ -3,8 +3,8 @@
  * real content injected into <div id="root">, making all pages fully
  * crawlable by search engines and social-media scrapers without JavaScript.
  *
- * Covers: homepage (/), about (/about), contact (/contact), and all
- * blog post routes (/post/<slug>).
+ * Covers: homepage (/), about (/about), contact (/contact), privacy-policy,
+ * cookie-policy, and all blog post routes (/post/<slug>).
  *
  * Also auto-generates /sitemap.xml from the post list.
  */
@@ -14,6 +14,11 @@ import fs from "fs";
 import path from "path";
 
 const SITE = "https://iamrusiru.lovable.app";
+
+interface FAQ {
+  question: string;
+  answer: string;
+}
 
 interface PostMeta {
   title: string;
@@ -25,6 +30,7 @@ interface PostMeta {
   imageUrl: string;
   tags: string[];
   content: (string | { type: "code"; language: string; code: string })[];
+  faq?: FAQ[];
 }
 
 // ── Load posts via esbuild ──────────────────────────────────────────
@@ -60,11 +66,6 @@ async function loadPosts(): Promise<PostMeta[]> {
 
 function esc(s: string): string {
   return s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
-}
-
-function setMeta(html: string, sel: string, attr: string, value: string): string {
-  const re = new RegExp(`(<${sel}[^>]*${attr}=")[^"]*"`, "i");
-  return html.replace(re, `$1${esc(value)}"`);
 }
 
 function replaceMeta(html: string, post: { title: string; description: string; url: string; image?: string; ogType?: string }): string {
@@ -120,6 +121,10 @@ function renderPostContent(block: string | { type: "code"; language: string; cod
 
 function buildPostStaticHtml(post: PostMeta): string {
   const contentHtml = post.content.map(renderPostContent).join("\n");
+  const faqHtml = post.faq && post.faq.length > 0
+    ? `<section><h2>Frequently Asked Questions</h2>${post.faq.map(f => `<div><h3>${esc(f.question)}</h3><p>${esc(f.answer)}</p></div>`).join("\n")}</section>`
+    : "";
+
   return `
 <article>
   <header>
@@ -134,6 +139,7 @@ function buildPostStaticHtml(post: PostMeta): string {
   </section>
   <img src="${esc(post.imageUrl)}" alt="${esc(post.title)}" />
   <section>${contentHtml}</section>
+  ${faqHtml}
   <footer>
     <p>Tags: ${post.tags.map((t) => esc(t)).join(", ")}</p>
     <p>Written by Rusiru Rathmina, Associate Software Engineer at Omobio, Colombo, Sri Lanka.</p>
@@ -239,50 +245,104 @@ function buildContactStaticHtml(): string {
 <footer><p>&copy; 2025 Rusiru Rathmina. All rights reserved.</p></footer>`;
 }
 
+function buildPrivacyPolicyStaticHtml(): string {
+  return `
+<header>
+  <nav><a href="/">Home</a><a href="/about">About</a><a href="/contact">Contact</a></nav>
+</header>
+<main>
+  <h1>Privacy Policy</h1>
+  <p>Last updated: March 30, 2026</p>
+  <section><h2>1. Introduction</h2><p>Welcome to iamrusiru.com, operated by Rusiru Rathmina. This Privacy Policy explains how I collect, use, and protect your personal information.</p></section>
+  <section><h2>2. Information I Collect</h2><p>Personal information (name, email) when you subscribe or contact me. Usage data (pages visited, browser type, IP address) via analytics. Cookies for browsing preferences.</p></section>
+  <section><h2>3. How I Use Your Information</h2><p>To send newsletter updates, respond to messages, analyze traffic, and maintain site security.</p></section>
+  <section><h2>4. Data Sharing</h2><p>I do not sell or rent your data. I may share with trusted analytics and email service providers.</p></section>
+  <section><h2>5. Contact</h2><p>Questions? Reach out via the <a href="/contact">Contact page</a>.</p></section>
+</main>
+<footer><p>&copy; 2025 Rusiru Rathmina. All rights reserved.</p></footer>`;
+}
+
+function buildCookiePolicyStaticHtml(): string {
+  return `
+<header>
+  <nav><a href="/">Home</a><a href="/about">About</a><a href="/contact">Contact</a></nav>
+</header>
+<main>
+  <h1>Cookie Policy</h1>
+  <p>Last updated: March 30, 2026</p>
+  <section><h2>1. What Are Cookies?</h2><p>Cookies are small text files placed on your device to remember preferences and understand how you interact with the site.</p></section>
+  <section><h2>2. How I Use Cookies</h2><p>Essential cookies for site functionality, analytics cookies to understand visitor behavior, and preference cookies for personalization.</p></section>
+  <section><h2>3. Managing Cookies</h2><p>You can control cookies through browser settings. Disabling certain cookies may affect site functionality.</p></section>
+  <section><h2>4. Contact</h2><p>Questions? Reach out via the <a href="/contact">Contact page</a>.</p></section>
+</main>
+<footer><p>&copy; 2025 Rusiru Rathmina. All rights reserved.</p></footer>`;
+}
+
 // ── Blog post page builder ──────────────────────────────────────────
 
 function buildPostPage(template: string, post: PostMeta): string {
   const url = `${SITE}/post/${post.slug}`;
   const title = `${post.title} | iamrusiru`;
 
-  const jsonLd = JSON.stringify({
-    "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "BlogPosting",
-        headline: post.title,
-        description: post.excerpt,
-        image: post.imageUrl,
-        datePublished: post.date,
-        dateModified: post.date,
-        author: {
-          "@type": "Person",
-          name: "Rusiru Rathmina",
-          url: `${SITE}/about`,
-          jobTitle: "Associate Software Engineer",
-          sameAs: [
-            "https://github.com/ru5iru",
-            "https://www.linkedin.com/in/ru5iru",
-            "https://x.com/ru5iru",
-            "https://instagram.com/rusiru.rathmina",
-          ],
-        },
-        publisher: { "@type": "Person", name: "Rusiru Rathmina" },
-        mainEntityOfPage: { "@type": "WebPage", "@id": url },
-        keywords: post.tags.join(", "),
-        articleSection: post.category,
-        inLanguage: "en",
-        isAccessibleForFree: true,
-      },
-      {
-        "@type": "BreadcrumbList",
-        itemListElement: [
-          { "@type": "ListItem", position: 1, name: "Home", item: `${SITE}/` },
-          { "@type": "ListItem", position: 2, name: post.category, item: `${SITE}/` },
-          { "@type": "ListItem", position: 3, name: post.title, item: url },
+  const graphSchemas: Record<string, unknown>[] = [
+    {
+      "@type": "BlogPosting",
+      headline: post.title,
+      description: post.excerpt,
+      image: post.imageUrl,
+      datePublished: post.date,
+      dateModified: post.date,
+      author: {
+        "@type": "Person",
+        name: "Rusiru Rathmina",
+        url: `${SITE}/about`,
+        jobTitle: "Associate Software Engineer",
+        sameAs: [
+          "https://github.com/ru5iru",
+          "https://www.linkedin.com/in/ru5iru",
+          "https://x.com/ru5iru",
+          "https://instagram.com/rusiru.rathmina",
         ],
       },
-    ],
+      publisher: { "@type": "Person", name: "Rusiru Rathmina" },
+      mainEntityOfPage: { "@type": "WebPage", "@id": url },
+      keywords: post.tags.join(", "),
+      articleSection: post.category,
+      inLanguage: "en",
+      isAccessibleForFree: true,
+      speakable: {
+        "@type": "SpeakableSpecification",
+        cssSelector: [".post-summary", "h1", ".post-content p:first-of-type"],
+      },
+    },
+    {
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        { "@type": "ListItem", position: 1, name: "Home", item: `${SITE}/` },
+        { "@type": "ListItem", position: 2, name: post.category, item: `${SITE}/` },
+        { "@type": "ListItem", position: 3, name: post.title, item: url },
+      ],
+    },
+  ];
+
+  // Add FAQPage structured data (AEO/GEO)
+  if (post.faq && post.faq.length > 0) {
+    graphSchemas.push({
+      "@type": "FAQPage",
+      mainEntity: post.faq.map((f) => ({
+        "@type": "Question",
+        name: f.question,
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: f.answer,
+        },
+      })),
+    });
+  }
+
+  const jsonLd = JSON.stringify({
+    "@context": "https://schema.org",
+    "@graph": graphSchemas,
   });
 
   const articleMetaTags = `
@@ -300,10 +360,7 @@ function buildPostPage(template: string, post: PostMeta): string {
     ogType: "article",
   });
 
-  // Inject article content into root div
   html = injectRoot(html, buildPostStaticHtml(post));
-
-  // Inject article meta tags + JSON-LD
   html = injectBeforeHead(
     html,
     `${articleMetaTags}\n<script type="application/ld+json">${jsonLd}</script>`
@@ -318,7 +375,7 @@ function buildHomepage(template: string, posts: PostMeta[]): string {
   let html = replaceMeta(template, {
     title: "iamrusiru | Rusiru Rathmina - Full-Stack Software Engineer Blog",
     description:
-      "Software engineer by day, tinkerer by night. I write about code, career lessons, side projects, and the human side of building software.",
+      "Read about software engineering, career lessons, side projects, and the human side of building software by Rusiru Rathmina.",
     url: `${SITE}/`,
   });
   html = injectRoot(html, buildHomepageStaticHtml(posts));
@@ -347,6 +404,48 @@ function buildContactPage(template: string): string {
   return html;
 }
 
+function buildPrivacyPolicyPage(template: string): string {
+  let html = replaceMeta(template, {
+    title: "Privacy Policy | iamrusiru",
+    description: "Privacy Policy for iamrusiru.com – learn how Rusiru Rathmina collects, uses, and protects your personal information.",
+    url: `${SITE}/privacy-policy`,
+  });
+  html = injectRoot(html, buildPrivacyPolicyStaticHtml());
+  const jsonLd = JSON.stringify({
+    "@context": "https://schema.org",
+    "@graph": [
+      { "@type": "WebPage", "name": "Privacy Policy", "url": `${SITE}/privacy-policy`, "inLanguage": "en" },
+      { "@type": "BreadcrumbList", "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": `${SITE}/` },
+        { "@type": "ListItem", "position": 2, "name": "Privacy Policy", "item": `${SITE}/privacy-policy` },
+      ]},
+    ],
+  });
+  html = injectBeforeHead(html, `<script type="application/ld+json">${jsonLd}</script>`);
+  return html;
+}
+
+function buildCookiePolicyPage(template: string): string {
+  let html = replaceMeta(template, {
+    title: "Cookie Policy | iamrusiru",
+    description: "Cookie Policy for iamrusiru.com – learn what cookies are used, how they work, and how to manage them.",
+    url: `${SITE}/cookie-policy`,
+  });
+  html = injectRoot(html, buildCookiePolicyStaticHtml());
+  const jsonLd = JSON.stringify({
+    "@context": "https://schema.org",
+    "@graph": [
+      { "@type": "WebPage", "name": "Cookie Policy", "url": `${SITE}/cookie-policy`, "inLanguage": "en" },
+      { "@type": "BreadcrumbList", "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": `${SITE}/` },
+        { "@type": "ListItem", "position": 2, "name": "Cookie Policy", "item": `${SITE}/cookie-policy` },
+      ]},
+    ],
+  });
+  html = injectBeforeHead(html, `<script type="application/ld+json">${jsonLd}</script>`);
+  return html;
+}
+
 // ── Sitemap ─────────────────────────────────────────────────────────
 
 function buildSitemap(posts: PostMeta[]): string {
@@ -356,6 +455,8 @@ function buildSitemap(posts: PostMeta[]): string {
     { loc: `${SITE}/`, priority: "1.0", changefreq: "weekly" },
     { loc: `${SITE}/about`, priority: "0.8", changefreq: "monthly" },
     { loc: `${SITE}/contact`, priority: "0.8", changefreq: "monthly" },
+    { loc: `${SITE}/privacy-policy`, priority: "0.3", changefreq: "yearly" },
+    { loc: `${SITE}/cookie-policy`, priority: "0.3", changefreq: "yearly" },
   ];
 
   const urls = [
@@ -408,7 +509,7 @@ export default function prerenderPosts(): Plugin {
         return;
       }
 
-      // 1. Prerender homepage (overwrite dist/index.html with content-filled version)
+      // 1. Prerender homepage
       const homepageHtml = buildHomepage(template, posts);
       fs.writeFileSync(templatePath, homepageHtml, "utf-8");
       console.log("[prerender] ✓ / (homepage with content)");
@@ -425,7 +526,19 @@ export default function prerenderPosts(): Plugin {
       fs.writeFileSync(path.join(contactDir, "index.html"), buildContactPage(template), "utf-8");
       console.log("[prerender] ✓ /contact");
 
-      // 4. Prerender blog posts
+      // 4. Prerender /privacy-policy
+      const privacyDir = path.join(distDir, "privacy-policy");
+      fs.mkdirSync(privacyDir, { recursive: true });
+      fs.writeFileSync(path.join(privacyDir, "index.html"), buildPrivacyPolicyPage(template), "utf-8");
+      console.log("[prerender] ✓ /privacy-policy");
+
+      // 5. Prerender /cookie-policy
+      const cookieDir = path.join(distDir, "cookie-policy");
+      fs.mkdirSync(cookieDir, { recursive: true });
+      fs.writeFileSync(path.join(cookieDir, "index.html"), buildCookiePolicyPage(template), "utf-8");
+      console.log("[prerender] ✓ /cookie-policy");
+
+      // 6. Prerender blog posts
       for (const post of posts) {
         const dir = path.join(distDir, "post", post.slug);
         fs.mkdirSync(dir, { recursive: true });
@@ -433,12 +546,12 @@ export default function prerenderPosts(): Plugin {
         console.log(`[prerender] ✓ /post/${post.slug}`);
       }
 
-      // 5. Generate sitemap
+      // 7. Generate sitemap
       const sitemap = buildSitemap(posts);
       fs.writeFileSync(path.join(distDir, "sitemap.xml"), sitemap, "utf-8");
       console.log(`[prerender] ✓ sitemap.xml (${posts.length} posts)`);
 
-      console.log(`[prerender] Done! ${3 + posts.length} pages prerendered.`);
+      console.log(`[prerender] Done! ${5 + posts.length} pages prerendered.`);
     },
   };
 }

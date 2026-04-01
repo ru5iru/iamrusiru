@@ -53,6 +53,10 @@ fn organize_directory(dir: &Path) -> std::io::Result<u32> {
     "## What I Learned\n\n**Pattern matching is incredible.** Coming from JavaScript's `switch` statements, Rust's `match` feels like a superpower. It's exhaustive by default: if you forget a case, the compiler tells you.\n\n**The ownership model makes sense once it clicks.** For the first hour, I was fighting the borrow checker. By the second hour, I started understanding *why* it was stopping me. By the end of the weekend, I was writing code that passed on the first try.",
     "**Error handling is elegant.** The `Result` type and `?` operator make error propagation clean and explicit. No more try-catch pyramids.\n\nI published the tool on GitHub and it's already gotten a few stars. More importantly, I learned something new and had fun doing it. That's what side projects are for.",
   ],
+  faq: [
+    { question: "Is Rust good for building CLI tools?", answer: "Yes, Rust is excellent for CLI tools. It compiles to fast native binaries, has a helpful compiler with clear error messages, excellent pattern matching, and elegant error handling with the Result type and ? operator. The Cargo package manager also makes publishing tools easy." },
+    { question: "What is the Rust borrow checker?", answer: "The Rust borrow checker is the compiler's system for enforcing memory safety without garbage collection. It tracks ownership and borrowing of values to prevent data races and memory leaks. It can be frustrating initially but makes sense once you understand why it prevents bugs." },
+  ],
 };
 
 export default post;

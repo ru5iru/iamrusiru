@@ -19,6 +19,10 @@ const post: BlogPost = {
     "**'Four Thousand Weeks' by Oliver Burkeman**: This one's about time management, but not in the 'productivity hack' sense. It's about accepting that you can't do everything and choosing what matters. It helped me stop saying yes to every interesting project and start finishing the ones that matter.",
     "The best investment you can make as an engineer isn't another framework tutorial: it's reading broadly. History, psychology, design, philosophy. The wider your mental models, the better your code.",
   ],
+  faq: [
+    { question: "What are the best books for software engineers?", answer: "Key books include 'A Philosophy of Software Design' by John Ousterhout (complexity management), 'The Pragmatic Programmer' by Hunt & Thomas (craftsmanship), 'Thinking in Systems' by Donella Meadows (systems thinking), 'Nonviolent Communication' by Marshall Rosenberg (team communication), and 'Four Thousand Weeks' by Oliver Burkeman (time management)." },
+    { question: "Should software engineers read non-technical books?", answer: "Absolutely. Non-technical books about systems thinking, communication, psychology, and time management build mental models that directly improve engineering skills. Understanding feedback loops helps with architecture, and better communication improves code reviews and collaboration." },
+  ],
 };
 
 export default post;

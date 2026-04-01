@@ -18,6 +18,10 @@ const post: BlogPost = {
     "## Failure Is the Feature\n\nMost of my side projects are abandoned. My GitHub is a graveyard of half-finished ideas. But each one taught me something. A failed attempt at a real-time chat app taught me WebSockets. An abandoned game taught me about entity-component systems. A broken RSS reader taught me about XML parsing (and why everyone hates it).",
     "## The Rule I Follow\n\nOne rule keeps me from burning out on side projects: **I only work on them when I want to.** The moment it feels like an obligation, I stop. No guilt, no 'I should finish this.' The whole point is joy.\n\nIf you're feeling stuck or uninspired at work, try building something small and silly on the side. A random quote generator. A CLI that insults you when you commit bad code. A website that does one useless thing beautifully. The spark you're looking for might be hiding in the margins.",
   ],
+  faq: [
+    { question: "Why are side projects important for developers?", answer: "Side projects provide creative freedom outside work constraints. They let you experiment with new technologies, learn from failure without consequences, and rediscover the joy of programming. Skills learned often transfer back to your day job in unexpected ways." },
+    { question: "How do you avoid burnout from side projects?", answer: "The key rule is to only work on side projects when you want to. The moment it feels like an obligation, stop. No guilt about unfinished projects. Most side projects will be abandoned, and that's perfectly fine — each one teaches something valuable." },
+  ],
 };
 
 export default post;
