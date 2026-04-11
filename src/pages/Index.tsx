@@ -6,6 +6,7 @@ import Sidebar from "@/components/blog/Sidebar";
 import Footer from "@/components/blog/Footer";
 import allPosts from "@/data/posts";
 import { useSEO } from "@/hooks/useSEO";
+import { authorFaqSchema } from "@/data/authorFaq";
 
 const POSTS_PER_PAGE = 6;
 const SITE = "https://iamrusiru.lovable.app";

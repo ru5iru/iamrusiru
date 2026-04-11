@@ -1,6 +1,7 @@
 import Header from "@/components/blog/Header";
 import Footer from "@/components/blog/Footer";
 import { useSEO } from "@/hooks/useSEO";
+import { authorFaqSchema } from "@/data/authorFaq";
 import { Mail, MapPin, Linkedin, Github, Facebook, Instagram } from "lucide-react";
 
 const SITE = "https://iamrusiru.lovable.app";
