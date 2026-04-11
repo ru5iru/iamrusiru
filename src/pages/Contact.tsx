@@ -47,7 +47,8 @@ const Contact = () => {
           { "@type": "ListItem", "position": 1, "name": "Home", "item": `${SITE}/` },
           { "@type": "ListItem", "position": 2, "name": "Contact", "item": `${SITE}/contact` }
         ]
-      }
+      },
+      authorFaqSchema,
     ],
   });
 

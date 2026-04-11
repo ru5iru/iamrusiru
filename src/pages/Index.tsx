@@ -69,7 +69,8 @@ const Index = () => {
         "itemListElement": [
           { "@type": "ListItem", "position": 1, "name": "Home", "item": `${SITE}/` }
         ]
-      }
+      },
+      authorFaqSchema,
     ],
   });
 
