@@ -1,6 +1,7 @@
 import Header from "@/components/blog/Header";
 import Footer from "@/components/blog/Footer";
 import { useSEO } from "@/hooks/useSEO";
+import { authorFaqSchema } from "@/data/authorFaq";
 
 const SITE = "https://iamrusiru.lovable.app";
 
@@ -42,7 +43,8 @@ const About = () => {
           { "@type": "ListItem", "position": 1, "name": "Home", "item": `${SITE}/` },
           { "@type": "ListItem", "position": 2, "name": "About", "item": `${SITE}/about` }
         ]
-      }
+      },
+      authorFaqSchema,
     ],
   });
 
