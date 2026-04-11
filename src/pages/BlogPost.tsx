@@ -241,20 +241,6 @@ const BlogPost = () => {
             ))}
           </div>
 
-          {/* FAQ Section (AEO/GEO: citable Q&A for answer engines) */}
-          {post.faq && post.faq.length > 0 && (
-            <div className="mt-12">
-              <h2 className="font-display text-2xl font-semibold text-display mb-6">Frequently Asked Questions</h2>
-              <div className="space-y-6">
-                {post.faq.map((f, i) => (
-                  <div key={i} className="rounded-xl border border-divider p-5">
-                    <h3 className="font-display text-lg font-semibold text-display mb-2">{f.question}</h3>
-                    <p className="text-body text-base leading-relaxed">{f.answer}</p>
-                  </div>
-                ))}
-              </div>
-            </div>
-          )}
 
           {/* Author bio for E-E-A-T (GEO) */}
           <div className="mt-12 p-6 rounded-xl bg-muted/30 border border-divider">
