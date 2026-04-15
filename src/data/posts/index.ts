@@ -16,10 +16,12 @@ import dockerComposeDev from "./docker-compose-dev";
 import cleanCodePrinciples from "./clean-code-principles";
 import owaspTopTen from "./owasp-top-ten";
 import vibeCoding from "./vibe-coding";
+import codeReviewSecurityPlatform from "./code-review-security-platform";
 
 export type { BlogPost, ContentBlock, FAQ } from "./types";
 
 const allPosts = [
+  codeReviewSecurityPlatform,
   vibeCoding,
   owaspTopTen,
   cleanCodePrinciples,
