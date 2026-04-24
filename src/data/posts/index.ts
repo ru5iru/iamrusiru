@@ -17,10 +17,12 @@ import cleanCodePrinciples from "./clean-code-principles";
 import owaspTopTen from "./owasp-top-ten";
 import vibeCoding from "./vibe-coding";
 import codeReviewSecurityPlatform from "./code-review-security-platform";
+import drupalPageCaching from "./drupal-page-caching";
 
 export type { BlogPost, ContentBlock, FAQ } from "./types";
 
 const allPosts = [
+  drupalPageCaching,
   codeReviewSecurityPlatform,
   vibeCoding,
   owaspTopTen,
