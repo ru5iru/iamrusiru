@@ -1,0 +1,132 @@
+import type { BlogPost, ContentBlock } from "@/data/posts/types";
+
+/**
+ * Stopwords excluded from keyword extraction.
+ */
+const STOPWORDS = new Set([
+  "the","a","an","and","or","but","if","then","else","for","of","on","in","at",
+  "to","from","by","with","as","is","are","was","were","be","been","being","this",
+  "that","these","those","it","its","i","you","we","they","he","she","my","your",
+  "our","their","not","no","do","does","did","done","have","has","had","will","would",
+  "can","could","should","may","might","just","also","than","so","too","very","more",
+  "most","some","any","all","one","two","about","into","over","up","down","out","what",
+  "why","how","when","where","which","who","whom","there","here","like","get","got",
+  "make","made","use","used","using","want","need","know","see","go","going","really",
+  "only","even","much","many","still","because","while","after","before","again",
+  "way","ways","thing","things","good","bad","new","old","time","times","day","days",
+  "post","posts","blog","article","read","reading","write","writing","my","me",
+]);
+
+const MIN_TERM_LEN = 3;
+const MAX_KEYWORDS = 8;
+
+function tokenize(text: string): string[] {
+  return text
+    .toLowerCase()
+    .replace(/[`*_~#>]+/g, " ")
+    .replace(/[^a-z0-9+\-./\s]/g, " ")
+    .split(/\s+/)
+    .map((t) => t.replace(/^[-.+/]+|[-.+/]+$/g, ""))
+    .filter((t) => t.length >= MIN_TERM_LEN && !STOPWORDS.has(t) && !/^\d+$/.test(t));
+}
+
+function blocksToText(blocks: ContentBlock[]): string {
+  return blocks
+    .map((b) => (typeof b === "string" ? b : ""))
+    .join("\n\n");
+}
+
+function extractHeadings(text: string): string[] {
+  return text
+    .split("\n")
+    .filter((line) => /^#{2,3}\s/.test(line.trim()))
+    .map((line) => line.replace(/^#{2,3}\s+/, ""));
+}
+
+function firstNWords(text: string, n: number): string {
+  return text.split(/\s+/).slice(0, n).join(" ");
+}
+
+/**
+ * Score-based keyword extraction.
+ * Title tokens weight 3, heading tokens weight 2, first-300-words tokens weight 1.
+ * Returns the top 8 deduplicated, lowercased terms plus the post's explicit tags.
+ */
+export function extractKeywords(post: BlogPost): string[] {
+  const titleTokens = tokenize(post.title);
+  const bodyText = blocksToText(post.content);
+  const headingText = extractHeadings(bodyText).join(" ");
+  const headingTokens = tokenize(headingText);
+  const firstTokens = tokenize(firstNWords(bodyText, 300));
+
+  const scores = new Map<string, number>();
+  const add = (terms: string[], weight: number) => {
+    for (const t of terms) scores.set(t, (scores.get(t) || 0) + weight);
+  };
+  add(titleTokens, 3);
+  add(headingTokens, 2);
+  add(firstTokens, 1);
+
+  const ranked = [...scores.entries()]
+    .sort((a, b) => b[1] - a[1])
+    .map(([term]) => term);
+
+  // Merge ranked terms with post tags (tags take priority for topical signal).
+  const merged: string[] = [];
+  const seen = new Set<string>();
+  for (const tag of post.tags) {
+    const key = tag.toLowerCase();
+    if (!seen.has(key)) {
+      seen.add(key);
+      merged.push(key);
+    }
+  }
+  for (const term of ranked) {
+    if (merged.length >= MAX_KEYWORDS) break;
+    if (!seen.has(term)) {
+      seen.add(term);
+      merged.push(term);
+    }
+  }
+  return merged.slice(0, MAX_KEYWORDS);
+}
+
+/**
+ * Builds an SEO-friendly title following the format:
+ *   "[Post Title] — [hook] | iamrusiru"
+ * Truncates body title to keep total under 60 chars.
+ */
+export function buildPostTitle(post: BlogPost, blogName = "iamrusiru"): string {
+  const isCareer = /career|lessons|burnout|balance|journal|sane/i.test(
+    post.category + " " + post.title
+  );
+  const hook = isCareer ? "Lessons" : post.tags[0] || "Deep Dive";
+  const suffix = ` | ${blogName}`;
+  const maxBody = 60 - suffix.length - 3 - hook.length; // 3 = " · "
+  const trimmedTitle =
+    post.title.length > maxBody ? post.title.slice(0, maxBody - 1).trimEnd() + "…" : post.title;
+  const full = `${trimmedTitle} · ${hook}${suffix}`;
+  return full.length <= 60 ? full : `${post.title.slice(0, 60 - suffix.length - 1)}…${suffix}`;
+}
+
+/**
+ * Returns a 140-160 char benefit-led description.
+ * Uses post.excerpt as the source and trims at sentence boundary if needed.
+ */
+export function buildPostDescription(post: BlogPost): string {
+  let desc = post.excerpt.replace(/\s+/g, " ").trim();
+  if (desc.length <= 160) {
+    // Pad lightly if too short (under 140)
+    if (desc.length < 140) {
+      const tagLine = ` Includes ${post.tags.slice(0, 2).join(" and ")} insights.`;
+      if ((desc + tagLine).length <= 160) desc += tagLine;
+    }
+    return desc;
+  }
+  // Truncate at last sentence boundary under 157 chars
+  const cut = desc.slice(0, 157);
+  const lastDot = Math.max(cut.lastIndexOf(". "), cut.lastIndexOf("? "), cut.lastIndexOf("! "));
+  if (lastDot > 100) return desc.slice(0, lastDot + 1);
+  const lastSpace = cut.lastIndexOf(" ");
+  return desc.slice(0, lastSpace) + "…";
+}

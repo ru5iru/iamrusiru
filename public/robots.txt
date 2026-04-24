@@ -1,7 +1,16 @@
+# iamrusiru — robots.txt
+# Allow major search engines and AI crawlers (GEO).
+
 User-agent: Googlebot
 Allow: /
 
 User-agent: Bingbot
+Allow: /
+
+User-agent: Slurp
+Allow: /
+
+User-agent: DuckDuckBot
 Allow: /
 
 User-agent: Twitterbot
@@ -17,6 +26,9 @@ Allow: /
 User-agent: ChatGPT-User
 Allow: /
 
+User-agent: OAI-SearchBot
+Allow: /
+
 User-agent: Google-Extended
 Allow: /
 
@@ -26,7 +38,16 @@ Allow: /
 User-agent: ClaudeBot
 Allow: /
 
+User-agent: Claude-Web
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
 User-agent: Amazonbot
+Allow: /
+
+User-agent: Applebot
 Allow: /
 
 User-agent: Applebot-Extended
@@ -44,7 +65,19 @@ Allow: /
 User-agent: CCBot
 Allow: /
 
+User-agent: Meta-ExternalAgent
+Allow: /
+
+User-agent: Diffbot
+Allow: /
+
+# Default policy for everyone else
 User-agent: *
 Allow: /
+Disallow: /admin
+Disallow: /api
+Disallow: /drafts
+Disallow: /_next
+Disallow: /private
 
 Sitemap: https://iamrusiru.lovable.app/sitemap.xml
