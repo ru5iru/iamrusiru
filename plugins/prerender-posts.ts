@@ -473,13 +473,19 @@ function buildSitemap(posts: PostMeta[]): string {
     <loc>${SITE}/post/${p.slug}</loc>
     <lastmod>${today}</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>${esc(p.imageUrl)}</image:loc>
+      <image:title>${esc(p.title)}</image:title>
+      <image:caption>${esc(p.excerpt)}</image:caption>
+    </image:image>
   </url>`
     ),
   ];
 
   return `<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
 ${urls.join("\n")}
 </urlset>`;
 }
