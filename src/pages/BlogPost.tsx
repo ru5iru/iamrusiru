@@ -104,19 +104,33 @@ const BlogPost = () => {
     return schemas;
   }, [post, wordCount]);
 
+  const seoTitle = post ? buildPostTitle(post) : "Post Not Found | iamrusiru";
+  const seoDescription = post
+    ? buildPostDescription(post)
+    : "The blog post you're looking for doesn't exist.";
+  const seoKeywords = useMemo(() => (post ? extractKeywords(post) : undefined), [post]);
+
   useSEO({
-    title: post ? `${post.title} | iamrusiru` : "Post Not Found | iamrusiru",
-    description: post?.excerpt || "The blog post you're looking for doesn't exist.",
+    title: seoTitle,
+    ogTitle: post?.title,
+    description: seoDescription,
     canonical: post ? `/post/${post.slug}` : undefined,
     ogType: "article",
     ogImage: post?.imageUrl,
+    twitterCard: post?.imageUrl ? "summary_large_image" : "summary",
+    twitterCreator: "@ru5iru",
+    keywords: seoKeywords,
+    author: "Rusiru Rathmina",
     jsonLd,
-    articleMeta: post ? {
-      publishedTime: post.date,
-      author: "Rusiru Rathmina",
-      section: post.category,
-      tags: post.tags,
-    } : undefined,
+    articleMeta: post
+      ? {
+          publishedTime: post.date,
+          modifiedTime: post.date,
+          author: "Rusiru Rathmina",
+          section: post.category,
+          tags: post.tags,
+        }
+      : undefined,
   });
 
   const handleCopyLink = async () => {
