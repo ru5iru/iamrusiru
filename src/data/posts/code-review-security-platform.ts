@@ -5,7 +5,7 @@ const codeReviewSecurityPlatform: BlogPost = {
   title: "Why Integrating a Code Review and Security Analysis Platform Is Essential for Clean Code",
   excerpt:
     "Integrating a code review and security analysis platform like SonarQube into your development lifecycle catches bugs early, prevents security vulnerabilities, and keeps your codebase maintainable as it scales.",
-  date: "2026-04-15",
+  date: "April 15, 2026",
   category: "Engineering",
   slug: "code-review-security-platform",
   readTime: "12 min read",
