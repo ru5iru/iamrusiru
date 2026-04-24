@@ -8,6 +8,7 @@ import type { ContentBlock, FAQ } from "@/data/posts";
 import profileHeadshot from "@/assets/profile-headshot.jpg";
 import { useState, useMemo } from "react";
 import { useSEO } from "@/hooks/useSEO";
+import { extractKeywords, buildPostTitle, buildPostDescription } from "@/lib/seoKeywords";
 
 const SITE = "https://iamrusiru.lovable.app";
 
