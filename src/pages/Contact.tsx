@@ -56,7 +56,7 @@ const Contact = () => {
     <div className="min-h-screen bg-background">
       <Header />
 
-      <main className="max-w-4xl mx-auto px-6 py-16">
+      <main id="main-content" className="max-w-4xl mx-auto px-6 py-16">
         {/* Heading */}
         <div className="mb-14">
           <div className="flex items-center gap-2 mb-4">

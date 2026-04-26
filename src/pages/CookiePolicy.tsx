@@ -30,7 +30,7 @@ const CookiePolicy = () => {
   return (
     <div className="min-h-screen bg-background text-foreground">
       <Header />
-      <main className="max-w-3xl mx-auto px-6 py-16">
+      <main id="main-content" className="max-w-3xl mx-auto px-6 py-16">
         <h1 className="font-display text-4xl font-bold text-display mb-8">Cookie Policy</h1>
         <p className="text-caption text-sm mb-10">Last updated: March 30, 2026</p>
 

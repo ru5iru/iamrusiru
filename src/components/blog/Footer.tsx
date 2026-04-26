@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
-    <footer className="py-14 border-t border-divider bg-background">
+    <footer role="contentinfo" className="py-14 border-t border-divider bg-background">
       <div className="max-w-6xl mx-auto px-6">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-10">
           <div>
@@ -10,7 +10,7 @@ const Footer = () => {
               <span className="text-display">iam</span><span className="text-primary">rusiru</span>
             </h3>
             <p className="text-body text-sm leading-relaxed">
-              Subscribe to stay up to date with my latest posts and creative musings.
+              A personal blog by Rusiru Rathmina on code, career, and the human side of building software.
             </p>
           </div>
 

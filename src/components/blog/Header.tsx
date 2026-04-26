@@ -59,8 +59,12 @@ const Header = () => {
               {dark ? <Sun size={18} /> : <Moon size={18} />}
             </button>
             <button
-              className="text-display"
+              type="button"
+              className="text-display focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded"
               onClick={() => setMobileOpen(!mobileOpen)}
+              aria-label={mobileOpen ? "Close menu" : "Open menu"}
+              aria-expanded={mobileOpen}
+              aria-controls="mobile-menu"
             >
               {mobileOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
@@ -68,7 +72,7 @@ const Header = () => {
         </nav>
 
         {mobileOpen && (
-          <div className="md:hidden mt-4 pb-4 flex flex-col gap-4 border-t border-divider pt-4">
+          <div id="mobile-menu" className="md:hidden mt-4 pb-4 flex flex-col gap-4 border-t border-divider pt-4">
             <Link to="/" className="text-sm font-medium text-primary" onClick={() => setMobileOpen(false)}>Home</Link>
             <Link to="/about" className="text-sm font-medium text-caption" onClick={() => setMobileOpen(false)}>About me</Link>
             <Link to="/contact" className="text-sm font-medium text-caption" onClick={() => setMobileOpen(false)}>Contact Me</Link>
