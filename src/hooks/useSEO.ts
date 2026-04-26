@@ -177,7 +177,7 @@ export function useSEO({
       });
     }
 
-    // JSON-LD (dynamic, per-page — supports single or array)
+    // JSON-LD (dynamic, per-page — supports single or array (no em dash))
     let scriptEl = document.getElementById("dynamic-jsonld");
     if (jsonLd) {
       if (!scriptEl) {

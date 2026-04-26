@@ -74,10 +74,10 @@ const About = () => {
           <section>
             <h2 className="font-display text-2xl font-semibold text-display mb-5">How it all started</h2>
             <p className="text-body leading-relaxed mb-4">
-              My journey didn't start with code — it started with curiosity. Growing up in Galle, Sri Lanka, I was the kid who'd take things apart just to see what's inside. That habit never really left me.
+              My journey didn't start with code, it started with curiosity. Growing up in Galle, Sri Lanka, I was the kid who'd take things apart just to see what's inside. That habit never really left me.
             </p>
             <p className="text-body leading-relaxed">
-              At the University of Colombo School of Computing, I discovered that the same curiosity could be applied to software. Suddenly, I wasn't just learning syntax — I was learning how to{" "}
+              At the University of Colombo School of Computing, I discovered that the same curiosity could be applied to software. Suddenly, I wasn't just learning syntax. I was learning how to{" "}
               <span className="text-primary font-medium">solve real problems</span> for real people.
             </p>
           </section>
@@ -92,7 +92,7 @@ const About = () => {
             {/* Pull quote */}
             <blockquote className="border-l-4 border-primary pl-6 py-2 my-8 bg-primary/5 rounded-r-lg">
               <p className="text-display italic leading-relaxed text-lg">
-                "The gap between writing code that works on your laptop and code that serves thousands of people every day is massive — and that's where the real learning happens."
+                "The gap between writing code that works on your laptop and code that serves thousands of people every day is massive, and that's where the real learning happens."
               </p>
             </blockquote>
 
@@ -105,7 +105,7 @@ const About = () => {
           <section>
             <h2 className="font-display text-2xl font-semibold text-display mb-5">Where I am now</h2>
             <p className="text-body leading-relaxed mb-4">
-              Today, as an Associate Software Engineer at Omobio, I'm deep in the trenches refactoring Dialog.lk's legacy codebase. It's not glamorous work, but it matters — making systems more secure, faster, and honestly just less scary to work with.
+              Today, as an Associate Software Engineer at Omobio, I'm deep in the trenches refactoring Dialog.lk's legacy codebase. It's not glamorous work, but it matters: making systems more secure, faster, and honestly just less scary to work with.
             </p>
             <p className="text-body leading-relaxed mb-4">
               My days are filled with{" "}
@@ -114,7 +114,7 @@ const About = () => {
               <span className="text-primary font-medium">Drupal</span>, and a healthy dose of AWS (S3, SES, CloudWatch). I've learned to love Redis for caching, Docker for deployments, and the satisfaction of seeing response times drop from 8 seconds to under 2.
             </p>
             <p className="text-body leading-relaxed">
-              I'm also spending time making sure our applications meet OWASP Top 10 standards — because security isn't something you add later, it's something you build in from the start.
+              I'm also spending time making sure our applications meet OWASP Top 10 standards, because security isn't something you add later, it's something you build in from the start.
             </p>
           </section>
 
@@ -138,7 +138,7 @@ const About = () => {
               Right now, I'm exploring deeper into cloud-native architectures and DevOps practices. I'm learning how to make better technical decisions, how to mentor junior developers without being overwhelming, and how to balance moving fast with doing things right.
             </p>
             <p className="text-body leading-relaxed">
-              Every project teaches me something new. Every bug shows me a perspective I hadn't considered. And honestly? That's exactly why I love this field —{" "}
+              Every project teaches me something new. Every bug shows me a perspective I hadn't considered. And honestly? That's exactly why I love this field,{" "}
               <span className="text-primary font-medium">there's always something new to learn</span>.
             </p>
           </section>

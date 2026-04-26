@@ -93,7 +93,7 @@ export function extractKeywords(post: BlogPost): string[] {
 
 /**
  * Builds an SEO-friendly title following the format:
- *   "[Post Title] — [hook] | iamrusiru"
+ *   "[Post Title] - [hook] | iamrusiru"
  * Truncates body title to keep total under 60 chars.
  */
 export function buildPostTitle(post: BlogPost, blogName = "iamrusiru"): string {
