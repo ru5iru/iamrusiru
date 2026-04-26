@@ -197,6 +197,7 @@ const BlogPost = () => {
       <ReadingProgress />
       <Header />
 
+      <main id="main-content">
       <article className="py-12">
         <div className="max-w-3xl mx-auto px-6">
           <Link
@@ -237,11 +238,13 @@ const BlogPost = () => {
           <div className="rounded-xl overflow-hidden mb-10">
             <img
               src={post.imageUrl}
-              alt={post.title}
+              alt={`Cover image for ${post.title}`}
               width={800}
               height={400}
               className="w-full h-auto object-cover max-h-[400px]"
-              loading="lazy"
+              loading="eager"
+              fetchPriority="high"
+              decoding="async"
             />
           </div>
 
@@ -249,6 +252,32 @@ const BlogPost = () => {
             {post.content.map((block, i) => renderBlock(block, i))}
           </div>
 
+          {/* FAQ section (AEO: matches FAQPage JSON-LD) */}
+          {post.faq && post.faq.length > 0 && (
+            <section className="mt-12" aria-labelledby="faq-heading">
+              <h2
+                id="faq-heading"
+                className="font-display text-2xl font-semibold text-display mb-6"
+              >
+                Frequently Asked Questions
+              </h2>
+              <div className="space-y-5">
+                {post.faq.map((f, i) => (
+                  <div
+                    key={i}
+                    className="rounded-xl border border-divider bg-warm/40 p-5"
+                  >
+                    <h3 className="font-display text-lg font-semibold text-display mb-2">
+                      {f.question}
+                    </h3>
+                    <p className="text-body text-base leading-relaxed">
+                      {f.answer}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </section>
+          )}
 
           {/* Author bio for E-E-A-T (GEO) */}
           <div className="mt-12 p-6 rounded-xl bg-muted/30 border border-divider">
@@ -316,6 +345,7 @@ const BlogPost = () => {
           </div>
         </div>
       </article>
+      </main>
 
       <Footer />
     </div>

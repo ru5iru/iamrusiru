@@ -92,7 +92,7 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-background">
       <Header />
-      <main>
+      <main id="main-content">
       <Hero />
 
       {/* Blog listing + Sidebar */}

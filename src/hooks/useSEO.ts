@@ -136,6 +136,32 @@ export function useSEO({
       tc.setAttribute("content", twitterCreator);
     }
 
+    // Citation meta tags (AEO: scholarly/AI-citation friendly)
+    const setOrCreateName = (name: string, content: string) => {
+      let el = document.querySelector(`meta[name="${name}"]`);
+      if (!el) {
+        el = document.createElement("meta");
+        el.setAttribute("name", name);
+        document.head.appendChild(el);
+      }
+      el.setAttribute("content", content);
+    };
+    setOrCreateName("citation_author", author || "Rusiru Rathmina");
+    setOrCreateName("citation_title", ogTitle || title);
+    if (articleMeta?.publishedTime) {
+      setOrCreateName("citation_date", articleMeta.publishedTime);
+      setOrCreateName("citation_online_date", articleMeta.publishedTime);
+    }
+
+    // <link rel="author" href="/about"> for AEO
+    let authorLink = document.querySelector('link[rel="author"]') as HTMLLinkElement | null;
+    if (!authorLink) {
+      authorLink = document.createElement("link");
+      authorLink.rel = "author";
+      document.head.appendChild(authorLink);
+    }
+    authorLink.href = `${BASE_URL}/about`;
+
     // Article meta tags (GEO: helps AI engines understand article context)
     if (articleMeta) {
       if (articleMeta.publishedTime)

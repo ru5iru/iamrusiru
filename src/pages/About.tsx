@@ -52,7 +52,7 @@ const About = () => {
     <div className="min-h-screen bg-background">
       <Header />
 
-      <main className="max-w-3xl mx-auto px-6 py-16">
+      <main id="main-content" className="max-w-3xl mx-auto px-6 py-16">
         {/* Page heading */}
         <div className="mb-14">
           <div className="flex items-center gap-2 mb-4">
