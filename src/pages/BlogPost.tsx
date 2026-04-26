@@ -249,13 +249,6 @@ const BlogPost = () => {
             {post.content.map((block, i) => renderBlock(block, i))}
           </div>
 
-          {/* Tags */}
-          <div className="mt-10 flex flex-wrap gap-2">
-            {post.tags.map((tag) => (
-              <span key={tag} className="blog-tag">{tag}</span>
-            ))}
-          </div>
-
 
           {/* Author bio for E-E-A-T (GEO) */}
           <div className="mt-12 p-6 rounded-xl bg-muted/30 border border-divider">
