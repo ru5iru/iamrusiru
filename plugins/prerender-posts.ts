@@ -51,12 +51,19 @@ async function loadPosts(): Promise<PostMeta[]> {
   });
 
   const mod = await import(`file://${outfile}`);
-  const posts: PostMeta[] = (mod.default || mod).map((p: PostMeta) => ({
-    ...p,
-    imageUrl: p.imageUrl?.startsWith("http")
-      ? p.imageUrl
-      : `${SITE}${p.imageUrl?.startsWith("/") ? "" : "/"}${p.imageUrl || ""}`,
-  }));
+  const DEFAULT_IMG = `${SITE}/placeholder.svg`;
+  const isValidUrl = (s: string) =>
+    !!s && !/[\x00-\x1F\x7F]/.test(s) && /^[\w\-./:?#&=%~+]+$/.test(s);
+
+  const posts: PostMeta[] = (mod.default || mod).map((p: PostMeta) => {
+    let img = p.imageUrl || "";
+    if (!isValidUrl(img)) {
+      img = DEFAULT_IMG;
+    } else if (!img.startsWith("http")) {
+      img = `${SITE}${img.startsWith("/") ? "" : "/"}${img}`;
+    }
+    return { ...p, imageUrl: img };
+  });
 
   fs.unlinkSync(outfile);
   return posts;
