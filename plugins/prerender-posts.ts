@@ -39,25 +39,42 @@ async function loadPosts(): Promise<PostMeta[]> {
   const { build } = await import("esbuild");
   const outfile = path.resolve(__dirname, "../.tmp-posts-bundle.mjs");
 
+  // Plugin: resolve image imports to their basename string so we can build
+  // a public URL. Avoids loading binary content into the bundle.
+  const imageStubPlugin = {
+    name: "image-stub",
+    setup(b: any) {
+      b.onResolve({ filter: /\.(jpg|jpeg|png|webp|svg|gif|avif)$/ }, (args: any) => ({
+        path: args.path,
+        namespace: "image-stub",
+        pluginData: { name: path.basename(args.path) },
+      }));
+      b.onLoad({ filter: /.*/, namespace: "image-stub" }, (args: any) => ({
+        contents: `export default ${JSON.stringify("/assets/" + args.pluginData.name)};`,
+        loader: "js",
+      }));
+    },
+  };
+
   await build({
     entryPoints: [path.resolve(__dirname, "../src/data/posts/index.ts")],
     bundle: true,
     platform: "node",
     format: "esm",
     outfile,
-    loader: { ".jpg": "text", ".png": "text", ".webp": "text", ".svg": "text" },
     alias: { "@": path.resolve(__dirname, "../src") },
+    plugins: [imageStubPlugin],
     logLevel: "silent",
   });
 
   const mod = await import(`file://${outfile}`);
   const DEFAULT_IMG = `${SITE}/placeholder.svg`;
-  const isValidUrl = (s: string) =>
-    !!s && !/[\x00-\x1F\x7F]/.test(s) && /^[\w\-./:?#&=%~+]+$/.test(s);
 
   const posts: PostMeta[] = (mod.default || mod).map((p: PostMeta) => {
     let img = p.imageUrl || "";
-    if (!isValidUrl(img)) {
+    // Strip control chars defensively
+    img = img.replace(/[\x00-\x1F\x7F]/g, "");
+    if (!img) {
       img = DEFAULT_IMG;
     } else if (!img.startsWith("http")) {
       img = `${SITE}${img.startsWith("/") ? "" : "/"}${img}`;
@@ -521,6 +538,27 @@ export default function prerenderPosts(): Plugin {
         console.error("[prerender] Failed to load posts:", e);
         return;
       }
+
+      // Resolve image basenames to actual hashed asset filenames in dist/assets
+      const assetsDir = path.join(distDir, "assets");
+      const assetFiles = fs.existsSync(assetsDir) ? fs.readdirSync(assetsDir) : [];
+      const resolveAsset = (urlPath: string): string => {
+        const m = urlPath.match(/\/assets\/(.+?)\.([a-z0-9]+)$/i);
+        if (!m) return urlPath;
+        const [, base, ext] = m;
+        const re = new RegExp(
+          `^${base.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}-[A-Za-z0-9_-]+\\.${ext}$`
+        );
+        const hit = assetFiles.find((f) => re.test(f));
+        return hit ? `/assets/${hit}` : urlPath;
+      };
+      posts = posts.map((p) => {
+        if (p.imageUrl.startsWith(`${SITE}/assets/`)) {
+          const local = p.imageUrl.replace(SITE, "");
+          return { ...p, imageUrl: `${SITE}${resolveAsset(local)}` };
+        }
+        return p;
+      });
 
       // 1. Prerender homepage
       const homepageHtml = buildHomepage(template, posts);
