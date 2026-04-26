@@ -45,7 +45,7 @@ async function loadPosts(): Promise<PostMeta[]> {
     platform: "node",
     format: "esm",
     outfile,
-    loader: { ".jpg": "dataurl", ".png": "dataurl", ".webp": "dataurl", ".svg": "dataurl" },
+    loader: { ".jpg": "text", ".png": "text", ".webp": "text", ".svg": "text" },
     alias: { "@": path.resolve(__dirname, "../src") },
     logLevel: "silent",
   });
