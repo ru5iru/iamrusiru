@@ -539,6 +539,27 @@ export default function prerenderPosts(): Plugin {
         return;
       }
 
+      // Resolve image basenames to actual hashed asset filenames in dist/assets
+      const assetsDir = path.join(distDir, "assets");
+      const assetFiles = fs.existsSync(assetsDir) ? fs.readdirSync(assetsDir) : [];
+      const resolveAsset = (urlPath: string): string => {
+        const m = urlPath.match(/\/assets\/(.+?)\.([a-z0-9]+)$/i);
+        if (!m) return urlPath;
+        const [, base, ext] = m;
+        const re = new RegExp(
+          `^${base.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}-[A-Za-z0-9_-]+\\.${ext}$`
+        );
+        const hit = assetFiles.find((f) => re.test(f));
+        return hit ? `/assets/${hit}` : urlPath;
+      };
+      posts = posts.map((p) => {
+        if (p.imageUrl.startsWith(`${SITE}/assets/`)) {
+          const local = p.imageUrl.replace(SITE, "");
+          return { ...p, imageUrl: `${SITE}${resolveAsset(local)}` };
+        }
+        return p;
+      });
+
       // 1. Prerender homepage
       const homepageHtml = buildHomepage(template, posts);
       fs.writeFileSync(templatePath, homepageHtml, "utf-8");
