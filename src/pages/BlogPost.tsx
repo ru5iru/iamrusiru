@@ -28,7 +28,7 @@ const BlogPost = () => {
   const post = allPosts.find((p) => p.slug === slug);
 
   const postUrl = typeof window !== "undefined" ? window.location.href : `${SITE}/post/${slug}`;
-  const content = post?.content ?? [];
+  const content = useMemo<ContentBlock[]>(() => post?.content ?? [], [post]);
   const calculatedReadTime = useReadingTime(content);
   const headings = useTableOfContents(content);
 
