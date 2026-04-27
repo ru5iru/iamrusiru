@@ -137,6 +137,23 @@
     }
     </script>
 
+    <!-- Structured Data: SiteLinksSearchBox -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "url": "https://iamrusiru.lovable.app",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": {
+          "@type": "EntryPoint",
+          "urlTemplate": "https://iamrusiru.lovable.app/?tag={search_term_string}"
+        },
+        "query-input": "required name=search_term_string"
+      }
+    }
+    </script>
+
     <!-- Structured Data: BreadcrumbList -->
     <script type="application/ld+json">
     {
