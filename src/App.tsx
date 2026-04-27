@@ -3,6 +3,7 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import { useEffect, lazy, Suspense } from "react";
+import PageSkeleton from "@/components/blog/PageSkeleton";
 
 const Index = lazy(() => import("./pages/Index"));
 const BlogPost = lazy(() => import("./pages/BlogPost"));
@@ -15,21 +16,10 @@ const CookiePolicy = lazy(() => import("./pages/CookiePolicy"));
 const ScrollToTop = () => {
   const { pathname } = useLocation();
   useEffect(() => {
-    window.scrollTo({ top: 0, behavior: "instant" });
+    window.scrollTo({ top: 0, behavior: "instant" as ScrollBehavior });
   }, [pathname]);
   return null;
 };
-
-const RouteFallback = () => (
-  <div className="min-h-screen bg-background" aria-busy="true" aria-live="polite">
-    <div className="max-w-6xl mx-auto px-6 py-12 animate-pulse">
-      <div className="h-6 w-40 rounded bg-muted mb-6" />
-      <div className="h-10 w-3/4 rounded bg-muted mb-4" />
-      <div className="h-4 w-2/3 rounded bg-muted mb-2" />
-      <div className="h-4 w-1/2 rounded bg-muted" />
-    </div>
-  </div>
-);
 
 const App = () => (
   <TooltipProvider>
@@ -43,7 +33,7 @@ const App = () => (
         Skip to main content
       </a>
       <ScrollToTop />
-      <Suspense fallback={<RouteFallback />}>
+      <Suspense fallback={<PageSkeleton />}>
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/post/:slug" element={<BlogPost />} />
