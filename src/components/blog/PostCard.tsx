@@ -1,5 +1,6 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import profileHeadshot from "@/assets/profile-headshot.jpg";
+import TagChip from "@/components/blog/TagChip";
 
 interface PostCardProps {
   title: string;
@@ -9,6 +10,7 @@ interface PostCardProps {
   slug: string;
   readTime?: string;
   imageUrl?: string;
+  tags?: string[];
 }
 
 const PostCard = ({
@@ -19,11 +21,13 @@ const PostCard = ({
   slug,
   readTime = "5 min read",
   imageUrl,
+  tags = [],
 }: PostCardProps) => {
+  const navigate = useNavigate();
+
   return (
     <Link to={`/post/${slug}`} className="group block">
       <article className="py-6 border-b border-divider flex gap-5 transition-colors hover:border-primary/30">
-        {/* Thumbnail */}
         {imageUrl && (
           <div className="hidden sm:block flex-shrink-0 w-40 h-28 md:w-48 md:h-32 rounded-lg overflow-hidden">
             <img
@@ -37,11 +41,10 @@ const PostCard = ({
           </div>
         )}
 
-        {/* Content */}
         <div className="flex-1 min-w-0">
           <span className="blog-tag mb-2 inline-block">{category}</span>
 
-          <h3 className="font-display text-lg md:text-xl font-medium mb-2 text-display group-hover:text-primary transition-colors leading-snug line-clamp-2">
+          <h3 className="font-display text-lg md:text-xl font-medium mb-2 text-foreground group-hover:text-primary transition-colors leading-snug line-clamp-2">
             {title}
           </h3>
 
@@ -49,15 +52,27 @@ const PostCard = ({
             {excerpt}
           </p>
 
+          {tags.length > 0 && (
+            <div className="flex flex-wrap gap-1.5 mb-3">
+              {tags.slice(0, 4).map((t) => (
+                <TagChip
+                  key={t}
+                  tag={t}
+                  onClick={(tag) => navigate(`/?tag=${encodeURIComponent(tag)}`)}
+                />
+              ))}
+            </div>
+          )}
+
           <div className="flex items-center gap-3">
             <div className="w-7 h-7 rounded-full overflow-hidden flex-shrink-0">
               <img src={profileHeadshot} alt="Rusiru Rathmina" width={28} height={28} className="w-full h-full object-cover" />
             </div>
-            <div className="flex items-center gap-2 text-xs text-caption">
-              <span className="font-medium text-display">Rusiru Rathmina</span>
-              <span>·</span>
+            <div className="flex items-center gap-2 text-xs text-muted-foreground">
+              <span className="font-medium text-foreground">Rusiru Rathmina</span>
+              <span aria-hidden="true">·</span>
               <time dateTime={date}>{date}</time>
-              <span>·</span>
+              <span aria-hidden="true">·</span>
               <span>{readTime}</span>
             </div>
           </div>
