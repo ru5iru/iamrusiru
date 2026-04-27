@@ -112,7 +112,7 @@ const SharePost = ({ title, url }: SharePostProps) => {
         >
           {copied ? <Check size={16} /> : <Link2 size={16} />}
         </button>
-      </span>
+      </div>
     </section>
   );
 };
