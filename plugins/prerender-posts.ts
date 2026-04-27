@@ -82,6 +82,19 @@ async function loadPosts(): Promise<PostMeta[]> {
     return { ...p, imageUrl: img };
   });
 
+  // Build-time SEO warnings: FAQ answer word count target 40-120
+  for (const p of posts) {
+    if (!p.faq) continue;
+    for (const f of p.faq) {
+      const wc = f.answer.trim().split(/\s+/).filter(Boolean).length;
+      if (wc < 40 || wc > 120) {
+        console.warn(
+          `[SEO WARNING] Post "${p.slug}": FAQ answer for "${f.question}" is ${wc} words (target: 40-120)`
+        );
+      }
+    }
+  }
+
   fs.unlinkSync(outfile);
   return posts;
 }

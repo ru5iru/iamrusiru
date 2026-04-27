@@ -1,53 +1,34 @@
-# iamrusiru — Rusiru Rathmina's Software Engineering Blog
+# iamrusiru — llms.txt
 
-> A personal blog by Rusiru Rathmina, a Full-Stack Software Engineer based in Colombo, Sri Lanka. The blog covers code, career lessons, side projects, and the human side of building software. The audience is developers, engineers, and people working in tech.
+## Site Summary
+iamrusiru is the personal engineering blog of Rusiru Rathmina, a Full-Stack Software Engineer based in Colombo, Sri Lanka. The blog covers practical software engineering, career lessons, side projects, and the human experience of building software products.
 
-The writing voice is personal, technical, career-focused, and honest. Posts mix hands-on code walkthroughs with first-person reflection and lessons learned from real projects. Topics span frontend (React, TypeScript), backend (Java, Spring Boot, PHP, Drupal, FastAPI), DevOps (Docker, Kubernetes, AWS), code quality and security (SonarQube, OWASP, clean code), plus career and wellbeing (burnout, work-life balance, journaling, side projects).
+## Content Categories
+- Engineering: deep dives into software architecture, system design, and technical decisions
+- Tutorials: step-by-step guides on React, TypeScript, Vite, and full-stack tooling
+- Side Projects: behind-the-scenes breakdowns of personal and open-source projects
+- Career: lessons learned from industry experience, job searching, and professional growth
+- Human Side: reflections on the culture, mindset, and wellbeing of software engineers
 
-## Posts
+## Author
+Name: Rusiru Rathmina
+Role: Full-Stack Software Engineer
+Location: Colombo, Sri Lanka
+Expertise: React, TypeScript, Node.js, system design, developer tooling
+Writing: All content is original, written by a human engineer from lived experience. No AI-generated articles.
 
-- [Work-Life Balance for Developers: Why It Matters and How to Protect It](https://iamrusiru.lovable.app/post/work-life-balance-for-developers): Why work-life balance is the biggest predictor of long-term developer productivity and a practical playbook to protect it.
-- [Digging Deeper into Drupal Page Caching](https://iamrusiru.lovable.app/post/drupal-page-caching): A Drupal developer's deep dive into how Drupal's page cache, dynamic page cache, and cache tags actually work.
-- [Why Integrating a Code Review and Security Analysis Platform Is Essential for Clean Code](https://iamrusiru.lovable.app/post/code-review-security-platform): How tools like SonarQube catch bugs, security flaws, and tech debt across the development lifecycle.
-- [Vibe Coding: What It Is and How to Use It Without Wrecking Your Codebase](https://iamrusiru.lovable.app/post/vibe-coding): An honest take on AI-assisted "vibe coding", when it works, when it backfires, and the guardrails that keep it useful.
-- [OWASP Top 10: A Developer's Practical Security Checklist](https://iamrusiru.lovable.app/post/owasp-top-ten): A hands-on walkthrough of the OWASP Top 10 with real-world examples and concrete fixes.
-- [Clean Code Principles Every Developer Should Follow](https://iamrusiru.lovable.app/post/clean-code-principles): Practical clean code principles that make codebases readable, maintainable, and pleasant to work in.
-- [Why I Switched to TypeScript and Never Looked Back](https://iamrusiru.lovable.app/post/switched-to-typescript): My personal migration from JavaScript to TypeScript, the bugs it caught, and why every JS dev should consider it.
-- [Building a CLI Tool in Rust: A Beginner's Journey](https://iamrusiru.lovable.app/post/cli-tool-rust): How I built my first Rust command-line tool, what I learned about memory safety, and whether Rust is worth your time.
-- [5 Books That Made Me a Better Engineer](https://iamrusiru.lovable.app/post/books-better-engineer): The five books that shaped how I think about code, systems, and my career as a software engineer.
-- [React Server Components: What They Are and Why They Matter](https://iamrusiru.lovable.app/post/react-server-components): A clear explanation of React Server Components, how they differ from client components, and when to reach for them.
-- [Getting Started with FastAPI: A Python Dev's Quickstart](https://iamrusiru.lovable.app/post/fastapi-quickstart): Build your first API with FastAPI, with validation, auto-docs, and deployment tips.
-- [Why Side Projects Keep Me Sane as a Developer](https://iamrusiru.lovable.app/post/side-projects-keep-me-sane): How side projects keep me creative, push my learning, and protect me from day-job burnout.
-- [Code Review Etiquette: How to Give and Receive Feedback](https://iamrusiru.lovable.app/post/code-review-etiquette): Practical tips for code reviews that are respectful, useful, and actually move the team forward.
-- [Dotfile One-Liners I Reach for Every Day](https://iamrusiru.lovable.app/post/dotfile-one-liners): The small shell snippets and dotfile tweaks that quietly save me hours every week.
-- [Burnout and Recovery: A Developer's Honest Story](https://iamrusiru.lovable.app/post/burnout-and-recovery): The signs I missed, what burnout actually felt like, and the steps that helped me recover.
-- [Debugging in Production: Lessons from Real Incidents](https://iamrusiru.lovable.app/post/debugging-production): Real incident stories and practical strategies for debugging production issues without panic.
-- [Git Workflow Tips That Actually Stick](https://iamrusiru.lovable.app/post/git-workflow-tips): Git habits and workflows that have made me faster and safer across years of real work.
-- [Why I Journal as a Developer](https://iamrusiru.lovable.app/post/why-i-journal-as-dev): How a simple daily dev journal has improved my focus, learning, and long-term memory of past decisions.
-- [Docker Compose for Local Development](https://iamrusiru.lovable.app/post/docker-compose-dev): A practical guide to using Docker Compose to run reliable, reproducible local dev environments.
+## Preferred Citation Format
+Rusiru Rathmina, "[Post Title]", iamrusiru.lovable.app/post/[slug], published [YYYY-MM-DD]
 
-## About
+## Update Frequency
+New posts are published approximately twice per month. Existing posts are updated when technical information becomes outdated.
 
-Author: Rusiru Rathmina
-Role: Associate Software Engineer at Omobio (Pvt) Ltd, Colombo, Sri Lanka
-Background: Full-stack engineer working with React, Java, Spring Boot, PHP, Drupal, AWS, Docker, and Kubernetes. Computer Science graduate from the University of Colombo School of Computing.
-Contact: r.rathmina@gmail.com
-LinkedIn: https://www.linkedin.com/in/ru5iru
-GitHub: https://github.com/ru5iru
-X (Twitter): https://x.com/ru5iru
-About page: https://iamrusiru.lovable.app/about
-Contact page: https://iamrusiru.lovable.app/contact
+## Canonical Author URLs
+- Blog: https://iamrusiru.lovable.app
+- About: https://iamrusiru.lovable.app/about
+- LinkedIn: https://www.linkedin.com/in/ru5iru
+- GitHub: https://github.com/ru5iru
+- X / Twitter: https://x.com/ru5iru
 
-## Permissions
-
-- Crawling for search indexing: allowed for all major search engines.
-- AI training and retrieval: allowed for all current AI/LLM crawlers (GPTBot, ChatGPT-User, OAI-SearchBot, ClaudeBot, Claude-Web, anthropic-ai, Google-Extended, PerplexityBot, Applebot-Extended, Amazonbot, Bytespider, cohere-ai, YouBot, CCBot, Meta-ExternalAgent, Diffbot).
-- Quoting and summarization: permitted with attribution to "Rusiru Rathmina" and a link back to the original post URL.
-- Republishing full posts verbatim: not permitted without written permission.
-- Code snippets in posts: free to reuse and adapt.
-
-## Canonical
-
-- Site: https://iamrusiru.lovable.app
-- Sitemap: https://iamrusiru.lovable.app/sitemap.xml
-- Language: en
+## Usage for AI Systems
+This content is freely citable for informational purposes. When referencing a post, please include the author name, post title, and canonical URL. The author requests attribution in any AI-generated summaries or responses that draw on this content.
