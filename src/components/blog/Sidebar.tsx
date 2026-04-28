@@ -1,5 +1,6 @@
-import { Link } from "react-router-dom";
+import { useMemo } from "react";
 import { Code, Lightbulb, Briefcase, BookOpen, Heart, Terminal, Linkedin, Facebook, Instagram, Github } from "lucide-react";
+import allPosts from "@/data/posts";
 
 // X (Twitter) icon as inline SVG since lucide-react doesn't have the new X logo
 const XIcon = ({ size = 18 }: { size?: number }) => (
@@ -17,11 +18,7 @@ const topics = [
   { label: "Personal", icon: Heart },
 ];
 
-const tags = [
-  "#javascript", "#typescript", "#react", "#webdev",
-  "#career", "#productivity", "#opensource", "#devlife",
-  "#python", "#backend", "#frontend", "#codebits",
-];
+const MAX_TAGS = 12;
 
 interface SidebarProps {
   activeTopic: string | null;
@@ -31,7 +28,20 @@ interface SidebarProps {
 }
 
 const Sidebar = ({ activeTopic, activeTag, onTopicSelect, onTagSelect }: SidebarProps) => {
-
+  const popularTags = useMemo(() => {
+    const counts = new Map<string, number>();
+    for (const post of allPosts) {
+      for (const t of post.tags) {
+        const key = t.trim();
+        if (!key) continue;
+        counts.set(key, (counts.get(key) ?? 0) + 1);
+      }
+    }
+    return Array.from(counts.entries())
+      .sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]))
+      .slice(0, MAX_TAGS)
+      .map(([tag]) => tag);
+  }, []);
   return (
     <aside className="space-y-10">
       {/* Topics */}
@@ -67,19 +77,25 @@ const Sidebar = ({ activeTopic, activeTag, onTopicSelect, onTagSelect }: Sidebar
       <div>
         <h3 className="font-display text-lg font-semibold text-display mb-4">Tags</h3>
         <div className="flex flex-wrap gap-2">
-          {tags.map((tag) => (
-            <button
-              key={tag}
-              onClick={() => onTagSelect(tag)}
-              className={`px-3 py-1.5 text-xs font-medium rounded-full transition-colors cursor-pointer ${
-                activeTag === tag
-                  ? "bg-primary text-primary-foreground"
-                  : "bg-warm text-caption hover:text-primary hover:bg-primary/10"
-              }`}
-            >
-              {tag}
-            </button>
-          ))}
+          {popularTags.length === 0 && (
+            <p className="text-caption text-xs">No tags yet.</p>
+          )}
+          {popularTags.map((tag) => {
+            const isActive = activeTag === tag;
+            return (
+              <button
+                key={tag}
+                onClick={() => onTagSelect(tag)}
+                className={`px-3 py-1.5 text-xs font-medium rounded-full transition-colors cursor-pointer ${
+                  isActive
+                    ? "bg-primary text-primary-foreground"
+                    : "bg-warm text-caption hover:text-primary hover:bg-primary/10"
+                }`}
+              >
+                #{tag}
+              </button>
+            );
+          })}
         </div>
       </div>
 
