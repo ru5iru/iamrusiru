@@ -1,5 +1,6 @@
-import { Link } from "react-router-dom";
+import { useMemo } from "react";
 import { Code, Lightbulb, Briefcase, BookOpen, Heart, Terminal, Linkedin, Facebook, Instagram, Github } from "lucide-react";
+import allPosts from "@/data/posts";
 
 // X (Twitter) icon as inline SVG since lucide-react doesn't have the new X logo
 const XIcon = ({ size = 18 }: { size?: number }) => (
