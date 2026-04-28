@@ -28,7 +28,20 @@ interface SidebarProps {
 }
 
 const Sidebar = ({ activeTopic, activeTag, onTopicSelect, onTagSelect }: SidebarProps) => {
-
+  const popularTags = useMemo(() => {
+    const counts = new Map<string, number>();
+    for (const post of allPosts) {
+      for (const t of post.tags) {
+        const key = t.trim();
+        if (!key) continue;
+        counts.set(key, (counts.get(key) ?? 0) + 1);
+      }
+    }
+    return Array.from(counts.entries())
+      .sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]))
+      .slice(0, MAX_TAGS)
+      .map(([tag]) => tag);
+  }, []);
   return (
     <aside className="space-y-10">
       {/* Topics */}
