@@ -77,19 +77,25 @@ const Sidebar = ({ activeTopic, activeTag, onTopicSelect, onTagSelect }: Sidebar
       <div>
         <h3 className="font-display text-lg font-semibold text-display mb-4">Tags</h3>
         <div className="flex flex-wrap gap-2">
-          {tags.map((tag) => (
-            <button
-              key={tag}
-              onClick={() => onTagSelect(tag)}
-              className={`px-3 py-1.5 text-xs font-medium rounded-full transition-colors cursor-pointer ${
-                activeTag === tag
-                  ? "bg-primary text-primary-foreground"
-                  : "bg-warm text-caption hover:text-primary hover:bg-primary/10"
-              }`}
-            >
-              {tag}
-            </button>
-          ))}
+          {popularTags.length === 0 && (
+            <p className="text-caption text-xs">No tags yet.</p>
+          )}
+          {popularTags.map((tag) => {
+            const isActive = activeTag === tag;
+            return (
+              <button
+                key={tag}
+                onClick={() => onTagSelect(tag)}
+                className={`px-3 py-1.5 text-xs font-medium rounded-full transition-colors cursor-pointer ${
+                  isActive
+                    ? "bg-primary text-primary-foreground"
+                    : "bg-warm text-caption hover:text-primary hover:bg-primary/10"
+                }`}
+              >
+                #{tag}
+              </button>
+            );
+          })}
         </div>
       </div>
 
