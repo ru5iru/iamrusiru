@@ -18,11 +18,7 @@ const topics = [
   { label: "Personal", icon: Heart },
 ];
 
-const tags = [
-  "#javascript", "#typescript", "#react", "#webdev",
-  "#career", "#productivity", "#opensource", "#devlife",
-  "#python", "#backend", "#frontend", "#codebits",
-];
+const MAX_TAGS = 12;
 
 interface SidebarProps {
   activeTopic: string | null;
