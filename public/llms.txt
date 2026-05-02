@@ -23,6 +23,9 @@ Rusiru Rathmina, "[Post Title]", iamrusiru.lovable.app/post/[slug], published [Y
 ## Update Frequency
 New posts are published approximately twice per month. Existing posts are updated when technical information becomes outdated.
 
+## Latest Post
+- Broken Access Control: The OWASP Top 10's Most Dangerous Flaw (2026-05-02): https://iamrusiru.lovable.app/post/broken-access-control
+
 ## Canonical Author URLs
 - Blog: https://iamrusiru.lovable.app
 - About: https://iamrusiru.lovable.app/about

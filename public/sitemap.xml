@@ -3,145 +3,151 @@
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://iamrusiru.lovable.app/</loc>
-    <lastmod>2026-04-24</lastmod>
+    <lastmod>2026-05-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://iamrusiru.lovable.app/about</loc>
-    <lastmod>2026-04-24</lastmod>
+    <lastmod>2026-05-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://iamrusiru.lovable.app/contact</loc>
-    <lastmod>2026-04-24</lastmod>
+    <lastmod>2026-05-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://iamrusiru.lovable.app/privacy-policy</loc>
-    <lastmod>2026-04-24</lastmod>
+    <lastmod>2026-05-02</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
     <loc>https://iamrusiru.lovable.app/cookie-policy</loc>
-    <lastmod>2026-04-24</lastmod>
+    <lastmod>2026-05-02</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
+    <loc>https://iamrusiru.lovable.app/post/broken-access-control</loc>
+    <lastmod>2026-05-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
     <loc>https://iamrusiru.lovable.app/post/work-life-balance-for-developers</loc>
-    <lastmod>2026-04-24</lastmod>
+    <lastmod>2026-05-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://iamrusiru.lovable.app/post/drupal-page-caching</loc>
-    <lastmod>2026-04-24</lastmod>
+    <lastmod>2026-05-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://iamrusiru.lovable.app/post/code-review-security-platform</loc>
-    <lastmod>2026-04-15</lastmod>
+    <lastmod>2026-05-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://iamrusiru.lovable.app/post/vibe-coding</loc>
-    <lastmod>2026-04-15</lastmod>
+    <lastmod>2026-05-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://iamrusiru.lovable.app/post/owasp-top-ten</loc>
-    <lastmod>2026-04-15</lastmod>
+    <lastmod>2026-05-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://iamrusiru.lovable.app/post/clean-code-principles</loc>
-    <lastmod>2026-04-15</lastmod>
+    <lastmod>2026-05-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://iamrusiru.lovable.app/post/switched-to-typescript</loc>
-    <lastmod>2026-04-15</lastmod>
+    <lastmod>2026-05-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://iamrusiru.lovable.app/post/cli-tool-rust</loc>
-    <lastmod>2026-04-15</lastmod>
+    <lastmod>2026-05-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://iamrusiru.lovable.app/post/books-better-engineer</loc>
-    <lastmod>2026-04-15</lastmod>
+    <lastmod>2026-05-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://iamrusiru.lovable.app/post/react-server-components</loc>
-    <lastmod>2026-04-15</lastmod>
+    <lastmod>2026-05-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://iamrusiru.lovable.app/post/fastapi-quickstart</loc>
-    <lastmod>2026-04-15</lastmod>
+    <lastmod>2026-05-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://iamrusiru.lovable.app/post/side-projects-keep-me-sane</loc>
-    <lastmod>2026-04-15</lastmod>
+    <lastmod>2026-05-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://iamrusiru.lovable.app/post/code-review-etiquette</loc>
-    <lastmod>2026-04-15</lastmod>
+    <lastmod>2026-05-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://iamrusiru.lovable.app/post/dotfile-one-liners</loc>
-    <lastmod>2026-04-15</lastmod>
+    <lastmod>2026-05-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://iamrusiru.lovable.app/post/burnout-and-recovery</loc>
-    <lastmod>2026-04-15</lastmod>
+    <lastmod>2026-05-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://iamrusiru.lovable.app/post/debugging-production</loc>
-    <lastmod>2026-04-15</lastmod>
+    <lastmod>2026-05-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://iamrusiru.lovable.app/post/git-workflow-tips</loc>
-    <lastmod>2026-04-15</lastmod>
+    <lastmod>2026-05-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://iamrusiru.lovable.app/post/why-i-journal-as-dev</loc>
-    <lastmod>2026-04-15</lastmod>
+    <lastmod>2026-05-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://iamrusiru.lovable.app/post/docker-compose-dev</loc>
-    <lastmod>2026-04-15</lastmod>
+    <lastmod>2026-05-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>

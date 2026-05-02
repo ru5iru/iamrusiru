@@ -19,10 +19,12 @@ import vibeCoding from "./vibe-coding";
 import codeReviewSecurityPlatform from "./code-review-security-platform";
 import drupalPageCaching from "./drupal-page-caching";
 import workLifeBalance from "./work-life-balance-for-developers";
+import brokenAccessControl from "./broken-access-control";
 
 export type { BlogPost, ContentBlock, FAQ } from "./types";
 
 const allPosts = [
+  brokenAccessControl,
   workLifeBalance,
   drupalPageCaching,
   codeReviewSecurityPlatform,
