@@ -81,7 +81,10 @@ const BlogPost = () => {
         },
         publisher: { "@type": "Person", name: "Rusiru Rathmina" },
         mainEntityOfPage: { "@type": "WebPage", "@id": `${SITE}/post/${post.slug}` },
-        keywords: post.tags.join(", "),
+        keywords: (post.seoKeywords && post.seoKeywords.length > 0
+          ? post.seoKeywords
+          : post.tags
+        ).join(", "),
         inLanguage: "en",
         isAccessibleForFree: true,
       },

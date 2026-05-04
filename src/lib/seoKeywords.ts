@@ -48,11 +48,29 @@ function firstNWords(text: string, n: number): string {
 }
 
 /**
- * Score-based keyword extraction.
- * Title tokens weight 3, heading tokens weight 2, first-300-words tokens weight 1.
- * Returns the top 8 deduplicated, lowercased terms plus the post's explicit tags.
+ * Returns SEO keyword phrases for a post.
+ *
+ * Priority:
+ *   1. `post.seoKeywords` — author-curated long-tail phrases (preferred).
+ *   2. Fallback: score-based extraction from title + headings + lead paragraph.
+ *
+ * UI filter `tags` are intentionally NOT used as meta keywords. Tags drive
+ * navigation; seoKeywords drive search intent.
  */
 export function extractKeywords(post: BlogPost): string[] {
+  if (post.seoKeywords && post.seoKeywords.length > 0) {
+    const seen = new Set<string>();
+    const out: string[] = [];
+    for (const k of post.seoKeywords) {
+      const key = k.trim().toLowerCase();
+      if (key && !seen.has(key)) {
+        seen.add(key);
+        out.push(k.trim());
+      }
+    }
+    return out;
+  }
+
   const titleTokens = tokenize(post.title);
   const bodyText = blocksToText(post.content);
   const headingText = extractHeadings(bodyText).join(" ");
@@ -67,28 +85,10 @@ export function extractKeywords(post: BlogPost): string[] {
   add(headingTokens, 2);
   add(firstTokens, 1);
 
-  const ranked = [...scores.entries()]
+  return [...scores.entries()]
     .sort((a, b) => b[1] - a[1])
+    .slice(0, MAX_KEYWORDS)
     .map(([term]) => term);
-
-  // Merge ranked terms with post tags (tags take priority for topical signal).
-  const merged: string[] = [];
-  const seen = new Set<string>();
-  for (const tag of post.tags) {
-    const key = tag.toLowerCase();
-    if (!seen.has(key)) {
-      seen.add(key);
-      merged.push(key);
-    }
-  }
-  for (const term of ranked) {
-    if (merged.length >= MAX_KEYWORDS) break;
-    if (!seen.has(term)) {
-      seen.add(term);
-      merged.push(term);
-    }
-  }
-  return merged.slice(0, MAX_KEYWORDS);
 }
 
 /**
