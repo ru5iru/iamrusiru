@@ -11,7 +11,19 @@ const post: BlogPost = {
   readTime: "9 min read",
   imageUrl: postWorkLifeBalance,
   tags: ["work-life balance", "developer wellbeing", "burnout prevention", "remote work", "productivity"],
-  seoKeywords: ["work-life balance for developers", "developer wellbeing", "preventing burnout for developers", "remote work boundaries", "programmer work-life balance", "healthy developer habits", "sustainable software career", "developer productivity and rest"],
+  seoKeywords: [
+    "work-life balance for developers",
+    "developer wellbeing",
+    "preventing burnout for developers",
+    "remote work boundaries",
+    "programmer work-life balance",
+    "healthy developer habits",
+    "sustainable software career",
+    "developer productivity and rest",
+    "setting work boundaries as a developer",
+    "avoiding overwork in tech",
+    "developer mental health",
+  ],
   content: [
     "Work-life balance is the deliberate division of time and energy between professional work and personal life so neither one consistently overwhelms the other. For software developers, getting this balance right is not a soft nice-to-have, it is the single biggest predictor of long-term productivity, code quality, and career longevity. After 10 years of writing software, I can tell you with confidence: the engineers who last are not the ones who grind hardest, they are the ones who know when to stop.",
 

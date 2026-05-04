@@ -11,7 +11,18 @@ const post: BlogPost = {
   readTime: "5 min read",
   imageUrl: postSideProjects,
   tags: ["side projects", "developer productivity", "open source", "career growth", "creativity"],
-  seoKeywords: ["why side projects matter for developers", "benefits of side projects", "developer side project ideas", "creative coding projects", "learning through side projects", "programmer creativity", "work-life balance side projects"],
+  seoKeywords: [
+    "why side projects matter for developers",
+    "benefits of side projects",
+    "developer side project ideas",
+    "creative coding projects",
+    "learning through side projects",
+    "programmer creativity",
+    "side projects for career growth",
+    "building side projects after work",
+    "developer hobby coding",
+    "preventing burnout with side projects",
+  ],
   content: [
     "Side projects are where developers experiment, fail, and rediscover the joy of programming. At work, I write TypeScript in a monorepo with strict linting rules, mandatory code reviews, and a deployment pipeline that takes 45 minutes. It is good engineering. It is also exhausting.",
 

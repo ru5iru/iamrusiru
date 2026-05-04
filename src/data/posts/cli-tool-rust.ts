@@ -11,7 +11,19 @@ const post: BlogPost = {
   readTime: "8 min read",
   imageUrl: postCliRust,
   tags: ["Rust", "CLI tools", "systems programming", "side projects", "open source"],
-  seoKeywords: ["building CLI tools in Rust", "Rust CLI tutorial", "Rust for beginners", "Rust ownership", "clap crate", "Rust pattern matching", "Rust error handling", "systems programming with Rust", "weekend project Rust"],
+  seoKeywords: [
+    "building CLI tools in Rust",
+    "Rust CLI tutorial",
+    "Rust for beginners",
+    "Rust ownership",
+    "clap crate",
+    "Rust pattern matching",
+    "Rust error handling",
+    "systems programming with Rust",
+    "weekend project Rust",
+    "Rust file organizer",
+    "writing command line apps in Rust",
+  ],
   content: [
     "Rust is one of the best languages for building command-line tools. It compiles to fast native binaries, has a helpful compiler, and its ownership model guarantees memory safety without a garbage collector. I spent a weekend building a file organizer CLI in Rust, and this is what I learned.",
 

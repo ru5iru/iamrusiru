@@ -11,7 +11,19 @@ const post: BlogPost = {
   readTime: "4 min read",
   imageUrl: postDotfiles,
   tags: ["dotfiles", "bash aliases", "git shortcuts", "developer productivity", "terminal"],
-  seoKeywords: ["useful dotfile one-liners", "bash aliases for developers", "git shortcuts", "terminal productivity tips", "developer dotfiles", "zsh configuration", "shell productivity", "command line tricks"],
+  seoKeywords: [
+    "useful dotfile one-liners",
+    "bash aliases for developers",
+    "git shortcuts",
+    "terminal productivity tips",
+    "developer dotfiles",
+    "zsh configuration",
+    "shell productivity",
+    "command line tricks",
+    "dotfiles repository",
+    "useful bash functions",
+    "developer command line setup",
+  ],
   content: [
     "Dotfiles are the configuration files that define your shell environment, and a well-curated set of aliases and scripts can save significant time every day. I have been collecting shell aliases and tiny scripts for years. Here are the ones I actually use daily.",
 
