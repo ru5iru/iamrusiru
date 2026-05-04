@@ -11,6 +11,7 @@ const post: BlogPost = {
   readTime: "4 min read",
   imageUrl: postJournaling,
   tags: ["developer journal", "productivity", "career growth", "learning", "knowledge management"],
+  seoKeywords: ["developer journal", "why developers should keep a journal", "engineering journal", "programmer journaling", "journaling for productivity", "learning log developer", "reflective practice software engineering", "knowledge management for developers"],
   content: [
     "A developer journal is the highest-ROI habit I have ever built. Every evening, I spend 10 minutes writing down what I worked on, what I learned, and what confused me. I have been doing this for two years, and it has transformed how I track progress, prepare for reviews, and solve problems.",
 

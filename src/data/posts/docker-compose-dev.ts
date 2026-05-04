@@ -11,6 +11,7 @@ const post: BlogPost = {
   readTime: "7 min read",
   imageUrl: postDocker,
   tags: ["Docker", "Docker Compose", "local development", "DevOps", "developer onboarding"],
+  seoKeywords: ["Docker Compose for local development", "Docker Compose tutorial", "local dev environment with Docker", "docker-compose.yml example", "developer onboarding with Docker", "containerized development environment", "Docker for developers"],
   content: [
     "Docker Compose simplifies local development by defining your entire stack - database, cache, application server - in a single YAML file. Instead of a README with 47 manual setup steps, new developers run one command and have a working environment in minutes.",
 

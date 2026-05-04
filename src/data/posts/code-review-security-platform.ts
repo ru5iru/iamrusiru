@@ -20,6 +20,7 @@ const codeReviewSecurityPlatform: BlogPost = {
     "shift-left testing",
     "DevSecOps",
   ],
+  seoKeywords: ["code review and security platform", "static application security testing", "SAST tools", "SonarQube", "CodeQL", "Snyk", "secure code review", "code quality platform", "DevSecOps", "shift left security", "automated code review"],
   content: [
     "## Introduction",
 

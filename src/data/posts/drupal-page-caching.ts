@@ -11,6 +11,7 @@ const post: BlogPost = {
   readTime: "10 min read",
   imageUrl: postDrupalCaching,
   tags: ["Drupal", "CMS", "Drupal developer", "Drupal Cache", "performance"],
+  seoKeywords: ["Drupal page caching", "Drupal cache tags", "Drupal performance optimization", "Drupal internal page cache", "Drupal dynamic page cache", "CDN with Drupal", "Drupal cache contexts", "Drupal developer guide", "BigPipe Drupal"],
   content: [
     "Drupal page caching stores fully rendered HTML responses for anonymous users so subsequent requests skip the bootstrap, routing, and database layers entirely. When tuned well, it can drop average response times from 400ms to under 50ms on a stock LAMP stack. The catch: Drupal's cache system has at least four cooperating layers, and a misconfigured cache tag can silently serve stale content for weeks.",
 

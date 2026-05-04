@@ -11,6 +11,7 @@ const post: BlogPost = {
   readTime: "7 min read",
   imageUrl: postTypescript,
   tags: ["TypeScript", "JavaScript", "web development", "frontend", "type safety"],
+  seoKeywords: ["why switch from JavaScript to TypeScript", "TypeScript vs JavaScript", "benefits of TypeScript", "migrating to TypeScript", "TypeScript for React", "type safety in JavaScript", "TypeScript adoption", "why use TypeScript"],
   content: [
     "Switching from JavaScript to TypeScript is one of the highest-impact decisions a frontend or full-stack developer can make. TypeScript adds static type checking to JavaScript, catching entire categories of bugs before your code ever runs. After six years of pure JavaScript, I made the switch - and it transformed how I write, refactor, and maintain code.",
 
