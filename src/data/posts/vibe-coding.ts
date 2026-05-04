@@ -11,6 +11,7 @@ const post: BlogPost = {
   readTime: "8 min read",
   imageUrl: postVibeCoding,
   tags: ["vibe coding", "AI coding tools", "GitHub Copilot", "software engineering", "productivity"],
+  seoKeywords: ["vibe coding", "AI coding tools", "coding with GitHub Copilot", "AI pair programming", "AI code generation", "prompt engineering for developers", "Cursor AI", "Claude code", "writing software with AI", "clear requirements for AI coding"],
   content: [
     "Vibe coding is a new approach to software development where programmers collaborate with AI tools conversationally to write code faster and ship features in a fraction of the time. Developers are using tools like GitHub Copilot, ChatGPT, Cursor, and Lovable to prototype ideas in minutes and automate boilerplate. But the quality of AI-generated code depends entirely on how clearly you define your requirements.",
 

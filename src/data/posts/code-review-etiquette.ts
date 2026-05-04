@@ -11,6 +11,7 @@ const post: BlogPost = {
   readTime: "6 min read",
   imageUrl: postCodeReview,
   tags: ["code review", "team collaboration", "software engineering", "career growth", "best practices"],
+  seoKeywords: ["code review best practices", "how to do good code reviews", "code review etiquette", "constructive code feedback", "pull request reviews", "collaborative code review", "code review culture", "reviewing code kindly"],
   content: [
     "Good code reviews improve code quality and build team trust. Bad code reviews create resentment and slow teams down. The difference comes down to etiquette: how you frame feedback, what you prioritize, and whether you treat the review as a collaboration or a judgment.",
 

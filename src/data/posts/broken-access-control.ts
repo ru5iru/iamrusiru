@@ -18,6 +18,22 @@ const post: BlogPost = {
     "API security",
     "best practices",
   ],
+  seoKeywords: [
+    "broken access control",
+    "broken access control vulnerability",
+    "access control vulnerabilities",
+    "authorization failure",
+    "web application access control",
+    "OWASP broken access control",
+    "broken access control OWASP top 10",
+    "insecure direct object reference",
+    "IDOR vulnerability",
+    "BOLA",
+    "BFLA",
+    "API authorization",
+    "privilege escalation",
+    "least privilege access",
+  ],
   content: [
     "Broken access control is the kind of bug that does not crash anything. The app works. Tests pass. Users do their jobs. Then one curious person changes a number in a URL and walks straight into someone else's data. That is broken access control, and it has held the number one spot on the OWASP Top 10 for years for a reason. In this post I want to show you what a broken access control vulnerability actually looks like in real code, why it keeps happening, and the patterns I rely on to prevent it.",
 

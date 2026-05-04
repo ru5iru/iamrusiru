@@ -11,6 +11,7 @@ const post: BlogPost = {
   readTime: "8 min read",
   imageUrl: postCleanCode,
   tags: ["clean code", "best practices", "software engineering", "code quality", "refactoring"],
+  seoKeywords: ["clean code principles", "clean code best practices", "writing maintainable code", "meaningful variable names", "single responsibility principle", "DRY principle", "Boy Scout Rule", "code readability", "refactoring techniques", "software craftsmanship"],
   content: [
     "Clean code is code that is easy to read, easy to change, and easy to test. Writing code that works is straightforward. Writing code that others can maintain and extend is the real challenge, and it is what separates junior developers from senior engineers.",
 

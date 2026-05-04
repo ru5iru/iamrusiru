@@ -11,6 +11,7 @@ const post: BlogPost = {
   readTime: "7 min read",
   imageUrl: postDebugging,
   tags: ["debugging", "production", "structured logging", "incident management", "DevOps"],
+  seoKeywords: ["debugging in production", "production debugging techniques", "structured logging", "incident response", "observability", "distributed tracing", "error monitoring", "root cause analysis", "SRE practices", "debugging live systems"],
   content: [
     "Debugging production issues is fundamentally different from debugging in development. Your beautiful stack traces are gone, replaced by cryptic error codes and urgent Slack messages. The key difference is that you need structured logging, a systematic approach, and a clear incident playbook before problems occur.",
 

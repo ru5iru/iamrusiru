@@ -29,7 +29,14 @@ export interface BlogPost {
   /** Optional. Falls back to useReadingTime when omitted. */
   readTime?: string;
   imageUrl: string;
+  /** UI filter tags (also drive the sidebar tag cloud). Keep human-friendly. */
   tags: string[];
+  /**
+   * SEO/AEO keyword phrases — separate from `tags`.
+   * Used for the <meta name="keywords"> tag and JSON-LD `keywords`.
+   * Provide 5-10 long-tail phrases targeting search intent.
+   */
+  seoKeywords?: string[];
   content: ContentBlock[];
   faq?: FAQ[];
   /** Optional related post slugs. */
