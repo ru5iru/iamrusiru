@@ -137,7 +137,7 @@ const BlogPost = () => {
           modifiedTime: post.updatedDate ?? post.date,
           author: "Rusiru Rathmina",
           section: post.category,
-          tags: post.tags,
+          tags: post.seoKeywords && post.seoKeywords.length > 0 ? post.seoKeywords : post.tags,
         }
       : undefined,
   });
