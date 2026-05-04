@@ -11,7 +11,19 @@ const post: BlogPost = {
   readTime: "10 min read",
   imageUrl: postReactRsc,
   tags: ["React", "Server Components", "web development", "frontend", "JavaScript"],
-  seoKeywords: ["React Server Components", "RSC explained", "React Server Components vs SSR", "Next.js Server Components", "React 18 server components", "streaming React", "React data fetching", "client vs server components"],
+  seoKeywords: [
+    "React Server Components",
+    "RSC explained",
+    "React Server Components vs SSR",
+    "Next.js Server Components",
+    "React 18 server components",
+    "streaming React",
+    "React data fetching",
+    "client vs server components",
+    "React server component bundle size",
+    "when to use server components",
+    "React app architecture",
+  ],
   content: [
     "React Server Components (RSCs) represent the biggest shift in React architecture since hooks. Server Components run only on the server, allowing direct database access and API calls without shipping that code to the client. This reduces JavaScript bundle size and simplifies data fetching patterns.",
 

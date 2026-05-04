@@ -11,7 +11,19 @@ const post: BlogPost = {
   readTime: "10 min read",
   imageUrl: postOwasp,
   tags: ["OWASP", "web security", "application security", "SQL injection", "best practices"],
-  seoKeywords: ["OWASP Top 10", "OWASP Top 10 explained", "web application security", "SQL injection prevention", "cross-site scripting", "XSS prevention", "secure coding practices", "OWASP for developers", "application security checklist"],
+  seoKeywords: [
+    "OWASP Top 10",
+    "OWASP Top 10 explained",
+    "web application security",
+    "SQL injection prevention",
+    "cross-site scripting",
+    "XSS prevention",
+    "secure coding practices",
+    "OWASP for developers",
+    "application security checklist",
+    "CSRF prevention",
+    "secure web development",
+  ],
   content: [
     "The OWASP Top 10 is the standard reference for web application security risks. It lists the ten most critical vulnerabilities that affect web applications, from broken access control to server-side request forgery. As developers, we are the first line of defense. Here is a practical breakdown of each vulnerability and how to guard against it.",
 

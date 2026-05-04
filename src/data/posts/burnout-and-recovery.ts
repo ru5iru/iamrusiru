@@ -11,7 +11,18 @@ const post: BlogPost = {
   readTime: "8 min read",
   imageUrl: postBurnout,
   tags: ["developer burnout", "mental health", "work-life balance", "career growth", "productivity"],
-  seoKeywords: ["developer burnout", "software engineer burnout recovery", "signs of developer burnout", "how to recover from burnout", "burnout prevention for developers", "programmer mental health", "setting boundaries at work", "work-life balance for developers"],
+  seoKeywords: [
+    "developer burnout",
+    "software engineer burnout recovery",
+    "signs of developer burnout",
+    "how to recover from burnout",
+    "burnout prevention for developers",
+    "programmer mental health",
+    "setting boundaries at work",
+    "work-life balance for developers",
+    "engineering burnout symptoms",
+    "sustainable software career",
+  ],
   content: [
     "Developer burnout is a real and growing problem in the software industry. Six months ago, I could not open my laptop without a knot forming in my stomach. The thought of writing another line of code - something I had loved since I was fourteen - made me feel physically ill. I was burned out, and this is what I learned from it.",
 

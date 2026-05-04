@@ -11,7 +11,19 @@ const post: BlogPost = {
   readTime: "6 min read",
   imageUrl: postBooksEngineer,
   tags: ["software engineering books", "career growth", "developer productivity", "systems thinking"],
-  seoKeywords: ["best books for software engineers", "books that make you a better engineer", "software engineering books", "books for developers", "systems thinking books", "developer career growth books", "A Philosophy of Software Design", "Pragmatic Programmer", "Thinking in Systems"],
+  seoKeywords: [
+    "best books for software engineers",
+    "books that make you a better engineer",
+    "software engineering books",
+    "books for developers",
+    "systems thinking books",
+    "developer career growth books",
+    "A Philosophy of Software Design",
+    "Pragmatic Programmer",
+    "Thinking in Systems",
+    "must-read engineering books",
+    "books on software design",
+  ],
   content: [
     "The best books for software engineers go beyond syntax and frameworks. The books that truly changed how I work cover complexity management, systems thinking, communication, and time management. These skills matter just as much as algorithms.",
 

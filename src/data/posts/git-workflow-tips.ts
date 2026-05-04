@@ -11,7 +11,19 @@ const post: BlogPost = {
   readTime: "6 min read",
   imageUrl: postGitWorkflow,
   tags: ["Git", "version control", "developer workflow", "git rebase", "productivity"],
-  seoKeywords: ["Git workflow tips", "interactive rebase", "git rebase vs merge", "git stash workflow", "cleaning up git history", "useful git commands", "git productivity tips", "advanced git workflow"],
+  seoKeywords: [
+    "Git workflow tips",
+    "interactive rebase",
+    "git rebase vs merge",
+    "git stash workflow",
+    "cleaning up git history",
+    "useful git commands",
+    "git productivity tips",
+    "advanced git workflow",
+    "git bisect tutorial",
+    "git worktrees",
+    "git tips for developers",
+  ],
   content: [
     "Git has powerful features that most developers do not discover for years. Interactive rebase, bisect, and worktrees transformed how I work with version control. I used git for three years before I learned interactive rebase - three years of messy commit histories that could have been clean, readable stories.",
 

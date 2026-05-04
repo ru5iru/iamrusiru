@@ -11,7 +11,19 @@ const post: BlogPost = {
   readTime: "5 min read",
   imageUrl: postFastapi,
   tags: ["FastAPI", "Python", "REST API", "backend development", "web framework"],
-  seoKeywords: ["FastAPI quickstart", "Python FastAPI tutorial", "FastAPI backend setup", "building REST API with FastAPI", "FastAPI vs Flask", "async Python API", "Pydantic validation", "FastAPI for beginners"],
+  seoKeywords: [
+    "FastAPI quickstart",
+    "Python FastAPI tutorial",
+    "FastAPI backend setup",
+    "building REST API with FastAPI",
+    "FastAPI vs Flask",
+    "async Python API",
+    "Pydantic validation",
+    "FastAPI for beginners",
+    "FastAPI project structure",
+    "FastAPI OpenAPI docs",
+    "Python REST API framework",
+  ],
   content: [
     "FastAPI is a modern Python web framework for building REST APIs quickly and reliably. It provides automatic OpenAPI documentation, request validation via Pydantic models, and async support out of the box. Here is a complete quickstart to get a validated, documented API running in 15 minutes.",
 
