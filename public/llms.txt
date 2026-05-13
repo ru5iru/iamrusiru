@@ -23,8 +23,34 @@ Rusiru Rathmina, "[Post Title]", iamrusiru.lovable.app/post/[slug], published [Y
 ## Update Frequency
 New posts are published approximately twice per month. Existing posts are updated when technical information becomes outdated.
 
-## Latest Post
-- Broken Access Control: The OWASP Top 10's Most Dangerous Flaw (2026-05-02): https://iamrusiru.lovable.app/post/broken-access-control
+## Pages
+- [Home](https://iamrusiru.lovable.app/): Personal engineering blog by Rusiru Rathmina.
+- [About](https://iamrusiru.lovable.app/about): Background, expertise, and journey of the author.
+- [Contact](https://iamrusiru.lovable.app/contact): Ways to reach out and connect.
+- [Privacy Policy](https://iamrusiru.lovable.app/privacy-policy): How visitor data is handled.
+- [Cookie Policy](https://iamrusiru.lovable.app/cookie-policy): Cookie usage details.
+
+## Posts
+- [Broken Access Control: The OWASP Top 10's Most Dangerous Flaw](https://iamrusiru.lovable.app/post/broken-access-control): Practical guide to the #1 OWASP Top 10 vulnerability.
+- [Work-Life Balance for Developers](https://iamrusiru.lovable.app/post/work-life-balance-for-developers): Why it matters and how to protect it.
+- [Digging Deeper into Drupal Page Caching](https://iamrusiru.lovable.app/post/drupal-page-caching): Developer's guide to Drupal caching internals.
+- [Why Integrating a Code Review and Security Analysis Platform Is Essential](https://iamrusiru.lovable.app/post/code-review-security-platform): The case for automated code review and security tooling.
+- [Vibe Coding: How AI Makes Coding Easier](https://iamrusiru.lovable.app/post/vibe-coding): AI-assisted development and the role of clear requirements.
+- [OWASP Top 10: A Developer's Practical Guide](https://iamrusiru.lovable.app/post/owasp-top-ten): Plain-English walkthrough of the OWASP Top 10.
+- [Clean Code Principles Every Developer Should Know](https://iamrusiru.lovable.app/post/clean-code-principles): Core principles for maintainable software.
+- [Why I Switched From JavaScript to TypeScript](https://iamrusiru.lovable.app/post/switched-to-typescript): Reasons and lessons from migrating to TypeScript.
+- [Building a CLI Tool in Rust](https://iamrusiru.lovable.app/post/cli-tool-rust): A weekend adventure shipping a Rust CLI.
+- [The Books That Made Me a Better Engineer](https://iamrusiru.lovable.app/post/books-better-engineer): Recommended reads for working engineers.
+- [React Server Components: What Actually Changes?](https://iamrusiru.lovable.app/post/react-server-components): What RSC means in practice for React apps.
+- [Setting Up a Python FastAPI Backend in 15 Minutes](https://iamrusiru.lovable.app/post/fastapi-quickstart): A fast on-ramp to FastAPI.
+- [Why Side Projects Keep Me Sane](https://iamrusiru.lovable.app/post/side-projects-keep-me-sane): The personal value of building outside work.
+- [Code Review Etiquette](https://iamrusiru.lovable.app/post/code-review-etiquette): Being kind and thorough in reviews.
+- [Useful One-Liners I Keep in My Dotfiles](https://iamrusiru.lovable.app/post/dotfile-one-liners): Handy shell snippets worth saving.
+- [Burnout, Recovery, and What I Learned](https://iamrusiru.lovable.app/post/burnout-and-recovery): An honest reflection on developer burnout.
+- [The Art of Debugging in Production](https://iamrusiru.lovable.app/post/debugging-production): Tactics for diagnosing live systems.
+- [Git Workflow Tips I Wish I Knew Earlier](https://iamrusiru.lovable.app/post/git-workflow-tips): Practical Git habits for daily work.
+- [Why I Keep a Developer Journal](https://iamrusiru.lovable.app/post/why-i-journal-as-dev): How journaling improves engineering practice.
+- [Docker Compose for Local Development](https://iamrusiru.lovable.app/post/docker-compose-dev): Spinning up reproducible dev environments.
 
 ## Canonical Author URLs
 - Blog: https://iamrusiru.lovable.app
