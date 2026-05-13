@@ -8,7 +8,7 @@ const SITE = "https://iamrusiru.lovable.app";
 const About = () => {
   useSEO({
     title: "About Rusiru Rathmina | iamrusiru",
-    description: "Learn about Rusiru Rathmina, Associate Software Engineer at Omobio, based in Colombo, Sri Lanka. Full-stack developer specializing in React, Java, Spring Boot, AWS, and DevOps.",
+    description: "Rusiru Rathmina, Associate Software Engineer at Omobio in Colombo. Full-stack dev working with React, Java, Spring Boot, AWS, and DevOps.",
     canonical: "/about",
     jsonLd: [
       {
