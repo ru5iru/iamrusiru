@@ -423,7 +423,7 @@ function buildAboutPage(template: string): string {
   let html = replaceMeta(template, {
     title: "About Rusiru Rathmina | iamrusiru",
     description:
-      "Learn about Rusiru Rathmina, Associate Software Engineer at Omobio, based in Colombo, Sri Lanka. Full-stack developer specializing in React, Java, Spring Boot, AWS, and DevOps.",
+      "Rusiru Rathmina, Associate Software Engineer at Omobio in Colombo. Full-stack dev working with React, Java, Spring Boot, AWS, and DevOps.",
     url: `${SITE}/about`,
   });
   html = injectRoot(html, buildAboutStaticHtml());
