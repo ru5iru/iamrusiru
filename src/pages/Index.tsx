@@ -27,7 +27,7 @@ const Index = () => {
   }, [tagParam]);
 
   useSEO({
-    title: "iamrusiru | Rusiru Rathmina - Full-Stack Software Engineer Blog",
+    title: "Rusiru Rathmina | Software Engineer Blog",
     description:
       "Read about software engineering, career lessons, side projects, and the human side of building software by Rusiru Rathmina.",
     canonical: "/",
