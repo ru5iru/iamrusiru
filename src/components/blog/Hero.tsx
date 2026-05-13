@@ -90,6 +90,8 @@ const Hero = () => {
                   alt="Rusiru's profile photo"
                   width={320}
                   height={320}
+                  fetchPriority="high"
+                  decoding="async"
                   className="w-full h-full object-cover"
                 />
               </div>
