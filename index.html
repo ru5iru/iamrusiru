@@ -17,6 +17,26 @@
     <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
     <link rel="canonical" href="https://iamrusiru.lovable.app/" />
 
+    <!-- Self-referential canonical + og:url. Lovable hosting serves this shell
+         for every route, so without this, all routes would canonicalize to "/"
+         (Google: "Alternate page with proper canonical tag"). This inline
+         script runs before the React bundle and rewrites the canonical and
+         og:url to the actual requested path so crawlers see a self-referential
+         canonical even before useSEO runs. -->
+    <script>
+      (function () {
+        try {
+          var origin = "https://iamrusiru.lovable.app";
+          var path = window.location.pathname.replace(/\/+$/, "") || "/";
+          var url = origin + (path === "/" ? "/" : path);
+          var c = document.querySelector('link[rel="canonical"]');
+          if (c) c.setAttribute("href", url);
+          var o = document.querySelector('meta[property="og:url"]');
+          if (o) o.setAttribute("content", url);
+        } catch (e) {}
+      })();
+    </script>
+
     <!-- Geo Meta Tags (GEO) -->
     <meta name="geo.region" content="LK" />
     <meta name="geo.placename" content="Colombo, Sri Lanka" />
