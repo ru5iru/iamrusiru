@@ -31,6 +31,7 @@ New posts are published approximately twice per month. Existing posts are update
 - [Cookie Policy](https://iamrusiru.lovable.app/cookie-policy): Cookie usage details.
 
 ## Posts
+- [Cryptographic Failures: The OWASP A02 Risk Hiding in Your Code](https://iamrusiru.lovable.app/post/cryptographic-failures): Practical guide to OWASP A02 cryptographic failures and how to prevent them.
 - [Broken Access Control: The OWASP Top 10's Most Dangerous Flaw](https://iamrusiru.lovable.app/post/broken-access-control): Practical guide to the #1 OWASP Top 10 vulnerability.
 - [Work-Life Balance for Developers](https://iamrusiru.lovable.app/post/work-life-balance-for-developers): Why it matters and how to protect it.
 - [Digging Deeper into Drupal Page Caching](https://iamrusiru.lovable.app/post/drupal-page-caching): Developer's guide to Drupal caching internals.
