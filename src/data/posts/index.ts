@@ -20,10 +20,12 @@ import codeReviewSecurityPlatform from "./code-review-security-platform";
 import drupalPageCaching from "./drupal-page-caching";
 import workLifeBalance from "./work-life-balance-for-developers";
 import brokenAccessControl from "./broken-access-control";
+import cryptographicFailures from "./cryptographic-failures";
 
 export type { BlogPost, ContentBlock, FAQ } from "./types";
 
 const allPosts = [
+  cryptographicFailures,
   brokenAccessControl,
   workLifeBalance,
   drupalPageCaching,
