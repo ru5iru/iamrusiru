@@ -156,32 +156,87 @@ function renderPostContent(block: string | { type: "code"; language: string; cod
   return `<pre><code class="language-${esc(block.language)}">${esc(block.code)}</code></pre>`;
 }
 
-function buildPostStaticHtml(post: PostMeta): string {
+function buildPostStaticHtml(post: PostMeta, allPosts: PostMeta[]): string {
   const contentHtml = post.content.map(renderPostContent).join("\n");
   const faqHtml = post.faq && post.faq.length > 0
-    ? `<section><h2>Frequently Asked Questions</h2>${post.faq.map(f => `<div><h3>${esc(f.question)}</h3><p>${esc(f.answer)}</p></div>`).join("\n")}</section>`
+    ? `<section aria-labelledby="faq-heading"><h2 id="faq-heading">Frequently Asked Questions</h2>${post.faq.map(f => `<div><h3>${esc(f.question)}</h3><p>${esc(f.answer)}</p></div>`).join("\n")}</section>`
     : "";
 
+  // Related posts: same category, excluding current, fallback to recent.
+  const related = allPosts
+    .filter((p) => p.slug !== post.slug && p.category === post.category)
+    .slice(0, 3);
+  const fallback = allPosts.filter((p) => p.slug !== post.slug).slice(0, 3);
+  const relatedList = (related.length ? related : fallback)
+    .map(
+      (p) => `<li><a href="/post/${esc(p.slug)}"><strong>${esc(p.title)}</strong></a><span> — ${esc(p.category)}, ${esc(p.readTime)}</span><p>${esc(p.excerpt)}</p></li>`
+    )
+    .join("\n");
+
+  const tagsList = post.tags.map((t) => `<a href="/?tag=${esc(t)}" rel="tag">#${esc(t)}</a>`).join(" ");
+  const postUrl = `${SITE}/post/${post.slug}`;
+  const shareTwitter = `https://twitter.com/intent/tweet?text=${encodeURIComponent(post.title)}&url=${encodeURIComponent(postUrl)}`;
+  const shareLinkedIn = `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(postUrl)}`;
+
   return `
+<header>
+  <nav aria-label="Primary">
+    <a href="/">Home</a>
+    <a href="/about">About</a>
+    <a href="/contact">Contact</a>
+  </nav>
+</header>
+<nav aria-label="Breadcrumb">
+  <ol>
+    <li><a href="/">Home</a></li>
+    <li><a href="/">${esc(post.category)}</a></li>
+    <li aria-current="page">${esc(post.title)}</li>
+  </ol>
+</nav>
+<main>
 <article>
-  <header>
+  <header class="post-header">
     <span>${esc(post.category)}</span>
     <time datetime="${post.date}">${post.date}</time>
     <span>${esc(post.readTime)}</span>
     <h1>${esc(post.title)}</h1>
-    <p>By Rusiru Rathmina</p>
+    <p>By <a href="/about" rel="author">Rusiru Rathmina</a>, Associate Software Engineer at Omobio in Colombo, Sri Lanka.</p>
   </header>
-  <section>
+  <section class="post-summary">
     <p><strong>TL;DR:</strong> ${esc(post.excerpt)}</p>
   </section>
-  <img src="${esc(post.imageUrl)}" alt="${esc(post.title)}" />
-  <section>${contentHtml}</section>
+  <figure>
+    <img src="${esc(post.imageUrl)}" alt="Cover image for ${esc(post.title)}" width="1200" height="630" />
+    <figcaption>${esc(post.title)}</figcaption>
+  </figure>
+  <div class="post-content">${contentHtml}</div>
   ${faqHtml}
-  <footer>
-    <p>Tags: ${post.tags.map((t) => esc(t)).join(", ")}</p>
-    <p>Written by Rusiru Rathmina, Associate Software Engineer at Omobio, Colombo, Sri Lanka.</p>
+  <footer class="post-footer">
+    <p>Tags: ${tagsList}</p>
+    <section aria-labelledby="share-heading">
+      <h2 id="share-heading">Share this post</h2>
+      <ul>
+        <li><a href="${esc(shareTwitter)}" rel="noopener">Share on X (Twitter)</a></li>
+        <li><a href="${esc(shareLinkedIn)}" rel="noopener">Share on LinkedIn</a></li>
+      </ul>
+    </section>
+    <section aria-labelledby="author-heading">
+      <h2 id="author-heading">About the author</h2>
+      <p>Rusiru Rathmina is an Associate Software Engineer at Omobio in Colombo, Sri Lanka. He writes about software engineering, career lessons, side projects, and the human side of building software. Connect on <a href="https://www.linkedin.com/in/ru5iru" rel="me noopener">LinkedIn</a>, <a href="https://github.com/ru5iru" rel="me noopener">GitHub</a>, or <a href="https://x.com/ru5iru" rel="me noopener">X</a>.</p>
+    </section>
   </footer>
-</article>`;
+</article>
+<aside aria-labelledby="related-heading">
+  <h2 id="related-heading">Related posts</h2>
+  <ul>
+    ${relatedList}
+  </ul>
+</aside>
+</main>
+<footer>
+  <p>&copy; 2025 Rusiru Rathmina. All rights reserved.</p>
+  <p><a href="/privacy-policy">Privacy Policy</a> · <a href="/cookie-policy">Cookie Policy</a></p>
+</footer>`;
 }
 
 function buildHomepageStaticHtml(posts: PostMeta[]): string {
@@ -317,9 +372,24 @@ function buildCookiePolicyStaticHtml(): string {
 
 // ── Blog post page builder ──────────────────────────────────────────
 
-function buildPostPage(template: string, post: PostMeta): string {
+// Mirrors src/lib/seoKeywords.ts buildPostTitle so prerender title matches
+// the React-side title (avoids "title consistency" SEO mismatch).
+function buildPostTitleForSEO(post: PostMeta, blogName = "iamrusiru"): string {
+  const isCareer = /career|lessons|burnout|balance|journal|sane/i.test(
+    post.category + " " + post.title
+  );
+  const hook = isCareer ? "Lessons" : post.tags[0] || "Deep Dive";
+  const suffix = ` | ${blogName}`;
+  const maxBody = 60 - suffix.length - 3 - hook.length;
+  const trimmed =
+    post.title.length > maxBody ? post.title.slice(0, maxBody - 1).trimEnd() + "…" : post.title;
+  const full = `${trimmed} · ${hook}${suffix}`;
+  return full.length <= 60 ? full : `${post.title.slice(0, 60 - suffix.length - 1)}…${suffix}`;
+}
+
+function buildPostPage(template: string, post: PostMeta, allPosts: PostMeta[]): string {
   const url = `${SITE}/post/${post.slug}`;
-  const title = `${post.title} | iamrusiru`;
+  const title = buildPostTitleForSEO(post);
 
   const graphSchemas: Record<string, unknown>[] = [
     {
@@ -397,7 +467,7 @@ function buildPostPage(template: string, post: PostMeta): string {
     ogType: "article",
   });
 
-  html = injectRoot(html, buildPostStaticHtml(post));
+  html = injectRoot(html, buildPostStaticHtml(post, allPosts));
   html = injectBeforeHead(
     html,
     `${articleMetaTags}\n<script type="application/ld+json">${jsonLd}</script>`
@@ -606,7 +676,7 @@ export default function prerenderPosts(): Plugin {
       for (const post of posts) {
         const dir = path.join(distDir, "post", post.slug);
         fs.mkdirSync(dir, { recursive: true });
-        fs.writeFileSync(path.join(dir, "index.html"), buildPostPage(template, post), "utf-8");
+        fs.writeFileSync(path.join(dir, "index.html"), buildPostPage(template, post, posts), "utf-8");
         console.log(`[prerender] ✓ /post/${post.slug}`);
       }
 
