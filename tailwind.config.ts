@@ -62,6 +62,7 @@ export default {
       fontFamily: {
         display: ['Playfair Display', 'Georgia', 'serif'],
         body: ['Inter', '-apple-system', 'sans-serif'],
+        mono: ['JetBrains Mono', 'ui-monospace', 'SFMono-Regular', 'Menlo', 'monospace'],
       },
       borderRadius: {
         lg: "var(--radius)",

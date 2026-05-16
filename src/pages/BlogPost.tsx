@@ -250,10 +250,10 @@ const BlogPost = () => {
           <div className="max-w-6xl mx-auto px-6">
             <Link
               to="/"
-              className="inline-flex items-center gap-2 text-muted-foreground text-sm hover:text-primary transition-colors mb-8"
+              className="inline-flex items-center gap-2 text-muted-foreground text-sm leading-none hover:text-primary transition-colors mb-8"
             >
-              <ArrowLeft size={16} />
-              Back to all posts
+              <ArrowLeft size={16} aria-hidden="true" className="shrink-0" />
+              <span>Back to all posts</span>
             </Link>
 
             <div className="flex flex-col lg:flex-row gap-10">
