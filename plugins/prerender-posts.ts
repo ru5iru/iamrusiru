@@ -467,7 +467,7 @@ function buildPostPage(template: string, post: PostMeta, allPosts: PostMeta[]): 
     ogType: "article",
   });
 
-  html = injectRoot(html, buildPostStaticHtml(post));
+  html = injectRoot(html, buildPostStaticHtml(post, allPosts));
   html = injectBeforeHead(
     html,
     `${articleMetaTags}\n<script type="application/ld+json">${jsonLd}</script>`
