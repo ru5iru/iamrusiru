@@ -676,7 +676,7 @@ export default function prerenderPosts(): Plugin {
       for (const post of posts) {
         const dir = path.join(distDir, "post", post.slug);
         fs.mkdirSync(dir, { recursive: true });
-        fs.writeFileSync(path.join(dir, "index.html"), buildPostPage(template, post), "utf-8");
+        fs.writeFileSync(path.join(dir, "index.html"), buildPostPage(template, post, posts), "utf-8");
         console.log(`[prerender] ✓ /post/${post.slug}`);
       }
 
