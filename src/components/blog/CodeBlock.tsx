@@ -46,15 +46,15 @@ const CodeBlock = ({ language, code }: CodeBlockProps) => {
     <div className="relative my-6 rounded-xl overflow-hidden border border-divider">
       <div className="flex items-center justify-between px-4 py-2 bg-muted/50 border-b border-divider">
         <span className="text-xs font-mono text-caption">{language}</span>
+        <button
+          type="button"
+          onClick={handleCopy}
+          aria-label={copied ? "Copied!" : "Copy code"}
+          className="inline-flex items-center justify-center w-7 h-7 rounded-md bg-muted/80 hover:bg-muted text-muted-foreground hover:text-foreground transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+        >
+          {copied ? <Check size={14} /> : <Copy size={14} />}
+        </button>
       </div>
-      <button
-        type="button"
-        onClick={handleCopy}
-        aria-label={copied ? "Copied!" : "Copy code"}
-        className="absolute top-2 right-2 p-1.5 rounded-md bg-muted/80 hover:bg-muted text-muted-foreground hover:text-foreground transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
-      >
-        {copied ? <Check size={14} /> : <Copy size={14} />}
-      </button>
       <pre className="p-4 overflow-x-auto bg-muted/30 text-sm leading-relaxed">
         <code className={`font-mono text-body language-${language}`}>{code}</code>
       </pre>
