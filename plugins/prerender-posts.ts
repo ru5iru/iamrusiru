@@ -372,9 +372,24 @@ function buildCookiePolicyStaticHtml(): string {
 
 // ── Blog post page builder ──────────────────────────────────────────
 
-function buildPostPage(template: string, post: PostMeta): string {
+// Mirrors src/lib/seoKeywords.ts buildPostTitle so prerender title matches
+// the React-side title (avoids "title consistency" SEO mismatch).
+function buildPostTitleForSEO(post: PostMeta, blogName = "iamrusiru"): string {
+  const isCareer = /career|lessons|burnout|balance|journal|sane/i.test(
+    post.category + " " + post.title
+  );
+  const hook = isCareer ? "Lessons" : post.tags[0] || "Deep Dive";
+  const suffix = ` | ${blogName}`;
+  const maxBody = 60 - suffix.length - 3 - hook.length;
+  const trimmed =
+    post.title.length > maxBody ? post.title.slice(0, maxBody - 1).trimEnd() + "…" : post.title;
+  const full = `${trimmed} · ${hook}${suffix}`;
+  return full.length <= 60 ? full : `${post.title.slice(0, 60 - suffix.length - 1)}…${suffix}`;
+}
+
+function buildPostPage(template: string, post: PostMeta, allPosts: PostMeta[]): string {
   const url = `${SITE}/post/${post.slug}`;
-  const title = `${post.title} | iamrusiru`;
+  const title = buildPostTitleForSEO(post);
 
   const graphSchemas: Record<string, unknown>[] = [
     {
