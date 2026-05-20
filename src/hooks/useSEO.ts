@@ -11,6 +11,7 @@ interface SEOProps {
   twitterCreator?: string;
   keywords?: string[];
   author?: string;
+  noIndex?: boolean;
   jsonLd?: Record<string, unknown> | Record<string, unknown>[];
   articleMeta?: {
     publishedTime?: string;
