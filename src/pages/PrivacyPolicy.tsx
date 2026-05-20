@@ -9,6 +9,7 @@ const PrivacyPolicy = () => {
     title: "Privacy Policy | iamrusiru",
     description: "Privacy Policy for iamrusiru.com – learn how Rusiru Rathmina collects, uses, and protects your personal information.",
     canonical: "/privacy-policy",
+    noIndex: true,
     jsonLd: [
       {
         "@type": "WebPage",
