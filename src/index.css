@@ -80,7 +80,7 @@
     --secondary-foreground: 40 20% 85%;
 
     --muted: 30 10% 20%;
-    --muted-foreground: 35 15% 72%;
+    --muted-foreground: 35 18% 80%;
 
     --accent: 150 30% 50%;
     --accent-foreground: 30 15% 10%;
@@ -93,8 +93,8 @@
     --ring: 15 55% 60%;
     
     --text-display: 40 20% 95%;
-    --text-body: 40 15% 80%;
-    --text-caption: 40 10% 55%;
+    --text-body: 40 18% 85%;
+    --text-caption: 40 15% 70%;
     
     --surface-warm: 30 12% 16%;
     --surface-hover: 30 12% 20%;
