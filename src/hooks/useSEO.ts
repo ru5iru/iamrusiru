@@ -67,12 +67,16 @@ export function useSEO({
       a.setAttribute("content", author);
     }
 
-    // Robots: ensure index,follow on every public page
+    // Robots
     let robots = document.querySelector('meta[name="robots"]');
     if (!robots) {
       robots = document.createElement("meta");
       robots.setAttribute("name", "robots");
       document.head.appendChild(robots);
+    }
+    if (noIndex) {
+      robots.setAttribute("content", "noindex, nofollow");
+    } else {
       robots.setAttribute(
         "content",
         "index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1"
