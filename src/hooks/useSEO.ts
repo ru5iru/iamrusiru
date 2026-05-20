@@ -11,6 +11,7 @@ interface SEOProps {
   twitterCreator?: string;
   keywords?: string[];
   author?: string;
+  noIndex?: boolean;
   jsonLd?: Record<string, unknown> | Record<string, unknown>[];
   articleMeta?: {
     publishedTime?: string;
@@ -34,6 +35,7 @@ export function useSEO({
   twitterCreator,
   keywords,
   author,
+  noIndex,
   jsonLd,
   articleMeta,
 }: SEOProps) {
@@ -65,12 +67,16 @@ export function useSEO({
       a.setAttribute("content", author);
     }
 
-    // Robots: ensure index,follow on every public page
+    // Robots
     let robots = document.querySelector('meta[name="robots"]');
     if (!robots) {
       robots = document.createElement("meta");
       robots.setAttribute("name", "robots");
       document.head.appendChild(robots);
+    }
+    if (noIndex) {
+      robots.setAttribute("content", "noindex, nofollow");
+    } else {
       robots.setAttribute(
         "content",
         "index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1"
@@ -210,6 +216,7 @@ export function useSEO({
     twitterCreator,
     keywords,
     author,
+    noIndex,
     jsonLd,
     articleMeta,
   ]);

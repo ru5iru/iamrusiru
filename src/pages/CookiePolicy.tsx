@@ -9,6 +9,7 @@ const CookiePolicy = () => {
     title: "Cookie Policy | iamrusiru",
     description: "Cookie Policy for iamrusiru.com – learn what cookies are used, how they work, and how to manage them on this site.",
     canonical: "/cookie-policy",
+    noIndex: true,
     jsonLd: [
       {
         "@type": "WebPage",
