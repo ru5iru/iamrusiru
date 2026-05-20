@@ -35,6 +35,7 @@ export function useSEO({
   twitterCreator,
   keywords,
   author,
+  noIndex,
   jsonLd,
   articleMeta,
 }: SEOProps) {
