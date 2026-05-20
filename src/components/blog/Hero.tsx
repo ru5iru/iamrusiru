@@ -8,10 +8,7 @@ const Hero = () => {
         <div className="flex flex-col md:flex-row items-center gap-8 md:gap-16">
           {/* Text content */}
           <div className="flex-1 text-center md:text-left">
-            <h1
-              className="font-display text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-4 text-display animate-fade-in"
-              style={{ animationDelay: "0.1s" }}
-            >
+            <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-4 text-display">
               Hi, I'm <span className="text-primary">Rusiru</span>
               <br />
               This Is <span className="text-primary">My Blog</span>..
