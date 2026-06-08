@@ -17,7 +17,7 @@ const Hero = () => {
               </span>
             </div>
 
-            <h1 className="font-display font-normal leading-[1.05] mb-8 text-display text-5xl md:text-6xl lg:text-7xl">
+            <h1 className="font-display font-bold leading-[1.05] mb-8 text-display text-5xl md:text-6xl lg:text-7xl">
               Hi, I&apos;m <span className="text-primary">Rusiru</span>
               <br />
               This is{" "}

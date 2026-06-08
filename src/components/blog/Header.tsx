@@ -34,6 +34,14 @@ const Header = () => {
             <Link to="/about" className="text-sm font-medium text-caption hover:text-display transition-colors">
               About me
             </Link>
+            <a
+              href="https://rusiru.lovable.app/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-sm font-medium text-caption hover:text-display transition-colors"
+            >
+              Portfolio
+            </a>
             <Link
               to="/contact"
               className="px-5 py-2 text-sm font-medium border border-divider rounded-full hover:border-primary hover:text-primary transition-colors text-display"
@@ -75,6 +83,7 @@ const Header = () => {
           <div id="mobile-menu" className="md:hidden mt-4 pb-4 flex flex-col gap-4 border-t border-divider pt-4">
             <Link to="/" className="text-sm font-medium text-primary" onClick={() => setMobileOpen(false)}>Home</Link>
             <Link to="/about" className="text-sm font-medium text-caption" onClick={() => setMobileOpen(false)}>About me</Link>
+            <a href="https://rusiru.lovable.app/" target="_blank" rel="noopener noreferrer" className="text-sm font-medium text-caption" onClick={() => setMobileOpen(false)}>Portfolio</a>
             <Link to="/contact" className="text-sm font-medium text-caption" onClick={() => setMobileOpen(false)}>Contact Me</Link>
           </div>
         )}

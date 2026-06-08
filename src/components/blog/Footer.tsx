@@ -19,6 +19,7 @@ const Footer = () => {
             <nav aria-label="Footer navigation" className="flex flex-col gap-2.5">
               <Link to="/" className="text-body text-sm hover:text-primary transition-colors">Home</Link>
               <Link to="/about" className="text-body text-sm hover:text-primary transition-colors">About me</Link>
+              <a href="https://rusiru.lovable.app/" target="_blank" rel="noopener noreferrer" className="text-body text-sm hover:text-primary transition-colors">Portfolio</a>
               <Link to="/contact" className="text-body text-sm hover:text-primary transition-colors">Contact</Link>
             </nav>
           </div>
