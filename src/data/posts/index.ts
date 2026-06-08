@@ -21,10 +21,14 @@ import drupalPageCaching from "./drupal-page-caching";
 import workLifeBalance from "./work-life-balance-for-developers";
 import brokenAccessControl from "./broken-access-control";
 import cryptographicFailures from "./cryptographic-failures";
+import injection from "./injection";
+
+
 
 export type { BlogPost, ContentBlock, FAQ } from "./types";
 
 const allPosts = [
+  injection,
   cryptographicFailures,
   brokenAccessControl,
   workLifeBalance,
