@@ -597,6 +597,39 @@ ${urls.join("\n")}
 </urlset>`;
 }
 
+// ── RSS Feed ────────────────────────────────────────────────────────
+
+function buildRssFeed(posts: PostMeta[]): string {
+  const lastBuildDate = new Date().toUTCString();
+  const items = posts
+    .slice(0, 25)
+    .map((p) => {
+      const pubDate = new Date(p.date + "T00:00:00Z").toUTCString();
+      const link = `${SITE}/post/${p.slug}`;
+      return `    <item>
+      <title>${esc(p.title)}</title>
+      <link>${link}</link>
+      <guid isPermaLink="true">${link}</guid>
+      <pubDate>${pubDate}</pubDate>
+      <description>${esc(p.excerpt)}</description>
+      <category>${esc(p.category)}</category>
+    </item>`;
+    })
+    .join("\n");
+
+  return `<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>iamrusiru — Rusiru Rathmina's Blog</title>
+    <link>${SITE}/</link>
+    <atom:link href="${SITE}/rss.xml" rel="self" type="application/rss+xml" />
+    <description>Software engineering, career lessons, and side projects by Rusiru Rathmina.</description>
+    <language>en</language>
+    <lastBuildDate>${lastBuildDate}</lastBuildDate>
+${items}
+  </channel>
+</rss>`;
+
 // ── Plugin ──────────────────────────────────────────────────────────
 
 export default function prerenderPosts(): Plugin {
@@ -684,6 +717,11 @@ export default function prerenderPosts(): Plugin {
       const sitemap = buildSitemap(posts);
       fs.writeFileSync(path.join(distDir, "sitemap.xml"), sitemap, "utf-8");
       console.log(`[prerender] ✓ sitemap.xml (${posts.length} posts)`);
+
+      // 8. Generate RSS feed
+      const rss = buildRssFeed(posts);
+      fs.writeFileSync(path.join(distDir, "rss.xml"), rss, "utf-8");
+      console.log(`[prerender] ✓ rss.xml (${Math.min(posts.length, 25)} items)`);
 
       console.log(`[prerender] Done! ${5 + posts.length} pages prerendered.`);
     },
