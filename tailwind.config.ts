@@ -60,9 +60,9 @@ export default {
         divider: "hsl(var(--divider))",
       },
       fontFamily: {
-        display: ['Playfair Display', 'Georgia', 'serif'],
-        hero: ['DM Serif Display', 'Georgia', 'serif'],
-        body: ['Inter', '-apple-system', 'sans-serif'],
+        display: ['DM Serif Display', 'serif'],
+        hero: ['DM Serif Display', 'serif'],
+        body: ['Roboto', '-apple-system', 'sans-serif'],
         mono: ['JetBrains Mono', 'ui-monospace', 'SFMono-Regular', 'Menlo', 'monospace'],
       },
       borderRadius: {
