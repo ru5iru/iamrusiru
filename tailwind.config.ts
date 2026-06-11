@@ -60,7 +60,8 @@ export default {
         divider: "hsl(var(--divider))",
       },
       fontFamily: {
-        display: ['DM Serif Display', 'Georgia', 'serif'],
+        display: ['Playfair Display', 'Georgia', 'serif'],
+        hero: ['DM Serif Display', 'Georgia', 'serif'],
         body: ['Inter', '-apple-system', 'sans-serif'],
         mono: ['JetBrains Mono', 'ui-monospace', 'SFMono-Regular', 'Menlo', 'monospace'],
       },
