@@ -2,6 +2,7 @@ import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react-swc";
 import path from "path";
 import { componentTagger } from "lovable-tagger";
+import { imagetools } from "vite-imagetools";
 import prerenderPosts from "./plugins/prerender-posts";
 
 // https://vitejs.dev/config/
@@ -16,6 +17,7 @@ export default defineConfig(({ mode }) => ({
   plugins: [
     react(),
     mode === "development" && componentTagger(),
+    imagetools(),
     prerenderPosts(),
   ].filter(Boolean),
   resolve: {

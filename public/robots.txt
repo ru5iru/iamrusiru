@@ -79,7 +79,5 @@ Disallow: /api
 Disallow: /drafts
 Disallow: /_next
 Disallow: /private
-Disallow: /privacy-policy
-Disallow: /cookie-policy
 
 Sitemap: https://iamrusiru.lovable.app/sitemap.xml
