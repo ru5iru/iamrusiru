@@ -43,6 +43,7 @@ const post: BlogPost = {
     { question: "How do you prevent developer burnout?", answer: "Set clear boundaries before you need them: limit after-hours communication, cap the number of commitments, protect your weekends, and practice saying no. Monitor early warning signs like losing weekends to recovery, dreading Mondays, and declining interest in things you used to enjoy." },
     { question: "Should I take time off if I feel burned out?", answer: "Yes. Taking genuine time off is the most important first step in recovery. This means no laptop, no work messaging, and no checking in. Even one to two weeks of complete rest can begin the recovery process, but it must be followed by lasting boundary changes." },
   ],
+  relatedPosts: ["proper-project-planning", "broken-access-control", "owasp-top-ten"],
 };
 
 export default post;

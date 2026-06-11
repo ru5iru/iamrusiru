@@ -7,7 +7,7 @@ const post: BlogPost = {
     "I spent the better part of two years on an enterprise AWS cluster migration that started without a proper plan. Here is a first-person account of what went wrong, what could have been done differently, and the lessons I'm carrying into every project from now on.",
   date: "June 11, 2026",
   category: "Engineering",
-  slug: "why-proper-planning-is-a-must-in-a-software-project",
+  slug: "proper-project-planning",
   readTime: "12 min read",
   imageUrl: postPlanning,
   tags: ["planning", "project management", "migration", "engineering", "lessons learned"],
@@ -120,7 +120,7 @@ const post: BlogPost = {
         "Start with an honest audit before taking any further action. Map exactly where the codebases diverge, list all outstanding security findings with proper triage, and produce a true remaining task list. Take that picture to leadership on both sides and re-negotiate the timeline based on the actual state of the project rather than the original plan. Make a hard decision about the dual-codebase situation, either freezing the legacy codebase or running a dedicated sync effort, and put a formal change control process in place so the same failure pattern doesn't repeat.",
     },
   ],
-  relatedPosts: ["injection", "broken-access-control", "owasp-top-ten"],
+  relatedPosts: ["burnout-and-recovery", "injection", "broken-access-control"],
 };
 
 export default post;

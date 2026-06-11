@@ -31,7 +31,7 @@ New posts are published approximately twice per month. Existing posts are update
 - [Cookie Policy](https://iamrusiru.lovable.app/cookie-policy): Cookie usage details.
 
 ## Posts
-- [Why Proper Planning Is a Must in a Software Project](https://iamrusiru.lovable.app/blog/why-proper-planning-is-a-must-in-a-software-project): A first-person account of a two-year AWS cluster migration that stalled due to missing upfront planning, covering scope creep, mid-project SonarQube and Twistlock integration on legacy code, codebase divergence, and how to recover a project that's gone off track.
+- [Why Proper Planning Is a Must in a Software Project](https://iamrusiru.lovable.app/post/proper-project-planning): A first-person account of a two-year AWS cluster migration that stalled due to missing upfront planning, covering scope creep, mid-project SonarQube and Twistlock integration on legacy code, codebase divergence, and how to recover a project that's gone off track.
 - [Injection OWASP Top 10: A03 Explained for Developers](https://iamrusiru.lovable.app/post/injection): Practical first-person guide to A03 injection, including SQL and prompt injection.
 - [Cryptographic Failures: The OWASP A02 Risk Hiding in Your Code](https://iamrusiru.lovable.app/post/cryptographic-failures): Practical guide to OWASP A02 cryptographic failures and how to prevent them.
 - [Broken Access Control: The OWASP Top 10's Most Dangerous Flaw](https://iamrusiru.lovable.app/post/broken-access-control): Practical guide to the #1 OWASP Top 10 vulnerability.
