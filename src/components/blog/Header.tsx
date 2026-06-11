@@ -20,10 +20,10 @@ const Header = () => {
     <header className="py-5 border-b border-divider bg-background sticky top-0 z-50">
       <div className="max-w-6xl mx-auto px-6">
         <nav aria-label="Main navigation" className="flex items-center justify-between">
-          <Link to="/" className="group">
-            <h1 className="font-display text-2xl font-bold tracking-tight">
+          <Link to="/" className="group" aria-label="iamrusiru home">
+            <div className="font-display text-2xl font-bold tracking-tight">
               <span className="text-display">iam</span><span className="text-primary">rusiru</span>
-            </h1>
+            </div>
           </Link>
 
           {/* Desktop nav */}
