@@ -1,4 +1,4 @@
-import postPlanning from "@/assets/post-planning.jpg";
+import postPlanning from "@/assets/post-planning.png";
 import type { BlogPost } from "@/data/posts/types";
 
 const post: BlogPost = {
