@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { Menu, X, Sun, Moon } from "lucide-react";
 
@@ -28,12 +28,27 @@ const Header = () => {
 
           {/* Desktop nav */}
           <div className="hidden md:flex items-center gap-8">
-            <Link to="/" className="text-sm font-medium text-primary">
-              Home
-            </Link>
-            <Link to="/about" className="text-sm font-medium text-caption hover:text-display transition-colors">
-              About me
-            </Link>
+            <NavLink
+              to="/"
+              end
+              className={({ isActive }) =>
+                `text-sm font-medium transition-colors ${isActive ? "text-primary" : "text-caption hover:text-display"}`
+              }
+            >
+              {({ isActive }) => (
+                <span aria-current={isActive ? "page" : undefined}>Home</span>
+              )}
+            </NavLink>
+            <NavLink
+              to="/about"
+              className={({ isActive }) =>
+                `text-sm font-medium transition-colors ${isActive ? "text-primary" : "text-caption hover:text-display"}`
+              }
+            >
+              {({ isActive }) => (
+                <span aria-current={isActive ? "page" : undefined}>About me</span>
+              )}
+            </NavLink>
             <a
               href="https://rusiru.lovable.app/"
               target="_blank"
@@ -42,12 +57,20 @@ const Header = () => {
             >
               Portfolio
             </a>
-            <Link
+            <NavLink
               to="/contact"
-              className="px-5 py-2 text-sm font-medium border border-divider rounded-full hover:border-primary hover:text-primary transition-colors text-display"
+              className={({ isActive }) =>
+                `px-5 py-2 text-sm font-medium border rounded-full transition-colors ${
+                  isActive
+                    ? "border-primary text-primary"
+                    : "border-divider text-display hover:border-primary hover:text-primary"
+                }`
+              }
             >
-              Contact Me
-            </Link>
+              {({ isActive }) => (
+                <span aria-current={isActive ? "page" : undefined}>Contact Me</span>
+              )}
+            </NavLink>
             <button
               onClick={() => setDark(!dark)}
               className="w-9 h-9 rounded-full bg-warm flex items-center justify-center text-caption hover:text-primary transition-colors"
