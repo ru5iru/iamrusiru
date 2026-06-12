@@ -84,7 +84,10 @@ export function useSEO({
     }
 
     // Canonical
-    let link = document.querySelector('link[rel="canonical"]') as HTMLLinkElement | null;
+    // Canonical: collapse any duplicates and keep a single link.
+    const canonicalLinks = document.querySelectorAll('link[rel="canonical"]');
+    let link = canonicalLinks[0] as HTMLLinkElement | null;
+    for (let i = 1; i < canonicalLinks.length; i++) canonicalLinks[i].remove();
     if (canonical) {
       if (!link) {
         link = document.createElement("link");
@@ -93,6 +96,7 @@ export function useSEO({
       }
       link.href = `${BASE_URL}${canonical}`;
     }
+
 
     const setMeta = (property: string, content: string) => {
       const el =
