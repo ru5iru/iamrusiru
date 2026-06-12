@@ -77,7 +77,6 @@ Allow: /
 Disallow: /admin
 Disallow: /api
 Disallow: /drafts
-Disallow: /_next
 Disallow: /private
 
 Sitemap: https://iamrusiru.lovable.app/sitemap.xml

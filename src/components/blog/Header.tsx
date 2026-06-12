@@ -55,7 +55,7 @@ const Header = () => {
               rel="noopener noreferrer"
               className="text-sm font-medium text-caption hover:text-display transition-colors"
             >
-              Portfolio
+              Portfolio<span className="sr-only"> (opens in new tab)</span>
             </a>
             <NavLink
               to="/contact"
@@ -104,10 +104,18 @@ const Header = () => {
 
         {mobileOpen && (
           <div id="mobile-menu" className="md:hidden mt-4 pb-4 flex flex-col gap-4 border-t border-divider pt-4">
-            <Link to="/" className="text-sm font-medium text-primary" onClick={() => setMobileOpen(false)}>Home</Link>
-            <Link to="/about" className="text-sm font-medium text-caption" onClick={() => setMobileOpen(false)}>About me</Link>
-            <a href="https://rusiru.lovable.app/" target="_blank" rel="noopener noreferrer" className="text-sm font-medium text-caption" onClick={() => setMobileOpen(false)}>Portfolio</a>
-            <Link to="/contact" className="text-sm font-medium text-caption" onClick={() => setMobileOpen(false)}>Contact Me</Link>
+            <NavLink to="/" end onClick={() => setMobileOpen(false)} className={({ isActive }) => `text-sm font-medium ${isActive ? "text-primary" : "text-caption"}`}>
+              {({ isActive }) => <span aria-current={isActive ? "page" : undefined}>Home</span>}
+            </NavLink>
+            <NavLink to="/about" onClick={() => setMobileOpen(false)} className={({ isActive }) => `text-sm font-medium ${isActive ? "text-primary" : "text-caption"}`}>
+              {({ isActive }) => <span aria-current={isActive ? "page" : undefined}>About me</span>}
+            </NavLink>
+            <a href="https://rusiru.lovable.app/" target="_blank" rel="noopener noreferrer" className="text-sm font-medium text-caption" onClick={() => setMobileOpen(false)}>
+              Portfolio<span className="sr-only"> (opens in new tab)</span>
+            </a>
+            <NavLink to="/contact" onClick={() => setMobileOpen(false)} className={({ isActive }) => `text-sm font-medium ${isActive ? "text-primary" : "text-caption"}`}>
+              {({ isActive }) => <span aria-current={isActive ? "page" : undefined}>Contact Me</span>}
+            </NavLink>
           </div>
         )}
       </div>
