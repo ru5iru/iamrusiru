@@ -14,7 +14,7 @@
 
     <title>Rusiru Rathmina | Software Engineer Blog</title>
     <meta name="description" content="Read about software engineering, career lessons, side projects, and the human side of building software by Rusiru Rathmina.">
-    <meta name="keywords" content="Rusiru Rathmina, iamrusiru, software engineer blog, full-stack developer Sri Lanka, React, Spring Boot, AWS, DevOps, Drupal, OWASP" />
+    <meta name="keywords" content="Rusiru Rathmina, iamrusiru, software engineering blog, full-stack developer, React, Spring Boot, AWS" />
     <meta name="author" content="Rusiru Rathmina" />
     <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
 
@@ -128,7 +128,7 @@
     }
     </script>
 
-    <!-- Structured Data: WebSite with SearchAction (AEO) -->
+    <!-- Structured Data: WebSite (merged with SiteLinksSearchBox for AEO) -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -136,20 +136,11 @@
       "name": "iamrusiru",
       "url": "https://iamrusiru.lovable.app",
       "description": "Blog and portfolio of Rusiru Rathmina, a Full-Stack Software Engineer based in Colombo, Sri Lanka.",
+      "inLanguage": "en",
       "author": {
         "@type": "Person",
         "name": "Rusiru Rathmina"
       },
-      "inLanguage": "en"
-    }
-    </script>
-
-    <!-- Structured Data: SiteLinksSearchBox -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "WebSite",
-      "url": "https://iamrusiru.lovable.app",
       "potentialAction": {
         "@type": "SearchAction",
         "target": {
@@ -184,6 +175,18 @@
   </head>
 
   <body>
+    <script>
+      // Pre-paint theme init to prevent dark-mode flash
+      (function () {
+        try {
+          var saved = localStorage.getItem('theme');
+          var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+          if (saved === 'dark' || (!saved && prefersDark)) {
+            document.documentElement.classList.add('dark');
+          }
+        } catch (e) {}
+      })();
+    </script>
     <div id="root"></div>
     <noscript>
       <h1>iamrusiru | Rusiru Rathmina - Full-Stack Software Engineer Blog</h1>
