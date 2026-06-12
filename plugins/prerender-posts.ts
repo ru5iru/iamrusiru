@@ -629,6 +629,8 @@ function buildRssFeed(posts: PostMeta[]): string {
 ${items}
   </channel>
 </rss>`;
+}
+
 
 // ── Plugin ──────────────────────────────────────────────────────────
 
