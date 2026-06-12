@@ -18,27 +18,10 @@
     <meta name="author" content="Rusiru Rathmina" />
     <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
 
-    <!-- Self-referential canonical + og:url. The inline script runs before
-         the React bundle and creates/rewrites the canonical to the actual
-         requested path so crawlers see a self-referential URL. -->
-    <script>
-      (function () {
-        try {
-          var origin = "https://iamrusiru.lovable.app";
-          var path = window.location.pathname.replace(/\/+$/, "") || "/";
-          var url = origin + (path === "/" ? "/" : path);
-          var c = document.querySelector('link[rel="canonical"]');
-          if (!c) {
-            c = document.createElement("link");
-            c.rel = "canonical";
-            document.head.appendChild(c);
-          }
-          c.setAttribute("href", url);
-          var o = document.querySelector('meta[property="og:url"]');
-          if (o) o.setAttribute("content", url);
-        } catch (e) {}
-      })();
-    </script>
+    <!-- Canonical (replaced per-route at build by prerender plugin,
+         and updated client-side by useSEO for SPA navigations). -->
+    <link rel="canonical" href="https://iamrusiru.lovable.app/" />
+
 
     <!-- Geo Meta Tags (GEO) -->
     <meta name="geo.region" content="LK" />
