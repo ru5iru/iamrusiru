@@ -1,0 +1,116 @@
+{
+  "version": 1,
+  "sdk_version": "2.2.0",
+  "path": "/functions/v1/mcp",
+  "auth": {
+    "type": "none"
+  },
+  "mcp": {
+    "server": {
+      "name": "i-am-rusiru",
+      "version": "0.1.0",
+      "title": "I am Rusiru"
+    },
+    "tools": [
+      {
+        "name": "search_posts",
+        "title": "Search blog posts",
+        "description": "Full-text search across titles, excerpts, tags, keywords and body content of the blog's published posts.",
+        "annotations": {
+          "readOnlyHint": true,
+          "idempotentHint": true,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "$schema": "https://json-schema.org/draft/2020-12/schema",
+          "type": "object",
+          "properties": {
+            "query": {
+              "type": "string",
+              "minLength": 2,
+              "description": "Search phrase, for example 'sql injection'."
+            },
+            "limit": {
+              "description": "Max results (default 10).",
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 25
+            }
+          },
+          "required": [
+            "query"
+          ]
+        },
+        "outputSchema": null
+      },
+      {
+        "name": "list_posts",
+        "title": "List blog posts",
+        "description": "List published posts on Rusiru Rathmina's blog, newest first. Optionally filter by category or tag.",
+        "annotations": {
+          "readOnlyHint": true,
+          "idempotentHint": true,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "$schema": "https://json-schema.org/draft/2020-12/schema",
+          "type": "object",
+          "properties": {
+            "category": {
+              "description": "Filter by category, case-insensitive.",
+              "type": "string"
+            },
+            "tag": {
+              "description": "Filter by tag, case-insensitive.",
+              "type": "string"
+            },
+            "limit": {
+              "description": "Max posts to return (default 20).",
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 50
+            }
+          }
+        },
+        "outputSchema": null
+      },
+      {
+        "name": "get_post",
+        "title": "Get a blog post",
+        "description": "Fetch the full text of one published blog post by its slug, including tags, FAQ entries and related posts.",
+        "annotations": {
+          "readOnlyHint": true,
+          "idempotentHint": true,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "$schema": "https://json-schema.org/draft/2020-12/schema",
+          "type": "object",
+          "properties": {
+            "slug": {
+              "type": "string",
+              "minLength": 1,
+              "description": "Post slug, for example 'git-workflow-tips'."
+            }
+          },
+          "required": [
+            "slug"
+          ]
+        },
+        "outputSchema": null
+      },
+      {
+        "name": "list_topics",
+        "title": "List categories and tags",
+        "description": "List every category and tag used on the blog, with how many posts use each. Useful before filtering list_posts.",
+        "annotations": {
+          "readOnlyHint": true,
+          "idempotentHint": true,
+          "openWorldHint": false
+        },
+        "inputSchema": null,
+        "outputSchema": null
+      }
+    ]
+  }
+}

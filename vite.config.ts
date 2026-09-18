@@ -4,6 +4,7 @@ import path from "path";
 import { componentTagger } from "lovable-tagger";
 import { imagetools } from "vite-imagetools";
 import prerenderPosts from "./plugins/prerender-posts";
+import { mcpPlugin } from "@lovable.dev/mcp-js/stacks/supabase/vite";
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
@@ -19,6 +20,7 @@ export default defineConfig(({ mode }) => ({
     mode === "development" && componentTagger(),
     imagetools(),
     prerenderPosts(),
+    mcpPlugin(),
   ].filter(Boolean),
   resolve: {
     alias: {

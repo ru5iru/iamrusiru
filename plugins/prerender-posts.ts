@@ -632,6 +632,45 @@ ${items}
 }
 
 
+// ── posts.json (data source for the MCP server) ─────────────────────
+
+function blockToText(block: any): string {
+  if (typeof block === "string") return block;
+  if (!block || typeof block !== "object") return "";
+  switch (block.type) {
+    case "code":
+      return "```" + (block.language || "") + "\n" + (block.code || "") + "\n```";
+    case "heading":
+      return `${"#".repeat(block.level || 2)} ${block.text || ""}`;
+    case "callout":
+      return `> ${block.text || ""}`;
+    case "image":
+      return block.caption ? `![${block.alt || ""}] ${block.caption}` : "";
+    default:
+      return "";
+  }
+}
+
+function buildPostsJson(posts: PostMeta[]): string {
+  const data = posts.map((p: any) => ({
+    title: p.title,
+    excerpt: p.excerpt,
+    date: p.date,
+    updatedDate: p.updatedDate,
+    category: p.category,
+    slug: p.slug,
+    readTime: p.readTime,
+    imageUrl: p.imageUrl,
+    url: `${SITE}/post/${p.slug}`,
+    tags: p.tags || [],
+    seoKeywords: p.seoKeywords || [],
+    body: (p.content || []).map(blockToText).filter(Boolean).join("\n\n"),
+    faq: p.faq || [],
+    relatedPosts: p.relatedPosts || [],
+  }));
+  return JSON.stringify(data);
+}
+
 // ── Plugin ──────────────────────────────────────────────────────────
 
 export default function prerenderPosts(): Plugin {
@@ -724,6 +763,10 @@ export default function prerenderPosts(): Plugin {
       const rss = buildRssFeed(posts);
       fs.writeFileSync(path.join(distDir, "rss.xml"), rss, "utf-8");
       console.log(`[prerender] ✓ rss.xml (${Math.min(posts.length, 25)} items)`);
+
+      // 9. Generate posts.json (consumed by the MCP server)
+      fs.writeFileSync(path.join(distDir, "posts.json"), buildPostsJson(posts), "utf-8");
+      console.log(`[prerender] ✓ posts.json (${posts.length} posts)`);
 
       console.log(`[prerender] Done! ${5 + posts.length} pages prerendered.`);
     },
