@@ -31,7 +31,7 @@ export default defineTool({
           text: `# ${post.title}\n\n${post.date} · ${post.category} · ${post.url}\n\n${post.body}${faqText}`,
         },
       ],
-      structuredContent: { post },
+      structuredContent: JSON.parse(JSON.stringify({ post })),
     };
   },
 });

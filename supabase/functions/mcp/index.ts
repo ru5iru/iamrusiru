@@ -147,7 +147,7 @@ ${post.date} \xB7 ${post.category} \xB7 ${post.url}
 ${post.body}${faqText}`
         }
       ],
-      structuredContent: { post }
+      structuredContent: JSON.parse(JSON.stringify({ post }))
     };
   }
 });
