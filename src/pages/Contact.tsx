@@ -64,7 +64,7 @@ const Contact = () => {
             <span className="text-sm font-medium text-primary uppercase tracking-widest">Contact</span>
           </div>
           <h1 className="font-display text-4xl md:text-5xl font-bold text-display leading-tight">
-            Let's <span className="text-primary">talk</span>.
+            Contact <span className="text-primary">Rusiru Rathmina</span>
           </h1>
           <p className="mt-4 text-lg text-caption leading-relaxed max-w-xl">
             Whether you have a project idea, a question, or just want to say hi, I'd love to hear from you.
@@ -77,7 +77,7 @@ const Contact = () => {
         {/* Info */}
         <div className="max-w-lg space-y-8">
           <div>
-            <h3 className="font-display text-lg font-semibold text-display mb-4">Get in touch</h3>
+            <h2 className="font-display text-xl font-semibold text-display mb-4">Get in touch</h2>
             <div className="space-y-4">
               <a href="mailto:r.rathmina@gmail.com" className="flex items-center gap-3 text-body text-sm hover:text-primary transition-colors">
                 <div className="w-9 h-9 rounded-lg bg-warm flex items-center justify-center text-caption">
@@ -95,7 +95,7 @@ const Contact = () => {
           </div>
 
           <div>
-            <h3 className="font-display text-lg font-semibold text-display mb-4">Find me online</h3>
+            <h2 className="font-display text-xl font-semibold text-display mb-4">Find me online</h2>
             <div className="flex gap-3 flex-wrap">
               {socials.map(({ label, icon: Icon, href }) => (
                 <a

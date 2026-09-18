@@ -60,7 +60,7 @@ const About = () => {
             <span className="text-sm font-medium text-primary uppercase tracking-widest">About me</span>
           </div>
           <h1 className="font-display text-4xl md:text-5xl font-bold text-display leading-tight">
-            Hey, I'm <span className="text-primary">Rusiru</span>.
+            About <span className="text-primary">Rusiru Rathmina</span>
           </h1>
           <p className="about-intro mt-4 text-lg text-caption leading-relaxed">
             Associate Software Engineer at Omobio. I build things, break things, and write about both.
