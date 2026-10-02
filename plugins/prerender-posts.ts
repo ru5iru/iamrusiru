@@ -763,6 +763,7 @@ export default function prerenderPosts(): Plugin {
 
       // 1. Prerender homepage
       const homepageHtml = buildHomepage(template, posts);
+      validatePage("/", homepageHtml, false);
       fs.writeFileSync(templatePath, homepageHtml, "utf-8");
       console.log("[prerender] ✓ / (homepage with content)");
 
@@ -794,7 +795,9 @@ export default function prerenderPosts(): Plugin {
       for (const post of posts) {
         const dir = path.join(distDir, "post", post.slug);
         fs.mkdirSync(dir, { recursive: true });
-        fs.writeFileSync(path.join(dir, "index.html"), buildPostPage(template, post, posts), "utf-8");
+        const postHtml = buildPostPage(template, post, posts);
+        validatePage(`/post/${post.slug}`, postHtml, true);
+        fs.writeFileSync(path.join(dir, "index.html"), postHtml, "utf-8");
         console.log(`[prerender] ✓ /post/${post.slug}`);
       }
 
@@ -811,6 +814,10 @@ export default function prerenderPosts(): Plugin {
       // 9. Generate posts.json (consumed by the MCP server)
       fs.writeFileSync(path.join(distDir, "posts.json"), buildPostsJson(posts), "utf-8");
       console.log(`[prerender] ✓ posts.json (${posts.length} posts)`);
+
+      // 10. Generate llms-full.txt (full content for AI crawlers)
+      fs.writeFileSync(path.join(distDir, "llms-full.txt"), buildLlmsFull(posts), "utf-8");
+      console.log(`[prerender] ✓ llms-full.txt (${posts.length} posts)`);
 
       console.log(`[prerender] Done! ${5 + posts.length} pages prerendered.`);
     },
