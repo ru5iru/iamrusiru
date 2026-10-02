@@ -169,7 +169,7 @@ function buildPostStaticHtml(post: PostMeta, allPosts: PostMeta[]): string {
   const fallback = allPosts.filter((p) => p.slug !== post.slug).slice(0, 3);
   const relatedList = (related.length ? related : fallback)
     .map(
-      (p) => `<li><a href="/post/${esc(p.slug)}"><strong>${esc(p.title)}</strong></a><span> — ${esc(p.category)}, ${esc(p.readTime)}</span><p>${esc(p.excerpt)}</p></li>`
+      (p) => `<li><a href="/post/${esc(p.slug)}"><strong>${esc(p.title)}</strong></a><span> · ${esc(p.category)}, ${esc(p.readTime)}</span><p>${esc(p.excerpt)}</p></li>`
     )
     .join("\n");
 
@@ -620,7 +620,7 @@ function buildRssFeed(posts: PostMeta[]): string {
   return `<?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>iamrusiru — Rusiru Rathmina's Blog</title>
+    <title>iamrusiru | Rusiru Rathmina's Blog</title>
     <link>${SITE}/</link>
     <atom:link href="${SITE}/rss.xml" rel="self" type="application/rss+xml" />
     <description>Software engineering, career lessons, and side projects by Rusiru Rathmina.</description>
