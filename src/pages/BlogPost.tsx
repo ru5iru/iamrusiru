@@ -321,6 +321,16 @@ const BlogPost = () => {
 
                 <SharePost title={post.title} url={postUrl} />
 
+                <div className="mt-8 rounded-xl border border-divider bg-warm/40 p-5">
+                  <h2 className="font-display text-lg font-semibold text-foreground mb-2">Cite this post</h2>
+                  <p className="text-body text-sm leading-relaxed mb-3">
+                    Found this useful? Feel free to reference it in your own work:
+                  </p>
+                  <code className="block font-mono text-xs text-body bg-background border border-divider rounded-lg px-4 py-3 break-all">
+                    Rathmina, R. ({new Date(post.date).getFullYear()}). {post.title}. iamrusiru. {SITE}/post/{post.slug}
+                  </code>
+                </div>
+
                 {post.relatedPosts && post.relatedPosts.length > 0 && (
                   <RelatedPosts slugs={post.relatedPosts} />
                 )}
