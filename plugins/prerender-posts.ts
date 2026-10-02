@@ -169,7 +169,7 @@ function buildPostStaticHtml(post: PostMeta, allPosts: PostMeta[]): string {
   const fallback = allPosts.filter((p) => p.slug !== post.slug).slice(0, 3);
   const relatedList = (related.length ? related : fallback)
     .map(
-      (p) => `<li><a href="/post/${esc(p.slug)}"><strong>${esc(p.title)}</strong></a><span> — ${esc(p.category)}, ${esc(p.readTime)}</span><p>${esc(p.excerpt)}</p></li>`
+      (p) => `<li><a href="/post/${esc(p.slug)}"><strong>${esc(p.title)}</strong></a><span> · ${esc(p.category)}, ${esc(p.readTime)}</span><p>${esc(p.excerpt)}</p></li>`
     )
     .join("\n");
 
@@ -620,7 +620,7 @@ function buildRssFeed(posts: PostMeta[]): string {
   return `<?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>iamrusiru — Rusiru Rathmina's Blog</title>
+    <title>iamrusiru | Rusiru Rathmina's Blog</title>
     <link>${SITE}/</link>
     <atom:link href="${SITE}/rss.xml" rel="self" type="application/rss+xml" />
     <description>Software engineering, career lessons, and side projects by Rusiru Rathmina.</description>
@@ -671,6 +671,50 @@ function buildPostsJson(posts: PostMeta[]): string {
   return JSON.stringify(data);
 }
 
+// ── llms-full.txt (full content for AI crawlers) ────────────────────
+
+function buildLlmsFull(posts: PostMeta[]): string {
+  const sections = posts.map((p: any) => {
+    const body = (p.content || []).map(blockToText).filter(Boolean).join("\n\n");
+    const faq = (p.faq || [])
+      .map((f: any) => `Q: ${f.question}\nA: ${f.answer}`)
+      .join("\n\n");
+    return `# ${p.title}
+
+- URL: ${SITE}/post/${p.slug}
+- Published: ${p.date}${p.updatedDate ? ` (updated ${p.updatedDate})` : ""}
+- Category: ${p.category}
+- Tags: ${(p.tags || []).join(", ")}
+
+${p.excerpt}
+
+${body}${faq ? `\n\n## FAQ\n\n${faq}` : ""}`;
+  });
+
+  return `# iamrusiru - Full Content
+
+> Complete blog content by Rusiru Rathmina, a Full-Stack Software Engineer based in Colombo, Sri Lanka. Site: ${SITE}
+
+${sections.join("\n\n---\n\n")}
+`;
+}
+
+// ── Prerender validation ────────────────────────────────────────────
+
+function validatePage(route: string, html: string, expectArticle: boolean): void {
+  const canonicals = (html.match(/<link rel="canonical"/g) || []).length;
+  const h1s = (html.match(/<h1[\s>]/g) || []).length;
+  if (canonicals !== 1) {
+    console.warn(`[prerender] WARNING ${route}: expected 1 canonical tag, found ${canonicals}`);
+  }
+  if (h1s !== 1) {
+    console.warn(`[prerender] WARNING ${route}: expected 1 <h1>, found ${h1s}`);
+  }
+  if (expectArticle && !html.includes("<article")) {
+    console.warn(`[prerender] WARNING ${route}: missing prerendered article content`);
+  }
+}
+
 // ── Plugin ──────────────────────────────────────────────────────────
 
 export default function prerenderPosts(): Plugin {
@@ -719,6 +763,7 @@ export default function prerenderPosts(): Plugin {
 
       // 1. Prerender homepage
       const homepageHtml = buildHomepage(template, posts);
+      validatePage("/", homepageHtml, false);
       fs.writeFileSync(templatePath, homepageHtml, "utf-8");
       console.log("[prerender] ✓ / (homepage with content)");
 
@@ -750,7 +795,9 @@ export default function prerenderPosts(): Plugin {
       for (const post of posts) {
         const dir = path.join(distDir, "post", post.slug);
         fs.mkdirSync(dir, { recursive: true });
-        fs.writeFileSync(path.join(dir, "index.html"), buildPostPage(template, post, posts), "utf-8");
+        const postHtml = buildPostPage(template, post, posts);
+        validatePage(`/post/${post.slug}`, postHtml, true);
+        fs.writeFileSync(path.join(dir, "index.html"), postHtml, "utf-8");
         console.log(`[prerender] ✓ /post/${post.slug}`);
       }
 
@@ -767,6 +814,10 @@ export default function prerenderPosts(): Plugin {
       // 9. Generate posts.json (consumed by the MCP server)
       fs.writeFileSync(path.join(distDir, "posts.json"), buildPostsJson(posts), "utf-8");
       console.log(`[prerender] ✓ posts.json (${posts.length} posts)`);
+
+      // 10. Generate llms-full.txt (full content for AI crawlers)
+      fs.writeFileSync(path.join(distDir, "llms-full.txt"), buildLlmsFull(posts), "utf-8");
+      console.log(`[prerender] ✓ llms-full.txt (${posts.length} posts)`);
 
       console.log(`[prerender] Done! ${5 + posts.length} pages prerendered.`);
     },

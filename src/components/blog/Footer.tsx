@@ -40,6 +40,7 @@ const Footer = () => {
               <a href="https://www.linkedin.com/in/ru5iru" target="_blank" rel="noopener noreferrer me" className="text-body text-sm hover:text-primary transition-colors">LinkedIn</a>
               <a href="https://web.facebook.com/ru5iru" target="_blank" rel="noopener noreferrer me" className="text-body text-sm hover:text-primary transition-colors">Facebook</a>
               <a href="https://instagram.com/rusiru.rathmina" target="_blank" rel="noopener noreferrer me" className="text-body text-sm hover:text-primary transition-colors">Instagram</a>
+              <a href="/rss.xml" target="_blank" rel="noopener noreferrer" className="text-body text-sm hover:text-primary transition-colors">RSS Feed</a>
             </nav>
           </div>
         </div>
