@@ -671,6 +671,50 @@ function buildPostsJson(posts: PostMeta[]): string {
   return JSON.stringify(data);
 }
 
+// ── llms-full.txt (full content for AI crawlers) ────────────────────
+
+function buildLlmsFull(posts: PostMeta[]): string {
+  const sections = posts.map((p: any) => {
+    const body = (p.content || []).map(blockToText).filter(Boolean).join("\n\n");
+    const faq = (p.faq || [])
+      .map((f: any) => `Q: ${f.question}\nA: ${f.answer}`)
+      .join("\n\n");
+    return `# ${p.title}
+
+- URL: ${SITE}/post/${p.slug}
+- Published: ${p.date}${p.updatedDate ? ` (updated ${p.updatedDate})` : ""}
+- Category: ${p.category}
+- Tags: ${(p.tags || []).join(", ")}
+
+${p.excerpt}
+
+${body}${faq ? `\n\n## FAQ\n\n${faq}` : ""}`;
+  });
+
+  return `# iamrusiru - Full Content
+
+> Complete blog content by Rusiru Rathmina, a Full-Stack Software Engineer based in Colombo, Sri Lanka. Site: ${SITE}
+
+${sections.join("\n\n---\n\n")}
+`;
+}
+
+// ── Prerender validation ────────────────────────────────────────────
+
+function validatePage(route: string, html: string, expectArticle: boolean): void {
+  const canonicals = (html.match(/<link rel="canonical"/g) || []).length;
+  const h1s = (html.match(/<h1[\s>]/g) || []).length;
+  if (canonicals !== 1) {
+    console.warn(`[prerender] WARNING ${route}: expected 1 canonical tag, found ${canonicals}`);
+  }
+  if (h1s !== 1) {
+    console.warn(`[prerender] WARNING ${route}: expected 1 <h1>, found ${h1s}`);
+  }
+  if (expectArticle && !html.includes("<article")) {
+    console.warn(`[prerender] WARNING ${route}: missing prerendered article content`);
+  }
+}
+
 // ── Plugin ──────────────────────────────────────────────────────────
 
 export default function prerenderPosts(): Plugin {
