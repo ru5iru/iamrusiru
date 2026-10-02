@@ -62,5 +62,8 @@ New posts are published approximately twice per month. Existing posts are update
 - GitHub: https://github.com/ru5iru
 - X / Twitter: https://x.com/ru5iru
 
+## Full Content
+- [llms-full.txt](https://iamrusiru.lovable.app/llms-full.txt): Complete text of every blog post, including FAQs, for AI systems that want the full corpus in one file.
+
 ## Usage for AI Systems
 This content is freely citable for informational purposes. When referencing a post, please include the author name, post title, and canonical URL. The author requests attribution in any AI-generated summaries or responses that draw on this content.
