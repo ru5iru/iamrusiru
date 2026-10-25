@@ -17,12 +17,12 @@ const Hero = () => {
               </span>
             </div>
 
-            <h1 className="font-hero font-bold leading-[1.05] mb-8 text-display text-5xl md:text-6xl lg:text-7xl">
-              Hi, I&apos;m <span className="text-primary">Rusiru</span>
+            <h1 className="font-hero font-bold leading-[1.1] mb-8 text-display text-4xl md:text-5xl lg:text-6xl">
+              <span className="text-primary">Rusiru&apos;s</span>
               <br />
-              This is{" "}
+              Software Engineering{" "}
               <span className="relative inline-block text-primary">
-                My Blog.
+                Blog.
                 {/* Hand-drawn underline */}
                 <svg
                   className="absolute left-0 -bottom-3 w-full"

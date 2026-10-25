@@ -105,25 +105,28 @@ function esc(s: string): string {
   return s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
 }
 
-function replaceMeta(html: string, post: { title: string; description: string; url: string; image?: string; ogType?: string }): string {
+export function replaceMeta(html: string, post: { title: string; description: string; url: string; image?: string; ogType?: string }): string {
   let h = html;
   h = h.replace(/<title>[^<]*<\/title>/, `<title>${esc(post.title)}</title>`);
-  h = h.replace(/<meta name="description" content="[^"]*">/, `<meta name="description" content="${esc(post.description)}">`);
   h = h.replace(/<link rel="canonical" href="[^"]*"\s*\/?>/, `<link rel="canonical" href="${esc(post.url)}" />`);
 
-  const ogType = post.ogType || "website";
-  h = h.replace(/<meta property="og:title" content="[^"]*">/, `<meta property="og:title" content="${esc(post.title)}">`);
-  h = h.replace(/<meta property="og:description" content="[^"]*">/, `<meta property="og:description" content="${esc(post.description)}">`);
-  h = h.replace(/<meta property="og:type" content="[^"]*"\s*\/?>/, `<meta property="og:type" content="${ogType}" />`);
-  h = h.replace(/<meta property="og:url" content="[^"]*"\s*\/?>/, `<meta property="og:url" content="${esc(post.url)}" />`);
+  // Vite may serialize tags with /> or reorder attributes. Upsert instead
+  // of relying on the source template's exact formatting, and dedupe tags.
+  const setMeta = (attribute: "name" | "property", key: string, value: string) => {
+    const pattern = new RegExp(`<meta\\b(?=[^>]*\\b${attribute}\\s*=\\s*["']${key}["'])[^>]*>`, "gi");
+    h = h.replace(pattern, "");
+    h = h.replace("</head>", `<meta ${attribute}="${key}" content="${esc(value)}" />\n</head>`);
+  };
+  setMeta("name", "description", post.description);
+  setMeta("property", "og:title", post.title);
+  setMeta("property", "og:description", post.description);
+  setMeta("property", "og:type", post.ogType || "website");
+  setMeta("property", "og:url", post.url);
+  setMeta("name", "twitter:title", post.title);
+  setMeta("name", "twitter:description", post.description);
   if (post.image) {
-    h = h.replace(/<meta property="og:image" content="[^"]*">/, `<meta property="og:image" content="${esc(post.image)}">`);
-  }
-
-  h = h.replace(/<meta name="twitter:title" content="[^"]*">/, `<meta name="twitter:title" content="${esc(post.title)}">`);
-  h = h.replace(/<meta name="twitter:description" content="[^"]*">/, `<meta name="twitter:description" content="${esc(post.description)}">`);
-  if (post.image) {
-    h = h.replace(/<meta name="twitter:image" content="[^"]*">/, `<meta name="twitter:image" content="${esc(post.image)}">`);
+    setMeta("property", "og:image", post.image);
+    setMeta("name", "twitter:image", post.image);
   }
 
   return h;
@@ -267,7 +270,7 @@ function buildHomepageStaticHtml(posts: PostMeta[]): string {
 </header>
 <main>
   <section>
-    <h1>iamrusiru - Software Engineering Blog</h1>
+    <h1>Rusiru's Software Engineering Blog.</h1>
     <p>Software engineer by day, tinkerer by night. I write about code, career lessons, side projects, and the human side of building software.</p>
   </section>
   <section>
