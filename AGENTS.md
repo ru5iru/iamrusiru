@@ -1,0 +1,2 @@
+# Project rules
+- Generate route-specific social metadata at build time with format-independent, deduplicating upserts in the prerender plugin; social crawlers must not depend on client-side JavaScript.
