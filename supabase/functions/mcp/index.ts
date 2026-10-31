@@ -7,22 +7,54 @@ import { defineMcp } from "npm:@lovable.dev/mcp-js@2.2.0";
 
 // src/lib/mcp/tools/list-posts.ts
 import { defineTool } from "npm:@lovable.dev/mcp-js@2.2.0";
-import { z } from "npm:zod@^4.6.5";
+import { z as z2 } from "npm:zod@^4.6.5";
 
 // src/lib/mcp/posts.ts
+import { z } from "npm:zod@^4.6.5";
 var SITE = "https://iamrusiru.lovable.app";
-async function fetchPosts(signal) {
+var postSchema = z.object({
+  title: z.string(),
+  excerpt: z.string(),
+  date: z.string(),
+  updatedDate: z.string().optional(),
+  category: z.string(),
+  slug: z.string(),
+  readTime: z.string().optional(),
+  imageUrl: z.string(),
+  url: z.string(),
+  tags: z.array(z.string()),
+  seoKeywords: z.array(z.string()).optional(),
+  body: z.string(),
+  faq: z.array(z.object({ question: z.string(), answer: z.string() })).optional(),
+  relatedPosts: z.array(z.string()).optional()
+});
+var fetchPosts = z.function({
+  input: [z.unknown()],
+  output: z.array(postSchema)
+}).implementAsync(async (signal) => {
   const res = await fetch(`${SITE}/posts.json`, {
-    signal,
+    signal: signal instanceof AbortSignal ? signal : void 0,
     headers: { accept: "application/json" }
   });
   if (!res.ok) {
     throw new Error(`Could not load posts (${res.status} from ${SITE}/posts.json)`);
   }
   const data = await res.json();
-  return Array.isArray(data) ? data : [];
-}
-function postSummary(post) {
+  return postSchema.array().parse(Array.isArray(data) ? data : []);
+});
+var postSummary = z.function({
+  input: [postSchema],
+  output: postSchema.pick({
+    title: true,
+    slug: true,
+    url: true,
+    date: true,
+    category: true,
+    readTime: true,
+    excerpt: true,
+    tags: true
+  })
+}).implement((post) => {
   return {
     title: post.title,
     slug: post.slug,
@@ -33,7 +65,7 @@ function postSummary(post) {
     excerpt: post.excerpt,
     tags: post.tags
   };
-}
+});
 
 // src/lib/mcp/tools/list-posts.ts
 var list_posts_default = defineTool({
@@ -41,9 +73,9 @@ var list_posts_default = defineTool({
   title: "List blog posts",
   description: "List published posts on Rusiru Rathmina's blog, newest first. Optionally filter by category or tag.",
   inputSchema: {
-    category: z.string().trim().optional().describe("Filter by category, case-insensitive."),
-    tag: z.string().trim().optional().describe("Filter by tag, case-insensitive."),
-    limit: z.number().int().min(1).max(50).optional().describe("Max posts to return (default 20).")
+    category: z2.string().trim().optional().describe("Filter by category, case-insensitive."),
+    tag: z2.string().trim().optional().describe("Filter by tag, case-insensitive."),
+    limit: z2.number().int().min(1).max(50).optional().describe("Max posts to return (default 20).")
   },
   annotations: { readOnlyHint: true, idempotentHint: true, openWorldHint: false },
   handler: async ({ category, tag, limit }, ctx) => {
@@ -72,14 +104,14 @@ var list_posts_default = defineTool({
 
 // src/lib/mcp/tools/search-posts.ts
 import { defineTool as defineTool2 } from "npm:@lovable.dev/mcp-js@2.2.0";
-import { z as z2 } from "npm:zod@^4.6.5";
+import { z as z3 } from "npm:zod@^4.6.5";
 var search_posts_default = defineTool2({
   name: "search_posts",
   title: "Search blog posts",
   description: "Full-text search across titles, excerpts, tags, keywords and body content of the blog's published posts.",
   inputSchema: {
-    query: z2.string().trim().min(2).describe("Search phrase, for example 'sql injection'."),
-    limit: z2.number().int().min(1).max(25).optional().describe("Max results (default 10).")
+    query: z3.string().trim().min(2).describe("Search phrase, for example 'sql injection'."),
+    limit: z3.number().int().min(1).max(25).optional().describe("Max results (default 10).")
   },
   annotations: { readOnlyHint: true, idempotentHint: true, openWorldHint: false },
   handler: async ({ query, limit }, ctx) => {
@@ -114,13 +146,13 @@ var search_posts_default = defineTool2({
 
 // src/lib/mcp/tools/get-post.ts
 import { defineTool as defineTool3, ToolError } from "npm:@lovable.dev/mcp-js@2.2.0";
-import { z as z3 } from "npm:zod@^4.6.5";
+import { z as z4 } from "npm:zod@^4.6.5";
 var get_post_default = defineTool3({
   name: "get_post",
   title: "Get a blog post",
   description: "Fetch the full text of one published blog post by its slug, including tags, FAQ entries and related posts.",
   inputSchema: {
-    slug: z3.string().trim().min(1).describe("Post slug, for example 'git-workflow-tips'.")
+    slug: z4.string().trim().min(1).describe("Post slug, for example 'git-workflow-tips'.")
   },
   annotations: { readOnlyHint: true, idempotentHint: true, openWorldHint: false },
   handler: async ({ slug }, ctx) => {
@@ -154,6 +186,7 @@ ${post.body}${faqText}`
 
 // src/lib/mcp/tools/list-topics.ts
 import { defineTool as defineTool4 } from "npm:@lovable.dev/mcp-js@2.2.0";
+import { z as z5 } from "npm:zod@^4.6.5";
 var list_topics_default = defineTool4({
   name: "list_topics",
   title: "List categories and tags",
@@ -161,11 +194,14 @@ var list_topics_default = defineTool4({
   annotations: { readOnlyHint: true, idempotentHint: true, openWorldHint: false },
   handler: async (_args, ctx) => {
     const posts = await fetchPosts(ctx.signal);
-    const count = (values) => {
+    const count = z5.function({
+      input: [z5.array(z5.string())],
+      output: z5.array(z5.object({ name: z5.string(), posts: z5.number() }))
+    }).implement((values) => {
       const map = /* @__PURE__ */ new Map();
       for (const v of values) map.set(v, (map.get(v) ?? 0) + 1);
       return [...map.entries()].sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0])).map(([name, posts2]) => ({ name, posts: posts2 }));
-    };
+    });
     const categories = count(posts.map((p) => p.category));
     const tags = count(posts.flatMap((p) => p.tags));
     return {

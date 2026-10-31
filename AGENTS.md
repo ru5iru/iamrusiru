@@ -1,2 +1,3 @@
 # Project rules
 - Generate route-specific social metadata at build time with format-independent, deduplicating upserts in the prerender plugin; social crawlers must not depend on client-side JavaScript.
+- MCP helpers use runtime Zod function schemas for contextual typing because SDK bundling erases TypeScript annotations; keep the generated function SDK-owned and verify strict Deno checking after regeneration.

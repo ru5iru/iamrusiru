@@ -1,4 +1,5 @@
 import { defineTool } from "@lovable.dev/mcp-js";
+import { z } from "zod";
 import { fetchPosts } from "../posts";
 
 export default defineTool({
@@ -10,13 +11,16 @@ export default defineTool({
   handler: async (_args, ctx) => {
     const posts = await fetchPosts(ctx.signal);
 
-    const count = (values: string[]) => {
+    const count = z.function({
+      input: [z.array(z.string())],
+      output: z.array(z.object({ name: z.string(), posts: z.number() })),
+    }).implement((values) => {
       const map = new Map<string, number>();
       for (const v of values) map.set(v, (map.get(v) ?? 0) + 1);
       return [...map.entries()]
         .sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]))
         .map(([name, posts]) => ({ name, posts }));
-    };
+    });
 
     const categories = count(posts.map((p) => p.category));
     const tags = count(posts.flatMap((p) => p.tags));
