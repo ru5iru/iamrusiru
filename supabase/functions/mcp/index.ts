@@ -29,11 +29,11 @@ var postSchema = z.object({
   relatedPosts: z.array(z.string()).optional()
 });
 var fetchPosts = z.function({
-  input: z.tuple([z.instanceof(AbortSignal).optional()]),
+  input: [z.unknown()],
   output: z.array(postSchema)
 }).implementAsync(async (signal) => {
   const res = await fetch(`${SITE}/posts.json`, {
-    signal,
+    signal: signal instanceof AbortSignal ? signal : void 0,
     headers: { accept: "application/json" }
   });
   if (!res.ok) {

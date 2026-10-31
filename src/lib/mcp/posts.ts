@@ -55,11 +55,11 @@ export const postSchema = z.object({
 });
 
 export const fetchPosts = z.function({
-  input: z.tuple([z.instanceof(AbortSignal).optional()]),
+  input: [z.unknown()],
   output: z.array(postSchema),
 }).implementAsync(async (signal) => {
   const res = await fetch(`${SITE}/posts.json`, {
-    signal,
+    signal: signal instanceof AbortSignal ? signal : undefined,
     headers: { accept: "application/json" },
   });
   if (!res.ok) {
