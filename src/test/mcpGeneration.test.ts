@@ -3,8 +3,6 @@ import { mkdtemp, readFile, rm, writeFile } from "node:fs/promises";
 import { tmpdir } from "node:os";
 import path from "node:path";
 import { spawnSync } from "node:child_process";
-import { resolveConfig } from "vite";
-import { mcpPlugin } from "@lovable.dev/mcp-js/stacks/supabase/vite";
 
 describe("clean MCP generation", () => {
   it("regenerates identical, strictly checkable output without bundle patches", async () => {
@@ -15,10 +13,15 @@ describe("clean MCP generation", () => {
       let firstOutput = "";
       for (let pass = 0; pass < 2; pass++) {
         await rm(path.join(root, "supabase"), { recursive: true, force: true });
-        await resolveConfig({
-          root, configFile: false,
-          plugins: [mcpPlugin({ mcpEntry: path.resolve("src/lib/mcp/index.ts") })],
-        }, "build", "production");
+        const generation = spawnSync("node", ["--input-type=module", "-e", `
+          import { resolveConfig } from "vite";
+          import { mcpPlugin } from "@lovable.dev/mcp-js/stacks/supabase/vite";
+          await resolveConfig({
+            root: ${JSON.stringify(root)}, configFile: false,
+            plugins: [mcpPlugin({ mcpEntry: ${JSON.stringify(path.resolve("src/lib/mcp/index.ts"))} })],
+          }, "build", "production");
+        `], { encoding: "utf8" });
+        expect(generation.status, generation.stderr).toBe(0);
         const output = await readFile(generated, "utf8");
         const checked = spawnSync("deno", ["check", generated], { encoding: "utf8" });
         expect(checked.status, checked.stderr).toBe(0);
