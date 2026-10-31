@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { mkdtemp, readFile, rm, writeFile } from "node:fs/promises";
+import { mkdtemp, readFile, rm, symlink, writeFile } from "node:fs/promises";
 import { tmpdir } from "node:os";
 import path from "node:path";
 import { spawnSync } from "node:child_process";
@@ -9,6 +9,7 @@ describe("clean MCP generation", () => {
     const root = await mkdtemp(path.join(tmpdir(), "iamrusiru-mcp-"));
     try {
       await writeFile(path.join(root, "package.json"), await readFile("package.json"));
+      await symlink(path.resolve("node_modules"), path.join(root, "node_modules"), "dir");
       const generated = path.join(root, "supabase/functions/mcp/index.ts");
       let firstOutput = "";
       for (let pass = 0; pass < 2; pass++) {
