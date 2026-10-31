@@ -8,6 +8,8 @@
  * Import-safe: no env reads or I/O at module scope.
  */
 
+import { z } from "zod";
+
 const SITE = "https://iamrusiru.lovable.app";
 
 export interface McpFaq {
@@ -33,7 +35,29 @@ export interface McpPost {
   relatedPosts?: string[];
 }
 
-export async function fetchPosts(signal?: AbortSignal): Promise<McpPost[]> {
+// Runtime schemas survive esbuild's type erasure and provide contextual types
+// when Deno checks the SDK-generated TypeScript entry.
+export const postSchema = z.object({
+  title: z.string(),
+  excerpt: z.string(),
+  date: z.string(),
+  updatedDate: z.string().optional(),
+  category: z.string(),
+  slug: z.string(),
+  readTime: z.string().optional(),
+  imageUrl: z.string(),
+  url: z.string(),
+  tags: z.array(z.string()),
+  seoKeywords: z.array(z.string()).optional(),
+  body: z.string(),
+  faq: z.array(z.object({ question: z.string(), answer: z.string() })).optional(),
+  relatedPosts: z.array(z.string()).optional(),
+});
+
+export const fetchPosts = z.function({
+  input: [z.instanceof(AbortSignal).optional()],
+  output: z.array(postSchema),
+}).implementAsync(async (signal) => {
   const res = await fetch(`${SITE}/posts.json`, {
     signal,
     headers: { accept: "application/json" },
@@ -41,11 +65,17 @@ export async function fetchPosts(signal?: AbortSignal): Promise<McpPost[]> {
   if (!res.ok) {
     throw new Error(`Could not load posts (${res.status} from ${SITE}/posts.json)`);
   }
-  const data = (await res.json()) as McpPost[];
-  return Array.isArray(data) ? data : [];
-}
+  const data = await res.json();
+  return postSchema.array().parse(Array.isArray(data) ? data : []);
+});
 
-export function postSummary(post: McpPost) {
+export const postSummary = z.function({
+  input: [postSchema],
+  output: postSchema.pick({
+    title: true, slug: true, url: true, date: true, category: true,
+    readTime: true, excerpt: true, tags: true,
+  }),
+}).implement((post) => {
   return {
     title: post.title,
     slug: post.slug,
@@ -56,4 +86,4 @@ export function postSummary(post: McpPost) {
     excerpt: post.excerpt,
     tags: post.tags,
   };
-}
+});
