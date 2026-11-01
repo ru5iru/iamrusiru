@@ -13,7 +13,7 @@ import TableOfContents from "@/components/blog/TableOfContents";
 import RelatedPosts from "@/components/blog/RelatedPosts";
 import allPosts from "@/data/posts";
 import type { ContentBlock } from "@/data/posts";
-import profileHeadshot from "@/assets/profile-headshot.jpg";
+import profileHeadshot from "@/assets/profile-headshot.jpg?w=112&format=webp";
 import { useEffect, useMemo } from "react";
 import { useSEO } from "@/hooks/useSEO";
 import { useReadingTime, countWords } from "@/hooks/useReadingTime";
@@ -290,7 +290,7 @@ const BlogPost = () => {
 
                 <div className="flex items-center gap-3 mb-10 pb-8 border-b border-divider">
                   <div className="w-10 h-10 rounded-full overflow-hidden flex-shrink-0">
-                    <img src={profileHeadshot} alt="Rusiru Rathmina" width={40} height={40} className="w-full h-full object-cover" />
+                    <img src={profileHeadshot} alt="Rusiru Rathmina" width={40} height={40} loading="lazy" decoding="async" className="w-full h-full object-cover" />
                   </div>
                   <div>
                     <p className="text-sm font-medium text-foreground">Rusiru Rathmina</p>
@@ -309,6 +309,7 @@ const BlogPost = () => {
                     alt={`Cover image for ${post.title}`}
                     width={800}
                     height={400}
+                    loading="lazy"
                     className="w-full h-auto object-cover max-h-[400px]"
                     fetchPriority="high"
                     decoding="async"
@@ -356,7 +357,7 @@ const BlogPost = () => {
                 <div className="mt-12 p-6 rounded-xl bg-muted/30 border border-divider">
                   <div className="flex items-center gap-4 mb-3">
                     <div className="w-14 h-14 rounded-full overflow-hidden flex-shrink-0">
-                      <img src={profileHeadshot} alt="Rusiru Rathmina" width={56} height={56} className="w-full h-full object-cover" />
+                      <img src={profileHeadshot} alt="Rusiru Rathmina" width={56} height={56} loading="lazy" decoding="async" className="w-full h-full object-cover" />
                     </div>
                     <div>
                       <p className="font-display font-semibold text-foreground">Written by Rusiru Rathmina</p>

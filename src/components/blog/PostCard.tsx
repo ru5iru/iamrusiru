@@ -1,5 +1,6 @@
 import { Link, useNavigate } from "react-router-dom";
-import profileHeadshot from "@/assets/profile-headshot.jpg";
+import profileHeadshot from "@/assets/profile-headshot.jpg?w=112&format=webp";
+import { getThumbnail } from "@/lib/imageVariants";
 import TagChip from "@/components/blog/TagChip";
 
 interface PostCardProps {
@@ -35,7 +36,7 @@ const PostCard = ({
         {imageUrl && (
           <div className="hidden sm:block flex-shrink-0 w-40 h-28 md:w-48 md:h-32 rounded-lg overflow-hidden">
             <img
-              src={imageUrl}
+              src={getThumbnail(imageUrl)}
               alt=""
               width={192}
               height={128}
@@ -76,7 +77,7 @@ const PostCard = ({
 
         <div className="flex items-center gap-3">
           <div className="w-7 h-7 rounded-full overflow-hidden flex-shrink-0">
-            <img src={profileHeadshot} alt="" width={28} height={28} className="w-full h-full object-cover" />
+            <img src={profileHeadshot} alt="" width={28} height={28} loading="lazy" decoding="async" className="w-full h-full object-cover" />
           </div>
           <div className="flex items-center gap-2 text-xs text-muted-foreground">
             <span className="font-medium text-foreground">Rusiru Rathmina</span>

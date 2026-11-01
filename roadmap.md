@@ -6,3 +6,7 @@
 # MCP build repair
 - [x] Fix erased helper types in original MCP source without editing the generated function.
 - [x] Regenerate from a clean output directory twice, verify Deno checks and tests, and extract the manifest.
+
+# Image optimization
+- [ ] Compress source images without changing the design or breaking social previews.
+- [ ] Serve smaller card thumbnails and portraits, then verify image loading on home and article pages.

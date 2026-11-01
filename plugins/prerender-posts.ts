@@ -209,7 +209,7 @@ function buildPostStaticHtml(post: PostMeta, allPosts: PostMeta[]): string {
     <p><strong>TL;DR:</strong> ${esc(post.excerpt)}</p>
   </section>
   <figure>
-    <img src="${esc(post.imageUrl)}" alt="Cover image for ${esc(post.title)}" width="1200" height="630" />
+    <img src="${esc(post.imageUrl)}" alt="Cover image for ${esc(post.title)}" width="1200" height="630" loading="lazy" decoding="async" />
     <figcaption>${esc(post.title)}</figcaption>
   </figure>
   <div class="post-content">${contentHtml}</div>
@@ -249,7 +249,7 @@ function buildHomepageStaticHtml(posts: PostMeta[]): string {
       (p) => `
   <article>
     <a href="/post/${esc(p.slug)}">
-      <img src="${esc(p.imageUrl)}" alt="${esc(p.title)}" loading="lazy" />
+      <img src="${esc(p.imageUrl)}" alt="${esc(p.title)}" width="192" height="128" loading="lazy" decoding="async" />
       <h3>${esc(p.title)}</h3>
     </a>
     <span>${esc(p.category)}</span>

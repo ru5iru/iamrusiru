@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import allPosts from "@/data/posts";
+import { getThumbnail } from "@/lib/imageVariants";
 
 interface RelatedPostsProps {
   slugs: string[];
@@ -29,7 +30,7 @@ const RelatedPosts = ({ slugs }: RelatedPostsProps) => {
             className="group flex gap-3 p-3 rounded-lg border border-divider hover:border-primary/40 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
           >
             <img
-              src={p.imageUrl}
+              src={getThumbnail(p.imageUrl)}
               alt={p.title}
               width={48}
               height={48}

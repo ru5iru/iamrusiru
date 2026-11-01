@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { ArrowRight, User } from "lucide-react";
-import profileHeadshot from "@/assets/profile-headshot.jpg";
+import profileHeadshot from "@/assets/profile-headshot.jpg?w=832&format=webp";
 
 const Hero = () => {
   return (
@@ -146,6 +146,7 @@ const Hero = () => {
                   alt="Rusiru's profile photo"
                   width={416}
                   height={416}
+                  loading="lazy"
                   fetchPriority="high"
                   decoding="async"
                   className="w-full h-full object-cover grayscale"
