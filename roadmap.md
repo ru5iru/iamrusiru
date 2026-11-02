@@ -10,3 +10,7 @@
 # Image optimization
 - [x] Compress source images without changing the design or breaking social previews.
 - [x] Serve smaller card thumbnails and portraits, then verify image loading on home and article pages.
+
+# Blogger integration
+- [x] Plan Blogger posts alongside local posts, with full articles readable on this website.
+- [ ] Implement after plan approval; connect the Blogger source when the user is ready.
