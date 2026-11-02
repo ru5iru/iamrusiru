@@ -1,0 +1,13 @@
+{
+  "version": "7",
+  "dialect": "postgresql",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "7",
+      "when": 1793615209164,
+      "tag": "0000_create_blogger_snapshot_cache",
+      "breakpoints": true
+    }
+  ]
+}

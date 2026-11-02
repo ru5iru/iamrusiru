@@ -14,7 +14,39 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      blogger_cache: {
+        Row: {
+          blog_id: string
+          importing: boolean
+          lease_until: string | null
+          next_page_token: string | null
+          refreshed_at: string | null
+          retry_after: string | null
+          snapshot: Json
+          staging_posts: Json
+        }
+        Insert: {
+          blog_id: string
+          importing?: boolean
+          lease_until?: string | null
+          next_page_token?: string | null
+          refreshed_at?: string | null
+          retry_after?: string | null
+          snapshot?: Json
+          staging_posts?: Json
+        }
+        Update: {
+          blog_id?: string
+          importing?: boolean
+          lease_until?: string | null
+          next_page_token?: string | null
+          refreshed_at?: string | null
+          retry_after?: string | null
+          snapshot?: Json
+          staging_posts?: Json
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
