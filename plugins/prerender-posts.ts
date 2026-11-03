@@ -12,6 +12,8 @@
 import type { Plugin } from "vite";
 import fs from "fs";
 import path from "path";
+import { buildBloggerPage, loadBloggerSnapshot } from "./blogger-pages";
+import { bloggerPath, type BloggerArticle } from "../supabase/functions/_shared/blogger";
 
 const SITE = "https://iamrusiru.lovable.app";
 
@@ -242,14 +244,18 @@ function buildPostStaticHtml(post: PostMeta, allPosts: PostMeta[]): string {
 </footer>`;
 }
 
-function buildHomepageStaticHtml(posts: PostMeta[]): string {
-  const postCards = posts
+function buildHomepageStaticHtml(posts: PostMeta[], imported: BloggerArticle[] = []): string {
+  const listings = [
+    ...posts.map(p => ({ ...p, destination: `/post/${p.slug}` })),
+    ...imported.map(p => ({ ...p, imageUrl: p.imageUrl || "", destination: bloggerPath(p) })),
+  ].sort((a, b) => Date.parse(b.date) - Date.parse(a.date));
+  const postCards = listings
     .slice(0, 10)
     .map(
       (p) => `
   <article>
-    <a href="/post/${esc(p.slug)}">
-      <img src="${esc(p.imageUrl)}" alt="${esc(p.title)}" width="192" height="128" loading="lazy" decoding="async" />
+    <a href="${esc(p.destination)}">
+      ${p.imageUrl ? `<img src="${esc(p.imageUrl)}" alt="${esc(p.title)}" width="192" height="128" loading="lazy" decoding="async" />` : ""}
       <h3>${esc(p.title)}</h3>
     </a>
     <span>${esc(p.category)}</span>
@@ -481,14 +487,14 @@ function buildPostPage(template: string, post: PostMeta, allPosts: PostMeta[]): 
 
 // ── Static page builders ────────────────────────────────────────────
 
-function buildHomepage(template: string, posts: PostMeta[]): string {
+function buildHomepage(template: string, posts: PostMeta[], imported: BloggerArticle[] = []): string {
   let html = replaceMeta(template, {
     title: "iamrusiru | Rusiru Rathmina - Full-Stack Software Engineer Blog",
     description:
       "Read about software engineering, career lessons, side projects, and the human side of building software by Rusiru Rathmina.",
     url: `${SITE}/`,
   });
-  html = injectRoot(html, buildHomepageStaticHtml(posts));
+  html = injectRoot(html, buildHomepageStaticHtml(posts, imported));
   return html;
 }
 
@@ -721,9 +727,15 @@ function validatePage(route: string, html: string, expectArticle: boolean): void
 // ── Plugin ──────────────────────────────────────────────────────────
 
 export default function prerenderPosts(): Plugin {
+  let backendUrl: string | undefined;
+  let publishableKey: string | undefined;
   return {
     name: "prerender-posts",
     apply: "build",
+    configResolved(config) {
+      backendUrl = config.env.VITE_SUPABASE_URL;
+      publishableKey = config.env.VITE_SUPABASE_PUBLISHABLE_KEY;
+    },
     async closeBundle() {
       const distDir = path.resolve(__dirname, "../dist");
       const templatePath = path.join(distDir, "index.html");
@@ -764,8 +776,21 @@ export default function prerenderPosts(): Plugin {
         return p;
       });
 
+      // Optional source never changes local registry/feed/MCP contracts.
+      let blogger = { configured: false, posts: [] as BloggerArticle[], refreshedAt: null as string | null };
+      try { blogger = await loadBloggerSnapshot(backendUrl, publishableKey); }
+      catch { console.warn("[prerender] Blogger snapshot unavailable; local posts remain intact."); }
+      fs.writeFileSync(path.join(distDir, "blogger-snapshot.json"), JSON.stringify(blogger), "utf-8");
+      for (const post of blogger.posts) {
+        const dir = path.join(distDir, "blogger", post.blogId, post.postId);
+        fs.mkdirSync(dir, { recursive: true });
+        const html = buildBloggerPage(template, post, `${backendUrl}/storage/v1/object/public/blogger-media/`);
+        validatePage(bloggerPath(post), html, true);
+        fs.writeFileSync(path.join(dir, "index.html"), html, "utf-8");
+      }
+
       // 1. Prerender homepage
-      const homepageHtml = buildHomepage(template, posts);
+      const homepageHtml = buildHomepage(template, posts, blogger.posts);
       validatePage("/", homepageHtml, false);
       fs.writeFileSync(templatePath, homepageHtml, "utf-8");
       console.log("[prerender] ✓ / (homepage with content)");
