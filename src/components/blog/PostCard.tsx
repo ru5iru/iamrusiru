@@ -12,6 +12,9 @@ interface PostCardProps {
   readTime?: string;
   imageUrl?: string;
   tags?: string[];
+  destination?: string;
+  source?: "iamrusiru" | "blogger";
+  author?: string;
 }
 
 const PostCard = ({
@@ -23,13 +26,16 @@ const PostCard = ({
   readTime = "5 min read",
   imageUrl,
   tags = [],
+  destination,
+  source = "iamrusiru",
+  author = "Rusiru Rathmina",
 }: PostCardProps) => {
   const navigate = useNavigate();
 
   return (
     <article className="group py-6 border-b border-divider flex gap-5 transition-colors hover:border-primary/30">
       <Link
-        to={`/post/${slug}`}
+        to={destination || `/post/${slug}`}
         className="contents focus-visible:outline-none"
         aria-label={title}
       >
@@ -49,10 +55,11 @@ const PostCard = ({
 
       <div className="flex-1 min-w-0">
         <span className="blog-tag mb-2 inline-block">{category}</span>
+        {source === "blogger" && category !== "Blogger" && <span className="ml-2 text-xs text-muted-foreground">Blogger</span>}
 
         <h3 className="font-display text-lg md:text-xl font-medium mb-2 leading-snug line-clamp-2">
           <Link
-            to={`/post/${slug}`}
+            to={destination || `/post/${slug}`}
             className="text-foreground group-hover:text-primary transition-colors focus-visible:outline-none focus-visible:underline"
           >
             {title}
@@ -75,12 +82,12 @@ const PostCard = ({
           </div>
         )}
 
-        <div className="flex items-center gap-3">
-          <div className="w-7 h-7 rounded-full overflow-hidden flex-shrink-0">
+        <div className="flex items-start gap-3">
+          {source === "iamrusiru" && <div className="w-7 h-7 rounded-full overflow-hidden flex-shrink-0">
             <img src={profileHeadshot} alt="" width={28} height={28} loading="lazy" decoding="async" className="w-full h-full object-cover" />
-          </div>
-          <div className="flex items-center gap-2 text-xs text-muted-foreground">
-            <span className="font-medium text-foreground">Rusiru Rathmina</span>
+          </div>}
+          <div className="flex flex-wrap items-center gap-2 text-xs text-muted-foreground">
+            <span className="font-medium text-foreground">{author}</span>
             <span aria-hidden="true">·</span>
             <time dateTime={date}>{date}</time>
             <span aria-hidden="true">·</span>

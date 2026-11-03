@@ -7,6 +7,7 @@ import PageSkeleton from "@/components/blog/PageSkeleton";
 
 const Index = lazy(() => import("./pages/Index"));
 const BlogPost = lazy(() => import("./pages/BlogPost"));
+const BloggerPost = lazy(() => import("./pages/BloggerPost"));
 const About = lazy(() => import("./pages/About"));
 const Contact = lazy(() => import("./pages/Contact"));
 const NotFound = lazy(() => import("./pages/NotFound"));
@@ -37,6 +38,7 @@ const App = () => (
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/post/:slug" element={<BlogPost />} />
+          <Route path="/blogger/:blogId/:postId" element={<BloggerPost />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />

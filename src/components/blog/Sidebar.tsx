@@ -25,12 +25,14 @@ interface SidebarProps {
   activeTag: string | null;
   onTopicSelect: (topic: string) => void;
   onTagSelect: (tag: string) => void;
+  posts?: { tags: string[]; category: string }[];
 }
 
-const Sidebar = ({ activeTopic, activeTag, onTopicSelect, onTagSelect }: SidebarProps) => {
+const Sidebar = ({ activeTopic, activeTag, onTopicSelect, onTagSelect, posts = allPosts }: SidebarProps) => {
+  const displayTopics = posts.some(p => p.category === "Blogger") ? [...topics, { label: "Blogger", icon: BookOpen }] : topics;
   const popularTags = useMemo(() => {
     const counts = new Map<string, number>();
-    for (const post of allPosts) {
+    for (const post of posts) {
       for (const t of post.tags) {
         const key = t.trim();
         if (!key) continue;
@@ -41,14 +43,14 @@ const Sidebar = ({ activeTopic, activeTag, onTopicSelect, onTagSelect }: Sidebar
       .sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]))
       .slice(0, MAX_TAGS)
       .map(([tag]) => tag);
-  }, []);
+  }, [posts]);
   return (
     <aside className="space-y-10">
       {/* Topics */}
       <div>
         <h3 className="font-display text-lg font-semibold text-display mb-4">Topics</h3>
         <div className="space-y-3">
-          {topics.map((t) => (
+          {displayTopics.map((t) => (
             <button
               key={t.label}
               onClick={() => onTopicSelect(t.label)}
