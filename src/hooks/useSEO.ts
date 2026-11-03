@@ -4,6 +4,8 @@ interface SEOProps {
   title: string;
   description: string;
   canonical?: string;
+  /** Reading-page URL may differ from an external original canonical. */
+  pageUrl?: string;
   ogType?: string;
   ogTitle?: string;
   ogImage?: string;
@@ -11,6 +13,7 @@ interface SEOProps {
   twitterCreator?: string;
   keywords?: string[];
   author?: string;
+  authorUrl?: string;
   noIndex?: boolean;
   jsonLd?: Record<string, unknown> | Record<string, unknown>[];
   articleMeta?: {
@@ -28,6 +31,7 @@ export function useSEO({
   title,
   description,
   canonical,
+  pageUrl,
   ogType = "website",
   ogTitle,
   ogImage,
@@ -35,6 +39,7 @@ export function useSEO({
   twitterCreator,
   keywords,
   author,
+  authorUrl,
   noIndex,
   jsonLd,
   articleMeta,
@@ -54,6 +59,8 @@ export function useSEO({
         document.head.appendChild(kw);
       }
       kw.setAttribute("content", keywords.join(", "));
+    } else {
+      document.querySelectorAll('meta[name="keywords"]').forEach(el => el.remove());
     }
 
     // Author per-page
@@ -94,7 +101,7 @@ export function useSEO({
         link.rel = "canonical";
         document.head.appendChild(link);
       }
-      link.href = `${BASE_URL}${canonical}`;
+      link.href = canonical.startsWith("https://") ? canonical : `${BASE_URL}${canonical}`;
     }
 
 
@@ -119,7 +126,8 @@ export function useSEO({
     setMeta("og:title", ogTitleVal);
     setMeta("og:description", description);
     setMeta("og:type", ogType);
-    if (canonical) setMeta("og:url", `${BASE_URL}${canonical}`);
+    const socialUrl = pageUrl || canonical;
+    if (socialUrl) setMeta("og:url", socialUrl.startsWith("https://") ? socialUrl : `${BASE_URL}${socialUrl}`);
     if (ogImage) setMeta("og:image", ogImage);
 
     setMeta("twitter:title", ogTitleVal);
@@ -170,7 +178,7 @@ export function useSEO({
       authorLink.rel = "author";
       document.head.appendChild(authorLink);
     }
-    authorLink.href = `${BASE_URL}/about`;
+    authorLink.href = authorUrl || `${BASE_URL}/about`;
 
     // Article meta tags (GEO: helps AI engines understand article context)
     if (articleMeta) {
@@ -213,6 +221,7 @@ export function useSEO({
     title,
     description,
     canonical,
+    pageUrl,
     ogType,
     ogTitle,
     ogImage,
@@ -220,6 +229,7 @@ export function useSEO({
     twitterCreator,
     keywords,
     author,
+    authorUrl,
     noIndex,
     jsonLd,
     articleMeta,

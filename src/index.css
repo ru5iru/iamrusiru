@@ -134,6 +134,18 @@
 }
 
 @layer components {
+  .blogger-content > * + * { margin-top: 1.5rem; }
+  .blogger-content h2 { font-size: 1.5rem; margin-top: 2rem; }
+  .blogger-content h3 { font-size: 1.25rem; margin-top: 1.5rem; }
+  .blogger-content a { color: hsl(var(--primary)); text-decoration: underline; }
+  .blogger-content img { max-width: 100%; height: auto; }
+  .blogger-content ul { list-style: disc; padding-left: 1.5rem; }
+  .blogger-content ol { list-style: decimal; padding-left: 1.5rem; }
+  .blogger-content pre { overflow-x: auto; padding: 1rem; background: hsl(var(--muted)); border-radius: var(--radius); }
+  .blogger-content pre, .blogger-content code { font-family: 'JetBrains Mono', monospace; }
+  .blogger-content table { display: block; max-width: 100%; overflow-x: auto; border-collapse: collapse; }
+  .blogger-content td, .blogger-content th { border: 1px solid hsl(var(--border)); padding: 0.5rem; }
+  .blogger-content blockquote { border-left: 3px solid hsl(var(--primary)); padding-left: 1rem; }
   .blog-container {
     @apply max-w-4xl mx-auto px-6;
   }

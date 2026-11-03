@@ -9,6 +9,9 @@ import Footer from "@/components/blog/Footer";
 import allPosts from "@/data/posts";
 import { useSEO } from "@/hooks/useSEO";
 import { authorFaqSchema } from "@/data/authorFaq";
+import { useBloggerPosts } from "@/hooks/useBloggerPosts";
+import { combinedListings, filterListings, type PostSource } from "@/lib/blogger/listing";
+import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
 
 const POSTS_PER_PAGE = 6;
 const SITE = "https://iamrusiru.lovable.app";
@@ -19,6 +22,9 @@ const Index = () => {
   const [activeTag, setActiveTag] = useState<string | null>(tagParam);
   const [activeTopic, setActiveTopic] = useState<string | null>(null);
   const [visibleCount, setVisibleCount] = useState(POSTS_PER_PAGE);
+  const [source, setSource] = useState<PostSource>("all");
+  const blogger = useBloggerPosts();
+  const listings = combinedListings(allPosts, blogger.posts);
 
   // Sync URL tag param to state
   useEffect(() => {
@@ -83,11 +89,7 @@ const Index = () => {
     ],
   });
 
-  const filteredPosts = allPosts.filter((post) => {
-    if (activeTopic && post.category !== activeTopic) return false;
-    if (activeTag && !post.tags.includes(activeTag)) return false;
-    return true;
-  });
+  const filteredPosts = filterListings(listings, source, activeTopic, activeTag);
 
   const visiblePosts = filteredPosts.slice(0, visibleCount);
   const hasMore = visibleCount < filteredPosts.length;
@@ -99,6 +101,7 @@ const Index = () => {
   };
 
   const clearFilters = () => {
+    setSource("all");
     setActiveTopic(null);
     clearTagParam();
     setVisibleCount(POSTS_PER_PAGE);
@@ -145,6 +148,16 @@ const Index = () => {
 
             <div className="flex flex-col lg:flex-row gap-12">
               <div className="flex-1 min-w-0">
+                {blogger.configured && <ToggleGroup type="single" value={source} aria-label="Post source" className="justify-start mb-6 flex-wrap" onValueChange={(value) => {
+                  if (value !== "all" && value !== "iamrusiru" && value !== "blogger") return;
+                  setSource(value);
+                  setVisibleCount(POSTS_PER_PAGE);
+                }}>
+                  <ToggleGroupItem value="all">All</ToggleGroupItem>
+                  <ToggleGroupItem value="iamrusiru">iamrusiru</ToggleGroupItem>
+                  <ToggleGroupItem value="blogger">Blogger</ToggleGroupItem>
+                </ToggleGroup>}
+                {blogger.configured && source !== "iamrusiru" && blogger.warning && <p role="status" className="text-sm text-muted-foreground mb-4">{blogger.warning}</p>}
                 {visiblePosts.length > 0 ? (
                   visiblePosts.map((post) => <PostCard key={post.slug} {...post} />)
                 ) : (
@@ -173,6 +186,7 @@ const Index = () => {
 
               <div className="w-full lg:w-72 flex-shrink-0">
                 <Sidebar
+                  posts={listings}
                   activeTopic={activeTopic}
                   activeTag={activeTag}
                   onTopicSelect={(topic) => {
