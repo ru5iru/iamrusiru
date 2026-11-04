@@ -4,6 +4,8 @@ The export keeps the existing warm colors, DM Serif Display / Roboto / JetBrains
 
 ## Generated files
 
+For reuse and editing through Blogger Layout, see [CUSTOMIZATION.md](CUSTOMIZATION.md). The current look is retained as the default. A separate `native` preset avoids copying project-specific content into another blog.
+
 In the downloadable ZIP, the generated files are at the ZIP root rather than inside `output/`. Rebuilding uses the source project and `blogger/config.json`.
 
 | File in `output/` | Purpose |
@@ -16,6 +18,8 @@ In the downloadable ZIP, the generated files are at the ZIP root rather than ins
 | `redirects.json` | Old React routes and intended Blogger destinations. |
 | `content.json` | Exported data, excerpts and intended permalinks for checking the import. Not a Blogger upload. |
 | `preview/` | Local approximation fixtures. Not Blogger upload files. |
+| `editable-regions/` | Header, hero, topics, social and footer HTML for Blogger Layout editing/recovery. |
+| `CUSTOMIZATION.md` | Named configuration fields, editable gadgets and reuse instructions. |
 
 ## Build and review
 
@@ -36,7 +40,7 @@ Check the public images with `node scripts/check-blogger-media.mjs`.
 
 Edit `blogger/config.json`, then rebuild. `blogUrl` currently points to the verified public blog, `https://ru5iru.blogspot.com`; change it if the destination or custom domain changes. Live navigation and canonical URLs use Blogger's own URL data. The configured URL controls the Atom import links and local static fixtures.
 
-The default `assetBaseUrl` points to this project's public GitHub `main/src/assets/` folder. All 24 URLs returned HTTP 200 with image MIME types during verification. They depend on the repository staying public and retaining its filenames. The displayed portrait is also embedded in the theme. Social preview images require public HTTPS URLs.
+The default `assetBaseUrl` points to this project's public GitHub `main/src/assets/` folder. All 24 URLs returned HTTP 200 with image MIME types during verification. They depend on the repository staying public and retaining its filenames. Set `profile.portraitUrl` to change the displayed portrait throughout the theme; the default portrait is embedded. Social preview images require public HTTPS URLs.
 
 For Blogger-hosted images, upload each image through Blogger's editor, copy its full `blogger.googleusercontent.com` URL, and add overrides by filename:
 

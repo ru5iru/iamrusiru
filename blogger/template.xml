@@ -12,11 +12,10 @@
   <meta expr:content='data:blog.canonicalUrl' property='og:url'/>
   <meta expr:content='data:blog.title' property='og:site_name'/>
   <meta expr:content='data:view.isPost ? "article" : "website"' property='og:type'/>
-  <meta expr:content='data:blog.postImageUrl ?: "@@SOCIAL_IMAGE@@"' property='og:image'/>
+  @@SOCIAL_IMAGES@@
   <meta content='summary_large_image' name='twitter:card'/>
-  <meta content='@ru5iru' name='twitter:creator'/>
+  <meta content='@@TWITTER_CREATOR@@' name='twitter:creator'/>
   <meta expr:content='data:view.title' name='twitter:title'/>
-  <meta expr:content='data:blog.postImageUrl ?: "@@SOCIAL_IMAGE@@"' name='twitter:image'/>
   <b:if cond='data:view.isSearch or data:view.isError or data:view.url contains "/p/privacy-policy.html" or data:view.url contains "/p/cookie-policy.html"'>
     <meta content='noindex,follow' name='robots'/>
   <b:else/>
@@ -42,30 +41,7 @@
   <a class='skip-link' href='#main-content'>Skip to main content</a>
   <div aria-hidden='true' id='reading-progress'/>
   <header class='site-header py-5 border-b border-divider bg-background sticky top-0 z-50'>
-    <div class='max-w-6xl mx-auto px-6'>
-      <nav aria-label='Main navigation' class='flex items-center justify-between gap-8'>
-        <a aria-label='iamrusiru home' data-home='' expr:href='data:blog.homepageUrl' class='font-display text-2xl font-bold tracking-tight'><span class='text-display'>iam</span><span class='text-primary'>rusiru</span></a>
-        <div class='hidden md:flex items-center gap-8 ml-auto'>
-          <a expr:href='data:blog.homepageUrl' class='text-sm font-medium text-caption hover:text-primary'>Home</a>
-          <a expr:href='data:blog.homepageUrl + "p/about.html"' class='text-sm font-medium text-caption hover:text-primary'>About me</a>
-          <a href='https://rusiru.lovable.app/' target='_blank' rel='noopener noreferrer' class='text-sm font-medium text-caption hover:text-primary'>Portfolio<span class='sr-only'> (opens in new tab)</span></a>
-          <a expr:href='data:blog.homepageUrl + "p/contact.html"' class='px-5 py-2 text-sm font-medium border border-divider rounded-full hover:border-primary hover:text-primary'>Contact Me</a>
-        </div>
-        <div class='flex items-center gap-3'>
-          <button aria-label='Use dark theme' aria-pressed='false' class='w-9 h-9 rounded-full bg-warm flex items-center justify-center text-caption hover:text-primary' data-theme-toggle='' hidden='hidden' type='button'>
-            <svg aria-hidden='true' class='theme-icon moon-icon' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2'><path d='M20.9 13A9 9 0 0 1 11 3.1 9 9 0 1 0 20.9 13Z'/></svg>
-            <svg aria-hidden='true' class='theme-icon sun-icon' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2'><circle cx='12' cy='12' r='4'/><path d='M12 2v2m0 16v2M2 12h2m16 0h2M5 5l1.5 1.5m11 11L19 19M5 19l1.5-1.5m11-11L19 5'/></svg>
-          </button>
-          <button aria-label='Toggle navigation' aria-expanded='false' aria-controls='mobile-menu' class='md:hidden text-display p-1' data-menu-toggle='' hidden='hidden' type='button'><svg aria-hidden='true' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2'><path d='M3 6h18M3 12h18M3 18h18'/></svg></button>
-        </div>
-      </nav>
-      <nav aria-label='Mobile navigation' id='mobile-menu' class='md:hidden mt-4 pb-4 flex flex-col gap-4 border-t border-divider pt-4'>
-        <a expr:href='data:blog.homepageUrl' class='text-sm font-medium text-caption'>Home</a>
-        <a expr:href='data:blog.homepageUrl + "p/about.html"' class='text-sm font-medium text-caption'>About me</a>
-        <a href='https://rusiru.lovable.app/' target='_blank' rel='noopener noreferrer' class='text-sm font-medium text-caption'>Portfolio</a>
-        <a expr:href='data:blog.homepageUrl + "p/contact.html"' class='text-sm font-medium text-caption'>Contact Me</a>
-      </nav>
-    </div>
+    @@HEADER@@
   </header>
   <main id='main-content'>
     <b:if cond='data:view.isHomepage'><div class='hero'>@@HERO@@</div></b:if>
@@ -125,13 +101,13 @@
                   <link itemprop='mainEntityOfPage' expr:href='data:blog.canonicalUrl'/>
                   <b:if cond='data:post.lastUpdated'><meta itemprop='dateModified' expr:content='data:post.lastUpdated.iso8601'/></b:if>
                   <div class='flex flex-wrap gap-2 mb-8'>@@ARTICLE_TAGS@@</div>
-                  <div class='flex items-center gap-3 mb-10 pb-8 border-b border-divider' itemprop='author' itemscope='itemscope' itemtype='https://schema.org/Person'><img src='@@PORTRAIT@@' alt='' width='40' height='40' class='w-10 h-10 rounded-full object-cover'/><div><p class='text-sm font-medium' data-post-author='' itemprop='name'><data:post.author.name/></p><p class='text-xs text-muted-foreground'>Software Engineer &amp; Writer</p><link itemprop='url' expr:href='data:blog.homepageUrl + "p/about.html"'/></div></div>
+                  <div class='flex items-center gap-3 mb-10 pb-8 border-b border-divider' itemprop='author' itemscope='itemscope' itemtype='https://schema.org/Person'><img src='@@PORTRAIT@@' alt='' width='40' height='40' class='w-10 h-10 rounded-full object-cover'/><div><p class='text-sm font-medium' data-post-author='' itemprop='name'><data:post.author.name/></p><p class='text-xs text-muted-foreground'>@@PROFILE_ROLE@@</p><link itemprop='url' href='@@ABOUT_URL@@'/></div></div>
                   <div class='post-content' data-article-body='' itemprop='articleBody'><data:post.body/></div>
                   @@SHARE@@
                   <section class='mt-8 rounded-xl border border-divider bg-warm/40 p-5'><h2 class='font-display text-lg font-semibold mb-2'>Cite this post</h2><p class='text-sm leading-relaxed mb-3'>Found this useful? Feel free to reference it in your own work:</p><code class='block font-mono text-xs text-body bg-background border border-divider rounded-lg px-4 py-3 break-all' data-citation=''><data:post.author.name/>. <data:post.title/>. <data:post.url/></code></section>
                   @@RELATED_POSTS@@
                   <div data-post-faq=''/>
-                  <div class='mt-12 p-6 rounded-xl bg-muted/30 border border-divider'><div class='flex items-center gap-4 mb-3'><img src='@@PORTRAIT@@' alt='Rusiru Rathmina' width='56' height='56' class='w-14 h-14 rounded-full object-cover'/><div><p class='font-display font-semibold'>Written by <data:post.author.name/></p><p class='text-sm text-muted-foreground'>Associate Software Engineer at Omobio, Colombo, Sri Lanka</p></div></div><p class='text-body text-sm leading-relaxed'>I build full-stack applications with React, Java, Spring Boot, and AWS. I write about code, career growth, side projects, and the human side of software engineering. <a class='text-primary font-medium' expr:href='data:blog.homepageUrl + "p/about.html"'>Learn more about me →</a></p></div>
+                  <div class='mt-12 p-6 rounded-xl bg-muted/30 border border-divider'><div class='flex items-center gap-4 mb-3'><img src='@@PORTRAIT@@' alt='@@AUTHOR_NAME@@' width='56' height='56' class='w-14 h-14 rounded-full object-cover'/><div><p class='font-display font-semibold'>Written by <data:post.author.name/></p><p class='text-sm text-muted-foreground'>@@PROFILE_JOB@@</p></div></div><p class='text-body text-sm leading-relaxed'>@@PROFILE_BIO@@ <a class='text-primary font-medium' href='@@ABOUT_URL@@'>Learn more about me →</a></p></div>
                   <!-- Blogger supplies its own maintained threaded comment and editor includables. -->
                   <b:if cond='data:post.allowComments'><b:include data='post' name='commentPicker'/></b:if>
                   <b:include name='pager'/>
@@ -142,7 +118,7 @@
           </article>
         </b:includable>
         <b:includable id='topicBadge' var='post'>
-          <b:loop values='data:post.labels' var='label'><b:if cond='data:label.name in {"Engineering", "Career", "Tutorials", "Side Projects", "Reading", "Personal"}'><a class='blog-tag mb-2' expr:href='data:label.url'><data:label.name/></a></b:if></b:loop>
+          <b:loop values='data:post.labels' var='label'><b:if cond='data:label.name in @@TOPICS_SET@@'><a class='blog-tag mb-2' expr:href='data:label.url'><data:label.name/></a></b:if></b:loop>
         </b:includable>
         <b:includable id='readingTime' var='post'><span>@@READTIME_MARKUP@@</span></b:includable>
         <b:includable id='postDate' var='post'>@@DATE_MARKUP@@</b:includable>
@@ -161,7 +137,7 @@
           <b:section id='sidebar' class='sidebar' showaddelement='yes'>
             <b:widget id='Label1' type='Label' version='2' title='Tags' locked='no'>
               <b:widget-settings><b:widget-setting name='sorting'>ALPHA</b:widget-setting><b:widget-setting name='display'>CLOUD</b:widget-setting><b:widget-setting name='showFreqNumbers'>false</b:widget-setting></b:widget-settings>
-              <b:includable id='main'><h2 class='font-display text-lg font-semibold mb-4'><data:title/></h2><div class='blogger-labels'><b:loop values='data:labels' var='label'><b:if cond='!(data:label.name in {"Engineering", "Career", "Tutorials", "Side Projects", "Reading", "Personal"})'><a expr:href='data:label.url' expr:data-label-count='data:label.count'>#<data:label.name/> <span class='sr-only'>(<data:label.count/> posts)</span></a></b:if></b:loop></div></b:includable>
+              <b:includable id='main'><h2 class='font-display text-lg font-semibold mb-4'><data:title/></h2><div class='blogger-labels'><b:loop values='data:labels' var='label'><b:if cond='!(data:label.name in @@TOPICS_SET@@)'><a expr:href='data:label.url' expr:data-label-count='data:label.count'>#<data:label.name/> <span class='sr-only'>(<data:label.count/> posts)</span></a></b:if></b:loop></div></b:includable>
             </b:widget>
             <b:widget id='BlogArchive1' type='BlogArchive' version='2' title='Blog Archive' locked='no'/>
           </b:section>
@@ -176,6 +152,7 @@
   <button aria-label='Back to top' class='fixed bottom-6 right-6 z-50 w-11 h-11 bg-primary text-primary-foreground rounded-full shadow-lg flex items-center justify-center hover:bg-primary/90' data-back-top='' hidden='hidden' type='button'>@@UP_ICON@@</button>
   <div class='site-footer'>@@FOOTER@@</div>
   <script id='blogger-post-data' type='application/json'>@@POST_DATA@@</script>
+  <script id='blogger-theme-data' type='application/json'>@@THEME_DATA@@</script>
   <script type='text/javascript'>//<![CDATA[
 @@SCRIPT@@
   //]]></script>

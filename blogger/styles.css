@@ -1,4 +1,6 @@
 /* Only platform adaptations. The original Tailwind CSS and tokens are compiled in. */
+.theme-region, .theme-region > .widget { display: contents; }
+.listing-sidebar .theme-region { display: block; }
 [hidden] { display: none !important; }
 html { scroll-padding-top: 7rem; }
 body { overflow-wrap: break-word; }
@@ -85,7 +87,8 @@ input { caret-color: hsl(var(--primary)); }
 @media (min-width: 1024px) { .related-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
 body#layout .sidebar { display: block !important; }
 body#layout #main { display: block; }
-body#layout .hero, body#layout .site-header, body#layout .site-footer { display: none; }
+body#layout .hero, body#layout .site-header, body#layout .site-footer,
+body#layout .theme-region, body#layout .theme-region > .widget { display: block; }
 @media (max-width: 767px) {
   #mobile-menu:not([hidden]) { display: flex; }
   .post-meta { flex-wrap: wrap; row-gap: .25rem; }

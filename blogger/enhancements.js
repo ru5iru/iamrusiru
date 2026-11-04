@@ -4,6 +4,8 @@
   var root = document.documentElement;
   var reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var knownPosts = [];
+  var themeData = {};
+  try { themeData = JSON.parse(document.getElementById('blogger-theme-data').textContent); } catch (_) { /* Optional site defaults. */ }
   try { knownPosts = JSON.parse(document.getElementById('blogger-post-data').textContent); } catch (_) { /* Native posts do not need the migration manifest. */ }
   function knownPost(href) {
     var path;
@@ -225,7 +227,7 @@
     var citation = document.querySelector('[data-citation]');
     if (citation) {
       var year = currentPost ? new Date(currentPost.date).getFullYear() : new Date(document.querySelector('.article-meta time').dateTime).getFullYear();
-      citation.textContent = (currentPost ? 'Rathmina, R.' : document.querySelector('[data-post-author]').textContent + '.') + ' (' + year + '). ' + document.querySelector('h1').textContent + '. iamrusiru. ' + document.querySelector('link[rel="canonical"]').href;
+      citation.textContent = (currentPost && themeData.citationName ? themeData.citationName : document.querySelector('[data-post-author]').textContent + '.') + ' (' + year + '). ' + document.querySelector('h1').textContent + '. ' + (themeData.title || document.title) + '. ' + document.querySelector('link[rel="canonical"]').href;
     }
     // Related posts are optional: feed access can be disabled by the blog owner.
     var related = document.querySelector('[data-related]');

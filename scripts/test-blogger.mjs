@@ -2,9 +2,11 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs/promises';
 import path from 'node:path';
+import { execFileSync } from 'node:child_process';
 import { JSDOM } from 'jsdom';
 import { renderPreview } from './lib/blogger-preview.mjs';
 import { conditionalMarkup, descriptionMetadata, routeCondition, validateBloggerExpressions, validateBloggerWidgetSettings } from './lib/blogger-markup.mjs';
+import { resolveThemeConfig } from './lib/blogger-config.mjs';
 
 const out = path.resolve(import.meta.dirname, '../blogger/output');
 const xml = await fs.readFile(path.join(out, 'iamrusiru-blogger.xml'), 'utf8');
@@ -256,4 +258,75 @@ test('homepage navigation does not mark an external portfolio as the current pag
   assert.ok(counts.length > 12);
   assert.deepEqual(counts, [...counts].sort((a, b) => b - a));
   dom.window.close();
+});
+
+test('Blogger Layout edits render saved region content without JavaScript or CSS changes', () => {
+  const edited = new JSDOM(xml, { contentType: 'text/xml' }).window.document;
+  const widgets = Array.from(edited.getElementsByTagNameNS(B, 'widget')).filter(widget => widget.getAttribute('type') === 'HTML');
+  assert.equal(widgets.length, 5);
+  for (const widget of widgets) {
+    assert.equal(widget.getAttribute('mobile'), 'yes');
+    assert.equal(widget.getAttribute('locked'), 'yes');
+    assert.equal(widget.getElementsByTagNameNS(B, 'widget-setting')[0].getAttribute('name'), 'content');
+  }
+  const content = widgets.find(widget => widget.id === 'HTML102').getElementsByTagNameNS(B, 'widget-setting')[0];
+  const fragment = JSDOM.fragment(content.textContent);
+  fragment.querySelector('p.text-body').textContent = 'A new owner, with "quotes" & ideas.';
+  const holder = new JSDOM('').window.document.createElement('div');
+  holder.append(fragment);
+  content.textContent = holder.innerHTML;
+  const updatedXml = new edited.defaultView.XMLSerializer().serializeToString(edited);
+  const updated = new JSDOM(withoutCss(renderPreview(updatedXml, { config, posts, media }))).window.document;
+  assert.equal(updated.querySelector('.hero p.text-body').textContent, 'A new owner, with "quotes" & ideas.');
+  assert.ok(updated.querySelector('.hero svg'));
+  assert.equal(updated.querySelectorAll('h1').length, 1);
+  assert.equal(edited.getElementsByTagNameNS(B, 'skin')[0].textContent, template.getElementsByTagNameNS(B, 'skin')[0].textContent);
+  assert.equal(updated.querySelector('[data-menu-toggle]').hidden, true); // Progressive initialization is still optional.
+});
+
+test('configuration rejects unsafe URLs, misspelled fields and ambiguous content modes', () => {
+  assert.throws(() => resolveThemeConfig({ ...config, links: { portfolio: 'javascript:alert(1)' } }), /links.portfolio/);
+  assert.throws(() => resolveThemeConfig({ ...config, branding: { accentt: 'typo' } }), /Unknown theme setting/);
+  assert.throws(() => resolveThemeConfig({ ...config, contentMode: 'sample' }), /contentMode/);
+  assert.throws(() => resolveThemeConfig({ ...config, socialImageUrl: '/relative.png' }), /absolute HTTPS/);
+  assert.throws(() => resolveThemeConfig({ ...config, topics: ['News', 'News'] }), /unique/);
+});
+
+test('a different owner can build a native theme without project content or styling changes', async () => {
+  const preset = JSON.parse(await fs.readFile(new URL('../blogger/config.reusable.json', import.meta.url), 'utf8'));
+  const custom = {
+    ...preset, title: 'Notes & "Research"', author: 'A. Example', topics: ['Research', 'Updates'],
+    hero: { ...preset.hero, headingPrefix: '<New> & "ideas"', headingMain: 'Research ', headingAccent: 'Notes.' },
+    profile: { ...preset.profile, portraitUrl: 'https://example.org/photo.jpg?a=1&b=2' },
+    socialImageUrl: 'https://example.org/social.png',
+  };
+  const fixture = path.join(out, 'reuse-config.test.json');
+  const nativeOut = path.join(out, 'reuse-verification');
+  await fs.writeFile(fixture, JSON.stringify(custom));
+  execFileSync(process.execPath, ['scripts/build-blogger.mjs', '--config', fixture, '--out', nativeOut], { cwd: path.resolve(import.meta.dirname, '..'), stdio: 'pipe' });
+  const nativeXml = await fs.readFile(path.join(nativeOut, 'iamrusiru-blogger.xml'), 'utf8');
+  assert.doesNotMatch(nativeXml, /ru5iru|Rusiru|Omobio|proper-project-planning|post-planning\.png/);
+  const nativeDoc = new JSDOM(nativeXml, { contentType: 'text/xml' }).window.document;
+  validateBloggerExpressions(nativeDoc);
+  validateBloggerWidgetSettings(nativeDoc);
+  assert.equal(nativeDoc.getElementsByTagNameNS(B, 'skin')[0].textContent, template.getElementsByTagNameNS(B, 'skin')[0].textContent);
+  const data = JSON.parse(await fs.readFile(path.join(nativeOut, 'content.json'), 'utf8'));
+  assert.equal(data.posts.length, 0);
+  assert.equal(data.pages.length, 0);
+  assert.deepEqual(JSON.parse(await fs.readFile(path.join(nativeOut, 'redirects.json'), 'utf8')), []);
+  assert.deepEqual(JSON.parse(await fs.readFile(path.join(nativeOut, 'media-manifest.json'), 'utf8')), {});
+  const feed = new JSDOM(await fs.readFile(path.join(nativeOut, 'feed.atom'), 'utf8'), { contentType: 'text/xml' }).window.document;
+  assert.equal(feed.getElementsByTagNameNS(A, 'entry').length, 0);
+  const doc = new JSDOM(withoutCss(renderPreview(nativeXml, { config: data.config, posts: [], media: new Map() }))).window.document;
+  assert.equal(doc.querySelector('.hero h1 span').textContent, custom.hero.headingPrefix);
+  assert.equal(doc.querySelector('.hero img').getAttribute('src'), custom.profile.portraitUrl);
+  assert.equal(doc.querySelector('meta[property="og:image"]').content, custom.socialImageUrl);
+  assert.equal(doc.querySelector('script#blogger-post-data').textContent, '[]');
+  assert.equal(doc.querySelector('a[rel="next"]'), null);
+  assert.equal(doc.querySelector('nav [data-home]').textContent, 'YourBlog');
+  const freshPost = { ...posts[0], path: '/2026/11/first-post.html', title: 'A native post', labels: ['Research'], excerpt: 'New text' };
+  const article = new JSDOM(withoutCss(renderPreview(nativeXml, { config: data.config, posts: [freshPost], media: new Map(), kind: 'post', post: freshPost }))).window.document;
+  assert.equal(article.querySelector('.blog-tag').textContent, 'Research');
+  assert.equal(article.querySelector('[data-post-author]').textContent, custom.author);
+  assert.ok(article.querySelector('[data-related]'));
 });

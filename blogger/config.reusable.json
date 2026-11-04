@@ -1,0 +1,48 @@
+{
+  "blogUrl": "https://your-blog.blogspot.com",
+  "assetBaseUrl": "https://your-blog.blogspot.com/assets/",
+  "assetUrls": {},
+  "title": "Your Blog",
+  "author": "Your name",
+  "contentMode": "native",
+  "description": "Stories, ideas, and things I am learning.",
+  "socialImageUrl": "",
+  "branding": { "prefix": "Your", "accent": "Blog", "twitterCreator": "" },
+  "hero": {
+    "eyebrow": "Welcome to my blog",
+    "headingPrefix": "Your name's",
+    "headingMain": "Stories and Ideas ",
+    "headingAccent": "Blog.",
+    "description": "A place to share my work, ideas, and the things I learn along the way.",
+    "cardLines": ["Building ideas.", "Sharing knowledge."],
+    "portraitAlt": "Author portrait"
+  },
+  "profile": {
+    "portraitUrl": "",
+    "role": "Writer",
+    "job": "About the author",
+    "bio": "Welcome to my blog. This is where I share my work and the things I am learning.",
+    "citationName": ""
+  },
+  "links": {
+    "about": "/p/about.html",
+    "contact": "/p/contact.html",
+    "privacy": "/p/privacy-policy.html",
+    "cookies": "/p/cookie-policy.html",
+    "portfolio": "/p/about.html",
+    "linkedin": "https://www.linkedin.com/",
+    "facebook": "https://www.facebook.com/",
+    "instagram": "https://www.instagram.com/",
+    "github": "https://github.com/",
+    "twitter": "https://x.com/"
+  },
+  "footer": {
+    "description": "A personal blog about my work, ideas, and the things I learn.",
+    "quickTitle": "Quick Links",
+    "legalTitle": "Legal Stuff",
+    "connectTitle": "Connect",
+    "copyright": "All rights reserved."
+  },
+  "connect": { "title": "Let's connect", "description": "Find me on socials or get in touch." },
+  "topics": ["Engineering", "Career", "Tutorials", "Side Projects", "Reading", "Personal"]
+}

@@ -10,18 +10,24 @@ import { JSDOM } from 'jsdom';
 import sharp from 'sharp';
 import { renderPreview } from './lib/blogger-preview.mjs';
 import { conditionalMarkup, descriptionMetadata, routeCondition, validateBloggerExpressions, validateBloggerWidgetSettings } from './lib/blogger-markup.mjs';
+import { resolveThemeConfig, topicExpression, editableRegion } from './lib/blogger-config.mjs';
+import { personalizeFragment } from './lib/blogger-personalize.mjs';
 
 const root = path.resolve(import.meta.dirname, '..');
-const out = path.join(root, 'blogger/output');
-const config = JSON.parse(await fs.readFile(path.join(root, 'blogger/config.json'), 'utf8'));
-const blogUrl = new URL(config.blogUrl);
-if (blogUrl.protocol !== 'https:') throw new Error('blogUrl must use HTTPS');
-config.blogUrl = blogUrl.origin;
-if (new URL(config.assetBaseUrl).protocol !== 'https:') throw new Error('assetBaseUrl must use HTTPS');
+const args = process.argv.slice(2);
+if (args.includes('--help')) {
+  console.log('Build a Blogger theme without changing its styles.\nUsage: node scripts/build-blogger.mjs [--config file.json] [--out directory]\nDefaults: blogger/config.json, blogger/output\nClean reuse preset: npm run build:blogger:reusable');
+  process.exit(0);
+}
+if (args.some((value, index) => index % 2 === 0 && !['--config', '--out'].includes(value)) || args.length % 2) throw new Error('Usage: node scripts/build-blogger.mjs [--config file.json] [--out directory]');
+const options = Object.fromEntries(Array.from({ length: args.length / 2 }, (_, index) => [args[index * 2], args[index * 2 + 1]]));
+const out = path.resolve(root, options['--out'] || 'blogger/output');
+const config = resolveThemeConfig(JSON.parse(await fs.readFile(path.resolve(root, options['--config'] || 'blogger/config.json'), 'utf8')));
 await fs.mkdir(path.join(out, 'assets'), { recursive: true });
 const media = new Map();
 const portraitBuffer = await sharp(path.join(root, 'src/assets/profile-headshot.jpg')).resize(416, 416).jpeg({ quality: 85 }).toBuffer();
-const portrait = 'data:image/jpeg;base64,' + portraitBuffer.toString('base64');
+const placeholderPortrait = '<svg xmlns="http://www.w3.org/2000/svg" width="416" height="416" viewBox="0 0 416 416"><rect width="416" height="416" fill="#f1efeb"/><circle cx="208" cy="155" r="65" fill="#a7a39d"/><path d="M68 416v-40a140 140 0 0 1 280 0v40" fill="#a7a39d"/></svg>';
+const portrait = config.profile.portraitUrl || (config.contentMode === 'native' ? 'data:image/svg+xml;base64,' + Buffer.from(placeholderPortrait).toString('base64') : 'data:image/jpeg;base64,' + portraitBuffer.toString('base64'));
 function mediaUrl(name) {
   const url = config.assetUrls[name] || new URL(name, config.assetBaseUrl.replace(/\/?$/, '/')).href;
   if (new URL(url).protocol !== 'https:') throw new Error(`Image ${name} must use HTTPS`);
@@ -46,6 +52,8 @@ await build({
   } }],
 });
 const source = await import(pathToFileURL(path.join(out, 'source.mjs')).href + '?v=' + Date.now());
+const themePosts = config.contentMode === 'project' ? source.posts : [];
+if (config.contentMode === 'native') media.clear();
 await fs.unlink(path.join(out, 'source.mjs'));
 const { document } = new JSDOM('').window;
 const escape = value => String(value ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&apos;' }[c]));
@@ -71,14 +79,22 @@ topics.querySelectorAll('button').forEach(button => {
   a.href = '/search/label/' + encodeURIComponent(button.textContent.trim());
   button.replaceWith(a);
 });
+personalizeFragment(topics, 'topics', config);
 const footer = fragment(source.footer);
-footer.querySelector('footer p.text-caption').innerHTML = '© <span data-current-year="">' + new Date().getUTCFullYear() + '</span> iamrusiru. All rights reserved.';
+personalizeFragment(footer, 'footer', config);
+footer.querySelector('footer p.text-caption').innerHTML = '© <span data-current-year="">' + new Date().getUTCFullYear() + '</span> ' + escape(config.title) + '. ' + escape(config.footer.copyright);
 const hero = fragment(source.hero);
 hero.querySelector('.font-mono').innerHTML = source.icons.code;
+personalizeFragment(hero, 'hero', config);
+const header = personalizeFragment(fragment(await fs.readFile(path.join(root, 'blogger/fragments/header.html'), 'utf8')), 'header', config);
+const connect = personalizeFragment(fragment(sidebar.children[2].outerHTML), 'connect', config);
+const regions = {
+  header: header.innerHTML, hero: hero.innerHTML, topics: topics.outerHTML, connect: connect.innerHTML, footer: footer.innerHTML,
+};
 const tagClass = 'inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium transition-colors bg-muted text-muted-foreground hover:bg-primary hover:text-primary-foreground';
-const topicsSet = '{"Engineering", "Career", "Tutorials", "Side Projects", "Reading", "Personal"}';
+const topicsSet = topicExpression(config);
 const nativeTags = limit => `<b:loop values='data:post.labels' var='label' index='i'><b:if cond='${limit ? `data:i &lt; ${limit + 1} and ` : ''}!(data:label.name in ${topicsSet})'><a expr:href='data:label.url' class='${tagClass}'>#<data:label.name/></a></b:if></b:loop>`;
-const routeBranches = render => source.posts.map(p => ({ condition: routeCondition('data:post.url', postPath(p)), markup: render(p) }));
+const routeBranches = render => themePosts.map(p => ({ condition: routeCondition('data:post.url', postPath(p)), markup: render(p) }));
 const tags = (p, limit) => p.tags.slice(0, limit).map(tag => `<a href='/search/label/${encodeURIComponent(tag)}' class='${tagClass}'>#${escape(tag)}</a>`).join('');
 const share = fragment(source.share);
 share.querySelectorAll('a').forEach(a => {
@@ -116,13 +132,27 @@ const relatedMarkup = p => {
   if (heading) { heading.id = 'related-' + p.slug; related.firstElementChild.setAttribute('aria-labelledby', heading.id); }
   return xmlFragment(related.innerHTML);
 };
-const uiPosts = source.posts.map(p => ({ path: postPath(p), title: p.title, excerpt: p.excerpt, date: p.date, readTime: source.readingTimes[p.slug], tags: p.tags, category: p.category, imageUrl: p.imageUrl, related: p.relatedPosts || [] }));
+const uiPosts = themePosts.map(p => ({ path: postPath(p), title: p.title, excerpt: p.excerpt, date: p.date, readTime: source.readingTimes[p.slug], tags: p.tags, category: p.category, imageUrl: p.imageUrl, related: p.relatedPosts || [] }));
 const cssConfig = loadConfig(path.join(root, 'tailwind.config.ts'));
-cssConfig.content = [path.join(root, 'src/**/*.{ts,tsx}'), path.join(root, 'blogger/template.xml'), path.join(root, 'blogger/enhancements.js')];
+cssConfig.content = [path.join(root, 'src/**/*.{ts,tsx}'), path.join(root, 'blogger/template.xml'), path.join(root, 'blogger/fragments/*.html'), path.join(root, 'blogger/enhancements.js')];
 const originalCss = (await fs.readFile(path.join(root, 'src/index.css'), 'utf8')).replace(/@import\s+url\([^\r\n]*\);/g, '');
 const css = (await postcss([tailwindcss(cssConfig)]).process(originalCss, { from: path.join(root, 'src/index.css') })).css + '\n' + await fs.readFile(path.join(root, 'blogger/styles.css'), 'utf8');
+const socialImage = config.socialImageUrl || config.profile.portraitUrl || (config.contentMode === 'project' ? mediaUrl('profile-headshot.jpg') : '');
+const socialImages = socialImage
+  ? `<meta expr:content='${escape('data:blog.postImageUrl ?: ' + JSON.stringify(socialImage))}' property='og:image'/><meta expr:content='${escape('data:blog.postImageUrl ?: ' + JSON.stringify(socialImage))}' name='twitter:image'/>`
+  : `<b:if cond='data:blog.postImageUrl'><meta expr:content='data:blog.postImageUrl' property='og:image'/><meta expr:content='data:blog.postImageUrl' name='twitter:image'/></b:if>`;
 const substitutions = {
-  CSS: css, HERO: xmlFragment(hero.innerHTML), FOOTER: xmlFragment(footer.innerHTML),
+  CSS: css,
+  HEADER: editableRegion('themeHeader', 'HTML101', 'Header — branding and navigation', regions.header),
+  HERO: editableRegion('themeHero', 'HTML102', 'Homepage hero — text and portrait', regions.hero),
+  FOOTER: editableRegion('themeFooter', 'HTML105', 'Footer — text and links', regions.footer),
+  TOPICS: editableRegion('themeTopics', 'HTML103', 'Topics — label links', regions.topics),
+  CONNECT: editableRegion('themeConnect', 'HTML104', 'Social links', regions.connect),
+  TOPICS_SET: escape(topicsSet),
+  PROFILE_ROLE: escape(config.profile.role), PROFILE_JOB: escape(config.profile.job), PROFILE_BIO: escape(config.profile.bio),
+  AUTHOR_NAME: escape(config.author), ABOUT_URL: escape(config.links.about),
+  TWITTER_CREATOR: escape(config.branding.twitterCreator), SOCIAL_IMAGES: socialImages,
+  THEME_DATA: JSON.stringify({ citationName: config.profile.citationName, title: config.title }).replace(/</g, '\\u003c').replace(/>/g, '\\u003e').replace(/&/g, '\\u0026'),
   BACK_ICON: xmlFragment(source.icons.back), CLOCK_ICON: xmlFragment(source.icons.clock), UP_ICON: xmlFragment(source.icons.up), SHARE: xmlFragment(share.innerHTML),
   POST_DATA: JSON.stringify(uiPosts).replace(/</g, '\\u003c').replace(/>/g, '\\u003e').replace(/&/g, '\\u0026'),
   CARD_TAGS: conditionalMarkup(routeBranches(p => tags(p, 4)), nativeTags(4)),
@@ -130,19 +160,18 @@ const substitutions = {
   CARD_IMAGE: conditionalMarkup(routeBranches(p => `<a href='${postPath(p)}' class='hidden sm:block flex-shrink-0 w-40 h-28 md:w-48 md:h-32 rounded-lg overflow-hidden' tabindex='-1' aria-hidden='true'><img src='${escape(p.imageUrl)}' alt='' width='192' height='128' class='w-full h-full object-cover transition-transform duration-500 group-hover:scale-105' loading='lazy'/></a>`), `<b:if cond='data:post.featuredImage'><a expr:href='data:post.url' class='hidden sm:block flex-shrink-0 w-40 h-28 md:w-48 md:h-32 rounded-lg overflow-hidden' tabindex='-1' aria-hidden='true'><img expr:src='resizeImage(data:post.featuredImage, 384, "3:2")' alt='' width='192' height='128' class='w-full h-full object-cover' loading='lazy'/></a></b:if>`),
   DATE_MARKUP: conditionalMarkup(routeBranches(p => `<time datetime='${date(p.date).slice(0, 10)}' itemprop='datePublished'>${escape(p.date)}</time>`), '<time expr:datetime="data:post.date.iso8601" itemprop="datePublished"><data:post.date/></time>'),
   RELATED_POSTS: conditionalMarkup(routeBranches(relatedMarkup), `<b:loop values='data:post.labels' var='label' index='i'><b:if cond='data:i == 0'><section class='my-12' data-related='' expr:data-label='data:label.name' hidden='hidden'><h2 class='font-display text-2xl font-semibold mb-6'>You might also like</h2><div class='related-grid' data-related-list=''/></section></b:if></b:loop>`),
-  RECENT_POSTS: '<section class="mt-16 text-left"><h2 class="font-display text-xl font-semibold mb-4">Recent posts</h2><ul class="space-y-3">' + source.posts.slice(0, 3).map(p => `<li class="border-b border-divider pb-3"><a href="${postPath(p)}" class="block hover:text-primary"><p class="font-display text-base font-medium">${escape(p.title)}</p><time class="text-xs text-muted-foreground">${escape(p.date)}</time></a></li>`).join('') + '</ul></section>',
-  TOPICS: xmlFragment(topics.outerHTML), CONNECT: xmlFragment(sidebar.children[2].outerHTML),
+  RECENT_POSTS: themePosts.length ? '<section class="mt-16 text-left"><h2 class="font-display text-xl font-semibold mb-4">Recent posts</h2><ul class="space-y-3">' + themePosts.slice(0, 3).map(p => `<li class="border-b border-divider pb-3"><a href="${postPath(p)}" class="block hover:text-primary"><p class="font-display text-base font-medium">${escape(p.title)}</p><time class="text-xs text-muted-foreground">${escape(p.date)}</time></a></li>`).join('') + '</ul></section>' : '',
   SCRIPT: await fs.readFile(path.join(root, 'blogger/enhancements.js'), 'utf8'),
-  PORTRAIT: portrait, SOCIAL_IMAGE: escape(mediaUrl('profile-headshot.jpg')),
+  PORTRAIT: escape(portrait),
   DESCRIPTION_METADATA: conditionalMarkup([
     { condition: 'data:view.description', markup: descriptionMetadata('data:view.description', { expression: true }) },
-    ...source.posts.map(p => ({ condition: routeCondition('data:blog.canonicalUrl', postPath(p)), markup: descriptionMetadata(p.excerpt) })),
+    ...themePosts.map(p => ({ condition: routeCondition('data:blog.canonicalUrl', postPath(p)), markup: descriptionMetadata(p.excerpt) })),
     { condition: 'data:blog.metaDescription', markup: descriptionMetadata('data:blog.metaDescription', { expression: true }) },
-  ], descriptionMetadata('Software engineering, career lessons, side projects, and developer life by Rusiru Rathmina.')),
-  EXCERPT_MARKUP: conditionalMarkup(source.posts.map(p => ({
+  ], descriptionMetadata(config.description)),
+  EXCERPT_MARKUP: conditionalMarkup(themePosts.map(p => ({
     condition: routeCondition('data:post.url', postPath(p)), markup: escape(p.excerpt),
   })), '<b:eval expr="snippet(data:post.body, {length: 180, links: false, linebreaks: false})"/>'),
-  READTIME_MARKUP: conditionalMarkup(source.posts.map(p => ({
+  READTIME_MARKUP: conditionalMarkup(themePosts.map(p => ({
     condition: routeCondition('data:post.url', postPath(p)),
     markup: escape(source.readingTimes[p.slug]),
   }))),
@@ -201,8 +230,8 @@ function body(post) {
 ${blocks}\n${faq}
 ${related.length ? '<section class="mt-12"><h2>More from the blog</h2><ul>' + related.map(p => `<li><a href="${postPath(p)}">${escape(p.title)}</a></li>`).join('') + '</ul></section>' : ''}`;
 }
-const posts = source.posts.map(p => ({ ...p, path: postPath(p), published: date(p.date), updated: date(p.updatedDate || p.date), body: body(p), labels: [...new Set([p.category, ...p.tags])] }));
-const pages = source.pages.map(page => {
+const posts = themePosts.map(p => ({ ...p, path: postPath(p), published: date(p.date), updated: date(p.updatedDate || p.date), body: body(p), labels: [...new Set([p.category, ...p.tags])] }));
+const pages = (config.contentMode === 'project' ? source.pages : []).map(page => {
   const main = fragment(page.html).querySelector('main');
   const box = fragment(main.innerHTML);
   return { ...page, path: '/p/' + page.slug + '.html', body: `<div data-migrated-page="true" class="page-body ${main.className.replace('px-6', '').replace('py-16', '')}">${box.innerHTML}</div>` };
@@ -211,7 +240,7 @@ function entry(item, isPage = false) {
   const id = BigInt('0x' + createHash('sha256').update(item.slug).digest('hex').slice(0, 15)).toString();
   return `<entry><id>tag:blogger.com,1999:blog-1.${isPage ? 'page' : 'post'}-${id}</id><published>${item.published || '2026-11-04T00:00:00.000Z'}</published><updated>${item.updated || '2026-11-04T00:00:00.000Z'}</updated><category scheme="http://schemas.google.com/g/2005#kind" term="http://schemas.google.com/blogger/2008/kind#${isPage ? 'page' : 'post'}"/>${(item.labels || []).map(label => `<category scheme="http://www.blogger.com/atom/ns#" term="${escape(label)}"/>`).join('')}<title type="text">${escape(item.title)}</title><content type="html">${escape(item.body)}</content><link rel="alternate" type="text/html" href="${escape(config.blogUrl + item.path)}"/><author><name>${escape(config.author)}</name></author><app:control><app:draft>no</app:draft></app:control></entry>`;
 }
-const feed = `<?xml version="1.0" encoding="UTF-8"?>\n<feed xmlns="http://www.w3.org/2005/Atom" xmlns:app="http://purl.org/atom/app#"><id>tag:blogger.com,1999:blog-1</id><updated>${posts.reduce((a, p) => a > p.updated ? a : p.updated, '')}</updated><title type="text">${escape(config.title)}</title><generator version="7.00" uri="https://www.blogger.com">Blogger</generator>${posts.map(p => entry(p)).join('\n')}${pages.map(p => entry(p, true)).join('\n')}</feed>`;
+const feed = `<?xml version="1.0" encoding="UTF-8"?>\n<feed xmlns="http://www.w3.org/2005/Atom" xmlns:app="http://purl.org/atom/app#"><id>tag:blogger.com,1999:blog-1</id><updated>${posts.reduce((a, p) => a > p.updated ? a : p.updated, '1970-01-01T00:00:00.000Z')}</updated><title type="text">${escape(config.title)}</title><generator version="7.00" uri="https://www.blogger.com">Blogger</generator>${posts.map(p => entry(p)).join('\n')}${pages.map(p => entry(p, true)).join('\n')}</feed>`;
 new JSDOM(feed, { contentType: 'text/xml' });
 await fs.writeFile(path.join(out, 'feed.atom'), feed);
 await fs.writeFile(path.join(out, 'media-manifest.json'), JSON.stringify(Object.fromEntries(media), null, 2) + '\n');
@@ -220,12 +249,17 @@ await fs.writeFile(path.join(out, 'redirects.json'), JSON.stringify(redirects, n
 for (const [name] of media) await fs.copyFile(path.join(root, 'src/assets', name), path.join(out, 'assets', name));
 for (const page of pages) await fs.writeFile(path.join(out, page.slug + '.html'), page.body);
 await fs.writeFile(path.join(out, 'content.json'), JSON.stringify({ config, posts, pages }, null, 2));
+await fs.writeFile(path.join(out, 'theme-config.json'), JSON.stringify(config, null, 2) + '\n');
+await fs.mkdir(path.join(out, 'editable-regions'), { recursive: true });
+for (const [name, html] of Object.entries(regions)) await fs.writeFile(path.join(out, 'editable-regions', name + '.html'), html);
 // Previews evaluate the same XML branches; they are fixtures, not Blogger's renderer.
 await fs.mkdir(path.join(out, 'preview'), { recursive: true });
 for (const [name, options] of Object.entries({ home: {}, post: { kind: 'post', post: posts[0] }, about: { kind: 'page', post: pages[0] }, search: { kind: 'search' }, empty: { kind: 'empty' }, archive: { kind: 'archive' }, label: { kind: 'label' }, error: { kind: 'error' } })) {
+  if ((options.kind === 'post' || options.kind === 'page') && !options.post) continue;
   await fs.writeFile(path.join(out, 'preview', name + '.html'), renderPreview(template, { config, posts, media, ...options }));
 }
-await fs.copyFile(path.join(root, 'blogger/README.md'), path.join(out, 'README.md'));
+await fs.copyFile(path.join(root, config.contentMode === 'native' ? 'blogger/REUSABLE.md' : 'blogger/README.md'), path.join(out, 'README.md'));
 await fs.copyFile(path.join(root, 'blogger/COMPATIBILITY.md'), path.join(out, 'COMPATIBILITY.md'));
 await fs.copyFile(path.join(root, 'blogger/UI-COMPARISON.md'), path.join(out, 'UI-COMPARISON.md'));
-console.log(`Blogger export: ${posts.length} posts, ${pages.length} pages, ${media.size} images.\nTheme: blogger/output/iamrusiru-blogger.xml\nContent: blogger/output/feed.atom\nSet blogger/config.json to your actual blog and image URLs before importing.`);
+await fs.copyFile(path.join(root, 'blogger/CUSTOMIZATION.md'), path.join(out, 'CUSTOMIZATION.md'));
+console.log(`Blogger export (${config.contentMode}): ${posts.length} posts, ${pages.length} pages, ${media.size} images.\nTheme: ${path.relative(root, path.join(out, 'iamrusiru-blogger.xml'))}\n${config.contentMode === 'project' ? 'Optional content: ' + path.relative(root, path.join(out, 'feed.atom')) : 'Native mode: use the destination blog\'s own posts and Pages; no content import needed.'}`);

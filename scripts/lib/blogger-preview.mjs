@@ -11,7 +11,7 @@ export function renderPreview(template, { config, posts, media, kind = 'home', p
     if (localAssets) for (const [name, src] of media) body = body.replaceAll(src, assetPrefix + name);
     return {
       ...p, body, url: config.blogUrl + p.path,
-      featuredImage: p.imageUrl ? localAssets ? assetPrefix + [...media].find(([, src]) => src === p.imageUrl)?.[0] : p.imageUrl : '',
+      featuredImage: p.imageUrl ? localAssets && [...media].some(([, src]) => src === p.imageUrl) ? assetPrefix + [...media].find(([, src]) => src === p.imageUrl)[0] : p.imageUrl : '',
       author: { name: config.author, profileUrl: config.blogUrl + '/p/about.html' },
       date: { iso8601: p.published, toString: () => p.date },
       lastUpdated: { iso8601: p.updated },
@@ -23,11 +23,11 @@ export function renderPreview(template, { config, posts, media, kind = 'home', p
   const listing = kind === 'search' ? posts.filter(p => p.title.includes('TypeScript')) : kind === 'empty' ? [] : kind === 'label' ? posts.filter(p => p.labels.includes('Engineering')) : posts;
   const title = viewTitle || (kind === 'post' || kind === 'page' ? post.title : kind === 'search' ? 'Search results for TypeScript' : kind === 'label' ? 'Engineering' : kind === 'archive' ? 'June 2026' : kind === 'error' ? 'Page not found' : config.title);
   const context = {
-    blog: { title: config.title, homepageUrl: config.blogUrl + '/', canonicalUrl: url.split('?')[0], languageDirection: 'ltr', locale: 'en', postImageUrl: kind === 'post' ? post.imageUrl : '', metaDescription: 'Software engineering, career lessons, side projects, and developer life by Rusiru Rathmina.' },
+    blog: { title: config.title, homepageUrl: config.blogUrl + '/', canonicalUrl: url.split('?')[0], languageDirection: 'ltr', locale: 'en', postImageUrl: kind === 'post' ? post.imageUrl : '', metaDescription: config.description || '' },
     view: { url, title, description: searchDescription ?? (kind === 'post' ? post.excerpt : ''), isHomepage: kind === 'home', isPost: kind === 'post', isPage: kind === 'page', isSingleItem: ['post', 'page'].includes(kind), isMultipleItems: !['post', 'page', 'error'].includes(kind), isSearch: ['search', 'label', 'empty', 'listing'].includes(kind), isError: kind === 'error', search: { query: kind === 'search' ? 'TypeScript' : '' } },
     posts: (['post', 'page'].includes(kind) ? [post] : listing.slice(0, 6)).map(normalize),
     labels: [...new Set(posts.flatMap(p => p.labels))].map(name => ({ name, count: posts.filter(p => p.labels.includes(name)).length, url: config.blogUrl + '/search/label/' + encodeURIComponent(name) })).sort((a, b) => a.name.localeCompare(b.name)),
-    title: 'Tags', olderPageUrl: kind === 'home' || kind === 'archive' ? config.blogUrl + '/search?updated-max=2026-04-01T00:00:00Z&max-results=6' : '', newerPageUrl: '',
+    title: 'Tags', olderPageUrl: posts.length > 6 && (kind === 'home' || kind === 'archive') ? config.blogUrl + '/search?updated-max=2026-04-01T00:00:00Z&max-results=6' : '', newerPageUrl: '',
   };
   const includes = new Map(Array.from(doc.getElementsByTagName('b:includable')).map(el => [el.getAttribute('id'), el]));
   function evaluate(expression, scope) {
@@ -82,15 +82,18 @@ export function renderPreview(template, { config, posts, media, kind = 'home', p
     }
     if (name.startsWith('data:')) {
       const value = evaluate(name, scope);
-      return name === 'data:post.body' ? value : escape(value);
+      return name === 'data:post.body' || name === 'data:content' ? value : escape(value);
     }
     if (name === 'b:widget') {
+      if (node.getAttribute('visible') === 'false') return '';
       const main = Array.from(node.children).find(el => el.nodeName === 'b:includable' && el.getAttribute('id') === 'main');
+      const settings = Object.fromEntries(Array.from(node.getElementsByTagName('b:widget-setting')).map(el => [el.getAttribute('name'), el.textContent]));
+      const widgetScope = { ...scope, title: node.getAttribute('title'), ...settings };
       if (!main && node.getAttribute('type') === 'BlogArchive') {
         const months = [...new Set(posts.map(p => p.path.slice(0, 8)))];
         return '<div class="widget" id="BlogArchive1"><h2>Blog Archive</h2><ul>' + months.map(month => '<li><a href="' + escape(config.blogUrl + month + '/') + '">' + escape(month.slice(1).replace('/', ' / ')) + '</a></li>').join('') + '</ul></div>';
       }
-      return '<div class="widget" id="' + node.id + '">' + (main ? children(main, scope) : '') + '</div>';
+      return '<div class="widget ' + node.getAttribute('type') + '" id="' + node.id + '">' + (main ? children(main, widgetScope) : '') + '</div>';
     }
     const tag = name === 'b:section' ? 'div' : name;
     let attrs = '';

@@ -3,11 +3,15 @@ import fs from 'node:fs/promises';
 import path from 'node:path';
 import { renderPreview } from './lib/blogger-preview.mjs';
 
-const out = path.resolve(import.meta.dirname, '../blogger/output');
+const args = process.argv.slice(2);
+if (args.some((value, index) => index % 2 === 0 && !['--out', '--port'].includes(value)) || args.length % 2) throw new Error('Usage: npm run preview:blogger -- [--out directory] [--port 4175]');
+const options = Object.fromEntries(Array.from({ length: args.length / 2 }, (_, index) => [args[index * 2], args[index * 2 + 1]]));
+const out = path.resolve(import.meta.dirname, '..', options['--out'] || 'blogger/output');
 const template = await fs.readFile(path.join(out, 'iamrusiru-blogger.xml'), 'utf8');
 const { config, posts, pages } = JSON.parse(await fs.readFile(path.join(out, 'content.json'), 'utf8'));
 const media = new Map(Object.entries(JSON.parse(await fs.readFile(path.join(out, 'media-manifest.json'), 'utf8'))));
-const port = Number(process.env.BLOGGER_PREVIEW_PORT || 4175);
+const port = Number(options['--port'] || process.env.BLOGGER_PREVIEW_PORT || 4175);
+if (!Number.isInteger(port) || port < 1 || port > 65535) throw new Error('Invalid preview port');
 const origin = 'http://127.0.0.1:' + port;
 http.createServer(async (req, res) => {
   try {
