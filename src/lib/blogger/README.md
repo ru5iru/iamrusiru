@@ -12,6 +12,8 @@ The existing file-based blog stays independent. No Blogger posts are fabricated 
 
 ## Contracts
 
+Current blocker: the workspace rejected creation of the public `blogger-media` bucket. Image import safely omits images until a permitted media-storage option is selected; do not claim live media integration is verified. The user's blog source/API connection is also deferred.
+
 - Public GET `blogger-posts`: sanitized published snapshot plus configuration/refresh status.
 - GET with `mode=snapshot`: read without initiating an import, for prerendering.
 - No arbitrary URLs or blog IDs accepted from visitors. All source configuration is server-owned.

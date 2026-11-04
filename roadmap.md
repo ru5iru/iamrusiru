@@ -13,4 +13,6 @@
 
 # Blogger integration
 - [x] Plan Blogger posts alongside local posts, with full articles readable on this website.
-- [ ] Implement after plan approval; connect the Blogger source when the user is ready.
+- [x] Prepare importer, safe HTML, merged feed, reader routes, and snapshot prerendering; verify tests and disabled state.
+- [ ] Connect and verify real Blogger posts when the user supplies the blog URL/ID and API key.
+- [ ] Enable imported article images after an allowed storage option is available; workspace blocks public buckets.

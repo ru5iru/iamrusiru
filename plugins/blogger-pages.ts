@@ -9,7 +9,7 @@ export async function loadBloggerSnapshot(backendUrl?: string, publishableKey?: 
   if (!backendUrl || !publishableKey) return empty;
   const response = await fetch(`${backendUrl}/functions/v1/blogger-posts?mode=snapshot`, { headers: { apikey: publishableKey }, signal: AbortSignal.timeout(10000) });
   if (!response.ok) throw new Error(`Blogger snapshot unavailable (${response.status})`);
-  const snapshot = await response.json();
+  const snapshot = await response.json() as BloggerSnapshot;
   if (!Array.isArray(snapshot.posts)) throw new Error("Invalid Blogger snapshot");
   const prefix = `${backendUrl}/storage/v1/object/public/blogger-media/`;
   return { ...snapshot, posts: snapshot.posts.map((p: BloggerArticle) => ({ ...p, html: sanitize(p.html, undefined, prefix).html })) };
