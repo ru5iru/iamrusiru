@@ -151,6 +151,38 @@ test('home/search/labels/archive/empty/error and new Blogger pages render approp
   }
   const fresh = preview({ kind: 'page', post: { title: 'New page', path: '/p/new.html', body: '<p>New native Blogger page</p>' } });
   assert.equal(fresh.querySelector('h1').textContent, 'New page');
+  assert.ok(fresh.querySelector('.page-body.max-w-3xl.mx-auto > h1'));
+});
+
+test('editor starters and original-style snippets work in a new native post and Page', async () => {
+  const read = name => fs.readFile(path.join(out, 'editor-templates', name), 'utf8');
+  const starter = await read('post.html');
+  const code = await read('snippets/code.html');
+  const faq = await read('snippets/faq.html');
+  const tip = await read('snippets/callout-tip.html');
+  const page = await read('page.html');
+  assert.equal(JSDOM.fragment(starter).querySelector('h1'), null);
+  assert.equal(JSDOM.fragment(page).querySelector('h1'), null);
+  const freshPost = { ...posts[0], path: '/2026/11/editor-starter.html', title: 'Editor starter', body: starter + code + tip + faq };
+  const dom = new JSDOM(withoutCss(renderPreview(xml, { config, posts: [freshPost], media, kind: 'post', post: freshPost })), { url: config.blogUrl + freshPost.path, runScripts: 'outside-only', pretendToBeVisual: true });
+  dom.window.matchMedia = () => ({ matches: false });
+  dom.window.fetch = () => Promise.reject(new Error('Feed disabled'));
+  let copied = '';
+  dom.window.navigator.clipboard = { writeText: async text => { copied = text; } };
+  dom.window.eval(await fs.readFile(new URL('../blogger/enhancements.js', import.meta.url), 'utf8'));
+  const doc = dom.window.document;
+  assert.equal(doc.querySelectorAll('h1').length, 1);
+  assert.equal(doc.querySelectorAll('[data-copy-code]').length, 1);
+  assert.ok(doc.querySelector('[role="note"][aria-label="Tip"] svg'));
+  assert.ok(doc.querySelector('[data-post-faq] [itemtype="https://schema.org/FAQPage"]'));
+  assert.equal(doc.querySelectorAll('[data-toc-list] a').length, 4);
+  doc.querySelector('[data-copy-code]').click();
+  await new Promise(resolve => setTimeout(resolve, 0));
+  assert.equal(copied, 'const message = "Hello, world!";\nconsole.log(message);');
+  const pageDoc = preview({ kind: 'page', post: { title: 'Starter Page', path: '/p/starter.html', body: page } });
+  assert.equal(pageDoc.querySelectorAll('h1').length, 1);
+  assert.ok(pageDoc.querySelector('.page-body > .post-content h2'));
+  dom.window.close();
 });
 
 test('theme, menu, table of contents, copy controls and unavailable feeds work progressively', async () => {

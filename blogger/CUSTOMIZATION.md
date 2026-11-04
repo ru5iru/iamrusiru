@@ -24,6 +24,8 @@ Copies of each generated gadget body are in `output/editable-regions/`. They pro
 
 **Tags**, **Blog Archive**, posts, Pages, comments, favicon, blog title and search description remain native Blogger settings. About/contact/legal page bodies remain editable under **Pages**.
 
+For writing new content, see [WRITING.md](WRITING.md). Each build includes `editor-templates/post.html`, `page.html` and reusable body snippets. The post starter can also be saved in Blogger's **Settings → Posts → Post template**.
+
 ## Change identity consistently
 
 For changes shared across the site, edit `blogger/config.json` and rebuild. All supported fields are present in that file, with the existing site values as defaults.

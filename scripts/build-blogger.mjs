@@ -12,6 +12,7 @@ import { renderPreview } from './lib/blogger-preview.mjs';
 import { conditionalMarkup, descriptionMetadata, routeCondition, validateBloggerExpressions, validateBloggerWidgetSettings } from './lib/blogger-markup.mjs';
 import { resolveThemeConfig, topicExpression, editableRegion } from './lib/blogger-config.mjs';
 import { personalizeFragment } from './lib/blogger-personalize.mjs';
+import { editorTemplates } from './lib/blogger-editor.mjs';
 
 const root = path.resolve(import.meta.dirname, '..');
 const args = process.argv.slice(2);
@@ -252,6 +253,11 @@ await fs.writeFile(path.join(out, 'content.json'), JSON.stringify({ config, post
 await fs.writeFile(path.join(out, 'theme-config.json'), JSON.stringify(config, null, 2) + '\n');
 await fs.mkdir(path.join(out, 'editable-regions'), { recursive: true });
 for (const [name, html] of Object.entries(regions)) await fs.writeFile(path.join(out, 'editable-regions', name + '.html'), html);
+for (const [name, html] of Object.entries(editorTemplates(source))) {
+  const target = path.join(out, 'editor-templates', name);
+  await fs.mkdir(path.dirname(target), { recursive: true });
+  await fs.writeFile(target, html + '\n');
+}
 // Previews evaluate the same XML branches; they are fixtures, not Blogger's renderer.
 await fs.mkdir(path.join(out, 'preview'), { recursive: true });
 for (const [name, options] of Object.entries({ home: {}, post: { kind: 'post', post: posts[0] }, about: { kind: 'page', post: pages[0] }, search: { kind: 'search' }, empty: { kind: 'empty' }, archive: { kind: 'archive' }, label: { kind: 'label' }, error: { kind: 'error' } })) {
@@ -262,4 +268,5 @@ await fs.copyFile(path.join(root, config.contentMode === 'native' ? 'blogger/REU
 await fs.copyFile(path.join(root, 'blogger/COMPATIBILITY.md'), path.join(out, 'COMPATIBILITY.md'));
 await fs.copyFile(path.join(root, 'blogger/UI-COMPARISON.md'), path.join(out, 'UI-COMPARISON.md'));
 await fs.copyFile(path.join(root, 'blogger/CUSTOMIZATION.md'), path.join(out, 'CUSTOMIZATION.md'));
+await fs.copyFile(path.join(root, 'blogger/WRITING.md'), path.join(out, 'WRITING.md'));
 console.log(`Blogger export (${config.contentMode}): ${posts.length} posts, ${pages.length} pages, ${media.size} images.\nTheme: ${path.relative(root, path.join(out, 'iamrusiru-blogger.xml'))}\n${config.contentMode === 'project' ? 'Optional content: ' + path.relative(root, path.join(out, 'feed.atom')) : 'Native mode: use the destination blog\'s own posts and Pages; no content import needed.'}`);

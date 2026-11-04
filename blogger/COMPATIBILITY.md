@@ -22,6 +22,7 @@ The conversion targets Blogger's Layouts engine with v2 widgets, v3 layouts and 
 | Runtime | No React, Supabase or MCP dependency in the installed theme; CSS compiled and JavaScript embedded. |
 | Customization / reuse | Five native HTML Layout gadgets, validated identity/content configuration and a clean native-content preset. All 15 checks pass, including saved widget edits without JavaScript and a different-owner build without project content. New native gadget editing still requires hosted verification after upload. |
 | Style preservation | Eight desktop/mobile before/after screenshots have identical dimensions and zero differing pixels; the compiled original CSS is unchanged. New wrapper rules preserve section spacing. |
+| New-content authoring | Generated post/Page starters and nine styled-block snippets; fixed plain new-Page width/padding. All 16 checks pass. Fresh native post/Page previews verified at 1440px and 390px without overflow or script errors; code copy, TOC and FAQ placement work. |
 | Repository lint | Pre-existing errors remain in the prerender plugin, UI types, post content, Tailwind config, tracked temporary bundle and MCP function. No conversion files were reported. |
 
 Google's actual theme compiler, comment editor, Atom importer and social crawler fetches require a Blogger test blog and are **not certified by the local preview**. Importer normalization may require correcting post/page permalinks before publication. See `README.md` for installation and hosted checks.

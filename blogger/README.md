@@ -20,6 +20,7 @@ In the downloadable ZIP, the generated files are at the ZIP root rather than ins
 | `preview/` | Local approximation fixtures. Not Blogger upload files. |
 | `editable-regions/` | Header, hero, topics, social and footer HTML for Blogger Layout editing/recovery. |
 | `CUSTOMIZATION.md` | Named configuration fields, editable gadgets and reuse instructions. |
+| `editor-templates/`, `WRITING.md` | New-post/Page starters, reusable styled blocks and publishing instructions. |
 
 ## Build and review
 

@@ -56,7 +56,7 @@
             <b:loop values='data:posts' var='post'>
               <b:if cond='data:view.isPage'>
                 <article class='blogger-page max-w-4xl mx-auto px-6 py-16'>
-                  <b:if cond='data:post.body contains "data-migrated-page"'><data:post.body/><b:else/><h1 class='font-display text-4xl md:text-5xl mb-10'><data:post.title/></h1><div class='post-content'><data:post.body/></div></b:if>
+                  <b:if cond='data:post.body contains "data-migrated-page"'><data:post.body/><b:else/><div class='page-body max-w-3xl mx-auto'><h1 class='font-display text-4xl md:text-5xl mb-10'><data:post.title/></h1><div class='post-content'><data:post.body/></div></div></b:if>
                 </article>
               <b:else/>
                 <b:include data='post' name='article'/>
