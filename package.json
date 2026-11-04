@@ -4,6 +4,9 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
+    "build:blogger": "node scripts/build-blogger.mjs",
+    "test:blogger": "node --test --experimental-test-isolation=none scripts/test-blogger.mjs",
+    "preview:blogger": "node scripts/serve-blogger.mjs",
     "dev": "vite",
     "build": "vite build",
     "build:dev": "vite build --mode development",

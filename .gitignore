@@ -12,6 +12,11 @@ dist
 dist-ssr
 *.local
 .netlify/
+blogger/output/
+blogger/*.zip
+output/playwright/
+.taste-skill/
+.playwright-cli/
 
 # Editor directories and files
 .vscode/*
