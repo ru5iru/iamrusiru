@@ -11,6 +11,15 @@ let inflight: Promise<BloggerSnapshot> | null = null;
 async function loadSnapshot(): Promise<BloggerSnapshot> {
   if (inflight) return inflight;
   inflight = (async () => {
+    if (!cached.configured) {
+      try {
+        const response = await fetch("/blogger-snapshot.json");
+        if (response.ok && response.headers.get("content-type")?.includes("json")) {
+          const snapshot = await response.json();
+          if (snapshot && Array.isArray(snapshot.posts)) cached = snapshot;
+        }
+      } catch { /* Build snapshot is optional in development. */ }
+    }
     const { data, error } = await supabase.functions.invoke("blogger-posts", { method: "GET" });
     if (error) {
       // Read the provider context, but never render arbitrary service text as HTML.
@@ -22,7 +31,7 @@ async function loadSnapshot(): Promise<BloggerSnapshot> {
     const prefix = bloggerMediaPrefix(import.meta.env.VITE_SUPABASE_URL);
     cached = { ...data, posts: data.posts.map((post: BloggerSnapshot["posts"][number]) => ({ ...post, html: sanitizeBlogger(post.html, undefined, prefix).html })) };
     return cached;
-  })().finally(() => { inflight = null; });
+  })().catch(() => ({ ...cached, warning: "Blogger posts are temporarily unavailable." })).finally(() => { inflight = null; });
   return inflight;
 }
 
