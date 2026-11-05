@@ -4,10 +4,16 @@
 <head>
   <meta charset='utf-8'/>
   <meta content='width=device-width, initial-scale=1' name='viewport'/>
-  <title><data:view.title.escaped/></title>
-  <!-- Own the metadata here: no all-head-content include that can duplicate it. -->
+  <!-- SEO 1: one route-specific title, canonical and description per key.
+       Blogger Search description overrides imported/build defaults. No JS required. -->
+  <title>@@SEO_TITLE@@</title>
   <link expr:href='data:blog.canonicalUrl' rel='canonical'/>
   @@DESCRIPTION_METADATA@@
+  <!-- SEO 2: optional legacy keyword metadata; Google does not use it for ranking.
+       Native post Labels also become structured keywords in the article below. -->
+  @@SEO_KEYWORDS@@
+  @@SEO_AUTHOR_LINK@@
+  <!-- SEO 3: social previews; full visible title and canonical destination. -->
   <meta expr:content='data:view.title' property='og:title'/>
   <meta expr:content='data:blog.canonicalUrl' property='og:url'/>
   <meta expr:content='data:blog.title' property='og:site_name'/>
@@ -16,11 +22,9 @@
   <meta content='summary_large_image' name='twitter:card'/>
   <meta content='@@TWITTER_CREATOR@@' name='twitter:creator'/>
   <meta expr:content='data:view.title' name='twitter:title'/>
-  <b:if cond='data:view.isSearch or data:view.isError or data:view.url contains "/p/privacy-policy.html" or data:view.url contains "/p/cookie-policy.html"'>
-    <meta content='noindex,follow' name='robots'/>
-  <b:else/>
-    <meta content='index,follow,max-image-preview:large' name='robots'/>
-  </b:if>
+  <!-- SEO 4: index controls and snippet permissions. Blogger HTTP robots rules
+       can impose additional restrictions; keep dashboard settings consistent. -->
+  @@SEO_ROBOTS@@
   <link expr:href='data:blog.homepageUrl + "favicon.ico"' rel='icon'/>
   <link expr:href='data:blog.homepageUrl + "feeds/posts/default?alt=rss"' rel='alternate' title='Posts RSS' type='application/rss+xml'/>
   <link expr:href='data:blog.homepageUrl + "feeds/posts/default"' rel='alternate' title='Posts Atom' type='application/atom+xml'/>
@@ -38,6 +42,9 @@
   //]]></script>
 </head>
 <body class='min-h-screen bg-background'>
+  <!-- AEO/GEO 1: semantic identity and breadcrumbs, rendered on the server.
+       These microdata nodes contain metadata only and add no visible sections. -->
+  @@SEO_SITE_ENTITIES@@
   <a class='skip-link' href='#main-content'>Skip to main content</a>
   <div aria-hidden='true' id='reading-progress'/>
   <header class='site-header py-5 border-b border-divider bg-background sticky top-0 z-50'>
@@ -55,7 +62,8 @@
           <b:elseif cond='data:view.isSingleItem'/>
             <b:loop values='data:posts' var='post'>
               <b:if cond='data:view.isPage'>
-                <article class='blogger-page max-w-4xl mx-auto px-6 py-16'>
+                <article class='blogger-page max-w-4xl mx-auto px-6 py-16' itemscope='itemscope' itemtype='https://schema.org/WebPage' expr:itemid='data:blog.canonicalUrl'>
+                  @@SEO_PAGE@@
                   <b:if cond='data:post.body contains "data-migrated-page"'><data:post.body/><b:else/><div class='page-body max-w-3xl mx-auto'><h1 class='font-display text-4xl md:text-5xl mb-10'><data:post.title/></h1><div class='post-content'><data:post.body/></div></div></b:if>
                 </article>
               <b:else/>
@@ -63,14 +71,16 @@
               </b:if>
             </b:loop>
           <b:else/>
-            <section>
+            <!-- SEO/AEO: collection and ordered post items reuse the existing list UI. -->
+            <section itemscope='itemscope' itemtype='https://schema.org/CollectionPage' expr:itemid='data:blog.canonicalUrl'>
+              @@SEO_COLLECTION@@
               <div>
                 <div class='flex items-center gap-2 mb-8'><div class='w-1 h-6 bg-primary rounded-full'/><b:if cond='data:view.isHomepage'><h2 class='font-display text-2xl font-semibold'>Latest Posts</h2><b:else/><h1 class='font-display text-2xl font-semibold'><data:view.title/></h1></b:if></div>
                 <b:if cond='data:view.isSearch'><a class='inline-block text-sm text-primary mb-6' expr:href='data:blog.homepageUrl'>Clear filters →</a></b:if>
                 <div class='flex flex-col lg:flex-row gap-12'>
-                  <div class='flex-1 min-w-0'>
+                  <div class='flex-1 min-w-0' itemprop='mainEntity' itemscope='itemscope' itemtype='https://schema.org/ItemList'>
                     <b:if cond='data:posts.empty'><div class='py-16 text-center'><p class='text-lg mb-4'>No posts found.</p><a class='text-primary' expr:href='data:blog.homepageUrl'>Show all posts</a></div></b:if>
-                    <b:loop values='data:posts' var='post'><b:include data='post' name='card'/></b:loop>
+                    <b:loop values='data:posts' var='post' index='position'><b:include data='post' name='card'/></b:loop>
                     <b:include name='pager'/>
                   </div>
                 </div>
@@ -79,7 +89,8 @@
           </b:if>
         </b:includable>
         <b:includable id='card' var='post'>
-          <article class='group py-6 border-b border-divider flex gap-5 hover:border-primary/30'>
+          <article class='group py-6 border-b border-divider flex gap-5 hover:border-primary/30' itemprop='itemListElement' itemscope='itemscope' itemtype='https://schema.org/ListItem'>
+            <meta itemprop='position' expr:content='data:position + 1'/><meta itemprop='name' expr:content='data:post.title'/><link itemprop='url' expr:href='data:post.url'/>
             @@CARD_IMAGE@@
             <div class='flex-1 min-w-0'>
               <b:include data='post' name='topicBadge'/>
@@ -91,7 +102,10 @@
           </article>
         </b:includable>
         <b:includable id='article' var='post'>
-          <article class='py-12' itemscope='itemscope' itemtype='https://schema.org/BlogPosting'>
+          <article class='py-12' itemscope='itemscope' itemtype='https://schema.org/BlogPosting' expr:itemid='data:blog.canonicalUrl'>
+            <!-- AEO/GEO 2: article identity, native dates, description, keywords,
+                 image and publisher. FAQ answers remain in the visible body. -->
+            @@SEO_ARTICLE@@
             <div>
               <a class='inline-flex items-center gap-2 text-sm leading-none text-caption hover:text-primary mb-8' expr:href='data:blog.homepageUrl'>@@BACK_ICON@@<span>Back to all posts</span></a>
               <div class='flex flex-col lg:flex-row gap-10'>
@@ -101,7 +115,9 @@
                   <link itemprop='mainEntityOfPage' expr:href='data:blog.canonicalUrl'/>
                   <b:if cond='data:post.lastUpdated'><meta itemprop='dateModified' expr:content='data:post.lastUpdated.iso8601'/></b:if>
                   <div class='flex flex-wrap gap-2 mb-8'>@@ARTICLE_TAGS@@</div>
-                  <div class='flex items-center gap-3 mb-10 pb-8 border-b border-divider' itemprop='author' itemscope='itemscope' itemtype='https://schema.org/Person'><img src='@@PORTRAIT@@' alt='' width='40' height='40' class='w-10 h-10 rounded-full object-cover'/><div><p class='text-sm font-medium' data-post-author='' itemprop='name'><data:post.author.name/></p><p class='text-xs text-muted-foreground'>@@PROFILE_ROLE@@</p><link itemprop='url' href='@@ABOUT_URL@@'/></div></div>
+                  <div class='flex items-center gap-3 mb-10 pb-8 border-b border-divider' itemprop='author' itemscope='itemscope' itemtype='https://schema.org/Person'>@@SEO_POST_AUTHOR@@<img src='@@PORTRAIT@@' alt='' width='40' height='40' class='w-10 h-10 rounded-full object-cover'/><div><p class='text-sm font-medium' data-post-author='' itemprop='name'><data:post.author.name/></p><p class='text-xs text-muted-foreground'>@@PROFILE_ROLE@@</p><link itemprop='url' href='@@ABOUT_URL@@'/></div></div>
+                  <!-- AEO/GEO 3: readable body, answer summary, headings, references
+                       and FAQ content; the editor starters preserve these styles. -->
                   <div class='post-content' data-article-body='' itemprop='articleBody'><data:post.body/></div>
                   @@SHARE@@
                   <section class='mt-8 rounded-xl border border-divider bg-warm/40 p-5'><h2 class='font-display text-lg font-semibold mb-2'>Cite this post</h2><p class='text-sm leading-relaxed mb-3'>Found this useful? Feel free to reference it in your own work:</p><code class='block font-mono text-xs text-body bg-background border border-divider rounded-lg px-4 py-3 break-all' data-citation=''><data:post.author.name/>. <data:post.title/>. <data:post.url/></code></section>

@@ -24,7 +24,12 @@ export function editorTemplates(source) {
   </div>
 </section>`;
   return {
-    'post.html': `<!-- Set the title, labels and search description in Blogger's own fields. -->
+    'post.html': `<!-- SEO/AEO/GEO publishing brief (planning notes, not metadata):
+Primary search intent: replace with the question this article answers.
+Primary phrase: use naturally in Blogger's Title, the lead and a relevant heading.
+Supporting terms: cover the subject naturally; do not repeat a keyword list.
+Set Labels and Search description in Blogger's own fields before publishing.
+Use accurate sources, examples, author details and dates. Remove unused blocks. -->
 ${summary}
 <h2>Introduction</h2>
 <p>Write your introduction here.</p>
@@ -49,5 +54,11 @@ ${summary}
     'snippets/callout-tip.html': source.renderCallout({ type: 'callout', variant: 'tip', text: 'Replace this with your practical tip.' }),
     'snippets/table.html': '<table><thead><tr><th>Heading one</th><th>Heading two</th></tr></thead><tbody><tr><td>First value</td><td>Second value</td></tr></tbody></table>',
     'snippets/quote.html': '<blockquote><p>Replace this with a quotation you have permission to use.</p></blockquote>',
+    'snippets/seo-keywords.html': `<!-- Optional structured keywords for a Page, or phrases separate from post Labels.
+Append at the END of the body. Replace the examples with relevant phrases.
+This is schema.org microdata, not a Google ranking or AI-inclusion directive. -->
+<meta itemprop="keywords" content="primary topic phrase, supporting topic phrase" />`,
+    'snippets/sources.html': `<h2>Sources and further reading</h2>
+<ul><li><a href="REPLACE_WITH_PRIMARY_SOURCE_URL">Replace with a descriptive source title</a> — explain what this source supports.</li></ul>`,
   };
 }

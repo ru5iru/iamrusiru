@@ -12,6 +12,8 @@ The current colors, fonts, spacing and component styles are preserved. `editable
 
 `editor-templates/` contains a post starter, a Page starter and optional styled-block snippets. See `WRITING.md` for adding new content and setting Blogger's default Post template.
 
+`SEO-GUIDE.md` explains post Labels/keywords, Search descriptions, Page metadata and crawler settings. The theme supplies metadata and schema without scripts. `seo-routes.json` inventories configured overrides; `robots-txt.example.txt` is an optional Blogger Settings example generated for your domain. Review it before saving; XML restore cannot update robots.txt.
+
 For consistent author biography/portrait updates across the entire theme, use `theme-config.json` with this project's source builder. Its fields and build commands are documented in `CUSTOMIZATION.md`. Keep your edited configuration separate from the supplied presets. You can edit the main sections directly in Blogger without installing any build tools.
 
 This generic preset uses `contentMode: native`, so it contains no source-blog post links, old excerpt/date overrides or curated recommendations. Related posts use Blogger's native feed when enabled. Set `socialImageUrl` to a public HTTPS image for homepage social cards; article cards can use their Blogger featured image.

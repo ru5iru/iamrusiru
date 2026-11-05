@@ -17,17 +17,26 @@ import SharePost from "../src/components/blog/SharePost";
 import RelatedPosts from "../src/components/blog/RelatedPosts";
 import { ArrowLeft, ArrowUp, Clock, CodeXml, Facebook, Mail, Share2 } from "lucide-react";
 import { countWords } from "../src/hooks/useReadingTime";
+import { extractKeywords, buildPostTitle, buildPostDescription } from "../src/lib/seoKeywords";
 
 export const hero = renderToStaticMarkup(<Hero />);
 export const footer = renderToStaticMarkup(<Footer />);
 export const sidebar = renderToStaticMarkup(<Sidebar activeTopic={null} activeTag={null} onTopicSelect={() => {}} onTagSelect={() => {}} />);
+type CapturedSEO = { title?: string; description?: string; keywords?: string[]; noIndex?: boolean };
+function page(slug: string, title: string, element: React.ReactElement) {
+  const capture = globalThis as typeof globalThis & { __BLOGGER_SEO__?: CapturedSEO };
+  delete capture.__BLOGGER_SEO__;
+  const html = renderToStaticMarkup(element);
+  const seo = capture.__BLOGGER_SEO__ || {};
+  delete capture.__BLOGGER_SEO__;
+  return { slug, title, html, seo };
+}
 export const pages = [
-  { slug: "about", title: "About me", html: renderToStaticMarkup(<About />) },
-  { slug: "contact", title: "Contact", html: renderToStaticMarkup(<Contact />) },
-  { slug: "privacy-policy", title: "Privacy Policy", html: renderToStaticMarkup(<PrivacyPolicy />) },
-  { slug: "cookie-policy", title: "Cookie Policy", html: renderToStaticMarkup(<CookiePolicy />) },
+  page("about", "About me", <About />), page("contact", "Contact", <Contact />),
+  page("privacy-policy", "Privacy Policy", <PrivacyPolicy />), page("cookie-policy", "Cookie Policy", <CookiePolicy />),
 ];
 export const posts = allPosts;
+export const postSEO = (post: typeof allPosts[number], blogName: string) => ({ title: buildPostTitle(post, blogName), description: buildPostDescription(post), keywords: extractKeywords(post) });
 export const readingTimes = Object.fromEntries(allPosts.map(post => [post.slug, post.readTime || `${Math.max(1, Math.round(countWords(post.content) / 238))} min read`]));
 export const share = renderToStaticMarkup(<SharePost title="" url="" />);
 export const renderRelated = (slugs: string[]) => renderToStaticMarkup(<RelatedPosts slugs={slugs} />);

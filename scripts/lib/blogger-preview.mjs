@@ -13,7 +13,7 @@ export function renderPreview(template, { config, posts, media, kind = 'home', p
       ...p, body, url: config.blogUrl + p.path,
       featuredImage: p.imageUrl ? localAssets && [...media].some(([, src]) => src === p.imageUrl) ? assetPrefix + [...media].find(([, src]) => src === p.imageUrl)[0] : p.imageUrl : '',
       author: { name: config.author, profileUrl: config.blogUrl + '/p/about.html' },
-      date: { iso8601: p.published, toString: () => p.date },
+      date: p.published || p.date ? { iso8601: p.published, toString: () => p.date } : '',
       lastUpdated: { iso8601: p.updated },
       labels: (p.labels || []).map(name => ({ name, url: config.blogUrl + '/search/label/' + encodeURIComponent(name) })),
       allowComments: true,
@@ -24,7 +24,7 @@ export function renderPreview(template, { config, posts, media, kind = 'home', p
   const title = viewTitle || (kind === 'post' || kind === 'page' ? post.title : kind === 'search' ? 'Search results for TypeScript' : kind === 'label' ? 'Engineering' : kind === 'archive' ? 'June 2026' : kind === 'error' ? 'Page not found' : config.title);
   const context = {
     blog: { title: config.title, homepageUrl: config.blogUrl + '/', canonicalUrl: url.split('?')[0], languageDirection: 'ltr', locale: 'en', postImageUrl: kind === 'post' ? post.imageUrl : '', metaDescription: config.description || '' },
-    view: { url, title, description: searchDescription ?? (kind === 'post' ? post.excerpt : ''), isHomepage: kind === 'home', isPost: kind === 'post', isPage: kind === 'page', isSingleItem: ['post', 'page'].includes(kind), isMultipleItems: !['post', 'page', 'error'].includes(kind), isSearch: ['search', 'label', 'empty', 'listing'].includes(kind), isError: kind === 'error', search: { query: kind === 'search' ? 'TypeScript' : '' } },
+    view: { url, title, description: searchDescription ?? post?.searchDescription ?? '', isHomepage: kind === 'home', isPost: kind === 'post', isPage: kind === 'page', isSingleItem: ['post', 'page'].includes(kind), isMultipleItems: !['post', 'page', 'error'].includes(kind), isSearch: ['search', 'label', 'empty', 'listing'].includes(kind), isArchive: kind === 'archive', isError: kind === 'error', search: { query: kind === 'search' ? 'TypeScript' : '' } },
     posts: (['post', 'page'].includes(kind) ? [post] : listing.slice(0, 6)).map(normalize),
     labels: [...new Set(posts.flatMap(p => p.labels))].map(name => ({ name, count: posts.filter(p => p.labels.includes(name)).length, url: config.blogUrl + '/search/label/' + encodeURIComponent(name) })).sort((a, b) => a.name.localeCompare(b.name)),
     title: 'Tags', olderPageUrl: posts.length > 6 && (kind === 'home' || kind === 'archive') ? config.blogUrl + '/search?updated-max=2026-04-01T00:00:00Z&max-results=6' : '', newerPageUrl: '',

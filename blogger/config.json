@@ -1,6 +1,55 @@
 {
   "contentMode": "project",
   "socialImageUrl": "",
+  "seo": {
+    "language": "en",
+    "homeTitle": "Rusiru Rathmina | Software Engineer Blog",
+    "homeKeywords": [
+      "software engineering",
+      "developer career",
+      "side projects"
+    ],
+    "emitLegacyKeywords": true,
+    "noindexPaths": [
+      "/p/privacy-policy.html",
+      "/p/cookie-policy.html"
+    ],
+    "routes": [
+      {
+        "path": "/p/about.html",
+        "keywords": [
+          "Rusiru Rathmina",
+          "software engineer Colombo",
+          "React Java AWS"
+        ],
+        "pageType": "AboutPage"
+      },
+      {
+        "path": "/p/contact.html",
+        "keywords": [
+          "contact Rusiru Rathmina",
+          "software engineering collaboration"
+        ],
+        "pageType": "ContactPage"
+      },
+      {
+        "path": "/p/privacy-policy.html",
+        "keywords": [
+          "privacy policy",
+          "personal data"
+        ],
+        "noIndex": true
+      },
+      {
+        "path": "/p/cookie-policy.html",
+        "keywords": [
+          "cookie policy",
+          "website cookies"
+        ],
+        "noIndex": true
+      }
+    ]
+  },
   "description": "Software engineering, career lessons, side projects, and developer life by Rusiru Rathmina.",
   "branding": {
     "prefix": "iam",

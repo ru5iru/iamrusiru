@@ -9,10 +9,11 @@ import loadConfig from 'tailwindcss/loadConfig.js';
 import { JSDOM } from 'jsdom';
 import sharp from 'sharp';
 import { renderPreview } from './lib/blogger-preview.mjs';
-import { conditionalMarkup, descriptionMetadata, routeCondition, validateBloggerExpressions, validateBloggerWidgetSettings } from './lib/blogger-markup.mjs';
+import { conditionalMarkup, routeCondition, validateBloggerExpressions, validateBloggerWidgetSettings } from './lib/blogger-markup.mjs';
 import { resolveThemeConfig, topicExpression, editableRegion } from './lib/blogger-config.mjs';
 import { personalizeFragment } from './lib/blogger-personalize.mjs';
 import { editorTemplates } from './lib/blogger-editor.mjs';
+import { buildBloggerSeo } from './lib/blogger-seo.mjs';
 
 const root = path.resolve(import.meta.dirname, '..');
 const args = process.argv.slice(2);
@@ -47,7 +48,7 @@ await build({
       if (args.path.includes('useSEO')) return { path: 'seo', namespace: 'blogger-stub' };
       if (args.importer.replaceAll('\\', '/').includes('/src/pages/')) return { path: 'empty', namespace: 'blogger-stub' };
     });
-    b.onLoad({ filter: /.*/, namespace: 'blogger-stub' }, args => ({ contents: args.path === 'seo' ? 'export const useSEO = () => {};' : 'export default () => null;', loader: 'js' }));
+    b.onLoad({ filter: /.*/, namespace: 'blogger-stub' }, args => ({ contents: args.path === 'seo' ? 'export const useSEO = props => { globalThis.__BLOGGER_SEO__ = props; };' : 'export default () => null;', loader: 'js' }));
     b.onResolve({ filter: /^react-router-dom$/ }, () => ({ path: 'router', namespace: 'blogger-stub-router' }));
     b.onLoad({ filter: /.*/, namespace: 'blogger-stub-router' }, () => ({ contents: `import React from 'react'; export function Link({to,children,...props}) { return React.createElement('a',{...props,href:to},children); }`, loader: 'js', resolveDir: root }));
   } }],
@@ -139,9 +140,7 @@ cssConfig.content = [path.join(root, 'src/**/*.{ts,tsx}'), path.join(root, 'blog
 const originalCss = (await fs.readFile(path.join(root, 'src/index.css'), 'utf8')).replace(/@import\s+url\([^\r\n]*\);/g, '');
 const css = (await postcss([tailwindcss(cssConfig)]).process(originalCss, { from: path.join(root, 'src/index.css') })).css + '\n' + await fs.readFile(path.join(root, 'blogger/styles.css'), 'utf8');
 const socialImage = config.socialImageUrl || config.profile.portraitUrl || (config.contentMode === 'project' ? mediaUrl('profile-headshot.jpg') : '');
-const socialImages = socialImage
-  ? `<meta expr:content='${escape('data:blog.postImageUrl ?: ' + JSON.stringify(socialImage))}' property='og:image'/><meta expr:content='${escape('data:blog.postImageUrl ?: ' + JSON.stringify(socialImage))}' name='twitter:image'/>`
-  : `<b:if cond='data:blog.postImageUrl'><meta expr:content='data:blog.postImageUrl' property='og:image'/><meta expr:content='data:blog.postImageUrl' name='twitter:image'/></b:if>`;
+const seo = buildBloggerSeo(config, source, themePosts, postPath, socialImage);
 const substitutions = {
   CSS: css,
   HEADER: editableRegion('themeHeader', 'HTML101', 'Header — branding and navigation', regions.header),
@@ -152,23 +151,18 @@ const substitutions = {
   TOPICS_SET: escape(topicsSet),
   PROFILE_ROLE: escape(config.profile.role), PROFILE_JOB: escape(config.profile.job), PROFILE_BIO: escape(config.profile.bio),
   AUTHOR_NAME: escape(config.author), ABOUT_URL: escape(config.links.about),
-  TWITTER_CREATOR: escape(config.branding.twitterCreator), SOCIAL_IMAGES: socialImages,
+  TWITTER_CREATOR: escape(config.branding.twitterCreator),
   THEME_DATA: JSON.stringify({ citationName: config.profile.citationName, title: config.title }).replace(/</g, '\\u003c').replace(/>/g, '\\u003e').replace(/&/g, '\\u0026'),
   BACK_ICON: xmlFragment(source.icons.back), CLOCK_ICON: xmlFragment(source.icons.clock), UP_ICON: xmlFragment(source.icons.up), SHARE: xmlFragment(share.innerHTML),
   POST_DATA: JSON.stringify(uiPosts).replace(/</g, '\\u003c').replace(/>/g, '\\u003e').replace(/&/g, '\\u0026'),
   CARD_TAGS: conditionalMarkup(routeBranches(p => tags(p, 4)), nativeTags(4)),
   ARTICLE_TAGS: conditionalMarkup(routeBranches(p => tags(p)), nativeTags()),
   CARD_IMAGE: conditionalMarkup(routeBranches(p => `<a href='${postPath(p)}' class='hidden sm:block flex-shrink-0 w-40 h-28 md:w-48 md:h-32 rounded-lg overflow-hidden' tabindex='-1' aria-hidden='true'><img src='${escape(p.imageUrl)}' alt='' width='192' height='128' class='w-full h-full object-cover transition-transform duration-500 group-hover:scale-105' loading='lazy'/></a>`), `<b:if cond='data:post.featuredImage'><a expr:href='data:post.url' class='hidden sm:block flex-shrink-0 w-40 h-28 md:w-48 md:h-32 rounded-lg overflow-hidden' tabindex='-1' aria-hidden='true'><img expr:src='resizeImage(data:post.featuredImage, 384, "3:2")' alt='' width='192' height='128' class='w-full h-full object-cover' loading='lazy'/></a></b:if>`),
-  DATE_MARKUP: conditionalMarkup(routeBranches(p => `<time datetime='${date(p.date).slice(0, 10)}' itemprop='datePublished'>${escape(p.date)}</time>`), '<time expr:datetime="data:post.date.iso8601" itemprop="datePublished"><data:post.date/></time>'),
+  DATE_MARKUP: conditionalMarkup(routeBranches(p => `<time datetime='${date(p.date).slice(0, 10)}'>${escape(p.date)}</time>`), '<time expr:datetime="data:post.date.iso8601"><data:post.date/></time>'),
   RELATED_POSTS: conditionalMarkup(routeBranches(relatedMarkup), `<b:loop values='data:post.labels' var='label' index='i'><b:if cond='data:i == 0'><section class='my-12' data-related='' expr:data-label='data:label.name' hidden='hidden'><h2 class='font-display text-2xl font-semibold mb-6'>You might also like</h2><div class='related-grid' data-related-list=''/></section></b:if></b:loop>`),
   RECENT_POSTS: themePosts.length ? '<section class="mt-16 text-left"><h2 class="font-display text-xl font-semibold mb-4">Recent posts</h2><ul class="space-y-3">' + themePosts.slice(0, 3).map(p => `<li class="border-b border-divider pb-3"><a href="${postPath(p)}" class="block hover:text-primary"><p class="font-display text-base font-medium">${escape(p.title)}</p><time class="text-xs text-muted-foreground">${escape(p.date)}</time></a></li>`).join('') + '</ul></section>' : '',
   SCRIPT: await fs.readFile(path.join(root, 'blogger/enhancements.js'), 'utf8'),
   PORTRAIT: escape(portrait),
-  DESCRIPTION_METADATA: conditionalMarkup([
-    { condition: 'data:view.description', markup: descriptionMetadata('data:view.description', { expression: true }) },
-    ...themePosts.map(p => ({ condition: routeCondition('data:blog.canonicalUrl', postPath(p)), markup: descriptionMetadata(p.excerpt) })),
-    { condition: 'data:blog.metaDescription', markup: descriptionMetadata('data:blog.metaDescription', { expression: true }) },
-  ], descriptionMetadata(config.description)),
   EXCERPT_MARKUP: conditionalMarkup(themePosts.map(p => ({
     condition: routeCondition('data:post.url', postPath(p)), markup: escape(p.excerpt),
   })), '<b:eval expr="snippet(data:post.body, {length: 180, links: false, linebreaks: false})"/>'),
@@ -176,6 +170,7 @@ const substitutions = {
     condition: routeCondition('data:post.url', postPath(p)),
     markup: escape(source.readingTimes[p.slug]),
   }))),
+  ...seo.replacements,
 };
 const template = (await fs.readFile(path.join(root, 'blogger/template.xml'), 'utf8')).replace(/@@([A-Z_]+)@@/g, (_, key) => {
   if (!(key in substitutions)) throw new Error('Missing template replacement ' + key);
@@ -231,11 +226,11 @@ function body(post) {
 ${blocks}\n${faq}
 ${related.length ? '<section class="mt-12"><h2>More from the blog</h2><ul>' + related.map(p => `<li><a href="${postPath(p)}">${escape(p.title)}</a></li>`).join('') + '</ul></section>' : ''}`;
 }
-const posts = themePosts.map(p => ({ ...p, path: postPath(p), published: date(p.date), updated: date(p.updatedDate || p.date), body: body(p), labels: [...new Set([p.category, ...p.tags])] }));
+const posts = themePosts.map(p => ({ ...p, seo: seo.routes.find(route => route.path === postPath(p)), path: postPath(p), published: date(p.date), updated: date(p.updatedDate || p.date), body: body(p), labels: [...new Set([p.category, ...p.tags])] }));
 const pages = (config.contentMode === 'project' ? source.pages : []).map(page => {
   const main = fragment(page.html).querySelector('main');
   const box = fragment(main.innerHTML);
-  return { ...page, path: '/p/' + page.slug + '.html', body: `<div data-migrated-page="true" class="page-body ${main.className.replace('px-6', '').replace('py-16', '')}">${box.innerHTML}</div>` };
+  return { ...page, seo: seo.routes.find(route => route.path === '/p/' + page.slug + '.html'), path: '/p/' + page.slug + '.html', body: `<div data-migrated-page="true" class="page-body ${main.className.replace('px-6', '').replace('py-16', '')}">${box.innerHTML}</div>` };
 });
 function entry(item, isPage = false) {
   const id = BigInt('0x' + createHash('sha256').update(item.slug).digest('hex').slice(0, 15)).toString();
@@ -251,6 +246,10 @@ for (const [name] of media) await fs.copyFile(path.join(root, 'src/assets', name
 for (const page of pages) await fs.writeFile(path.join(out, page.slug + '.html'), page.body);
 await fs.writeFile(path.join(out, 'content.json'), JSON.stringify({ config, posts, pages }, null, 2));
 await fs.writeFile(path.join(out, 'theme-config.json'), JSON.stringify(config, null, 2) + '\n');
+await fs.writeFile(path.join(out, 'seo-routes.json'), JSON.stringify({ language: config.seo.language, homeTitle: config.seo.homeTitle, routes: seo.routes }, null, 2) + '\n');
+// Blogger serves robots.txt itself; this file is pasted into Settings, never
+// embedded in the XML. Derive sitemap origins for each reusable destination.
+await fs.writeFile(path.join(out, 'robots-txt.example.txt'), `# Optional Blogger Settings > Crawlers and indexing > Custom robots.txt\n# Review before saving; this allows public content to be crawled.\nUser-agent: *\nDisallow: /search\nDisallow: /share-widget\nAllow: /\n\nSitemap: ${config.blogUrl}/sitemap.xml\nSitemap: ${config.blogUrl}/sitemap-pages.xml\n`);
 await fs.mkdir(path.join(out, 'editable-regions'), { recursive: true });
 for (const [name, html] of Object.entries(regions)) await fs.writeFile(path.join(out, 'editable-regions', name + '.html'), html);
 for (const [name, html] of Object.entries(editorTemplates(source))) {
@@ -269,4 +268,5 @@ await fs.copyFile(path.join(root, 'blogger/COMPATIBILITY.md'), path.join(out, 'C
 await fs.copyFile(path.join(root, 'blogger/UI-COMPARISON.md'), path.join(out, 'UI-COMPARISON.md'));
 await fs.copyFile(path.join(root, 'blogger/CUSTOMIZATION.md'), path.join(out, 'CUSTOMIZATION.md'));
 await fs.copyFile(path.join(root, 'blogger/WRITING.md'), path.join(out, 'WRITING.md'));
+for (const name of ['SEO-GUIDE.md', 'SEO-AUDIT.md']) await fs.copyFile(path.join(root, 'blogger', name), path.join(out, name));
 console.log(`Blogger export (${config.contentMode}): ${posts.length} posts, ${pages.length} pages, ${media.size} images.\nTheme: ${path.relative(root, path.join(out, 'iamrusiru-blogger.xml'))}\n${config.contentMode === 'project' ? 'Optional content: ' + path.relative(root, path.join(out, 'feed.atom')) : 'Native mode: use the destination blog\'s own posts and Pages; no content import needed.'}`);

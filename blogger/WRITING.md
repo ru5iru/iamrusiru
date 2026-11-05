@@ -2,6 +2,8 @@
 
 New content is written in Blogger. No theme rebuild or post import is needed each time you publish. The theme supplies the outer layout and styles; editor templates supply optional body markup.
 
+For keyword choice, Search descriptions, Page metadata, crawler settings and reusable SEO overrides, see [SEO-GUIDE.md](SEO-GUIDE.md). In brief: use the primary phrase naturally in the title/body, add relevant Labels, and enter a unique Search description. New post Labels become structured keywords; Google does not use legacy meta keywords for ranking.
+
 ## What is automatic?
 
 | Content or feature | How it works |
@@ -37,6 +39,8 @@ Open the corresponding file under `editor-templates/snippets/`, copy its content
 - `image.html`: original image/caption layout. Replace `YOUR_BLOGGER_IMAGE_URL` with the full URL from an image uploaded to Blogger, and update its alt text, dimensions and optional caption.
 - `faq.html`: original FAQ cards and structured markup. Keep answers and visible question text in sync. On article pages, the script moves this section after related posts and excludes it from the contents panel.
 - `table.html`, `quote.html`: ordinary semantic HTML using the existing prose styles.
+- `sources.html`: optional supporting source links using existing heading/list styles.
+- `seo-keywords.html`: optional invisible structured keyword phrases, especially for Pages without Labels. Append at the end in HTML view to preserve prose spacing. Prefer configuration for head metadata; see the SEO guide.
 
 Keep classes, SVGs, IDs and `data-*` attributes when changing block content. Preview after switching editor modes, since Blogger's visual editor can normalize advanced HTML. Insert these blocks only once; do not include the theme's author/share/related/contents controls in the body.
 
@@ -51,4 +55,4 @@ These plain Page starters do not duplicate the special About/Contact layouts. Fo
 
 Publishing a post or Page requires no local build. Rebuild only when changing the theme or shared build configuration. Existing published posts and imported Pages keep their current styling.
 
-The starter files and snippets were checked with a new native-post/Page fixture at 1440px and 390px: one title, no horizontal overflow or browser JavaScript errors, working code copy, four generated contents links, and FAQ placement after article tools. The plain Page has a 768px maximum wrapper and 24px mobile gutters. All 16 local compatibility and authoring checks pass. Blogger's editor can normalize saved HTML, so Preview remains the final check before publishing.
+The starter files and snippets were checked with a new native-post/Page fixture at 1440px and 390px: one title, no horizontal overflow or browser JavaScript errors, working code copy, four generated contents links, and FAQ placement after article tools. The plain Page has a 768px maximum wrapper and 24px mobile gutters. The local suite also checks native descriptions, keywords, metadata escaping and owner reuse. Blogger's editor can normalize saved HTML, so Preview remains the final check before publishing.

@@ -7,6 +7,7 @@ import { JSDOM } from 'jsdom';
 import { renderPreview } from './lib/blogger-preview.mjs';
 import { conditionalMarkup, descriptionMetadata, routeCondition, validateBloggerExpressions, validateBloggerWidgetSettings } from './lib/blogger-markup.mjs';
 import { resolveThemeConfig } from './lib/blogger-config.mjs';
+import { buildBloggerSeo } from './lib/blogger-seo.mjs';
 
 const out = path.resolve(import.meta.dirname, '../blogger/output');
 const xml = await fs.readFile(path.join(out, 'iamrusiru-blogger.xml'), 'utf8');
@@ -70,7 +71,7 @@ test('native metadata branches cover every imported fallback and prefer Blogger 
     const doc = preview({ kind: 'post', post: item, searchDescription: '' });
     for (const selector of ['meta[name="description"]', 'meta[property="og:description"]', 'meta[name="twitter:description"]']) {
       assert.equal(doc.querySelectorAll(selector).length, 1);
-      assert.equal(doc.querySelector(selector).content, item.excerpt);
+      assert.equal(doc.querySelector(selector).content, item.seo.description);
     }
     const authorDescription = 'Updated in Blogger: "quotes", author\'s text & symbols.';
     const overridden = preview({ kind: 'post', post: item, searchDescription: authorDescription });
@@ -126,7 +127,7 @@ test('all 27 routes expose unique social metadata and readable content with scri
     assert.equal(doc.querySelectorAll('a[href^="/post/"], a[href="/about"], a[href="/contact"], a[href="/rss.xml"]').length, 0);
     if (item.content) {
       assert.equal(doc.querySelector('meta[property="og:image"]').content, item.imageUrl);
-      assert.equal(doc.querySelector('meta[property="og:description"]').content, item.excerpt);
+      assert.equal(doc.querySelector('meta[property="og:description"]').content, item.seo.description);
       assert.equal(doc.querySelector('[data-article-body]').querySelectorAll('pre code').length, item.content.filter(b => b.type === 'code').length);
       assert.ok(doc.querySelector('[itemtype="https://schema.org/BlogPosting"]'));
     }
@@ -145,7 +146,7 @@ test('home/search/labels/archive/empty/error and new Blogger pages render approp
     const doc = preview({ kind });
     assert.equal(doc.querySelector('.hero'), null);
     assert.equal(doc.querySelectorAll('h1').length, 1);
-    if (['search', 'label', 'empty', 'error'].includes(kind)) assert.equal(doc.querySelector('meta[name="robots"]').content, 'noindex,follow');
+    if (['search', 'label', 'archive', 'empty', 'error'].includes(kind)) assert.equal(doc.querySelector('meta[name="robots"]').content, 'noindex,follow');
     if (kind === 'empty') assert.match(doc.querySelector('main').textContent, /No posts found/);
     if (kind === 'error') assert.match(doc.querySelector('h1').textContent, /Page not found/);
   }
@@ -227,7 +228,7 @@ test('theme, menu, table of contents, copy controls and unavailable feeds work p
 
 test('post titles and metadata escape quotes, markup and ampersands', () => {
   const title = 'A "quote" & </title><script>bad()</script>';
-  const doc = preview({ kind: 'post', post: { ...posts[0], path: '/2026/11/test.html', title, excerpt: title } });
+  const doc = preview({ kind: 'post', post: { ...posts[0], path: '/2026/11/test.html', title, excerpt: title }, searchDescription: title });
   assert.equal(doc.querySelector('h1').textContent, title);
   assert.equal(doc.querySelector('meta[name="description"]').content, title);
   assert.equal(doc.querySelectorAll('title').length, 1);
@@ -322,6 +323,87 @@ test('configuration rejects unsafe URLs, misspelled fields and ambiguous content
   assert.throws(() => resolveThemeConfig({ ...config, contentMode: 'sample' }), /contentMode/);
   assert.throws(() => resolveThemeConfig({ ...config, socialImageUrl: '/relative.png' }), /absolute HTTPS/);
   assert.throws(() => resolveThemeConfig({ ...config, topics: ['News', 'News'] }), /unique/);
+});
+
+test('SEO configuration is isolated between owners and validates reusable route overrides', () => {
+  const { seo, ...base } = config;
+  const first = resolveThemeConfig(base);
+  first.seo.homeTitle = 'Private identity';
+  first.seo.routes.push({ path: '/p/example.html', title: 'Private page' });
+  first.hero.cardLines[0] = 'Private line';
+  const second = resolveThemeConfig(base);
+  assert.equal(second.seo.homeTitle, '');
+  assert.deepEqual(second.seo.routes, []);
+  assert.notEqual(second.hero.cardLines[0], 'Private line');
+  for (const invalid of [
+    { routes: [{ path: 'https://example.com/a.html' }] },
+    { routes: [{ path: '/p/a.html' }, { path: '/p/a.html' }] },
+    { routes: [{ path: '/p/a.html', descriptionn: 'typo' }] },
+    { routes: [{ path: '/p/a.html', noIndex: 'false' }] },
+    { routes: [{ path: '/p/a.html', keywords: 'one, two' }] },
+    { routes: [{ path: '/p/a.html', imageUrl: 'javascript:alert(1)' }] },
+    { language: 'English language' },
+  ]) assert.throws(() => resolveThemeConfig({ ...base, seo: invalid }), /SEO|seo|Unknown/);
+});
+
+test('all migrated routes have crawlable descriptions, keywords, identity and breadcrumbs without scripts', () => {
+  for (const item of [...posts, ...pages]) {
+    const doc = preview({ kind: item.content ? 'post' : 'page', post: item, localAssets: false });
+    assert.equal(doc.title, item.seo.title);
+    assert.equal(doc.querySelector('meta[name="description"]').content, item.seo.description);
+    assert.equal(doc.querySelector('meta[name="keywords"]').content, item.seo.keywords.join(', '));
+    const scope = doc.querySelector(item.content ? 'article[itemtype="https://schema.org/BlogPosting"]' : 'article[itemtype="https://schema.org/WebPage"]');
+    assert.equal(scope.getAttribute('itemid'), config.blogUrl + item.path);
+    assert.equal(scope.querySelector('meta[itemprop="description"]').content, item.seo.description);
+    assert.deepEqual([...scope.querySelectorAll('meta[itemprop="keywords"]')].map(el => el.content), item.seo.keywords);
+    assert.equal(scope.querySelector('meta[itemprop="inLanguage"]').content, config.seo.language);
+    assert.ok(doc.querySelector('[itemtype="https://schema.org/WebSite"] [itemtype="https://schema.org/Blog"] [itemprop="publisher"]'));
+    const crumbs = doc.querySelector('[itemtype="https://schema.org/BreadcrumbList"]');
+    assert.deepEqual([...crumbs.querySelectorAll('[itemprop="item"]')].map(el => el.href), [config.blogUrl + '/', config.blogUrl + item.path]);
+    if (item.content) {
+      assert.equal(scope.querySelector('meta[itemprop="datePublished"]').content, item.published);
+      assert.equal(scope.querySelector('meta[itemprop="dateModified"]').content, item.updated);
+      assert.equal(scope.querySelector('link[itemprop="image"]').href, item.imageUrl);
+      assert.equal(scope.querySelector('[itemprop="author"] [itemprop="name"]').textContent, config.author);
+    }
+  }
+});
+
+test('native post metadata uses Search description, current labels and dates; native edits override migration defaults', () => {
+  const fresh = { ...posts[0], title: 'Drupal cache tags explained', path: '/2026/11/drupal-cache-tags.html', labels: ['Engineering', 'Drupal caching', 'Cache tags'], published: '2026-11-05T08:00:00.000Z', updated: '2026-11-06T08:00:00.000Z' };
+  const description = 'Learn how Drupal cache tags invalidate related content, with examples and practical checks for stale pages.';
+  const doc = preview({ kind: 'post', post: fresh, searchDescription: description, localAssets: false });
+  assert.equal(doc.title, fresh.title);
+  for (const selector of ['meta[name="description"]', 'meta[property="og:description"]', 'meta[name="twitter:description"]', 'article > meta[itemprop="description"]']) assert.equal(doc.querySelector(selector).content, description);
+  assert.equal(doc.querySelector('meta[name="keywords"]'), null); // Labels are scoped to Blog1, not the global head.
+  assert.deepEqual([...doc.querySelectorAll('article > meta[itemprop="keywords"]')].map(el => el.content), fresh.labels);
+  assert.equal(doc.querySelector('meta[itemprop="datePublished"]').content, fresh.published);
+  assert.equal(doc.querySelector('meta[itemprop="dateModified"]').content, fresh.updated);
+  assert.equal(doc.querySelector('meta[itemprop="articleSection"]').content, 'Engineering');
+  const renamed = preview({ kind: 'post', post: { ...posts[0], title: 'A new native title' }, searchDescription: description });
+  assert.equal(renamed.title, 'A new native title');
+  assert.equal(renamed.querySelector('meta[name="description"]').content, description);
+});
+
+test('Pages support native descriptions, semantic keywords and escaped build overrides', async () => {
+  const keywords = await fs.readFile(path.join(out, 'editor-templates/snippets/seo-keywords.html'), 'utf8');
+  const fresh = { title: 'Research methods', path: '/p/research.html', body: '<p>How I evaluate evidence.</p>' + keywords.replace('primary topic phrase, supporting topic phrase', 'research methods, evidence quality') };
+  const doc = preview({ kind: 'page', post: fresh, searchDescription: 'How I evaluate sources, check evidence and document research methods.' });
+  assert.equal(doc.querySelector('meta[name="description"]').content, 'How I evaluate sources, check evidence and document research methods.');
+  assert.equal(doc.querySelector('article meta[itemprop="keywords"]').content, 'research methods, evidence quality');
+  const title = 'Evidence & "sources" <checked>';
+  const configured = resolveThemeConfig({ ...config, seo: { routes: [{ path: fresh.path, title, description: 'A "quoted" & useful description.', keywords: ['evidence quality'], pageType: 'AboutPage', imageUrl: 'https://example.com/cover.png', noIndex: true }] } });
+  const { replacements } = buildBloggerSeo(configured, { pages: [] }, [], post => post.path, '');
+  const templateSource = await fs.readFile(new URL('../blogger/template.xml', import.meta.url), 'utf8');
+  const mini = templateSource.slice(0, templateSource.indexOf('  <b:skin>')).replaceAll('@@SEO_TITLE@@', replacements.SEO_TITLE).replaceAll('@@DESCRIPTION_METADATA@@', replacements.DESCRIPTION_METADATA).replaceAll('@@SEO_KEYWORDS@@', replacements.SEO_KEYWORDS).replaceAll('@@SOCIAL_IMAGES@@', replacements.SOCIAL_IMAGES).replaceAll('@@SEO_ROBOTS@@', replacements.SEO_ROBOTS).replaceAll('@@SEO_AUTHOR_LINK@@', replacements.SEO_AUTHOR_LINK).replaceAll('@@TWITTER_CREATOR@@', '') + '</head><body>' + replacements.SEO_PAGE + '</body></html>';
+  const rendered = new JSDOM(renderPreview(mini, { config: configured, posts: [], media: new Map(), kind: 'page', post: fresh })).window.document;
+  assert.equal(rendered.title, title);
+  assert.equal(rendered.querySelectorAll('title').length, 1);
+  assert.equal(rendered.querySelector('meta[name="description"]').content, 'A "quoted" & useful description.');
+  assert.equal(rendered.querySelector('meta[name="robots"]').content, 'noindex,follow');
+  assert.equal(rendered.querySelector('meta[property="og:image"]').content, 'https://example.com/cover.png');
+  const authored = new JSDOM(renderPreview(mini, { config: configured, posts: [], media: new Map(), kind: 'page', post: fresh, searchDescription: 'Newly edited in Blogger.' })).window.document;
+  assert.equal(authored.querySelector('meta[name="description"]').content, 'Newly edited in Blogger.');
 });
 
 test('a different owner can build a native theme without project content or styling changes', async () => {

@@ -42,6 +42,7 @@ For changes shared across the site, edit `blogger/config.json` and rebuild. All 
 | `footer`, `connect` | Footer and sidebar copy. |
 | `topics` | Category names and topic links. Set these together when changing category names, so badges and tag exclusions stay consistent. Icons retain their existing sequence. |
 | `socialImageUrl` | Absolute public HTTPS fallback for social cards. Post images take priority. |
+| `seo` | Language, optional homepage title/keywords, legacy keyword emission, noindex paths and per-route title/description/keyword/image overrides. See [SEO-GUIDE.md](SEO-GUIDE.md). Native Search description takes priority over generated description defaults. |
 | `assetBaseUrl`, `assetUrls` | Image URLs in the optional project-content export. These do not upload binaries or rewrite already-published post bodies. |
 | `contentMode` | `project` retains this project's 23 posts, four Pages and route-specific fallbacks; `native` uses only the destination blog's own posts and Pages. |
 
@@ -52,7 +53,7 @@ npm run build:blogger
 npm run test:blogger
 ```
 
-The source application and its prerender plugin are not modified. Configuration cannot change fonts, colors or CSS rules.
+The source application and its prerender plugin are not modified. Configuration cannot change fonts, colors or CSS rules. Keep visible identity and SEO identity consistent when reusing the theme: Layout-only text changes do not rewrite build-time owner/profile metadata. Update your configuration and rebuild when changing the owner. `seo-routes.json` records defaults, while `robots-txt.example.txt` is a Settings example rather than part of the XML.
 
 ## Reuse on another blog
 

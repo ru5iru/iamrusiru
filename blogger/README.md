@@ -21,6 +21,8 @@ In the downloadable ZIP, the generated files are at the ZIP root rather than ins
 | `editable-regions/` | Header, hero, topics, social and footer HTML for Blogger Layout editing/recovery. |
 | `CUSTOMIZATION.md` | Named configuration fields, editable gadgets and reuse instructions. |
 | `editor-templates/`, `WRITING.md` | New-post/Page starters, reusable styled blocks and publishing instructions. |
+| `SEO-GUIDE.md`, `SEO-AUDIT.md` | Keyword/description publishing instructions, crawler setup and React-to-Blogger SEO comparison. |
+| `seo-routes.json`, `robots-txt.example.txt` | Reviewable route metadata defaults and a destination-specific Blogger Settings example; neither is a theme/content import. |
 
 ## Build and review
 
@@ -64,7 +66,7 @@ For another host, upload `output/assets/` and change `assetBaseUrl`. Rebuild bef
 6. Compare post URLs with `redirects.json`. Atom alternate links express intended URLs, but Blogger may normalize/regenerate them. Before publishing, use **Custom Permalink** for the original slug where necessary, and preserve the publication date/month. Related links and metadata fallbacks expect these paths.
 7. If a Page is missing or has another slug, create it with the expected slug and paste the corresponding `.html` body in **HTML view**. Keep the `data-migrated-page` wrapper so the theme does not add a second title.
 8. Set the homepage to **six posts**. In **Theme → Mobile settings**, select the desktop/custom theme so the same responsive design appears on `?m=1` pages.
-9. Enable the blog's **Search description** and set descriptions for posts/pages in Blogger. These take precedence over imported excerpts, which are generated into server-rendered fallbacks. Update/rebuild the fallbacks only if you also want to change the export's original excerpts.
+9. Enable the blog's **Search description** and set descriptions for posts/pages in Blogger. Native descriptions take precedence over generated route defaults. Follow [SEO-GUIDE.md](SEO-GUIDE.md) for keyword entry, reusable metadata and crawler settings. The currently published blog's wildcard robots group blocks general crawlers; this requires a Blogger Settings change, independently of theme restore.
 10. Enable comments in **Settings → Comments**. The theme calls Blogger's inherited v2 `commentPicker`, retaining its native threaded comments/editor. Test submitting, replying and moderation.
 11. In **Layout**, configure Tags and Blog Archive, or add more sidebar gadgets. Tags are limited to 12 to preserve the original density. The exporter uses the accepted `ALPHA` gadget setting; JavaScript orders the native label counts by popularity. Add one of the six topic labels to new posts: Engineering, Career, Tutorials, Side Projects, Reading, Personal. Blogger labels serve as both topics and tags.
 12. Enable blog feeds for automatic related posts. Imported posts also keep their explicit related links, which work without JavaScript or feeds. RSS/Atom use Blogger's native feed endpoints.

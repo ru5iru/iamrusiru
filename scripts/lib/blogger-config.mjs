@@ -1,8 +1,10 @@
 import { escapeXml } from './blogger-markup.mjs';
+import { seoDefaults, validateSeoConfig } from './blogger-seo.mjs';
 
 export const themeDefaults = {
   contentMode: 'project',
   socialImageUrl: '',
+  seo: seoDefaults,
   description: 'Software engineering, career lessons, side projects, and developer life by Rusiru Rathmina.',
   branding: { prefix: 'iam', accent: 'rusiru', twitterCreator: '@ru5iru' },
   hero: {
@@ -35,14 +37,16 @@ export function resolveThemeConfig(input) {
   const rootKeys = new Set([...Object.keys(themeDefaults), 'blogUrl', 'assetBaseUrl', 'assetUrls', 'title', 'author']);
   function merge(defaults, custom, trail = '') {
     if (typeof custom !== 'object' || custom === null || Array.isArray(custom)) throw new Error(`${trail || 'config'} must be an object`);
-    const result = { ...defaults };
+    // Configs must never share nested defaults: one owner's changes must not
+    // contaminate a later native/reusable build in the same process.
+    const result = structuredClone(defaults);
     for (const [key, value] of Object.entries(custom)) {
       const name = trail ? trail + '.' + key : key;
       if (['__proto__', 'prototype', 'constructor'].includes(key)) throw new Error('Invalid configuration key: ' + name);
       if (defaults[key] && typeof defaults[key] === 'object' && !Array.isArray(defaults[key])) result[key] = merge(defaults[key], value, name);
       else {
         if (trail ? !Object.hasOwn(defaults, key) : !rootKeys.has(key)) throw new Error('Unknown theme setting: ' + name);
-        result[key] = value;
+        result[key] = structuredClone(value);
       }
     }
     return result;
@@ -77,6 +81,7 @@ export function resolveThemeConfig(input) {
   if (config.socialImageUrl && !config.socialImageUrl.startsWith('https://')) throw new Error('socialImageUrl must be an absolute HTTPS URL');
   if (!Array.isArray(config.hero.cardLines) || config.hero.cardLines.length !== 2 || config.hero.cardLines.some(line => typeof line !== 'string')) throw new Error('hero.cardLines must contain two text lines');
   if (!Array.isArray(config.topics) || !config.topics.length || config.topics.some(topic => typeof topic !== 'string' || !topic.trim()) || new Set(config.topics).size !== config.topics.length) throw new Error('topics must contain unique, nonempty names');
+  validateSeoConfig(config.seo);
   return config;
 }
 
