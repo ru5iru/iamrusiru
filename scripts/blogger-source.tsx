@@ -17,7 +17,7 @@ import SharePost from "../src/components/blog/SharePost";
 import RelatedPosts from "../src/components/blog/RelatedPosts";
 import { ArrowLeft, ArrowUp, Clock, CodeXml, Facebook, Mail, Share2 } from "lucide-react";
 import { countWords } from "../src/hooks/useReadingTime";
-import { extractKeywords, buildPostTitle, buildPostDescription } from "../src/lib/seoKeywords";
+import { extractKeywords } from "../src/lib/seoKeywords";
 
 export const hero = renderToStaticMarkup(<Hero />);
 export const footer = renderToStaticMarkup(<Footer />);
@@ -36,7 +36,9 @@ export const pages = [
   page("privacy-policy", "Privacy Policy", <PrivacyPolicy />), page("cookie-policy", "Cookie Policy", <CookiePolicy />),
 ];
 export const posts = allPosts;
-export const postSEO = (post: typeof allPosts[number], blogName: string) => ({ title: buildPostTitle(post, blogName), description: buildPostDescription(post), keywords: extractKeywords(post) });
+// Blogger keeps complete native titles; it must not inherit mechanical
+// character-limit slicing from a separate application's title builder.
+export const postSEO = (post: typeof allPosts[number], _blogName: string) => ({ title: post.title, description: (post as typeof post & { searchDescription?: string }).searchDescription || post.excerpt, keywords: extractKeywords(post) });
 export const readingTimes = Object.fromEntries(allPosts.map(post => [post.slug, post.readTime || `${Math.max(1, Math.round(countWords(post.content) / 238))} min read`]));
 export const share = renderToStaticMarkup(<SharePost title="" url="" />);
 export const renderRelated = (slugs: string[]) => renderToStaticMarkup(<RelatedPosts slugs={slugs} />);

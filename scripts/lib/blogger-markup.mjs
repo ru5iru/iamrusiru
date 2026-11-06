@@ -17,9 +17,10 @@ export function conditionalMarkup(branches, fallback = '') {
 export function routeCondition(urlExpression, route) {
   if (!/^data:(?:blog\.canonicalUrl|post\.url)$/.test(urlExpression)) throw new Error('Unexpected route URL expression');
   if (!/^\/[a-zA-Z0-9/_-]+\.html$/.test(route)) throw new Error('Unsafe Blogger route: ' + route);
-  // URL-typed Blogger data does not reliably support substring `contains`.
-  // Compare against the blog's own origin so custom domains work as well.
-  return `${urlExpression} == data:blog.homepageUrl + "${route.slice(1)}"`;
+  // Keep both operands URL-typed. Concatenating a native URL with text is not
+  // equivalent to JavaScript string concatenation in Blogger's compiler.
+  // path() also follows the destination blog's custom domain automatically.
+  return `${urlExpression} == path(data:blog.homepageUrl, "${route}")`;
 }
 
 export function descriptionMetadata(value, { expression = false } = {}) {
@@ -62,7 +63,7 @@ export function validateBloggerExpressions(document) {
       const withoutStrings = attribute.value.replace(/"(?:\\.|[^"\\])*"|'(?:\\.|[^'\\])*'/g, '');
       // Only functions actually used and supported by this template are allowed.
       // Never silently invent a Blogger function in the JavaScript preview.
-      const supportedFunctions = new Set(['snippet', 'resizeImage']);
+      const supportedFunctions = new Set(['snippet', 'resizeImage', 'path']);
       for (const call of withoutStrings.matchAll(/\b([a-zA-Z_]\w*)\s*\(/g)) {
         if (!supportedFunctions.has(call[1])) throw new Error(`${element.nodeName} ${attribute.name}: unsupported Blogger template function ${call[1]}`);
       }

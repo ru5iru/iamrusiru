@@ -1,5 +1,7 @@
 # Blogger SEO, AEO and GEO audit
 
+**Implementation update, 6 November:** theme/post fixes are prepared and tested locally. See the [change record](changes/2026-11-06.md) and [installation/post-update guide](APPLY-UPDATES.md). They are not live until installed and verified on Blogger. The dated audit below remains the pre-fix baseline.
+
 The current audit covers **only the Blogger theme, posts, Pages and settings** at https://ru5iru.blogspot.com/. Earlier separate-application findings/comparisons have been removed from current reports.
 
 Start with the [implementation checklist](audits/2026-11-05/IMPLEMENTATION-CHECKLIST.md): 50 actionable items with completion criteria, two verified complete and 48 pending fixes/improvements/owner checks. See the [full audit](audits/2026-11-05/README.md), [150-control matrix](audits/2026-11-05/CHECKLIST.md), [findings](audits/2026-11-05/REPORT.md) and [all-post/Page review](audits/2026-11-05/CONTENT-AUDIT.md).

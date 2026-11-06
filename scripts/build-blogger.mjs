@@ -14,6 +14,7 @@ import { resolveThemeConfig, topicExpression, editableRegion } from './lib/blogg
 import { personalizeFragment } from './lib/blogger-personalize.mjs';
 import { editorTemplates } from './lib/blogger-editor.mjs';
 import { buildBloggerSeo } from './lib/blogger-seo.mjs';
+import { prepareBloggerPosts } from './lib/blogger-content.mjs';
 
 const root = path.resolve(import.meta.dirname, '..');
 const args = process.argv.slice(2);
@@ -54,7 +55,9 @@ await build({
   } }],
 });
 const source = await import(pathToFileURL(path.join(out, 'source.mjs')).href + '?v=' + Date.now());
-const themePosts = config.contentMode === 'project' ? source.posts : [];
+const themePosts = config.contentMode === 'project'
+  ? prepareBloggerPosts(source.posts, JSON.parse(await fs.readFile(path.join(root, 'blogger/post-metadata.json'), 'utf8')))
+  : [];
 if (config.contentMode === 'native') media.clear();
 await fs.unlink(path.join(out, 'source.mjs'));
 const { document } = new JSDOM('').window;
@@ -126,8 +129,14 @@ share.querySelector('a').before(nativeShare);
 const relatedMarkup = p => {
   const related = fragment(source.renderRelated(p.relatedPosts || []));
   related.querySelectorAll('a[href^="/post/"]').forEach(a => {
-    const linked = source.posts.find(item => item.slug === a.getAttribute('href').slice(6));
-    if (linked) a.setAttribute('href', postPath(linked));
+    const linked = themePosts.find(item => item.slug === a.getAttribute('href').slice(6));
+    if (linked) {
+      a.setAttribute('href', postPath(linked));
+      const heading = a.querySelector('h3');
+      if (heading) heading.textContent = linked.title;
+      const image = a.querySelector('img');
+      if (image) image.alt = linked.title;
+    }
   });
   if (related.firstElementChild) related.firstElementChild.setAttribute('data-curated-related', '');
   const heading = related.querySelector('#related-heading');
@@ -141,7 +150,11 @@ const originalCss = (await fs.readFile(path.join(root, 'src/index.css'), 'utf8')
 const css = (await postcss([tailwindcss(cssConfig)]).process(originalCss, { from: path.join(root, 'src/index.css') })).css + '\n' + await fs.readFile(path.join(root, 'blogger/styles.css'), 'utf8');
 const socialImage = config.socialImageUrl || config.profile.portraitUrl || (config.contentMode === 'project' ? mediaUrl('profile-headshot.jpg') : '');
 const seo = buildBloggerSeo(config, source, themePosts, postPath, socialImage);
+const templateSource = await fs.readFile(path.join(root, 'blogger/template.xml'), 'utf8');
+const enhancementScript = await fs.readFile(path.join(root, 'blogger/enhancements.js'), 'utf8');
+const buildId = createHash('sha256').update(templateSource).update(css).update(enhancementScript).update(JSON.stringify({ config, regions, routes: seo.routes, posts: themePosts })).digest('hex').slice(0, 20);
 const substitutions = {
+  BUILD_ID: buildId,
   CSS: css,
   HEADER: editableRegion('themeHeader', 'HTML101', 'Header — branding and navigation', regions.header),
   HERO: editableRegion('themeHero', 'HTML102', 'Homepage hero — text and portrait', regions.hero),
@@ -161,7 +174,7 @@ const substitutions = {
   DATE_MARKUP: conditionalMarkup(routeBranches(p => `<time datetime='${date(p.date).slice(0, 10)}'>${escape(p.date)}</time>`), '<time expr:datetime="data:post.date.iso8601"><data:post.date/></time>'),
   RELATED_POSTS: conditionalMarkup(routeBranches(relatedMarkup), `<b:loop values='data:post.labels' var='label' index='i'><b:if cond='data:i == 0'><section class='my-12' data-related='' expr:data-label='data:label.name' hidden='hidden'><h2 class='font-display text-2xl font-semibold mb-6'>You might also like</h2><div class='related-grid' data-related-list=''/></section></b:if></b:loop>`),
   RECENT_POSTS: themePosts.length ? '<section class="mt-16 text-left"><h2 class="font-display text-xl font-semibold mb-4">Recent posts</h2><ul class="space-y-3">' + themePosts.slice(0, 3).map(p => `<li class="border-b border-divider pb-3"><a href="${postPath(p)}" class="block hover:text-primary"><p class="font-display text-base font-medium">${escape(p.title)}</p><time class="text-xs text-muted-foreground">${escape(p.date)}</time></a></li>`).join('') + '</ul></section>' : '',
-  SCRIPT: await fs.readFile(path.join(root, 'blogger/enhancements.js'), 'utf8'),
+  SCRIPT: enhancementScript,
   PORTRAIT: escape(portrait),
   EXCERPT_MARKUP: conditionalMarkup(themePosts.map(p => ({
     condition: routeCondition('data:post.url', postPath(p)), markup: escape(p.excerpt),
@@ -172,7 +185,7 @@ const substitutions = {
   }))),
   ...seo.replacements,
 };
-const template = (await fs.readFile(path.join(root, 'blogger/template.xml'), 'utf8')).replace(/@@([A-Z_]+)@@/g, (_, key) => {
+const template = templateSource.replace(/@@([A-Z_]+)@@/g, (_, key) => {
   if (!(key in substitutions)) throw new Error('Missing template replacement ' + key);
   return substitutions[key];
 });
@@ -181,6 +194,7 @@ const themeDocument = new JSDOM(template, { contentType: 'text/xml' }).window.do
 validateBloggerExpressions(themeDocument);
 validateBloggerWidgetSettings(themeDocument);
 await fs.writeFile(path.join(out, 'iamrusiru-blogger.xml'), template);
+await fs.writeFile(path.join(out, 'build-manifest.json'), JSON.stringify({ buildId, contentMode: config.contentMode, blogUrl: config.blogUrl, verification: 'Local build; native Blogger compilation and saved-editor behavior require hosted verification' }, null, 2) + '\n');
 
 function date(value) {
   const parsed = new Date(/^\d{4}-\d{2}-\d{2}$/.test(value) ? value + 'T00:00:00Z' : value + ' 00:00:00 GMT');
@@ -188,7 +202,20 @@ function date(value) {
   return parsed.toISOString();
 }
 function inline(value) {
-  return escape(value).replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>').replace(/\*([^*]+)\*/g, '<em>$1</em>').replace(/`([^`]+)`/g, '<code>$1</code>');
+  // Parse links before escaping, then escape text and attributes independently.
+  // Code is an atomic token: never turn an example URL or asterisk into markup.
+  const token = /`([^`]+)`|\[([^\]\n]+)\]\((https:\/\/[^\s)]+|\/(?!\/)[^\s)]*)\)|\*\*([^*]+)\*\*|\*([^*]+)\*/g;
+  let output = '', cursor = 0;
+  for (const match of String(value).matchAll(token)) {
+    output += escape(value.slice(cursor, match.index));
+    const [, code, label, href, strong, emphasis] = match;
+    output += code !== undefined ? '<code>' + escape(code) + '</code>'
+      : href !== undefined ? '<a href="' + escape(href) + '">' + inline(label) + '</a>'
+      : strong !== undefined ? '<strong>' + inline(strong) + '</strong>'
+      : '<em>' + inline(emphasis) + '</em>';
+    cursor = match.index + match[0].length;
+  }
+  return output + escape(value.slice(cursor));
 }
 function postPath(post) { return '/' + date(post.date).slice(0, 7).replace('-', '/') + '/' + post.slug + '.html'; }
 function body(post) {
@@ -200,8 +227,15 @@ function body(post) {
     seen.add(id);
     return `<h${level} id="${id}">${inline(text)}</h${level}>`;
   }
+  const resolveLinks = text => {
+    for (const [marker, slug, label] of [['OWASP_GUIDE_LINK', 'owasp-top-ten', 'OWASP Top 10 2025 guide'], ['ACCESS_CONTROL_LINK', 'broken-access-control', 'broken access control deep dive'], ['BURNOUT_LINK', 'burnout-and-recovery', 'burnout and recovery']]) {
+      const linked = themePosts.find(item => item.slug === slug);
+      text = text.replaceAll(marker, linked ? '[' + label + '](' + postPath(linked) + ')' : label);
+    }
+    return text;
+  };
   const blocks = post.content.map(block => {
-    if (typeof block === 'string') return block.split(/\n\n+/).map(part => {
+    if (typeof block === 'string') return resolveLinks(block).split(/\n\n+/).map(part => {
       const match = part.match(/^(#{2,3})\s+([^\n]+)(?:\n([\s\S]*))?$/);
       return match ? heading(match[1].length, match[2]) + (match[3] ? '<p>' + inline(match[3]).replaceAll('\n', '<br/>') + '</p>' : '') : '<p>' + inline(part).replaceAll('\n', '<br/>') + '</p>';
     }).join('\n');
@@ -220,10 +254,11 @@ function body(post) {
     throw new Error('Unhandled content block ' + block.type);
   }).join('\n');
   const faq = post.faq?.length ? `<section class="mt-12" itemscope="itemscope" itemtype="https://schema.org/FAQPage"><h2>Frequently Asked Questions</h2>${post.faq.map(f => `<div class="mt-5 rounded-xl border border-divider bg-warm p-5" itemprop="mainEntity" itemscope="itemscope" itemtype="https://schema.org/Question"><h3 itemprop="name">${escape(f.question)}</h3><div itemprop="acceptedAnswer" itemscope="itemscope" itemtype="https://schema.org/Answer"><p itemprop="text">${inline(f.answer)}</p></div></div>`).join('')}</section>` : '';
-  const related = (post.relatedPosts || []).map(slug => source.posts.find(p => p.slug === slug)).filter(Boolean);
+  const related = (post.relatedPosts || []).map(slug => themePosts.find(p => p.slug === slug)).filter(Boolean);
+  const references = post.references?.length ? '<section class="mt-12"><h2>Sources and further reading</h2><ul>' + post.references.map(reference => '<li><a href="' + escape(reference.url) + '">' + escape(reference.title) + '</a></li>').join('') + '</ul></section>' : '';
   return `<div class="post-summary rounded-xl bg-primary/5 border border-primary/10 px-6 py-5 mb-10"><p class="text-sm font-semibold text-primary uppercase tracking-wider mb-2">TL;DR</p><p class="text-body text-base leading-relaxed">${escape(post.excerpt)}</p></div>
 <img class="rounded-xl w-full mb-10" style="max-height:400px;object-fit:cover" src="${escape(post.imageUrl)}" alt="${escape('Cover image for ' + post.title)}" width="800" height="400"/>
-${blocks}\n${faq}
+${blocks}\n${references}\n${faq}
 ${related.length ? '<section class="mt-12"><h2>More from the blog</h2><ul>' + related.map(p => `<li><a href="${postPath(p)}">${escape(p.title)}</a></li>`).join('') + '</ul></section>' : ''}`;
 }
 const posts = themePosts.map(p => ({ ...p, seo: seo.routes.find(route => route.path === postPath(p)), path: postPath(p), published: date(p.date), updated: date(p.updatedDate || p.date), body: body(p), labels: [...new Set([p.category, ...p.tags])] }));
@@ -244,6 +279,14 @@ const redirects = [...posts.map(p => ({ from: '/post/' + p.slug, to: p.path })),
 await fs.writeFile(path.join(out, 'redirects.json'), JSON.stringify(redirects, null, 2) + '\n');
 for (const [name] of media) await fs.copyFile(path.join(root, 'src/assets', name), path.join(out, 'assets', name));
 for (const page of pages) await fs.writeFile(path.join(out, page.slug + '.html'), page.body);
+// Existing publications must be edited in place. These are body-only update
+// files, not a second import feed; metadata fields are supplied separately.
+await fs.mkdir(path.join(out, 'post-updates'), { recursive: true });
+for (const post of posts) await fs.writeFile(path.join(out, 'post-updates', post.slug + '.html'), post.body + '\n');
+const publishing = posts.map(post => ({ slug: post.slug, url: config.blogUrl + post.path, title: post.title, searchDescription: post.searchDescription, intent: post.searchIntent, labels: post.labels, htmlFile: 'post-updates/' + post.slug + '.html', editorialRevision: post.updatedDate || null }));
+await fs.writeFile(path.join(out, 'post-updates.json'), JSON.stringify(publishing, null, 2) + '\n');
+const csv = value => '"' + String(value ?? '').replaceAll('"', '""') + '"';
+await fs.writeFile(path.join(out, 'post-updates.csv'), '\uFEFF' + ['url', 'title', 'searchDescription', 'intent', 'labels', 'htmlFile', 'editorialRevision'].map(csv).join(',') + '\r\n' + publishing.map(post => [post.url, post.title, post.searchDescription, post.intent, post.labels.join(', '), post.htmlFile, post.editorialRevision].map(csv).join(',')).join('\r\n'));
 await fs.writeFile(path.join(out, 'content.json'), JSON.stringify({ config, posts, pages }, null, 2));
 await fs.writeFile(path.join(out, 'theme-config.json'), JSON.stringify(config, null, 2) + '\n');
 await fs.writeFile(path.join(out, 'seo-routes.json'), JSON.stringify({ language: config.seo.language, homeTitle: config.seo.homeTitle, routes: seo.routes }, null, 2) + '\n');
@@ -268,5 +311,13 @@ await fs.copyFile(path.join(root, 'blogger/COMPATIBILITY.md'), path.join(out, 'C
 await fs.copyFile(path.join(root, 'blogger/UI-COMPARISON.md'), path.join(out, 'UI-COMPARISON.md'));
 await fs.copyFile(path.join(root, 'blogger/CUSTOMIZATION.md'), path.join(out, 'CUSTOMIZATION.md'));
 await fs.copyFile(path.join(root, 'blogger/WRITING.md'), path.join(out, 'WRITING.md'));
-for (const name of ['SEO-GUIDE.md', 'SEO-AUDIT.md']) await fs.copyFile(path.join(root, 'blogger', name), path.join(out, name));
+await fs.copyFile(path.join(root, 'blogger/SEO-GUIDE.md'), path.join(out, 'SEO-GUIDE.md'));
+if (config.contentMode === 'project') {
+  await fs.copyFile(path.join(root, 'blogger/SEO-AUDIT.md'), path.join(out, 'SEO-AUDIT.md'));
+  await fs.cp(path.join(root, 'blogger/audits'), path.join(out, 'audits'), { recursive: true });
+  await fs.cp(path.join(root, 'blogger/changes'), path.join(out, 'changes'), { recursive: true });
+} else {
+  await fs.writeFile(path.join(out, 'SEO-AUDIT.md'), '# Verify this Blogger theme\n\nThis clean native-content package has no imported project articles or project audit data. After restore, verify native titles/Search descriptions, canonical/social fields, Labels, FAQ markup, robots policy and new post/Page editing on your own blog. Local tests do not certify Blogger compilation, indexing or AI citations. See [APPLY-UPDATES.md](APPLY-UPDATES.md) and [SEO-GUIDE.md](SEO-GUIDE.md).\n');
+}
+await fs.copyFile(path.join(root, 'blogger', config.contentMode === 'native' ? 'REUSABLE.md' : 'APPLY-UPDATES.md'), path.join(out, 'APPLY-UPDATES.md'));
 console.log(`Blogger export (${config.contentMode}): ${posts.length} posts, ${pages.length} pages, ${media.size} images.\nTheme: ${path.relative(root, path.join(out, 'iamrusiru-blogger.xml'))}\n${config.contentMode === 'project' ? 'Optional content: ' + path.relative(root, path.join(out, 'feed.atom')) : 'Native mode: use the destination blog\'s own posts and Pages; no content import needed.'}`);

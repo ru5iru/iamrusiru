@@ -1,0 +1,182 @@
+{
+  "capturedAt": "2026-11-06T05:21:38.544Z",
+  "scope": "Local Blogger preview; not native compiler certification",
+  "results": [
+    {
+      "name": "home",
+      "path": "/",
+      "width": 1440,
+      "status": 200,
+      "title": "Rusiru Rathmina | Software Engineer Blog",
+      "description": "Software engineering, career lessons, side projects, and developer life by Rusiru Rathmina.",
+      "overflow": false,
+      "faq": 0,
+      "brokenImages": [],
+      "sourceLinks": [],
+      "errors": []
+    },
+    {
+      "name": "article",
+      "path": "/2026/06/injection.html",
+      "width": 1440,
+      "status": 200,
+      "title": "Injection OWASP Top 10 2025: A05 Explained for Developers",
+      "description": "Understand OWASP Top 10 2025 A05 Injection, with SQL and command examples, parameterized queries, allowlists and a practical prevention checklist.",
+      "overflow": false,
+      "faq": 7,
+      "brokenImages": [],
+      "sourceLinks": [
+        "https://top10.owasp.org/2025/A05_2025-Injection/",
+        "https://top10.owasp.org/2025/A05_2025-Injection/"
+      ],
+      "errors": []
+    },
+    {
+      "name": "about",
+      "path": "/p/about.html",
+      "width": 1440,
+      "status": 200,
+      "title": "About Rusiru Rathmina | iamrusiru",
+      "description": "Rusiru Rathmina, Associate Software Engineer at Omobio in Colombo. Full-stack dev working with React, Java, Spring Boot, AWS, and DevOps.",
+      "overflow": false,
+      "faq": 0,
+      "brokenImages": [],
+      "sourceLinks": [],
+      "errors": []
+    },
+    {
+      "name": "contact",
+      "path": "/p/contact.html",
+      "width": 1440,
+      "status": 200,
+      "title": "Contact Rusiru Rathmina | iamrusiru",
+      "description": "Get in touch with Rusiru Rathmina, Full-Stack Software Engineer based in Colombo, Sri Lanka. Reach out for collaborations, freelance work, or just to say hi.",
+      "overflow": false,
+      "faq": 0,
+      "brokenImages": [],
+      "sourceLinks": [],
+      "errors": []
+    },
+    {
+      "name": "home",
+      "path": "/",
+      "width": 768,
+      "status": 200,
+      "title": "Rusiru Rathmina | Software Engineer Blog",
+      "description": "Software engineering, career lessons, side projects, and developer life by Rusiru Rathmina.",
+      "overflow": false,
+      "faq": 0,
+      "brokenImages": [],
+      "sourceLinks": [],
+      "errors": []
+    },
+    {
+      "name": "article",
+      "path": "/2026/06/injection.html",
+      "width": 768,
+      "status": 200,
+      "title": "Injection OWASP Top 10 2025: A05 Explained for Developers",
+      "description": "Understand OWASP Top 10 2025 A05 Injection, with SQL and command examples, parameterized queries, allowlists and a practical prevention checklist.",
+      "overflow": false,
+      "faq": 7,
+      "brokenImages": [],
+      "sourceLinks": [
+        "https://top10.owasp.org/2025/A05_2025-Injection/",
+        "https://top10.owasp.org/2025/A05_2025-Injection/"
+      ],
+      "errors": []
+    },
+    {
+      "name": "about",
+      "path": "/p/about.html",
+      "width": 768,
+      "status": 200,
+      "title": "About Rusiru Rathmina | iamrusiru",
+      "description": "Rusiru Rathmina, Associate Software Engineer at Omobio in Colombo. Full-stack dev working with React, Java, Spring Boot, AWS, and DevOps.",
+      "overflow": false,
+      "faq": 0,
+      "brokenImages": [],
+      "sourceLinks": [],
+      "errors": []
+    },
+    {
+      "name": "contact",
+      "path": "/p/contact.html",
+      "width": 768,
+      "status": 200,
+      "title": "Contact Rusiru Rathmina | iamrusiru",
+      "description": "Get in touch with Rusiru Rathmina, Full-Stack Software Engineer based in Colombo, Sri Lanka. Reach out for collaborations, freelance work, or just to say hi.",
+      "overflow": false,
+      "faq": 0,
+      "brokenImages": [],
+      "sourceLinks": [],
+      "errors": []
+    },
+    {
+      "name": "home",
+      "path": "/",
+      "width": 390,
+      "status": 200,
+      "title": "Rusiru Rathmina | Software Engineer Blog",
+      "description": "Software engineering, career lessons, side projects, and developer life by Rusiru Rathmina.",
+      "overflow": false,
+      "faq": 0,
+      "brokenImages": [],
+      "sourceLinks": [],
+      "errors": []
+    },
+    {
+      "name": "article",
+      "path": "/2026/06/injection.html",
+      "width": 390,
+      "status": 200,
+      "title": "Injection OWASP Top 10 2025: A05 Explained for Developers",
+      "description": "Understand OWASP Top 10 2025 A05 Injection, with SQL and command examples, parameterized queries, allowlists and a practical prevention checklist.",
+      "overflow": false,
+      "faq": 7,
+      "brokenImages": [],
+      "sourceLinks": [
+        "https://top10.owasp.org/2025/A05_2025-Injection/",
+        "https://top10.owasp.org/2025/A05_2025-Injection/"
+      ],
+      "errors": []
+    },
+    {
+      "name": "about",
+      "path": "/p/about.html",
+      "width": 390,
+      "status": 200,
+      "title": "About Rusiru Rathmina | iamrusiru",
+      "description": "Rusiru Rathmina, Associate Software Engineer at Omobio in Colombo. Full-stack dev working with React, Java, Spring Boot, AWS, and DevOps.",
+      "overflow": false,
+      "faq": 0,
+      "brokenImages": [],
+      "sourceLinks": [],
+      "errors": []
+    },
+    {
+      "name": "contact",
+      "path": "/p/contact.html",
+      "width": 390,
+      "status": 200,
+      "title": "Contact Rusiru Rathmina | iamrusiru",
+      "description": "Get in touch with Rusiru Rathmina, Full-Stack Software Engineer based in Colombo, Sri Lanka. Reach out for collaborations, freelance work, or just to say hi.",
+      "overflow": false,
+      "faq": 0,
+      "brokenImages": [],
+      "sourceLinks": [],
+      "errors": []
+    }
+  ],
+  "interactions": {
+    "menuOpened": true,
+    "menuClosed": true,
+    "darkPersisted": true
+  },
+  "noJs": {
+    "description": "Understand OWASP Top 10 2025 A05 Injection, with SQL and command examples, parameterized queries, allowlists and a practical prevention checklist.",
+    "bodyLength": 10635,
+    "faq": 7
+  },
+  "errors": []
+}

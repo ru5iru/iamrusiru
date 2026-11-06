@@ -11,7 +11,7 @@ In the downloadable ZIP, the generated files are at the ZIP root rather than ins
 | File in `output/` | Purpose |
 | --- | --- |
 | `iamrusiru-blogger.xml` | Complete theme to upload. Do not upload the source `template.xml`. |
-| `feed.atom` | All 23 posts and four pages, with code, callouts, FAQs, dates and labels. |
+| `feed.atom` | Fresh-blog import of 23 posts/four Pages. Do not reimport into the existing live blog. |
 | `about.html`, `contact.html`, `privacy-policy.html`, `cookie-policy.html` | Styled page bodies for manual installation if necessary. |
 | `assets/` | Original image files for moving to another public image host. |
 | `media-manifest.json` | Image filenames and configured public URLs. |
@@ -21,8 +21,10 @@ In the downloadable ZIP, the generated files are at the ZIP root rather than ins
 | `editable-regions/` | Header, hero, topics, social and footer HTML for Blogger Layout editing/recovery. |
 | `CUSTOMIZATION.md` | Named configuration fields, editable gadgets and reuse instructions. |
 | `editor-templates/`, `WRITING.md` | New-post/Page starters, reusable styled blocks and publishing instructions. |
-| `SEO-GUIDE.md`, `SEO-AUDIT.md` | Keyword/description publishing instructions, crawler setup and React-to-Blogger SEO comparison. |
+| `SEO-GUIDE.md`, `SEO-AUDIT.md` | Keyword/description publishing instructions, crawler setup and the Blogger-only audit. |
 | `seo-routes.json`, `robots-txt.example.txt` | Reviewable route metadata defaults and a destination-specific Blogger Settings example; neither is a theme/content import. |
+
+| `APPLY-UPDATES.md`, `post-updates/`, `post-updates.csv`, `post-updates.json` | Existing-post body corrections, suggested native titles/Search descriptions, reader-intent briefs and deployment instructions. Update existing posts in place. |
 
 ## Build and review
 

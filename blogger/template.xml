@@ -4,10 +4,12 @@
 <head>
   <meta charset='utf-8'/>
   <meta content='width=device-width, initial-scale=1' name='viewport'/>
+  <!-- Release provenance for hosted verification; this is not an SEO signal. -->
+  <meta content='@@BUILD_ID@@' name='blogger-theme-build'/>
   <!-- SEO 1: one route-specific title, canonical and description per key.
        Blogger Search description overrides imported/build defaults. No JS required. -->
   <title>@@SEO_TITLE@@</title>
-  <link expr:href='data:blog.canonicalUrl' rel='canonical'/>
+  <b:if cond='!data:view.isError'><link expr:href='data:blog.canonicalUrl' rel='canonical'/></b:if>
   @@DESCRIPTION_METADATA@@
   <!-- SEO 2: optional legacy keyword metadata; Google does not use it for ranking.
        Native post Labels also become structured keywords in the article below. -->
@@ -15,7 +17,7 @@
   @@SEO_AUTHOR_LINK@@
   <!-- SEO 3: social previews; full visible title and canonical destination. -->
   <meta expr:content='data:view.title' property='og:title'/>
-  <meta expr:content='data:blog.canonicalUrl' property='og:url'/>
+  <b:if cond='!data:view.isError'><meta expr:content='data:blog.canonicalUrl' property='og:url'/></b:if>
   <meta expr:content='data:blog.title' property='og:site_name'/>
   <meta expr:content='data:view.isPost ? "article" : "website"' property='og:type'/>
   @@SOCIAL_IMAGES@@
@@ -75,7 +77,7 @@
             <section itemscope='itemscope' itemtype='https://schema.org/CollectionPage' expr:itemid='data:blog.canonicalUrl'>
               @@SEO_COLLECTION@@
               <div>
-                <div class='flex items-center gap-2 mb-8'><div class='w-1 h-6 bg-primary rounded-full'/><b:if cond='data:view.isHomepage'><h2 class='font-display text-2xl font-semibold'>Latest Posts</h2><b:else/><h1 class='font-display text-2xl font-semibold'><data:view.title/></h1></b:if></div>
+                <div class='flex items-center gap-2 mb-8'><div class='w-1 h-6 bg-primary rounded-full'/><b:if cond='data:view.isHomepage'><h2 class='font-display text-2xl font-semibold'>Latest Posts</h2><b:else/><h1 class='font-display text-2xl font-semibold'><b:if cond='data:view.search.label'>Posts tagged: <data:view.search.label/><b:elseif cond='data:view.search.query'/>Search results for: <data:view.search.query/><b:elseif cond='data:view.isArchive'/>Archive: <data:blog.pageName/><b:else/>All posts</b:if></h1></b:if></div>
                 <b:if cond='data:view.isSearch'><a class='inline-block text-sm text-primary mb-6' expr:href='data:blog.homepageUrl'>Clear filters →</a></b:if>
                 <div class='flex flex-col lg:flex-row gap-12'>
                   <div class='flex-1 min-w-0' itemprop='mainEntity' itemscope='itemscope' itemtype='https://schema.org/ItemList'>

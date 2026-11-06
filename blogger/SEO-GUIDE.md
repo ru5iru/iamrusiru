@@ -2,11 +2,9 @@
 
 The theme renders metadata and structured content in the HTML Blogger serves. It does not depend on JavaScript for discovery. Existing styles and content layouts are unchanged. You can publish normal posts and Pages without rebuilding the theme.
 
-## First fix the live crawling setting
+## Keep Blogger settings consistent
 
-Checked on 5 November 2026: `https://ru5iru.blogspot.com/robots.txt` returns a wildcard group containing `Disallow: /`. Googlebot has a separate allow group, but other compliant crawlers are blocked. This restricts discovery by other search engines and many AI services. The posts sitemap contains 23 URLs and the Pages sitemap contains four; both return HTTP 200. Sitemap availability does not prove indexing.
-
-In **Blogger Settings > Privacy**, enable **Visible to search engines**. In **Crawlers and indexing**, review **Custom robots.txt**. Either disable the custom file to restore Blogger's default, or replace the current rules with the generated `robots-txt.example.txt` after reviewing them. Its sitemap URLs follow the configured `blogUrl`; use your final public/custom domain. The example permits public content while excluding search/share utility paths. Reopen `/robots.txt` to confirm `Disallow: /` has gone. The XML theme cannot change Blogger's HTTP robots file. See [Blogger's settings](https://support.google.com/blogger/answer/9691230?hl=en) and [Google's robots.txt rules](https://developers.google.com/crawling/docs/robots-txt/robots-txt-spec).
+The 5 November public recheck confirmed the owner's visibility change: public robots rules allow crawling and all 28 content URLs have no restrictive HTTP X-Robots-Tag. Keep Visible to search engines enabled. Theme restore does not change robots.txt, HTTP headers or private Search Console settings. Native sitemaps contain 23 posts/four Pages; availability is not proof of indexing. See [Blogger settings](https://support.google.com/blogger/answer/9691230?hl=en).
 
 Enable **Meta tags > Enable search description** and set a useful blog description. This exposes the Search description field when editing content. If custom robots header tags are enabled, avoid extra restrictions that contradict the theme: public home/posts/Pages should not have `noindex`, `nosnippet` or `noimageindex`. The theme already marks search, archive, error and the configured legal URLs `noindex,follow`. Keep pages crawlable so a crawler can read their `noindex` instruction. [Blogger search setup](https://support.google.com/blogger/answer/41373?hl=en)
 
@@ -71,14 +69,14 @@ Metadata priority:
 
 | Value | Priority |
 | --- | --- |
-| Description | Native `data:view.description` (Search description), route fallback, native blog meta description, configured blog description. Fill Search description for every new post/Page; otherwise it can receive a generic site fallback in the head. Article schema alone can fall back to a body snippet. |
-| Document title | Explicit route override; matching imported optimized title; native view title. Homepage can use `homeTitle`. Renaming an imported post in Blogger stops its old automatic title fallback. Explicit overrides persist until removed/rebuilt. |
+| Description | On single items: native `data:blog.metaDescription`, then a relevant `data:view.description`, ignoring values equal to the configured site summary; then the route description. Unknown native URLs fall back to their own title in the head and a body snippet in article schema. Fill Search description for every new post/Page. Native editor behavior must be checked after saving on Blogger. |
+| Document title | Explicit route override; matching complete imported title; native view title. Homepage can use `homeTitle`. Renaming an imported post in Blogger stops its old automatic title fallback. Explicit overrides persist until removed/rebuilt. |
 | Social title | Full native view title, preserving the visible post/Page wording. |
 | Image | Explicit route image; native post image; imported route image; configured `socialImageUrl` fallback. Empty images are omitted. |
 | Structured keywords | Imported/configured route phrases; otherwise native post Labels. Optional Page body snippet can supply phrases when no route is configured. |
 | Index policy | Utility search/archive/error pages are noindex; then route/noindexPaths policy; public content otherwise permits indexing and previews. Blogger settings/HTTP headers may further restrict it. |
 
-Imported posts reuse the React application's curated `seoKeywords`, title builder and description builder. Imported Page defaults come from their source `useSEO` data. If you substantially rewrite an imported article, set a fresh Search description and either update/remove its configured imported keyword fallback by rebuilding, or explicitly override that URL's keywords. Changing only Labels on an imported route does not replace its curated keyword list. Normal new URLs need no route entry.
+Blogger-specific post descriptions and intent briefs are in `blogger/post-metadata.json`. Complete imported titles are retained without automatic character slicing. The Blogger-only editorial layer corrects the four audited articles without altering the separate application. After rewriting a post, set a fresh Search description and review any configured keyword fallback. Changing only Labels on a configured route does not replace its curated keyword list. New URLs need no route entry. See [APPLY-UPDATES.md](APPLY-UPDATES.md) for existing-post update files and safe deployment.
 
 ## AEO and GEO writing blocks
 
@@ -93,7 +91,7 @@ The server HTML exposes the actual article, author, dates, canonical link, bread
 
 There is no special Google AI schema or required AEO/GEO tag. Core SEO, accessible crawlable pages, helpful content and clear evidence remain the basis; inclusion in an AI answer is never guaranteed. [Google's AI features guidance](https://developers.google.com/search/docs/appearance/ai-features)
 
-FAQ markup is retained for semantic compatibility and existing presentation. Google retired FAQ rich results in May 2026, so this theme makes no FAQ rich-result promise. Google's June 2026 clarification also says it ignores `llms.txt`; Blogger themes cannot publish arbitrary root `.txt` files. The React app's `llms.txt`, `llms-full.txt` and `posts.json` are not copied as fake XML endpoints. A standalone SpeakableSpecification was also not copied: Google's speakable support is a limited beta for particular news/voice use cases. [Search documentation updates](https://developers.google.com/search/updates), [Speakable documentation](https://developers.google.com/search/docs/appearance/structured-data/speakable)
+FAQ markup is retained for semantic compatibility and existing presentation. Google retired FAQ rich results in May 2026, so this theme makes no FAQ rich-result promise. Google's June 2026 clarification also says it ignores `llms.txt`; Blogger themes cannot publish arbitrary root `.txt` files. Do not add fake XML endpoints for unsupported root files. A standalone SpeakableSpecification was also not copied: Google's speakable support is a limited beta for particular news/voice use cases. [Search documentation updates](https://developers.google.com/search/updates), [Speakable documentation](https://developers.google.com/search/docs/appearance/structured-data/speakable)
 
 ## Verify after restoring the theme
 
@@ -103,4 +101,4 @@ FAQ markup is retained for semantic compatibility and existing presentation. Goo
 4. Submit the two sitemaps in Search Console and use URL Inspection for the actual served/indexed page. Validate articles with [Google's Rich Results Test](https://search.google.com/test/rich-results) and general microdata with [Schema.org Validator](https://validator.schema.org/). Test live URLs after saving; local XML checks do not run Google's Blogger compiler or prove indexing.
 5. Check search descriptions and image previews for newly published content. Search engines may rewrite titles/snippets; these fields provide candidates rather than guaranteed display text.
 
-The implementation audit and its React/Blogger differences are in [SEO-AUDIT.md](SEO-AUDIT.md).
+The Blogger-only audit is linked from [SEO-AUDIT.md](SEO-AUDIT.md). Current fixes and pending hosted checks are recorded in [APPLY-UPDATES.md](APPLY-UPDATES.md).

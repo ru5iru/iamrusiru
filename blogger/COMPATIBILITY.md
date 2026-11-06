@@ -2,6 +2,8 @@
 
 The conversion targets Blogger's Layouts engine with v2 widgets, v3 layouts and responsive rendering. It is an independent XML theme.
 
+Current release, 6 November 2026: both Blogger builds and 23 compatibility checks pass; all 28 local HTTP routes pass the metadata verifier. Compiled CSS is unchanged and four About/Contact screenshot pairs have zero changed pixels. The new theme/posts are not installed on Blogger yet. See [APPLY-UPDATES.md](APPLY-UPDATES.md) and the [Blogger-only audit](SEO-AUDIT.md). Earlier conversion checks below are historical and are not a new hosted certification.
+
 | Check | Result |
 | --- | --- |
 | XML | Theme and Atom feed parse successfully. |
@@ -16,8 +18,6 @@ The conversion targets Blogger's Layouts engine with v2 widgets, v3 layouts and 
 | Enhancements | Theme persistence, menu/Escape, reading time, TOC, code copy and disabled-feed fallback tested. |
 | Live UI audit | Compared the installed Blogger site with the original app. Corrected script CDATA serialization, route matching, page spacing, card metadata, navigation, FAQ/related layout and native sidebar styling. See `UI-COMPARISON.md`. |
 | Real browser | Mobile menu opens/closes with Escape; theme persists across navigation; code-copy reports success. Article has no horizontal overflow or broken images. |
-| Original application | All 14 Vitest tests pass, including prerender metadata. |
-| Original production build / types | Production build and application TypeScript check pass. Existing CSS-import/FAQ-length warnings remain. |
 | Remote images | All 24 URLs returned 200 and image MIME types. See `output/media-check.json`. |
 | Runtime | No React, Supabase or MCP dependency in the installed theme; CSS compiled and JavaScript embedded. |
 | Customization / reuse | Five native HTML Layout gadgets, validated identity/content configuration and a clean native-content preset. All 15 checks pass, including saved widget edits without JavaScript and a different-owner build without project content. New native gadget editing still requires hosted verification after upload. |
@@ -25,7 +25,7 @@ The conversion targets Blogger's Layouts engine with v2 widgets, v3 layouts and 
 | New-content authoring | Generated post/Page starters and nine styled-block snippets; fixed plain new-Page width/padding. All 16 checks pass. Fresh native post/Page previews verified at 1440px and 390px without overflow or script errors; code copy, TOC and FAQ placement work. |
 | SEO/AEO/GEO extension | All 20 checks pass: 27 route titles/descriptions/keywords/schema without scripts, native publishing fields, Page keyword snippets, escaped overrides, noindex and owner isolation. Includes two additional optional snippets (sources/keywords). See `SEO-AUDIT.md` and `SEO-GUIDE.md`. |
 | SEO UI preservation | Eight fresh before/after screenshots of home, code article, About and Contact at 1440/390px have identical dimensions and zero differing pixels. CSS and enhancement scripts are unchanged. |
-| Live crawler configuration | Both native sitemaps return 200 with 23 posts/four Pages. Current wildcard robots.txt blocks general crawlers; fix in Blogger Settings separately from XML restore. |
+| Live crawler configuration | Both native sitemaps return 200 with 23 posts/four Pages. The 5 November recheck confirms public crawling is allowed and restrictive HTTP noindex/nofollow is gone after the owner changed visibility. Maintain those settings; they are separate from XML restore. |
 | Repository lint | Pre-existing errors remain in the prerender plugin, UI types, post content, Tailwind config, tracked temporary bundle and MCP function. No conversion files were reported. |
 
 Google's actual theme compiler, comment editor, Atom importer and social crawler fetches require a Blogger test blog and are **not certified by the local preview**. Importer normalization may require correcting post/page permalinks before publication. See `README.md` for installation and hosted checks.

@@ -2,10 +2,10 @@
 // Never run this evaluator against an untrusted template or use it as a server.
 import { JSDOM } from 'jsdom';
 
-export function renderPreview(template, { config, posts, media, kind = 'home', post = posts[0], localAssets = true, assetPrefix = '../assets/', viewTitle, searchDescription }) {
+export function renderPreview(template, { config, posts, media, kind = 'home', post = posts[0], localAssets = true, assetPrefix = '../assets/', viewTitle, searchDescription, nativeMetaDescription, genericViewDescription = false, requestUrl }) {
   const doc = new JSDOM(template, { contentType: 'text/xml' }).window.document;
   const escape = value => String(value ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
-  const url = config.blogUrl + (kind === 'post' || kind === 'page' ? post.path : kind === 'search' ? '/search?q=TypeScript' : kind === 'label' ? '/search/label/Engineering' : kind === 'archive' ? '/2026/06/' : kind === 'error' ? '/missing.html' : '/');
+  const url = requestUrl || config.blogUrl + (kind === 'post' || kind === 'page' ? post.path : kind === 'search' ? '/search?q=TypeScript' : kind === 'label' ? '/search/label/Engineering' : kind === 'archive' ? '/2026/06/' : kind === 'error' ? '/missing.html' : '/');
   function normalize(p) {
     let body = p.body;
     if (localAssets) for (const [name, src] of media) body = body.replaceAll(src, assetPrefix + name);
@@ -23,8 +23,8 @@ export function renderPreview(template, { config, posts, media, kind = 'home', p
   const listing = kind === 'search' ? posts.filter(p => p.title.includes('TypeScript')) : kind === 'empty' ? [] : kind === 'label' ? posts.filter(p => p.labels.includes('Engineering')) : posts;
   const title = viewTitle || (kind === 'post' || kind === 'page' ? post.title : kind === 'search' ? 'Search results for TypeScript' : kind === 'label' ? 'Engineering' : kind === 'archive' ? 'June 2026' : kind === 'error' ? 'Page not found' : config.title);
   const context = {
-    blog: { title: config.title, homepageUrl: config.blogUrl + '/', canonicalUrl: url.split('?')[0], languageDirection: 'ltr', locale: 'en', postImageUrl: kind === 'post' ? post.imageUrl : '', metaDescription: config.description || '' },
-    view: { url, title, description: searchDescription ?? post?.searchDescription ?? '', isHomepage: kind === 'home', isPost: kind === 'post', isPage: kind === 'page', isSingleItem: ['post', 'page'].includes(kind), isMultipleItems: !['post', 'page', 'error'].includes(kind), isSearch: ['search', 'label', 'empty', 'listing'].includes(kind), isArchive: kind === 'archive', isError: kind === 'error', search: { query: kind === 'search' ? 'TypeScript' : '' } },
+    blog: { title: config.title, homepageUrl: config.blogUrl + '/', canonicalUrl: url.split('?')[0], pageName: kind === 'archive' ? title : '', languageDirection: 'ltr', locale: 'en', postImageUrl: kind === 'post' ? post.imageUrl : '', metaDescription: nativeMetaDescription ?? searchDescription ?? config.description ?? '' },
+    view: { url, title, description: genericViewDescription ? config.description : searchDescription ?? '', isHomepage: kind === 'home', isPost: kind === 'post', isPage: kind === 'page', isSingleItem: ['post', 'page'].includes(kind), isMultipleItems: !['post', 'page', 'error'].includes(kind), isSearch: ['search', 'label', 'empty', 'listing'].includes(kind), isArchive: kind === 'archive', isError: kind === 'error', search: { query: kind === 'search' ? 'TypeScript' : '', label: kind === 'label' ? 'Engineering' : '' } },
     posts: (['post', 'page'].includes(kind) ? [post] : listing.slice(0, 6)).map(normalize),
     labels: [...new Set(posts.flatMap(p => p.labels))].map(name => ({ name, count: posts.filter(p => p.labels.includes(name)).length, url: config.blogUrl + '/search/label/' + encodeURIComponent(name) })).sort((a, b) => a.name.localeCompare(b.name)),
     title: 'Tags', olderPageUrl: posts.length > 6 && (kind === 'home' || kind === 'archive') ? config.blogUrl + '/search?updated-max=2026-04-01T00:00:00Z&max-results=6' : '', newerPageUrl: '',
@@ -48,7 +48,8 @@ export function renderPreview(template, { config, posts, media, kind = 'home', p
       .replace(/data:([\w.]+)/g, 'get("$1")').replace(/\?:/g, '||').replace(/\band\b/g, '&&').replace(/\bor\b/g, '||')
       .replace(/__s(\d+)__/g, (_, index) => strings[Number(index)]);
     const snippet = (html, options) => JSDOM.fragment(html).textContent.replace(/\s+/g, ' ').trim().slice(0, options.length);
-    return Function('get', 'snippet', 'resizeImage', 'return (' + js + ');')(get, snippet, value => value);
+    const urlPath = (base, pathname) => new URL(pathname, String(base)).href;
+    return Function('get', 'snippet', 'resizeImage', 'path', 'return (' + js + ');')(get, snippet, value => value, urlPath);
   }
   const children = (node, scope) => Array.from(node.childNodes).map(child => render(child, scope)).join('');
   function render(node, scope) {

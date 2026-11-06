@@ -1,0 +1,598 @@
+{
+  "capturedAt": "2026-11-06T05:20:45.420Z",
+  "origin": "https://ru5iru.blogspot.com",
+  "scope": "Read-only hosted Blogger metadata check; no account/editor/real crawler/indexing certification",
+  "checked": 28,
+  "failed": 28,
+  "results": [
+    {
+      "url": "https://ru5iru.blogspot.com/",
+      "errors": [
+        "buildId: expected exactly one nonempty value",
+        "Served theme build differs from the local release"
+      ],
+      "warnings": [],
+      "status": 200,
+      "xRobots": "",
+      "title": "Rusiru Rathmina | Software Engineer Blog",
+      "canonical": "https://ru5iru.blogspot.com/",
+      "description": "Software engineering, career lessons, side projects, and developer life by Rusiru Rathmina.",
+      "ogDescription": "Software engineering, career lessons, side projects, and developer life by Rusiru Rathmina.",
+      "twitterDescription": "Software engineering, career lessons, side projects, and developer life by Rusiru Rathmina.",
+      "robots": "index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1",
+      "buildId": ""
+    },
+    {
+      "url": "https://ru5iru.blogspot.com/2025/10/docker-compose-dev.html",
+      "errors": [
+        "buildId: expected exactly one nonempty value",
+        "Served theme build differs from the local release",
+        "Single item repeats the generic configured site description",
+        "Configured structured keywords did not select the expected branch"
+      ],
+      "warnings": [
+        "Description differs from prepared default; confirm this is an intentional native Search description"
+      ],
+      "status": 200,
+      "xRobots": "",
+      "title": "Docker Compose for Local Development",
+      "canonical": "https://ru5iru.blogspot.com/2025/10/docker-compose-dev.html",
+      "description": "Software engineering, career lessons, side projects, and developer life by Rusiru Rathmina.",
+      "ogDescription": "Software engineering, career lessons, side projects, and developer life by Rusiru Rathmina.",
+      "twitterDescription": "Software engineering, career lessons, side projects, and developer life by Rusiru Rathmina.",
+      "robots": "index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1",
+      "buildId": ""
+    },
+    {
+      "url": "https://ru5iru.blogspot.com/2025/11/burnout-and-recovery.html",
+      "errors": [
+        "buildId: expected exactly one nonempty value",
+        "Served theme build differs from the local release",
+        "Single item repeats the generic configured site description",
+        "Configured structured keywords did not select the expected branch"
+      ],
+      "warnings": [
+        "Description differs from prepared default; confirm this is an intentional native Search description"
+      ],
+      "status": 200,
+      "xRobots": "",
+      "title": "Burnout, Recovery, and What I Learned",
+      "canonical": "https://ru5iru.blogspot.com/2025/11/burnout-and-recovery.html",
+      "description": "Software engineering, career lessons, side projects, and developer life by Rusiru Rathmina.",
+      "ogDescription": "Software engineering, career lessons, side projects, and developer life by Rusiru Rathmina.",
+      "twitterDescription": "Software engineering, career lessons, side projects, and developer life by Rusiru Rathmina.",
+      "robots": "index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1",
+      "buildId": ""
+    },
+    {
+      "url": "https://ru5iru.blogspot.com/2025/11/debugging-production.html",
+      "errors": [
+        "buildId: expected exactly one nonempty value",
+        "Served theme build differs from the local release",
+        "Single item repeats the generic configured site description",
+        "Configured structured keywords did not select the expected branch"
+      ],
+      "warnings": [
+        "Description differs from prepared default; confirm this is an intentional native Search description"
+      ],
+      "status": 200,
+      "xRobots": "",
+      "title": "The Art of Debugging in Production",
+      "canonical": "https://ru5iru.blogspot.com/2025/11/debugging-production.html",
+      "description": "Software engineering, career lessons, side projects, and developer life by Rusiru Rathmina.",
+      "ogDescription": "Software engineering, career lessons, side projects, and developer life by Rusiru Rathmina.",
+      "twitterDescription": "Software engineering, career lessons, side projects, and developer life by Rusiru Rathmina.",
+      "robots": "index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1",
+      "buildId": ""
+    },
+    {
+      "url": "https://ru5iru.blogspot.com/2025/11/dotfile-one-liners.html",
+      "errors": [
+        "buildId: expected exactly one nonempty value",
+        "Served theme build differs from the local release",
+        "Single item repeats the generic configured site description",
+        "Configured structured keywords did not select the expected branch"
+      ],
+      "warnings": [
+        "Description differs from prepared default; confirm this is an intentional native Search description"
+      ],
+      "status": 200,
+      "xRobots": "",
+      "title": "Useful One-Liners I Keep in My Dotfiles",
+      "canonical": "https://ru5iru.blogspot.com/2025/11/dotfile-one-liners.html",
+      "description": "Software engineering, career lessons, side projects, and developer life by Rusiru Rathmina.",
+      "ogDescription": "Software engineering, career lessons, side projects, and developer life by Rusiru Rathmina.",
+      "twitterDescription": "Software engineering, career lessons, side projects, and developer life by Rusiru Rathmina.",
+      "robots": "index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1",
+      "buildId": ""
+    },
+    {
+      "url": "https://ru5iru.blogspot.com/2025/11/git-workflow-tips.html",
+      "errors": [
+        "buildId: expected exactly one nonempty value",
+        "Served theme build differs from the local release",
+        "Single item repeats the generic configured site description",
+        "Configured structured keywords did not select the expected branch"
+      ],
+      "warnings": [
+        "Description differs from prepared default; confirm this is an intentional native Search description"
+      ],
+      "status": 200,
+      "xRobots": "",
+      "title": "Git Workflow Tips I Wish I Knew Earlier",
+      "canonical": "https://ru5iru.blogspot.com/2025/11/git-workflow-tips.html",
+      "description": "Software engineering, career lessons, side projects, and developer life by Rusiru Rathmina.",
+      "ogDescription": "Software engineering, career lessons, side projects, and developer life by Rusiru Rathmina.",
+      "twitterDescription": "Software engineering, career lessons, side projects, and developer life by Rusiru Rathmina.",
+      "robots": "index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1",
+      "buildId": ""
+    },
+    {
+      "url": "https://ru5iru.blogspot.com/2025/11/why-i-journal-as-dev.html",
+      "errors": [
+        "buildId: expected exactly one nonempty value",
+        "Served theme build differs from the local release",
+        "Single item repeats the generic configured site description",
+        "Configured structured keywords did not select the expected branch"
+      ],
+      "warnings": [
+        "Description differs from prepared default; confirm this is an intentional native Search description"
+      ],
+      "status": 200,
+      "xRobots": "",
+      "title": "Why I Keep a Developer Journal",
+      "canonical": "https://ru5iru.blogspot.com/2025/11/why-i-journal-as-dev.html",
+      "description": "Software engineering, career lessons, side projects, and developer life by Rusiru Rathmina.",
+      "ogDescription": "Software engineering, career lessons, side projects, and developer life by Rusiru Rathmina.",
+      "twitterDescription": "Software engineering, career lessons, side projects, and developer life by Rusiru Rathmina.",
+      "robots": "index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1",
+      "buildId": ""
+    },
+    {
+      "url": "https://ru5iru.blogspot.com/2025/12/code-review-etiquette.html",
+      "errors": [
+        "buildId: expected exactly one nonempty value",
+        "Served theme build differs from the local release",
+        "Single item repeats the generic configured site description",
+        "Configured structured keywords did not select the expected branch"
+      ],
+      "warnings": [
+        "Description differs from prepared default; confirm this is an intentional native Search description"
+      ],
+      "status": 200,
+      "xRobots": "",
+      "title": "Code Review Etiquette: Being Kind and Thorough",
+      "canonical": "https://ru5iru.blogspot.com/2025/12/code-review-etiquette.html",
+      "description": "Software engineering, career lessons, side projects, and developer life by Rusiru Rathmina.",
+      "ogDescription": "Software engineering, career lessons, side projects, and developer life by Rusiru Rathmina.",
+      "twitterDescription": "Software engineering, career lessons, side projects, and developer life by Rusiru Rathmina.",
+      "robots": "index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1",
+      "buildId": ""
+    },
+    {
+      "url": "https://ru5iru.blogspot.com/2025/12/fastapi-quickstart.html",
+      "errors": [
+        "buildId: expected exactly one nonempty value",
+        "Served theme build differs from the local release",
+        "Single item repeats the generic configured site description",
+        "Configured structured keywords did not select the expected branch"
+      ],
+      "warnings": [
+        "Description differs from prepared default; confirm this is an intentional native Search description"
+      ],
+      "status": 200,
+      "xRobots": "",
+      "title": "Setting Up a Python FastAPI Backend in 15 Minutes",
+      "canonical": "https://ru5iru.blogspot.com/2025/12/fastapi-quickstart.html",
+      "description": "Software engineering, career lessons, side projects, and developer life by Rusiru Rathmina.",
+      "ogDescription": "Software engineering, career lessons, side projects, and developer life by Rusiru Rathmina.",
+      "twitterDescription": "Software engineering, career lessons, side projects, and developer life by Rusiru Rathmina.",
+      "robots": "index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1",
+      "buildId": ""
+    },
+    {
+      "url": "https://ru5iru.blogspot.com/2025/12/side-projects-keep-me-sane.html",
+      "errors": [
+        "buildId: expected exactly one nonempty value",
+        "Served theme build differs from the local release",
+        "Single item repeats the generic configured site description",
+        "Configured structured keywords did not select the expected branch"
+      ],
+      "warnings": [
+        "Description differs from prepared default; confirm this is an intentional native Search description"
+      ],
+      "status": 200,
+      "xRobots": "",
+      "title": "Why Side Projects Keep Me Sane as a Developer",
+      "canonical": "https://ru5iru.blogspot.com/2025/12/side-projects-keep-me-sane.html",
+      "description": "Software engineering, career lessons, side projects, and developer life by Rusiru Rathmina.",
+      "ogDescription": "Software engineering, career lessons, side projects, and developer life by Rusiru Rathmina.",
+      "twitterDescription": "Software engineering, career lessons, side projects, and developer life by Rusiru Rathmina.",
+      "robots": "index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1",
+      "buildId": ""
+    },
+    {
+      "url": "https://ru5iru.blogspot.com/2026/01/books-better-engineer.html",
+      "errors": [
+        "buildId: expected exactly one nonempty value",
+        "Served theme build differs from the local release",
+        "Single item repeats the generic configured site description",
+        "Configured structured keywords did not select the expected branch"
+      ],
+      "warnings": [
+        "Description differs from prepared default; confirm this is an intentional native Search description"
+      ],
+      "status": 200,
+      "xRobots": "",
+      "title": "The Books That Made Me a Better Engineer",
+      "canonical": "https://ru5iru.blogspot.com/2026/01/books-better-engineer.html",
+      "description": "Software engineering, career lessons, side projects, and developer life by Rusiru Rathmina.",
+      "ogDescription": "Software engineering, career lessons, side projects, and developer life by Rusiru Rathmina.",
+      "twitterDescription": "Software engineering, career lessons, side projects, and developer life by Rusiru Rathmina.",
+      "robots": "index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1",
+      "buildId": ""
+    },
+    {
+      "url": "https://ru5iru.blogspot.com/2026/01/cli-tool-rust.html",
+      "errors": [
+        "buildId: expected exactly one nonempty value",
+        "Served theme build differs from the local release",
+        "Single item repeats the generic configured site description",
+        "Configured structured keywords did not select the expected branch"
+      ],
+      "warnings": [
+        "Description differs from prepared default; confirm this is an intentional native Search description"
+      ],
+      "status": 200,
+      "xRobots": "",
+      "title": "Building a CLI Tool in Rust: A Weekend Adventure",
+      "canonical": "https://ru5iru.blogspot.com/2026/01/cli-tool-rust.html",
+      "description": "Software engineering, career lessons, side projects, and developer life by Rusiru Rathmina.",
+      "ogDescription": "Software engineering, career lessons, side projects, and developer life by Rusiru Rathmina.",
+      "twitterDescription": "Software engineering, career lessons, side projects, and developer life by Rusiru Rathmina.",
+      "robots": "index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1",
+      "buildId": ""
+    },
+    {
+      "url": "https://ru5iru.blogspot.com/2026/01/react-server-components.html",
+      "errors": [
+        "buildId: expected exactly one nonempty value",
+        "Served theme build differs from the local release",
+        "Single item repeats the generic configured site description",
+        "Configured structured keywords did not select the expected branch"
+      ],
+      "warnings": [
+        "Description differs from prepared default; confirm this is an intentional native Search description"
+      ],
+      "status": 200,
+      "xRobots": "",
+      "title": "React Server Components: What Actually Changes?",
+      "canonical": "https://ru5iru.blogspot.com/2026/01/react-server-components.html",
+      "description": "Software engineering, career lessons, side projects, and developer life by Rusiru Rathmina.",
+      "ogDescription": "Software engineering, career lessons, side projects, and developer life by Rusiru Rathmina.",
+      "twitterDescription": "Software engineering, career lessons, side projects, and developer life by Rusiru Rathmina.",
+      "robots": "index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1",
+      "buildId": ""
+    },
+    {
+      "url": "https://ru5iru.blogspot.com/2026/02/switched-to-typescript.html",
+      "errors": [
+        "buildId: expected exactly one nonempty value",
+        "Served theme build differs from the local release",
+        "Single item repeats the generic configured site description",
+        "Configured structured keywords did not select the expected branch"
+      ],
+      "warnings": [
+        "Description differs from prepared default; confirm this is an intentional native Search description"
+      ],
+      "status": 200,
+      "xRobots": "",
+      "title": "Why I Switched From JavaScript to TypeScript (And Never Looked Back)",
+      "canonical": "https://ru5iru.blogspot.com/2026/02/switched-to-typescript.html",
+      "description": "Software engineering, career lessons, side projects, and developer life by Rusiru Rathmina.",
+      "ogDescription": "Software engineering, career lessons, side projects, and developer life by Rusiru Rathmina.",
+      "twitterDescription": "Software engineering, career lessons, side projects, and developer life by Rusiru Rathmina.",
+      "robots": "index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1",
+      "buildId": ""
+    },
+    {
+      "url": "https://ru5iru.blogspot.com/2026/03/clean-code-principles.html",
+      "errors": [
+        "buildId: expected exactly one nonempty value",
+        "Served theme build differs from the local release",
+        "Single item repeats the generic configured site description",
+        "Configured structured keywords did not select the expected branch"
+      ],
+      "warnings": [
+        "Description differs from prepared default; confirm this is an intentional native Search description"
+      ],
+      "status": 200,
+      "xRobots": "",
+      "title": "Clean Code Principles Every Developer Should Know",
+      "canonical": "https://ru5iru.blogspot.com/2026/03/clean-code-principles.html",
+      "description": "Software engineering, career lessons, side projects, and developer life by Rusiru Rathmina.",
+      "ogDescription": "Software engineering, career lessons, side projects, and developer life by Rusiru Rathmina.",
+      "twitterDescription": "Software engineering, career lessons, side projects, and developer life by Rusiru Rathmina.",
+      "robots": "index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1",
+      "buildId": ""
+    },
+    {
+      "url": "https://ru5iru.blogspot.com/2026/03/owasp-top-ten.html",
+      "errors": [
+        "buildId: expected exactly one nonempty value",
+        "Served theme build differs from the local release",
+        "Single item repeats the generic configured site description",
+        "Configured structured keywords did not select the expected branch"
+      ],
+      "warnings": [
+        "Description differs from prepared default; confirm this is an intentional native Search description"
+      ],
+      "status": 200,
+      "xRobots": "",
+      "title": "OWASP Top 10 (2025): A Developer's Practical Guide",
+      "canonical": "https://ru5iru.blogspot.com/2026/03/owasp-top-ten.html",
+      "description": "Software engineering, career lessons, side projects, and developer life by Rusiru Rathmina.",
+      "ogDescription": "Software engineering, career lessons, side projects, and developer life by Rusiru Rathmina.",
+      "twitterDescription": "Software engineering, career lessons, side projects, and developer life by Rusiru Rathmina.",
+      "robots": "index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1",
+      "buildId": ""
+    },
+    {
+      "url": "https://ru5iru.blogspot.com/2026/04/code-review-security-platform.html",
+      "errors": [
+        "buildId: expected exactly one nonempty value",
+        "Served theme build differs from the local release",
+        "Single item repeats the generic configured site description",
+        "Configured structured keywords did not select the expected branch"
+      ],
+      "warnings": [
+        "Description differs from prepared default; confirm this is an intentional native Search description"
+      ],
+      "status": 200,
+      "xRobots": "",
+      "title": "Why Integrating a Code Review and Security Analysis Platform Is Essential for Clean Code",
+      "canonical": "https://ru5iru.blogspot.com/2026/04/code-review-security-platform.html",
+      "description": "Software engineering, career lessons, side projects, and developer life by Rusiru Rathmina.",
+      "ogDescription": "Software engineering, career lessons, side projects, and developer life by Rusiru Rathmina.",
+      "twitterDescription": "Software engineering, career lessons, side projects, and developer life by Rusiru Rathmina.",
+      "robots": "index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1",
+      "buildId": ""
+    },
+    {
+      "url": "https://ru5iru.blogspot.com/2026/04/drupal-page-caching.html",
+      "errors": [
+        "buildId: expected exactly one nonempty value",
+        "Served theme build differs from the local release",
+        "Single item repeats the generic configured site description",
+        "Configured structured keywords did not select the expected branch"
+      ],
+      "warnings": [
+        "Description differs from prepared default; confirm this is an intentional native Search description"
+      ],
+      "status": 200,
+      "xRobots": "",
+      "title": "Drupal Caching: Cache Tags, Contexts and Debugging",
+      "canonical": "https://ru5iru.blogspot.com/2026/04/drupal-page-caching.html",
+      "description": "Software engineering, career lessons, side projects, and developer life by Rusiru Rathmina.",
+      "ogDescription": "Software engineering, career lessons, side projects, and developer life by Rusiru Rathmina.",
+      "twitterDescription": "Software engineering, career lessons, side projects, and developer life by Rusiru Rathmina.",
+      "robots": "index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1",
+      "buildId": ""
+    },
+    {
+      "url": "https://ru5iru.blogspot.com/2026/04/vibe-coding.html",
+      "errors": [
+        "buildId: expected exactly one nonempty value",
+        "Served theme build differs from the local release",
+        "Single item repeats the generic configured site description",
+        "Configured structured keywords did not select the expected branch"
+      ],
+      "warnings": [
+        "Description differs from prepared default; confirm this is an intentional native Search description"
+      ],
+      "status": 200,
+      "xRobots": "",
+      "title": "Vibe Coding: How AI Makes Coding Easier (And Why Clear Requirements Still Matter)",
+      "canonical": "https://ru5iru.blogspot.com/2026/04/vibe-coding.html",
+      "description": "Software engineering, career lessons, side projects, and developer life by Rusiru Rathmina.",
+      "ogDescription": "Software engineering, career lessons, side projects, and developer life by Rusiru Rathmina.",
+      "twitterDescription": "Software engineering, career lessons, side projects, and developer life by Rusiru Rathmina.",
+      "robots": "index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1",
+      "buildId": ""
+    },
+    {
+      "url": "https://ru5iru.blogspot.com/2026/04/work-life-balance-for-developers.html",
+      "errors": [
+        "buildId: expected exactly one nonempty value",
+        "Served theme build differs from the local release",
+        "Single item repeats the generic configured site description",
+        "Published source/link placeholder remains",
+        "Configured structured keywords did not select the expected branch"
+      ],
+      "warnings": [
+        "Description differs from prepared default; confirm this is an intentional native Search description"
+      ],
+      "status": 200,
+      "xRobots": "",
+      "title": "Work-Life Balance for Developers: Why It Matters and How to Protect It",
+      "canonical": "https://ru5iru.blogspot.com/2026/04/work-life-balance-for-developers.html",
+      "description": "Software engineering, career lessons, side projects, and developer life by Rusiru Rathmina.",
+      "ogDescription": "Software engineering, career lessons, side projects, and developer life by Rusiru Rathmina.",
+      "twitterDescription": "Software engineering, career lessons, side projects, and developer life by Rusiru Rathmina.",
+      "robots": "index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1",
+      "buildId": ""
+    },
+    {
+      "url": "https://ru5iru.blogspot.com/2026/05/broken-access-control.html",
+      "errors": [
+        "buildId: expected exactly one nonempty value",
+        "Served theme build differs from the local release",
+        "Single item repeats the generic configured site description",
+        "Published source/link placeholder remains",
+        "Configured structured keywords did not select the expected branch"
+      ],
+      "warnings": [
+        "Description differs from prepared default; confirm this is an intentional native Search description"
+      ],
+      "status": 200,
+      "xRobots": "",
+      "title": "Broken Access Control: The OWASP Top 10's Most Dangerous Flaw",
+      "canonical": "https://ru5iru.blogspot.com/2026/05/broken-access-control.html",
+      "description": "Software engineering, career lessons, side projects, and developer life by Rusiru Rathmina.",
+      "ogDescription": "Software engineering, career lessons, side projects, and developer life by Rusiru Rathmina.",
+      "twitterDescription": "Software engineering, career lessons, side projects, and developer life by Rusiru Rathmina.",
+      "robots": "index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1",
+      "buildId": ""
+    },
+    {
+      "url": "https://ru5iru.blogspot.com/2026/05/cryptographic-failures.html",
+      "errors": [
+        "buildId: expected exactly one nonempty value",
+        "Served theme build differs from the local release",
+        "Single item repeats the generic configured site description",
+        "Post document title differs from the prepared title; check native editor title/override",
+        "Published source/link placeholder remains",
+        "Configured structured keywords did not select the expected branch"
+      ],
+      "warnings": [
+        "Description differs from prepared default; confirm this is an intentional native Search description"
+      ],
+      "status": 200,
+      "xRobots": "",
+      "title": "Cryptographic Failures: The OWASP A02 Risk Hiding in Your Code",
+      "canonical": "https://ru5iru.blogspot.com/2026/05/cryptographic-failures.html",
+      "description": "Software engineering, career lessons, side projects, and developer life by Rusiru Rathmina.",
+      "ogDescription": "Software engineering, career lessons, side projects, and developer life by Rusiru Rathmina.",
+      "twitterDescription": "Software engineering, career lessons, side projects, and developer life by Rusiru Rathmina.",
+      "robots": "index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1",
+      "buildId": ""
+    },
+    {
+      "url": "https://ru5iru.blogspot.com/2026/06/injection.html",
+      "errors": [
+        "buildId: expected exactly one nonempty value",
+        "Served theme build differs from the local release",
+        "Single item repeats the generic configured site description",
+        "Post document title differs from the prepared title; check native editor title/override",
+        "Configured structured keywords did not select the expected branch"
+      ],
+      "warnings": [
+        "Description differs from prepared default; confirm this is an intentional native Search description"
+      ],
+      "status": 200,
+      "xRobots": "",
+      "title": "Injection OWASP Top 10: A03 Explained for Developers",
+      "canonical": "https://ru5iru.blogspot.com/2026/06/injection.html",
+      "description": "Software engineering, career lessons, side projects, and developer life by Rusiru Rathmina.",
+      "ogDescription": "Software engineering, career lessons, side projects, and developer life by Rusiru Rathmina.",
+      "twitterDescription": "Software engineering, career lessons, side projects, and developer life by Rusiru Rathmina.",
+      "robots": "index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1",
+      "buildId": ""
+    },
+    {
+      "url": "https://ru5iru.blogspot.com/2026/06/proper-project-planning.html",
+      "errors": [
+        "buildId: expected exactly one nonempty value",
+        "Served theme build differs from the local release",
+        "Single item repeats the generic configured site description",
+        "Configured structured keywords did not select the expected branch"
+      ],
+      "warnings": [
+        "Description differs from prepared default; confirm this is an intentional native Search description"
+      ],
+      "status": 200,
+      "xRobots": "",
+      "title": "Why Proper Planning Is a Must in a Software Project",
+      "canonical": "https://ru5iru.blogspot.com/2026/06/proper-project-planning.html",
+      "description": "Software engineering, career lessons, side projects, and developer life by Rusiru Rathmina.",
+      "ogDescription": "Software engineering, career lessons, side projects, and developer life by Rusiru Rathmina.",
+      "twitterDescription": "Software engineering, career lessons, side projects, and developer life by Rusiru Rathmina.",
+      "robots": "index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1",
+      "buildId": ""
+    },
+    {
+      "url": "https://ru5iru.blogspot.com/p/about.html",
+      "errors": [
+        "buildId: expected exactly one nonempty value",
+        "Served theme build differs from the local release",
+        "Single item repeats the generic configured site description",
+        "Configured Page specialization missing"
+      ],
+      "warnings": [
+        "Description differs from prepared default; confirm this is an intentional native Search description"
+      ],
+      "status": 200,
+      "xRobots": "",
+      "title": "About me",
+      "canonical": "https://ru5iru.blogspot.com/p/about.html",
+      "description": "Software engineering, career lessons, side projects, and developer life by Rusiru Rathmina.",
+      "ogDescription": "Software engineering, career lessons, side projects, and developer life by Rusiru Rathmina.",
+      "twitterDescription": "Software engineering, career lessons, side projects, and developer life by Rusiru Rathmina.",
+      "robots": "index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1",
+      "buildId": ""
+    },
+    {
+      "url": "https://ru5iru.blogspot.com/p/contact.html",
+      "errors": [
+        "buildId: expected exactly one nonempty value",
+        "Served theme build differs from the local release",
+        "Single item repeats the generic configured site description",
+        "Configured Page specialization missing"
+      ],
+      "warnings": [
+        "Description differs from prepared default; confirm this is an intentional native Search description"
+      ],
+      "status": 200,
+      "xRobots": "",
+      "title": "Contact",
+      "canonical": "https://ru5iru.blogspot.com/p/contact.html",
+      "description": "Software engineering, career lessons, side projects, and developer life by Rusiru Rathmina.",
+      "ogDescription": "Software engineering, career lessons, side projects, and developer life by Rusiru Rathmina.",
+      "twitterDescription": "Software engineering, career lessons, side projects, and developer life by Rusiru Rathmina.",
+      "robots": "index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1",
+      "buildId": ""
+    },
+    {
+      "url": "https://ru5iru.blogspot.com/p/cookie-policy.html",
+      "errors": [
+        "buildId: expected exactly one nonempty value",
+        "Served theme build differs from the local release",
+        "Single item repeats the generic configured site description",
+        "HTML index policy does not match the configured route"
+      ],
+      "warnings": [
+        "Description differs from prepared default; confirm this is an intentional native Search description"
+      ],
+      "status": 200,
+      "xRobots": "",
+      "title": "Cookie Policy",
+      "canonical": "https://ru5iru.blogspot.com/p/cookie-policy.html",
+      "description": "Software engineering, career lessons, side projects, and developer life by Rusiru Rathmina.",
+      "ogDescription": "Software engineering, career lessons, side projects, and developer life by Rusiru Rathmina.",
+      "twitterDescription": "Software engineering, career lessons, side projects, and developer life by Rusiru Rathmina.",
+      "robots": "index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1",
+      "buildId": ""
+    },
+    {
+      "url": "https://ru5iru.blogspot.com/p/privacy-policy.html",
+      "errors": [
+        "buildId: expected exactly one nonempty value",
+        "Served theme build differs from the local release",
+        "Single item repeats the generic configured site description",
+        "HTML index policy does not match the configured route"
+      ],
+      "warnings": [
+        "Description differs from prepared default; confirm this is an intentional native Search description"
+      ],
+      "status": 200,
+      "xRobots": "",
+      "title": "Privacy Policy",
+      "canonical": "https://ru5iru.blogspot.com/p/privacy-policy.html",
+      "description": "Software engineering, career lessons, side projects, and developer life by Rusiru Rathmina.",
+      "ogDescription": "Software engineering, career lessons, side projects, and developer life by Rusiru Rathmina.",
+      "twitterDescription": "Software engineering, career lessons, side projects, and developer life by Rusiru Rathmina.",
+      "robots": "index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1",
+      "buildId": ""
+    }
+  ]
+}

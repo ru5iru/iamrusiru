@@ -57,9 +57,15 @@ export function buildBloggerSeo(config, source, posts, postPath, socialImage) {
   const branches = (expression, render, filter = () => true) => routes.filter(filter).map(route => ({ condition: condition(expression, route.path), markup: render(route) }));
 
   const descriptions = conditionalMarkup([
-    // A freshly edited Blogger Search description always wins over migration defaults.
-    { condition: 'data:view.description', markup: descriptionMetadata('data:view.description', { expression: true }) },
+    // Native Search description is blog.metaDescription, not necessarily
+    // view.description (which can repeat the site summary on an article).
+    // Ignore that generic summary on single items before testing route defaults.
+    { condition: 'data:view.isSingleItem and data:blog.metaDescription and data:blog.metaDescription != ' + JSON.stringify(config.description), markup: descriptionMetadata('data:blog.metaDescription', { expression: true }) },
+    { condition: 'data:view.isSingleItem and data:view.description and data:view.description != ' + JSON.stringify(config.description), markup: descriptionMetadata('data:view.description', { expression: true }) },
     ...branches('data:blog.canonicalUrl', route => descriptionMetadata(route.description), route => Boolean(route.description)),
+    // An unknown native URL should describe its own topic, never silently use
+    // a site-wide summary. Publishers should still write Search description.
+    { condition: 'data:view.isSingleItem', markup: descriptionMetadata('data:view.title', { expression: true }) },
     { condition: 'data:blog.metaDescription', markup: descriptionMetadata('data:blog.metaDescription', { expression: true }) },
   ], descriptionMetadata(config.description));
   const titles = conditionalMarkup([
@@ -106,7 +112,8 @@ ${meta('name', 'data:blog.title', true)}<link itemprop='url' expr:href='data:blo
 </div></b:if>`;
 
   const scopedDescription = conditionalMarkup([
-    { condition: 'data:view.description', markup: meta('description', 'data:view.description', true) },
+    { condition: 'data:blog.metaDescription and data:blog.metaDescription != ' + JSON.stringify(config.description), markup: meta('description', 'data:blog.metaDescription', true) },
+    { condition: 'data:view.description and data:view.description != ' + JSON.stringify(config.description), markup: meta('description', 'data:view.description', true) },
     ...branches('data:post.url', route => meta('description', route.description), route => Boolean(route.description)),
   ], meta('description', 'snippet(data:post.body, {length: 160, links: false, linebreaks: false})', true));
   const scopedKeywords = conditionalMarkup(branches('data:post.url', route => route.keywords.map(keyword => meta('keywords', keyword)).join(''), route => route.keywords.length > 0),

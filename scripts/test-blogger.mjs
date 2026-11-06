@@ -52,7 +52,7 @@ test('route-specific text uses native Blogger branches instead of chained expres
   ], descriptionMetadata('Fallback'));
   const fragment = new JSDOM(`<root xmlns:b="${B}">${markup}</root>`, { contentType: 'text/xml' }).window.document;
   assert.equal(fragment.querySelector('meta').getAttribute('content'), literal);
-  assert.equal(fragment.getElementsByTagNameNS(B, 'if')[0].getAttribute('cond'), 'data:blog.canonicalUrl == data:blog.homepageUrl + "2026/06/example.html"');
+  assert.equal(fragment.getElementsByTagNameNS(B, 'if')[0].getAttribute('cond'), 'data:blog.canonicalUrl == path(data:blog.homepageUrl, "/2026/06/example.html")');
   validateBloggerExpressions(fragment);
   const unsupportedFunction = new JSDOM(`<root xmlns:expr="http://www.google.com/2005/gml/expr"><a expr:href="urlEncode(data:post.url)"/></root>`, { contentType: 'text/xml' }).window.document;
   assert.throws(() => validateBloggerExpressions(unsupportedFunction), /unsupported Blogger template function urlEncode/);
@@ -443,4 +443,66 @@ test('a different owner can build a native theme without project content or styl
   assert.equal(article.querySelector('.blog-tag').textContent, 'Research');
   assert.equal(article.querySelector('[data-post-author]').textContent, custom.author);
   assert.ok(article.querySelector('[data-related]'));
+});
+
+test('generic native view descriptions cannot hide route metadata or authored Search descriptions', () => {
+  const post = posts.find(post => post.slug === 'injection');
+  const generic = preview({ kind: 'post', post, genericViewDescription: true });
+  assert.equal(generic.querySelector('meta[name="description"]').content, post.seo.description);
+  const authored = preview({ kind: 'post', post, genericViewDescription: true, nativeMetaDescription: 'A newly saved native Search description with "quotes" & detail.' });
+  assert.equal(authored.querySelector('meta[name="description"]').content, 'A newly saved native Search description with "quotes" & detail.');
+  assert.equal(authored.querySelector('article > meta[itemprop="description"]').content, authored.querySelector('meta[name="description"]').content);
+  const fresh = { ...post, path: '/2026/11/unknown-post.html', title: 'A distinct native topic', body: '<p>Unique native body content.</p>' };
+  const fallback = preview({ kind: 'post', post: fresh, genericViewDescription: true });
+  assert.equal(fallback.querySelector('meta[name="description"]').content, fresh.title);
+  assert.notEqual(fallback.querySelector('article > meta[itemprop="description"]').content, config.description);
+});
+
+test('URL-valued route conditions survive custom-domain/mobile fixtures and legal policy', () => {
+  for (const item of [...posts, ...pages]) {
+    const custom = { ...config, blogUrl: 'https://notes.example.org' };
+    const html = renderPreview(xml, { config: custom, posts, media, kind: item.content ? 'post' : 'page', post: item, genericViewDescription: true, requestUrl: custom.blogUrl + item.path + '?m=1&utm_source=test' });
+    const doc = new JSDOM(withoutCss(html)).window.document;
+    assert.equal(doc.querySelector('meta[name="description"]').content, item.seo.description);
+    assert.equal(doc.querySelector('link[rel="canonical"]').href, custom.blogUrl + item.path);
+    assert.equal(doc.querySelector('meta[name="robots"]').content.startsWith('noindex'), Boolean(item.seo.noIndex));
+  }
+  const error = preview({ kind: 'error' });
+  assert.equal(error.querySelector('link[rel="canonical"]'), null);
+  assert.equal(error.querySelector('meta[property="og:url"]'), null);
+  assert.equal(error.querySelector('meta[name="robots"]').content, 'noindex,follow');
+  assert.match(preview({ kind: 'search' }).querySelector('h1').textContent, /Search results for: TypeScript/);
+  assert.match(preview({ kind: 'label' }).querySelector('h1').textContent, /Posts tagged: Engineering/);
+});
+
+test('Blogger post updates preserve URLs, code and FAQ markup while correcting factual text and references', async () => {
+  assert.equal(posts.length, 23);
+  assert.equal(new Set(posts.map(post => post.searchDescription)).size, posts.length);
+  for (const post of posts) {
+    assert.equal(post.path, '/' + new Date(post.date + ' 00:00:00 GMT').toISOString().slice(0, 7).replace('-', '/') + '/' + post.slug + '.html');
+    assert.doesNotMatch(post.body, /\[(?:SOURCE|INTERNAL LINK):|OWASP_GUIDE_LINK|ACCESS_CONTROL_LINK|BURNOUT_LINK/);
+    const saved = await fs.readFile(path.join(out, 'post-updates', post.slug + '.html'), 'utf8');
+    assert.equal(saved.trim(), post.body.trim());
+    assert.ok(post.searchIntent);
+    assert.doesNotMatch(post.seo.title, /\u2026/);
+  }
+  const bySlug = slug => posts.find(post => post.slug === slug);
+  const injection = bySlug('injection');
+  assert.match(injection.title, /2025: A05/);
+  assert.match(injection.faq[0].answer, /A05.*2025.*A03.*2021/);
+  const crypto = bySlug('cryptographic-failures');
+  assert.match(crypto.title, /A04.*2025.*A02.*2021/);
+  assert.doesNotMatch(crypto.body, /all treat unencrypted sensitive data as a reportable incident/);
+  const access = bySlug('broken-access-control');
+  assert.match(access.faq.find(faq => faq.question.startsWith('Why is broken')).answer, /3\.81%/);
+  assert.doesNotMatch(access.body, /94 percent of tested applications showing/);
+  const balance = bySlug('work-life-balance-for-developers');
+  assert.doesNotMatch(balance.body, /falls off a cliff past 55|burnout has three stages|recoverable in days/i);
+  const links = JSDOM.fragment(crypto.body);
+  assert.ok(links.querySelector('a[href="https://www.gao.gov/products/gao-18-559"]'));
+  assert.ok(links.querySelector('a[href$="/owasp-top-ten.html"]'));
+  assert.ok(links.querySelector('a[href="https://x.com/ru5iru"]'));
+  const inventory = JSON.parse(await fs.readFile(path.join(out, 'post-updates.json'), 'utf8'));
+  assert.equal(inventory.length, posts.length);
+  assert.equal(inventory.find(post => post.slug === 'injection').searchDescription, injection.searchDescription);
 });

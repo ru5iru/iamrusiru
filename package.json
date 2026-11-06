@@ -7,6 +7,7 @@
     "build:blogger": "node scripts/build-blogger.mjs",
     "build:blogger:reusable": "node scripts/build-blogger.mjs --config blogger/config.reusable.json --out blogger/output/reusable",
     "test:blogger": "node --test --experimental-test-isolation=none scripts/test-blogger.mjs",
+    "verify:blogger:live": "node scripts/verify-blogger-live.mjs",
     "preview:blogger": "node scripts/serve-blogger.mjs",
     "dev": "vite",
     "build": "vite build",
