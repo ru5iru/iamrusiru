@@ -1,0 +1,5294 @@
+{
+  "capturedAt": "2026-11-05T17:51:20.364Z",
+  "results": [
+    {
+      "name": "home",
+      "path": "/",
+      "width": 1440,
+      "status": 200,
+      "title": "Rusiru Rathmina | Software Engineer Blog",
+      "canonical": "https://ru5iru.blogspot.com/",
+      "description": "Software engineering, career lessons, side projects, and developer life by Rusiru Rathmina.",
+      "h1": [
+        "Rusiru'sSoftware Engineering Blog.",
+        "Rusiru Rathmina | Software Engineer Blog"
+      ],
+      "overflow": false,
+      "headingOrder": [
+        {
+          "tag": "H1",
+          "text": "Rusiru'sSoftware Engineering Blog."
+        },
+        {
+          "tag": "H2",
+          "text": "Latest Posts"
+        },
+        {
+          "tag": "H2",
+          "text": "Why Proper Planning Is a Must in a Software Project"
+        },
+        {
+          "tag": "H2",
+          "text": "Injection OWASP Top 10: A03 Explained for Developers"
+        },
+        {
+          "tag": "H2",
+          "text": "Cryptographic Failures: The OWASP A02 Risk Hiding in Your Code"
+        },
+        {
+          "tag": "H2",
+          "text": "Broken Access Control: The OWASP Top 10's Most Dangerous Flaw"
+        },
+        {
+          "tag": "H2",
+          "text": "Work-Life Balance for Developers: Why It Matters and How to Protect It"
+        },
+        {
+          "tag": "H2",
+          "text": "Drupal Caching: Cache Tags, Contexts and Debugging"
+        },
+        {
+          "tag": "H3",
+          "text": "Topics"
+        },
+        {
+          "tag": "H2",
+          "text": "Tags"
+        },
+        {
+          "tag": "H3",
+          "text": "Blog Archive"
+        },
+        {
+          "tag": "H1",
+          "text": "Rusiru Rathmina | Software Engineer Blog"
+        },
+        {
+          "tag": "H3",
+          "text": "Popular"
+        },
+        {
+          "tag": "H3",
+          "text": "About Me"
+        },
+        {
+          "tag": "H3",
+          "text": "Let's connect"
+        },
+        {
+          "tag": "H3",
+          "text": "iamrusiru"
+        },
+        {
+          "tag": "H4",
+          "text": "Quick Links"
+        },
+        {
+          "tag": "H4",
+          "text": "Legal Stuff"
+        },
+        {
+          "tag": "H4",
+          "text": "Connect"
+        }
+      ],
+      "images": [
+        {
+          "src": "data:image/jpeg;base64,/9j/2wBDAAUDBAQEAwUEBAQFBQUGBwwIBwcHBw8LCwkMEQ8SEhEPERETFhwXExQaFRERGCEYGh0dHx8fExciJCIeJBweHx7/2wBDAQUFBQcGBw4ICA4eFBEUHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh7/wAARCAGgAaADASIAAhEBAxEB/8QAHQABAAAHAQE",
+          "complete": true,
+          "naturalWidth": 416,
+          "width": 368,
+          "height": 368,
+          "alt": "Rusiru's profile photo"
+        },
+        {
+          "src": "https://lh3.googleusercontent.com/blogger_img_proxy/AEn0k_s9DXGBQD3e0E1h-2rd2-Bavf6gy6gT9bdKgQfLLJ_Hof_v5u1-tEV_qNc-GgajyikFZmLqaCkNXpFkevacIn71Io2APZgq4O4GqQwgrBUGiRDaf01Wh-yyFLvW_u0_Q2TyAEMQe5oYMyAZf17PRAsKVYfRu3Lv=w384-h256-p-k-no-nu",
+          "complete": true,
+          "naturalWidth": 384,
+          "width": 192,
+          "height": 128,
+          "alt": ""
+        },
+        {
+          "src": "data:image/jpeg;base64,/9j/2wBDAAUDBAQEAwUEBAQFBQUGBwwIBwcHBw8LCwkMEQ8SEhEPERETFhwXExQaFRERGCEYGh0dHx8fExciJCIeJBweHx7/2wBDAQUFBQcGBw4ICA4eFBEUHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh7/wAARCAGgAaADASIAAhEBAxEB/8QAHQABAAAHAQE",
+          "complete": true,
+          "naturalWidth": 416,
+          "width": 28,
+          "height": 28,
+          "alt": ""
+        },
+        {
+          "src": "https://lh3.googleusercontent.com/blogger_img_proxy/AEn0k_v_7wHk8bRInEiz-dbM6169puiM1sRQmPS94g4bANzmVu5gcNShUQ9jvJm7iEtRShZlq_mXcED8x8CeHY8-e-QNqul73dnVAR10cUbIRDN3fLEoM1CcQB81KIspUoqPdehqTdAK2QqJwV2vQNweW3hNMbeN_LsReA=w384-h256-p-k-no-nu",
+          "complete": true,
+          "naturalWidth": 384,
+          "width": 192,
+          "height": 128,
+          "alt": ""
+        },
+        {
+          "src": "data:image/jpeg;base64,/9j/2wBDAAUDBAQEAwUEBAQFBQUGBwwIBwcHBw8LCwkMEQ8SEhEPERETFhwXExQaFRERGCEYGh0dHx8fExciJCIeJBweHx7/2wBDAQUFBQcGBw4ICA4eFBEUHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh7/wAARCAGgAaADASIAAhEBAxEB/8QAHQABAAAHAQE",
+          "complete": true,
+          "naturalWidth": 416,
+          "width": 28,
+          "height": 28,
+          "alt": ""
+        },
+        {
+          "src": "https://lh3.googleusercontent.com/blogger_img_proxy/AEn0k_usG-zT2e4wuIzfjkq0Li6a-etK9eqBoAOY1A0RCr4Zxav0UKunRonCtptpPNskgT923TNF4FP6FNpGc-JIavsYTAzpES-dGR-xB-UCOxguZXfatfBlQluX1vlRym_BSwkSNXdO4uY7TpdXiouZJahsqqahcfMFF5MN3_FstN0N9ocSgY8e=w384-h256-p-k",
+          "complete": true,
+          "naturalWidth": 384,
+          "width": 192,
+          "height": 128,
+          "alt": ""
+        },
+        {
+          "src": "data:image/jpeg;base64,/9j/2wBDAAUDBAQEAwUEBAQFBQUGBwwIBwcHBw8LCwkMEQ8SEhEPERETFhwXExQaFRERGCEYGh0dHx8fExciJCIeJBweHx7/2wBDAQUFBQcGBw4ICA4eFBEUHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh7/wAARCAGgAaADASIAAhEBAxEB/8QAHQABAAAHAQE",
+          "complete": true,
+          "naturalWidth": 416,
+          "width": 28,
+          "height": 28,
+          "alt": ""
+        },
+        {
+          "src": "https://lh3.googleusercontent.com/blogger_img_proxy/AEn0k_tM5ba7dS8jjvsNnsMMXPWW1CXhZe1sJ79KyxHETZsBtNfARW-BBjm7CsOWWib_zOddoz2WBqpTj0BMOBPIY3xrz2kSC97A4XxTfhu86fIoA3VJqfyEFd3B0BD_evTm2Z4-qyXvq61G28HCVP2n9Qh-MiIjYm-oZRy8aE9wJQwI1RXOXJY=w384-h256-p-k-",
+          "complete": true,
+          "naturalWidth": 384,
+          "width": 192,
+          "height": 128,
+          "alt": ""
+        },
+        {
+          "src": "data:image/jpeg;base64,/9j/2wBDAAUDBAQEAwUEBAQFBQUGBwwIBwcHBw8LCwkMEQ8SEhEPERETFhwXExQaFRERGCEYGh0dHx8fExciJCIeJBweHx7/2wBDAQUFBQcGBw4ICA4eFBEUHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh7/wAARCAGgAaADASIAAhEBAxEB/8QAHQABAAAHAQE",
+          "complete": true,
+          "naturalWidth": 416,
+          "width": 28,
+          "height": 28,
+          "alt": ""
+        },
+        {
+          "src": "https://lh3.googleusercontent.com/blogger_img_proxy/AEn0k_v0RHpYryIKyxhKIUyc9TgmTzqryiQ-pHyEFPaY9ZThRNFrNzODsO6E3PzbkcBxjY27Zv5b_Og9R45KHl6BNc_iQQs6Id8V9AXexedtXrAw5ceABRuA9pamxT5xyCA4MgGu0YSlQGBqYcYuHB5i2cToiDuzWSkb6SwZsUWHT8JluA=w384-h256-p-k-no-nu",
+          "complete": true,
+          "naturalWidth": 384,
+          "width": 192,
+          "height": 128,
+          "alt": ""
+        },
+        {
+          "src": "data:image/jpeg;base64,/9j/2wBDAAUDBAQEAwUEBAQFBQUGBwwIBwcHBw8LCwkMEQ8SEhEPERETFhwXExQaFRERGCEYGh0dHx8fExciJCIeJBweHx7/2wBDAQUFBQcGBw4ICA4eFBEUHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh7/wAARCAGgAaADASIAAhEBAxEB/8QAHQABAAAHAQE",
+          "complete": true,
+          "naturalWidth": 416,
+          "width": 28,
+          "height": 28,
+          "alt": ""
+        },
+        {
+          "src": "https://lh3.googleusercontent.com/blogger_img_proxy/AEn0k_sy9CfQkXwcpqtDf_hyS87IfxXFMJVlWYf_ePopO_ZF7U7BezGsbLNxUjY7YqmUilTvfwyvJJ53kN1TGo9IVsmbQ9CrqPEEOmMCXOFGRb32V4XBr_VRB2_m24FrUgUiv48i78sJQ2RgjdOyOQpVkZRHHCZs-kvqt-ayrf5pQw=w384-h256-p-k-no-nu",
+          "complete": true,
+          "naturalWidth": 384,
+          "width": 192,
+          "height": 128,
+          "alt": ""
+        },
+        {
+          "src": "data:image/jpeg;base64,/9j/2wBDAAUDBAQEAwUEBAQFBQUGBwwIBwcHBw8LCwkMEQ8SEhEPERETFhwXExQaFRERGCEYGh0dHx8fExciJCIeJBweHx7/2wBDAQUFBQcGBw4ICA4eFBEUHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh7/wAARCAGgAaADASIAAhEBAxEB/8QAHQABAAAHAQE",
+          "complete": true,
+          "naturalWidth": 416,
+          "width": 28,
+          "height": 28,
+          "alt": ""
+        },
+        {
+          "src": "https://lh3.googleusercontent.com/blogger_img_proxy/AEn0k_s9DXGBQD3e0E1h-2rd2-Bavf6gy6gT9bdKgQfLLJ_Hof_v5u1-tEV_qNc-GgajyikFZmLqaCkNXpFkevacIn71Io2APZgq4O4GqQwgrBUGiRDaf01Wh-yyFLvW_u0_Q2TyAEMQe5oYMyAZf17PRAsKVYfRu3Lv=w80",
+          "complete": true,
+          "naturalWidth": 80,
+          "width": 60,
+          "height": 60,
+          "alt": ""
+        },
+        {
+          "src": "https://lh3.googleusercontent.com/blogger_img_proxy/AEn0k_v_7wHk8bRInEiz-dbM6169puiM1sRQmPS94g4bANzmVu5gcNShUQ9jvJm7iEtRShZlq_mXcED8x8CeHY8-e-QNqul73dnVAR10cUbIRDN3fLEoM1CcQB81KIspUoqPdehqTdAK2QqJwV2vQNweW3hNMbeN_LsReA=w80",
+          "complete": true,
+          "naturalWidth": 80,
+          "width": 60,
+          "height": 60,
+          "alt": ""
+        },
+        {
+          "src": "https://lh3.googleusercontent.com/blogger_img_proxy/AEn0k_uFDHw-wLr-bUrSNP8bobwyGxmmYHOaLbwJiG8SqCNQsEWpN4X2taq8Q4dtJNXWb2lIb9gVD6Vp0we_fsj5uyFpvKrMVGDL_alFOs8q7wtUXLA4WYXxLGbwpXvY_fg1HlnhDpJeTeB9F6AOQU6QuUA-Iwam6ZD7m831MqsGCxpMEALlIQ=w80",
+          "complete": true,
+          "naturalWidth": 80,
+          "width": 60,
+          "height": 60,
+          "alt": ""
+        },
+        {
+          "src": "https://lh3.googleusercontent.com/blogger_img_proxy/AEn0k_usG-zT2e4wuIzfjkq0Li6a-etK9eqBoAOY1A0RCr4Zxav0UKunRonCtptpPNskgT923TNF4FP6FNpGc-JIavsYTAzpES-dGR-xB-UCOxguZXfatfBlQluX1vlRym_BSwkSNXdO4uY7TpdXiouZJahsqqahcfMFF5MN3_FstN0N9ocSgY8e=w80",
+          "complete": true,
+          "naturalWidth": 80,
+          "width": 60,
+          "height": 60,
+          "alt": ""
+        },
+        {
+          "src": "https://lh3.googleusercontent.com/blogger_img_proxy/AEn0k_tM5ba7dS8jjvsNnsMMXPWW1CXhZe1sJ79KyxHETZsBtNfARW-BBjm7CsOWWib_zOddoz2WBqpTj0BMOBPIY3xrz2kSC97A4XxTfhu86fIoA3VJqfyEFd3B0BD_evTm2Z4-qyXvq61G28HCVP2n9Qh-MiIjYm-oZRy8aE9wJQwI1RXOXJY=w80",
+          "complete": true,
+          "naturalWidth": 80,
+          "width": 60,
+          "height": 60,
+          "alt": ""
+        },
+        {
+          "src": "https://lh3.googleusercontent.com/blogger_img_proxy/AEn0k_sy9CfQkXwcpqtDf_hyS87IfxXFMJVlWYf_ePopO_ZF7U7BezGsbLNxUjY7YqmUilTvfwyvJJ53kN1TGo9IVsmbQ9CrqPEEOmMCXOFGRb32V4XBr_VRB2_m24FrUgUiv48i78sJQ2RgjdOyOQpVkZRHHCZs-kvqt-ayrf5pQw=w80",
+          "complete": true,
+          "naturalWidth": 80,
+          "width": 60,
+          "height": 60,
+          "alt": ""
+        },
+        {
+          "src": "https://lh3.googleusercontent.com/blogger_img_proxy/AEn0k_sh-wG4iSlX3ckSYkBZ77DQTo9YjttLLYO2DuQ6BCnWMjyvEyzQWnklt7PRRBPOlJHuzpgKop4_KyT7yUoiwCQGBzdCheqXR0wM-rUu1e6XvBsSgUsZ94EQi4YuBc2SEg0cyHT8R4sne68y3ncaaE0bY5dmMR21kac=w80",
+          "complete": true,
+          "naturalWidth": 80,
+          "width": 60,
+          "height": 60,
+          "alt": ""
+        },
+        {
+          "src": "https://lh3.googleusercontent.com/blogger_img_proxy/AEn0k_sLNhyTmShwXxA8ZDLUa0Ibkg-9zN98RTpmvvLw9kmpMkW1Xdcgj5EsL_7zLDRCUqrKZZ_37ruv7Yk7g0_Rtkc2VqVz3jgJAnZPR9_6CLdpSAeID-T_XfBBja-dtkH5KH-4dS6lZFRUeIvn-Hlr47997l7kb5Y7Flm_8qlM=w80",
+          "complete": true,
+          "naturalWidth": 80,
+          "width": 60,
+          "height": 60,
+          "alt": ""
+        },
+        {
+          "src": "https://lh3.googleusercontent.com/blogger_img_proxy/AEn0k_tF8SI0xzPWgIzzuXzBIHWwAFD4ZP7Ep9xCUWvoDXRly3a6ZqgiOgVhpfAPS-cRjPIBWK6joKt9tfLAAG_TJT-Br2J8j8STwJCTRFkjZLPlxwr_5HwI2NwnQuqU9hegNw6Lq1oVY-J85CEL_b_zzHarD9uDlzUokA=w80",
+          "complete": true,
+          "naturalWidth": 80,
+          "width": 60,
+          "height": 60,
+          "alt": ""
+        },
+        {
+          "src": "https://lh3.googleusercontent.com/blogger_img_proxy/AEn0k_vj6ETbAn2Lfe0OYdtvx0XxesmBLskpIVyBMS4TBkW7UMMCgfGfXGWX_-YS7i7mzWbbo76MD_jxNdKh4BjvGqYG3WYeJGc88jWgx5wePH_6RUrXlhdHlYDYUMrBVEq0_Mxy307i14j-8HwWe08Y2PPrp5rbtjsa=w80",
+          "complete": true,
+          "naturalWidth": 80,
+          "width": 60,
+          "height": 60,
+          "alt": ""
+        }
+      ],
+      "faqQuestions": 0,
+      "tocLinks": 0,
+      "codeButtons": 0,
+      "targets": [
+        {
+          "text": "Home",
+          "tag": "A",
+          "width": 38,
+          "height": 20
+        },
+        {
+          "text": "About me",
+          "tag": "A",
+          "width": 61,
+          "height": 20
+        },
+        {
+          "text": "Portfolio (opens in new tab)",
+          "tag": "A",
+          "width": 55,
+          "height": 20
+        },
+        {
+          "text": "2026\n14",
+          "tag": "A",
+          "width": 54,
+          "height": 17
+        },
+        {
+          "text": "June\n2",
+          "tag": "A",
+          "width": 46,
+          "height": 17
+        },
+        {
+          "text": "May\n2",
+          "tag": "A",
+          "width": 42,
+          "height": 17
+        },
+        {
+          "text": "April\n4",
+          "tag": "A",
+          "width": 44,
+          "height": 17
+        },
+        {
+          "text": "March\n2",
+          "tag": "A",
+          "width": 55,
+          "height": 17
+        },
+        {
+          "text": "February\n1",
+          "tag": "A",
+          "width": 70,
+          "height": 17
+        },
+        {
+          "text": "January\n3",
+          "tag": "A",
+          "width": 66,
+          "height": 17
+        },
+        {
+          "text": "2025\n9",
+          "tag": "A",
+          "width": 47,
+          "height": 17
+        },
+        {
+          "text": "December\n3",
+          "tag": "A",
+          "width": 80,
+          "height": 17
+        },
+        {
+          "text": "November\n5",
+          "tag": "A",
+          "width": 80,
+          "height": 17
+        },
+        {
+          "text": "October\n1",
+          "tag": "A",
+          "width": 65,
+          "height": 17
+        },
+        {
+          "text": "Why I Keep a Developer Journal",
+          "tag": "A",
+          "width": 205,
+          "height": 18
+        },
+        {
+          "text": "Home",
+          "tag": "A",
+          "width": 252,
+          "height": 20
+        },
+        {
+          "text": "About me",
+          "tag": "A",
+          "width": 252,
+          "height": 20
+        },
+        {
+          "text": "Portfolio",
+          "tag": "A",
+          "width": 252,
+          "height": 20
+        },
+        {
+          "text": "Contact",
+          "tag": "A",
+          "width": 252,
+          "height": 20
+        },
+        {
+          "text": "Privacy Policy",
+          "tag": "A",
+          "width": 252,
+          "height": 20
+        },
+        {
+          "text": "Cookie Policy",
+          "tag": "A",
+          "width": 252,
+          "height": 20
+        },
+        {
+          "text": "Twitter / X",
+          "tag": "A",
+          "width": 252,
+          "height": 20
+        },
+        {
+          "text": "GitHub",
+          "tag": "A",
+          "width": 252,
+          "height": 20
+        },
+        {
+          "text": "LinkedIn",
+          "tag": "A",
+          "width": 252,
+          "height": 20
+        },
+        {
+          "text": "Facebook",
+          "tag": "A",
+          "width": 252,
+          "height": 20
+        },
+        {
+          "text": "Instagram",
+          "tag": "A",
+          "width": 252,
+          "height": 20
+        },
+        {
+          "text": "RSS Feed",
+          "tag": "A",
+          "width": 252,
+          "height": 20
+        }
+      ],
+      "unnamedControls": [],
+      "lang": "en",
+      "resources": [
+        {
+          "name": "https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Roboto:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500;600&display=swap",
+          "transferSize": 0,
+          "decodedBodySize": 31515,
+          "duration": 0
+        },
+        {
+          "name": "https://fonts.gstatic.com/s/dmserifdisplay/v17/-nFnOHM81r4j6k0gjAW3mujVU2B2G_Bx0g.woff2",
+          "transferSize": 0,
+          "decodedBodySize": 24744,
+          "duration": 0
+        },
+        {
+          "name": "https://fonts.gstatic.com/s/jetbrainsmono/v24/tDbv2o-flEEny0FZhsfKu5WU4zr3E_BX0PnT8RD8yKwBNntkaToggR7BYRbKPxDcwg.woff2",
+          "transferSize": 0,
+          "decodedBodySize": 31432,
+          "duration": 0
+        },
+        {
+          "name": "https://fonts.gstatic.com/s/roboto/v51/KFO7CnqEu92Fr1ME7kSn66aGLdTylUAMawCUBGEe.woff2",
+          "transferSize": 0,
+          "decodedBodySize": 41348,
+          "duration": 0
+        },
+        {
+          "name": "https://fonts.gstatic.com/s/roboto/v51/KFO7CnqEu92Fr1ME7kSn66aGLdTylUAMaxKUBGEe.woff2",
+          "transferSize": 0,
+          "decodedBodySize": 20556,
+          "duration": 0
+        },
+        {
+          "name": "https://fonts.gstatic.com/s/roboto/v51/KFO7CnqEu92Fr1ME7kSn66aGLdTylUAMa3yUBA.woff2",
+          "transferSize": 0,
+          "decodedBodySize": 43136,
+          "duration": 0
+        },
+        {
+          "name": "https://lh3.googleusercontent.com/blogger_img_proxy/AEn0k_s9DXGBQD3e0E1h-2rd2-Bavf6gy6gT9bdKgQfLLJ_Hof_v5u1-tEV_qNc-GgajyikFZmLqaCkNXpFkevacIn71Io2APZgq4O4GqQwgrBUGiRDaf01Wh-yyFLvW_u0_Q2TyAEMQe5oYMyAZf17PRAsKVYfRu3Lv=w384-h256-p-k-no-nu",
+          "transferSize": 123851,
+          "decodedBodySize": 123551,
+          "duration": 370
+        },
+        {
+          "name": "https://lh3.googleusercontent.com/blogger_img_proxy/AEn0k_v_7wHk8bRInEiz-dbM6169puiM1sRQmPS94g4bANzmVu5gcNShUQ9jvJm7iEtRShZlq_mXcED8x8CeHY8-e-QNqul73dnVAR10cUbIRDN3fLEoM1CcQB81KIspUoqPdehqTdAK2QqJwV2vQNweW3hNMbeN_LsReA=w384-h256-p-k-no-nu",
+          "transferSize": 17555,
+          "decodedBodySize": 17255,
+          "duration": 274
+        },
+        {
+          "name": "https://lh3.googleusercontent.com/blogger_img_proxy/AEn0k_usG-zT2e4wuIzfjkq0Li6a-etK9eqBoAOY1A0RCr4Zxav0UKunRonCtptpPNskgT923TNF4FP6FNpGc-JIavsYTAzpES-dGR-xB-UCOxguZXfatfBlQluX1vlRym_BSwkSNXdO4uY7TpdXiouZJahsqqahcfMFF5MN3_FstN0N9ocSgY8e=w384-h256-p-k-no-nu",
+          "transferSize": 23526,
+          "decodedBodySize": 23226,
+          "duration": 277
+        },
+        {
+          "name": "https://lh3.googleusercontent.com/blogger_img_proxy/AEn0k_tM5ba7dS8jjvsNnsMMXPWW1CXhZe1sJ79KyxHETZsBtNfARW-BBjm7CsOWWib_zOddoz2WBqpTj0BMOBPIY3xrz2kSC97A4XxTfhu86fIoA3VJqfyEFd3B0BD_evTm2Z4-qyXvq61G28HCVP2n9Qh-MiIjYm-oZRy8aE9wJQwI1RXOXJY=w384-h256-p-k-no-nu",
+          "transferSize": 17903,
+          "decodedBodySize": 17603,
+          "duration": 277
+        },
+        {
+          "name": "https://lh3.googleusercontent.com/blogger_img_proxy/AEn0k_sy9CfQkXwcpqtDf_hyS87IfxXFMJVlWYf_ePopO_ZF7U7BezGsbLNxUjY7YqmUilTvfwyvJJ53kN1TGo9IVsmbQ9CrqPEEOmMCXOFGRb32V4XBr_VRB2_m24FrUgUiv48i78sJQ2RgjdOyOQpVkZRHHCZs-kvqt-ayrf5pQw=w384-h256-p-k-no-nu",
+          "transferSize": 12876,
+          "decodedBodySize": 12576,
+          "duration": 183
+        },
+        {
+          "name": "https://lh3.googleusercontent.com/blogger_img_proxy/AEn0k_v0RHpYryIKyxhKIUyc9TgmTzqryiQ-pHyEFPaY9ZThRNFrNzODsO6E3PzbkcBxjY27Zv5b_Og9R45KHl6BNc_iQQs6Id8V9AXexedtXrAw5ceABRuA9pamxT5xyCA4MgGu0YSlQGBqYcYuHB5i2cToiDuzWSkb6SwZsUWHT8JluA=w384-h256-p-k-no-nu",
+          "transferSize": 11485,
+          "decodedBodySize": 11185,
+          "duration": 209
+        },
+        {
+          "name": "https://lh3.googleusercontent.com/blogger_img_proxy/AEn0k_s9DXGBQD3e0E1h-2rd2-Bavf6gy6gT9bdKgQfLLJ_Hof_v5u1-tEV_qNc-GgajyikFZmLqaCkNXpFkevacIn71Io2APZgq4O4GqQwgrBUGiRDaf01Wh-yyFLvW_u0_Q2TyAEMQe5oYMyAZf17PRAsKVYfRu3Lv=w80",
+          "transferSize": 7405,
+          "decodedBodySize": 7105,
+          "duration": 223
+        },
+        {
+          "name": "https://lh3.googleusercontent.com/blogger_img_proxy/AEn0k_v_7wHk8bRInEiz-dbM6169puiM1sRQmPS94g4bANzmVu5gcNShUQ9jvJm7iEtRShZlq_mXcED8x8CeHY8-e-QNqul73dnVAR10cUbIRDN3fLEoM1CcQB81KIspUoqPdehqTdAK2QqJwV2vQNweW3hNMbeN_LsReA=w80",
+          "transferSize": 1770,
+          "decodedBodySize": 1470,
+          "duration": 219
+        },
+        {
+          "name": "https://lh3.googleusercontent.com/blogger_img_proxy/AEn0k_uFDHw-wLr-bUrSNP8bobwyGxmmYHOaLbwJiG8SqCNQsEWpN4X2taq8Q4dtJNXWb2lIb9gVD6Vp0we_fsj5uyFpvKrMVGDL_alFOs8q7wtUXLA4WYXxLGbwpXvY_fg1HlnhDpJeTeB9F6AOQU6QuUA-Iwam6ZD7m831MqsGCxpMEALlIQ=w80",
+          "transferSize": 2561,
+          "decodedBodySize": 2261,
+          "duration": 220
+        },
+        {
+          "name": "https://lh3.googleusercontent.com/blogger_img_proxy/AEn0k_usG-zT2e4wuIzfjkq0Li6a-etK9eqBoAOY1A0RCr4Zxav0UKunRonCtptpPNskgT923TNF4FP6FNpGc-JIavsYTAzpES-dGR-xB-UCOxguZXfatfBlQluX1vlRym_BSwkSNXdO4uY7TpdXiouZJahsqqahcfMFF5MN3_FstN0N9ocSgY8e=w80",
+          "transferSize": 1959,
+          "decodedBodySize": 1659,
+          "duration": 217
+        },
+        {
+          "name": "https://lh3.googleusercontent.com/blogger_img_proxy/AEn0k_tM5ba7dS8jjvsNnsMMXPWW1CXhZe1sJ79KyxHETZsBtNfARW-BBjm7CsOWWib_zOddoz2WBqpTj0BMOBPIY3xrz2kSC97A4XxTfhu86fIoA3VJqfyEFd3B0BD_evTm2Z4-qyXvq61G28HCVP2n9Qh-MiIjYm-oZRy8aE9wJQwI1RXOXJY=w80",
+          "transferSize": 1530,
+          "decodedBodySize": 1230,
+          "duration": 219
+        },
+        {
+          "name": "https://lh3.googleusercontent.com/blogger_img_proxy/AEn0k_sy9CfQkXwcpqtDf_hyS87IfxXFMJVlWYf_ePopO_ZF7U7BezGsbLNxUjY7YqmUilTvfwyvJJ53kN1TGo9IVsmbQ9CrqPEEOmMCXOFGRb32V4XBr_VRB2_m24FrUgUiv48i78sJQ2RgjdOyOQpVkZRHHCZs-kvqt-ayrf5pQw=w80",
+          "transferSize": 1456,
+          "decodedBodySize": 1156,
+          "duration": 213
+        },
+        {
+          "name": "https://lh3.googleusercontent.com/blogger_img_proxy/AEn0k_sh-wG4iSlX3ckSYkBZ77DQTo9YjttLLYO2DuQ6BCnWMjyvEyzQWnklt7PRRBPOlJHuzpgKop4_KyT7yUoiwCQGBzdCheqXR0wM-rUu1e6XvBsSgUsZ94EQi4YuBc2SEg0cyHT8R4sne68y3ncaaE0bY5dmMR21kac=w80",
+          "transferSize": 1771,
+          "decodedBodySize": 1471,
+          "duration": 219
+        },
+        {
+          "name": "https://lh3.googleusercontent.com/blogger_img_proxy/AEn0k_sLNhyTmShwXxA8ZDLUa0Ibkg-9zN98RTpmvvLw9kmpMkW1Xdcgj5EsL_7zLDRCUqrKZZ_37ruv7Yk7g0_Rtkc2VqVz3jgJAnZPR9_6CLdpSAeID-T_XfBBja-dtkH5KH-4dS6lZFRUeIvn-Hlr47997l7kb5Y7Flm_8qlM=w80",
+          "transferSize": 2272,
+          "decodedBodySize": 1972,
+          "duration": 219
+        },
+        {
+          "name": "https://lh3.googleusercontent.com/blogger_img_proxy/AEn0k_tF8SI0xzPWgIzzuXzBIHWwAFD4ZP7Ep9xCUWvoDXRly3a6ZqgiOgVhpfAPS-cRjPIBWK6joKt9tfLAAG_TJT-Br2J8j8STwJCTRFkjZLPlxwr_5HwI2NwnQuqU9hegNw6Lq1oVY-J85CEL_b_zzHarD9uDlzUokA=w80",
+          "transferSize": 1164,
+          "decodedBodySize": 864,
+          "duration": 219
+        },
+        {
+          "name": "https://lh3.googleusercontent.com/blogger_img_proxy/AEn0k_vj6ETbAn2Lfe0OYdtvx0XxesmBLskpIVyBMS4TBkW7UMMCgfGfXGWX_-YS7i7mzWbbo76MD_jxNdKh4BjvGqYG3WYeJGc88jWgx5wePH_6RUrXlhdHlYDYUMrBVEq0_Mxy307i14j-8HwWe08Y2PPrp5rbtjsa=w80",
+          "transferSize": 2211,
+          "decodedBodySize": 1911,
+          "duration": 222
+        },
+        {
+          "name": "https://www.blogger.com/static/v1/widgets/648255196-widgets.js",
+          "transferSize": 0,
+          "decodedBodySize": 0,
+          "duration": 0
+        },
+        {
+          "name": "https://ru5iru.blogspot.com/favicon.ico",
+          "transferSize": 0,
+          "decodedBodySize": 9662,
+          "duration": 1
+        }
+      ],
+      "contrast": {
+        "tested": 173,
+        "skipped": 0,
+        "failures": [
+          {
+            "text": "Home",
+            "tag": "A",
+            "class": "text-sm font-medium text-caption hover:text-primary",
+            "ratio": 3.4,
+            "required": 4.5,
+            "fontSize": 14,
+            "weight": 500,
+            "foreground": "rgb(203, 109, 77)",
+            "background": [
+              250,
+              248,
+              245
+            ]
+          },
+          {
+            "text": "Contact me",
+            "tag": "A",
+            "class": "inline-flex items-center gap-2 px-7 py-3 bg-primary text-primary-foreground rounded-full font-medium hover:bg-primary/90 transition-colors",
+            "ratio": 3.4,
+            "required": 4.5,
+            "fontSize": 16,
+            "weight": 500,
+            "foreground": "rgb(250, 248, 245)",
+            "background": [
+              203,
+              109,
+              77
+            ]
+          },
+          {
+            "text": "Older posts →",
+            "tag": "A",
+            "class": "px-8 py-3 bg-primary text-primary-foreground rounded-full",
+            "ratio": 3.4,
+            "required": 4.5,
+            "fontSize": 16,
+            "weight": 400,
+            "foreground": "rgb(250, 248, 245)",
+            "background": [
+              203,
+              109,
+              77
+            ]
+          },
+          {
+            "text": "Search",
+            "tag": "BUTTON",
+            "class": "px-4 py-2 bg-primary text-primary-foreground rounded-full",
+            "ratio": 3.4,
+            "required": 4.5,
+            "fontSize": 16,
+            "weight": 400,
+            "foreground": "rgb(250, 248, 245)",
+            "background": [
+              203,
+              109,
+              77
+            ]
+          },
+          {
+            "text": "rusiru",
+            "tag": "SPAN",
+            "class": "text-primary",
+            "ratio": 3.4,
+            "required": 4.5,
+            "fontSize": 18,
+            "weight": 700,
+            "foreground": "rgb(203, 109, 77)",
+            "background": [
+              250,
+              248,
+              245
+            ]
+          }
+        ]
+      },
+      "errors": []
+    },
+    {
+      "name": "article",
+      "path": "/2026/06/injection.html",
+      "width": 1440,
+      "status": 200,
+      "title": "Injection OWASP Top 10: A03 Explained for Developers",
+      "canonical": "https://ru5iru.blogspot.com/2026/06/injection.html",
+      "description": "Software engineering, career lessons, side projects, and developer life by Rusiru Rathmina.",
+      "h1": [
+        "Injection OWASP Top 10: A03 Explained for Developers"
+      ],
+      "overflow": false,
+      "headingOrder": [
+        {
+          "tag": "H1",
+          "text": "Injection OWASP Top 10: A03 Explained for Developers"
+        },
+        {
+          "tag": "H2",
+          "text": "What injection actually is"
+        },
+        {
+          "tag": "H2",
+          "text": "Why A03 still matters"
+        },
+        {
+          "tag": "H2",
+          "text": "How injection works under the hood"
+        },
+        {
+          "tag": "H2",
+          "text": "Common pitfalls I keep finding in reviews"
+        },
+        {
+          "tag": "H2",
+          "text": "The OWASP LLM Top 10 prompt injection twist"
+        },
+        {
+          "tag": "H2",
+          "text": "Practical recommendations"
+        },
+        {
+          "tag": "H2",
+          "text": "A small story"
+        },
+        {
+          "tag": "H2",
+          "text": "Conclusion"
+        },
+        {
+          "tag": "H2",
+          "text": "More from the blog"
+        },
+        {
+          "tag": "H2",
+          "text": "Cite this post"
+        },
+        {
+          "tag": "H2",
+          "text": "You might also like"
+        },
+        {
+          "tag": "H3",
+          "text": "Cryptographic Failures: The OWASP A02 Risk Hiding in Your Code"
+        },
+        {
+          "tag": "H3",
+          "text": "Broken Access Control: The OWASP Top 10's Most Dangerous Flaw"
+        },
+        {
+          "tag": "H3",
+          "text": "OWASP Top 10 (2025): A Developer's Practical Guide"
+        },
+        {
+          "tag": "H2",
+          "text": "Frequently Asked Questions"
+        },
+        {
+          "tag": "H3",
+          "text": "What is injection in the OWASP Top 10?"
+        },
+        {
+          "tag": "H3",
+          "text": "Is injection still relevant in the OWASP Top 10 2025?"
+        },
+        {
+          "tag": "H3",
+          "text": "How do I prevent SQL injection in practice?"
+        },
+        {
+          "tag": "H3",
+          "text": "What is prompt injection in the OWASP LLM Top 10?"
+        },
+        {
+          "tag": "H3",
+          "text": "Are ORMs enough to stop injection?"
+        },
+        {
+          "tag": "H3",
+          "text": "How does command injection differ from SQL injection?"
+        },
+        {
+          "tag": "H3",
+          "text": "What tools help me catch injection bugs early?"
+        },
+        {
+          "tag": "H3",
+          "text": "Comments"
+        },
+        {
+          "tag": "H4",
+          "text": "Post a Comment"
+        },
+        {
+          "tag": "H2",
+          "text": "Contents"
+        },
+        {
+          "tag": "H3",
+          "text": "iamrusiru"
+        },
+        {
+          "tag": "H4",
+          "text": "Quick Links"
+        },
+        {
+          "tag": "H4",
+          "text": "Legal Stuff"
+        },
+        {
+          "tag": "H4",
+          "text": "Connect"
+        }
+      ],
+      "images": [
+        {
+          "src": "data:image/jpeg;base64,/9j/2wBDAAUDBAQEAwUEBAQFBQUGBwwIBwcHBw8LCwkMEQ8SEhEPERETFhwXExQaFRERGCEYGh0dHx8fExciJCIeJBweHx7/2wBDAQUFBQcGBw4ICA4eFBEUHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh7/wAARCAGgAaADASIAAhEBAxEB/8QAHQABAAAHAQE",
+          "complete": true,
+          "naturalWidth": 416,
+          "width": 40,
+          "height": 40,
+          "alt": ""
+        },
+        {
+          "src": "https://raw.githubusercontent.com/ru5iru/iamrusiru/main/src/assets/post-injection.jpg",
+          "complete": true,
+          "naturalWidth": 1024,
+          "width": 768,
+          "height": 400,
+          "alt": "Cover image for Injection OWASP Top 10: A03 Explained for Developers"
+        },
+        {
+          "src": "data:image/jpeg;base64,/9j/2wBDAAUDBAQEAwUEBAQFBQUGBwwIBwcHBw8LCwkMEQ8SEhEPERETFhwXExQaFRERGCEYGh0dHx8fExciJCIeJBweHx7/2wBDAQUFBQcGBw4ICA4eFBEUHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh7/wAARCAGgAaADASIAAhEBAxEB/8QAHQABAAAHAQE",
+          "complete": true,
+          "naturalWidth": 416,
+          "width": 56,
+          "height": 56,
+          "alt": "Rusiru Rathmina"
+        }
+      ],
+      "faqQuestions": 7,
+      "tocLinks": 9,
+      "codeButtons": 3,
+      "author": "Rusiru Rathmina",
+      "targets": [
+        {
+          "text": "Home",
+          "tag": "A",
+          "width": 38,
+          "height": 20
+        },
+        {
+          "text": "About me",
+          "tag": "A",
+          "width": 61,
+          "height": 20
+        },
+        {
+          "text": "Portfolio (opens in new tab)",
+          "tag": "A",
+          "width": 55,
+          "height": 20
+        },
+        {
+          "text": "Back to all posts",
+          "tag": "A",
+          "width": 127,
+          "height": 16
+        },
+        {
+          "text": "Broken Access Control: The OWASP Top 10's Most Dangerous Flaw",
+          "tag": "A",
+          "width": 536,
+          "height": 22
+        },
+        {
+          "text": "Cryptographic Failures: The OWASP A02 Risk Hiding in Your Code",
+          "tag": "A",
+          "width": 521,
+          "height": 22
+        },
+        {
+          "text": "OWASP Top 10 (2025): A Developer's Practical Guide",
+          "tag": "A",
+          "width": 420,
+          "height": 22
+        },
+        {
+          "text": "Learn more about me →",
+          "tag": "A",
+          "width": 151,
+          "height": 17
+        },
+        {
+          "text": "Home",
+          "tag": "A",
+          "width": 252,
+          "height": 20
+        },
+        {
+          "text": "About me",
+          "tag": "A",
+          "width": 252,
+          "height": 20
+        },
+        {
+          "text": "Portfolio",
+          "tag": "A",
+          "width": 252,
+          "height": 20
+        },
+        {
+          "text": "Contact",
+          "tag": "A",
+          "width": 252,
+          "height": 20
+        },
+        {
+          "text": "Privacy Policy",
+          "tag": "A",
+          "width": 252,
+          "height": 20
+        },
+        {
+          "text": "Cookie Policy",
+          "tag": "A",
+          "width": 252,
+          "height": 20
+        },
+        {
+          "text": "Twitter / X",
+          "tag": "A",
+          "width": 252,
+          "height": 20
+        },
+        {
+          "text": "GitHub",
+          "tag": "A",
+          "width": 252,
+          "height": 20
+        },
+        {
+          "text": "LinkedIn",
+          "tag": "A",
+          "width": 252,
+          "height": 20
+        },
+        {
+          "text": "Facebook",
+          "tag": "A",
+          "width": 252,
+          "height": 20
+        },
+        {
+          "text": "Instagram",
+          "tag": "A",
+          "width": 252,
+          "height": 20
+        },
+        {
+          "text": "RSS Feed",
+          "tag": "A",
+          "width": 252,
+          "height": 20
+        }
+      ],
+      "unnamedControls": [],
+      "lang": "en",
+      "resources": [
+        {
+          "name": "https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Roboto:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500;600&display=swap",
+          "transferSize": 0,
+          "decodedBodySize": 31515,
+          "duration": 0
+        },
+        {
+          "name": "https://www.blogger.com/dyncss/483525992596231392/authorization.css?zx=c9f11d91-e786-4f70-9cfd-c6e3084f4104",
+          "transferSize": 0,
+          "decodedBodySize": 0,
+          "duration": 1402
+        },
+        {
+          "name": "https://fonts.gstatic.com/s/dmserifdisplay/v17/-nFnOHM81r4j6k0gjAW3mujVU2B2G_Bx0g.woff2",
+          "transferSize": 0,
+          "decodedBodySize": 24744,
+          "duration": 0
+        },
+        {
+          "name": "https://fonts.gstatic.com/s/jetbrainsmono/v24/tDbv2o-flEEny0FZhsfKu5WU4zr3E_BX0PnT8RD8yKwBNntkaToggR7BYRbKPxDcwg.woff2",
+          "transferSize": 0,
+          "decodedBodySize": 31432,
+          "duration": 0
+        },
+        {
+          "name": "https://fonts.gstatic.com/s/roboto/v51/KFO7CnqEu92Fr1ME7kSn66aGLdTylUAMawCUBGEe.woff2",
+          "transferSize": 0,
+          "decodedBodySize": 41348,
+          "duration": 0
+        },
+        {
+          "name": "https://fonts.gstatic.com/s/roboto/v51/KFO7CnqEu92Fr1ME7kSn66aGLdTylUAMaxKUBGEe.woff2",
+          "transferSize": 0,
+          "decodedBodySize": 20556,
+          "duration": 0
+        },
+        {
+          "name": "https://fonts.gstatic.com/s/roboto/v51/KFO7CnqEu92Fr1ME7kSn66aGLdTylUAMa3yUBA.woff2",
+          "transferSize": 0,
+          "decodedBodySize": 43136,
+          "duration": 0
+        },
+        {
+          "name": "https://raw.githubusercontent.com/ru5iru/iamrusiru/main/src/assets/post-injection.jpg",
+          "transferSize": 0,
+          "decodedBodySize": 0,
+          "duration": 603
+        },
+        {
+          "name": "https://www.blogger.com/static/v1/jsbin/2103827977-comment_from_post_iframe.js",
+          "transferSize": 0,
+          "decodedBodySize": 0,
+          "duration": 0
+        },
+        {
+          "name": "https://www.blogger.com/comment/frame/483525992596231392?po=36492420276489900&hl=en&saa=85391&origin=https%3A%2F%2Fru5iru.blogspot.com&blogspotRpcToken=6943333#%7B%22color%22%3A%22rgb(42%2C%2038%2C%2034)%22%2C%22backgroundColor%22%3A%22rgb(250%2C%20248%2C%20245)%22%2C%22unvisitedLinkColor%22%3A%22rgb(203%2C%20109%2C%2077)%22%2C%22fontFamily%22%3A%22Roboto%2C%20-apple-system%2C%20sans-serif%22%7D",
+          "transferSize": 0,
+          "decodedBodySize": 0,
+          "duration": 1542
+        },
+        {
+          "name": "https://ru5iru.blogspot.com/feeds/posts/default/-/best%20practices?alt=json&max-results=6",
+          "transferSize": 29896,
+          "decodedBodySize": 137367,
+          "duration": 1749
+        },
+        {
+          "name": "https://www.blogger.com/static/v1/widgets/648255196-widgets.js",
+          "transferSize": 0,
+          "decodedBodySize": 0,
+          "duration": 0
+        },
+        {
+          "name": "https://ru5iru.blogspot.com/favicon.ico",
+          "transferSize": 0,
+          "decodedBodySize": 9662,
+          "duration": 1
+        }
+      ],
+      "contrast": {
+        "tested": 130,
+        "skipped": 0,
+        "failures": [
+          {
+            "text": "TL;DR",
+            "tag": "P",
+            "class": "text-sm font-semibold text-primary uppercase tracking-wider mb-2",
+            "ratio": 3.22,
+            "required": 4.5,
+            "fontSize": 14,
+            "weight": 600,
+            "foreground": "rgb(203, 109, 77)",
+            "background": [
+              248,
+              241,
+              237
+            ]
+          },
+          {
+            "text": "Broken Access Control: The OWASP Top 10's Most Dangerous Flaw",
+            "tag": "A",
+            "class": "",
+            "ratio": 3.4,
+            "required": 4.5,
+            "fontSize": 18,
+            "weight": 400,
+            "foreground": "rgb(203, 109, 77)",
+            "background": [
+              250,
+              248,
+              245
+            ]
+          },
+          {
+            "text": "Cryptographic Failures: The OWASP A02 Risk Hiding in Your Code",
+            "tag": "A",
+            "class": "",
+            "ratio": 3.4,
+            "required": 4.5,
+            "fontSize": 18,
+            "weight": 400,
+            "foreground": "rgb(203, 109, 77)",
+            "background": [
+              250,
+              248,
+              245
+            ]
+          },
+          {
+            "text": "OWASP Top 10 (2025): A Developer's Practical Guide",
+            "tag": "A",
+            "class": "",
+            "ratio": 3.4,
+            "required": 4.5,
+            "fontSize": 18,
+            "weight": 400,
+            "foreground": "rgb(203, 109, 77)",
+            "background": [
+              250,
+              248,
+              245
+            ]
+          },
+          {
+            "text": "Learn more about me →",
+            "tag": "A",
+            "class": "text-primary font-medium",
+            "ratio": 3.25,
+            "required": 4.5,
+            "fontSize": 14,
+            "weight": 500,
+            "foreground": "rgb(203, 109, 77)",
+            "background": [
+              245,
+              243,
+              239
+            ]
+          },
+          {
+            "text": "Older posts →",
+            "tag": "A",
+            "class": "px-8 py-3 bg-primary text-primary-foreground rounded-full",
+            "ratio": 3.4,
+            "required": 4.5,
+            "fontSize": 16,
+            "weight": 400,
+            "foreground": "rgb(250, 248, 245)",
+            "background": [
+              203,
+              109,
+              77
+            ]
+          },
+          {
+            "text": "What injection actually is",
+            "tag": "A",
+            "class": "",
+            "ratio": 3.25,
+            "required": 4.5,
+            "fontSize": 14,
+            "weight": 500,
+            "foreground": "rgb(203, 109, 77)",
+            "background": [
+              245,
+              243,
+              239
+            ]
+          },
+          {
+            "text": "rusiru",
+            "tag": "SPAN",
+            "class": "text-primary",
+            "ratio": 3.4,
+            "required": 4.5,
+            "fontSize": 18,
+            "weight": 700,
+            "foreground": "rgb(203, 109, 77)",
+            "background": [
+              250,
+              248,
+              245
+            ]
+          }
+        ]
+      },
+      "errors": []
+    },
+    {
+      "name": "about",
+      "path": "/p/about.html",
+      "width": 1440,
+      "status": 200,
+      "title": "About me",
+      "canonical": "https://ru5iru.blogspot.com/p/about.html",
+      "description": "Software engineering, career lessons, side projects, and developer life by Rusiru Rathmina.",
+      "h1": [
+        "About Rusiru Rathmina"
+      ],
+      "overflow": false,
+      "headingOrder": [
+        {
+          "tag": "H1",
+          "text": "About Rusiru Rathmina"
+        },
+        {
+          "tag": "H2",
+          "text": "How it all started"
+        },
+        {
+          "tag": "H2",
+          "text": "The first real leap"
+        },
+        {
+          "tag": "H2",
+          "text": "Where I am now"
+        },
+        {
+          "tag": "H2",
+          "text": "What drives me"
+        },
+        {
+          "tag": "H2",
+          "text": "What I'm learning"
+        },
+        {
+          "tag": "H3",
+          "text": "iamrusiru"
+        },
+        {
+          "tag": "H4",
+          "text": "Quick Links"
+        },
+        {
+          "tag": "H4",
+          "text": "Legal Stuff"
+        },
+        {
+          "tag": "H4",
+          "text": "Connect"
+        }
+      ],
+      "images": [],
+      "faqQuestions": 0,
+      "tocLinks": 0,
+      "codeButtons": 0,
+      "targets": [
+        {
+          "text": "Home",
+          "tag": "A",
+          "width": 38,
+          "height": 20
+        },
+        {
+          "text": "About me",
+          "tag": "A",
+          "width": 61,
+          "height": 20
+        },
+        {
+          "text": "Portfolio (opens in new tab)",
+          "tag": "A",
+          "width": 55,
+          "height": 20
+        },
+        {
+          "text": "Home",
+          "tag": "A",
+          "width": 252,
+          "height": 20
+        },
+        {
+          "text": "About me",
+          "tag": "A",
+          "width": 252,
+          "height": 20
+        },
+        {
+          "text": "Portfolio",
+          "tag": "A",
+          "width": 252,
+          "height": 20
+        },
+        {
+          "text": "Contact",
+          "tag": "A",
+          "width": 252,
+          "height": 20
+        },
+        {
+          "text": "Privacy Policy",
+          "tag": "A",
+          "width": 252,
+          "height": 20
+        },
+        {
+          "text": "Cookie Policy",
+          "tag": "A",
+          "width": 252,
+          "height": 20
+        },
+        {
+          "text": "Twitter / X",
+          "tag": "A",
+          "width": 252,
+          "height": 20
+        },
+        {
+          "text": "GitHub",
+          "tag": "A",
+          "width": 252,
+          "height": 20
+        },
+        {
+          "text": "LinkedIn",
+          "tag": "A",
+          "width": 252,
+          "height": 20
+        },
+        {
+          "text": "Facebook",
+          "tag": "A",
+          "width": 252,
+          "height": 20
+        },
+        {
+          "text": "Instagram",
+          "tag": "A",
+          "width": 252,
+          "height": 20
+        },
+        {
+          "text": "RSS Feed",
+          "tag": "A",
+          "width": 252,
+          "height": 20
+        }
+      ],
+      "unnamedControls": [],
+      "lang": "en",
+      "resources": [
+        {
+          "name": "https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Roboto:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500;600&display=swap",
+          "transferSize": 0,
+          "decodedBodySize": 31515,
+          "duration": 0
+        },
+        {
+          "name": "https://www.blogger.com/dyncss/483525992596231392/authorization.css?zx=c9f11d91-e786-4f70-9cfd-c6e3084f4104",
+          "transferSize": 0,
+          "decodedBodySize": 0,
+          "duration": 287
+        },
+        {
+          "name": "https://fonts.gstatic.com/s/dmserifdisplay/v17/-nFnOHM81r4j6k0gjAW3mujVU2B2G_Bx0g.woff2",
+          "transferSize": 0,
+          "decodedBodySize": 24744,
+          "duration": 0
+        },
+        {
+          "name": "https://fonts.gstatic.com/s/jetbrainsmono/v24/tDbv2o-flEEny0FZhsfKu5WU4zr3E_BX0PnT8RD8yKwBNntkaToggR7BYRbKPxDcwg.woff2",
+          "transferSize": 0,
+          "decodedBodySize": 31432,
+          "duration": 0
+        },
+        {
+          "name": "https://fonts.gstatic.com/s/roboto/v51/KFO7CnqEu92Fr1ME7kSn66aGLdTylUAMawCUBGEe.woff2",
+          "transferSize": 0,
+          "decodedBodySize": 41348,
+          "duration": 0
+        },
+        {
+          "name": "https://fonts.gstatic.com/s/roboto/v51/KFO7CnqEu92Fr1ME7kSn66aGLdTylUAMaxKUBGEe.woff2",
+          "transferSize": 0,
+          "decodedBodySize": 20556,
+          "duration": 0
+        },
+        {
+          "name": "https://fonts.gstatic.com/s/roboto/v51/KFO7CnqEu92Fr1ME7kSn66aGLdTylUAMa3yUBA.woff2",
+          "transferSize": 0,
+          "decodedBodySize": 43136,
+          "duration": 0
+        },
+        {
+          "name": "https://www.blogger.com/static/v1/widgets/648255196-widgets.js",
+          "transferSize": 0,
+          "decodedBodySize": 0,
+          "duration": 0
+        },
+        {
+          "name": "https://ru5iru.blogspot.com/favicon.ico",
+          "transferSize": 0,
+          "decodedBodySize": 9662,
+          "duration": 1
+        }
+      ],
+      "contrast": {
+        "tested": 56,
+        "skipped": 0,
+        "failures": [
+          {
+            "text": "About me",
+            "tag": "A",
+            "class": "text-sm font-medium text-caption hover:text-primary",
+            "ratio": 3.4,
+            "required": 4.5,
+            "fontSize": 14,
+            "weight": 500,
+            "foreground": "rgb(203, 109, 77)",
+            "background": [
+              250,
+              248,
+              245
+            ]
+          },
+          {
+            "text": "solve real problems",
+            "tag": "SPAN",
+            "class": "text-primary font-medium",
+            "ratio": 3.4,
+            "required": 4.5,
+            "fontSize": 16,
+            "weight": 500,
+            "foreground": "rgb(203, 109, 77)",
+            "background": [
+              250,
+              248,
+              245
+            ]
+          },
+          {
+            "text": "React",
+            "tag": "SPAN",
+            "class": "text-primary font-medium",
+            "ratio": 3.4,
+            "required": 4.5,
+            "fontSize": 16,
+            "weight": 500,
+            "foreground": "rgb(203, 109, 77)",
+            "background": [
+              250,
+              248,
+              245
+            ]
+          },
+          {
+            "text": "PHP",
+            "tag": "SPAN",
+            "class": "text-primary font-medium",
+            "ratio": 3.4,
+            "required": 4.5,
+            "fontSize": 16,
+            "weight": 500,
+            "foreground": "rgb(203, 109, 77)",
+            "background": [
+              250,
+              248,
+              245
+            ]
+          },
+          {
+            "text": "Drupal",
+            "tag": "SPAN",
+            "class": "text-primary font-medium",
+            "ratio": 3.4,
+            "required": 4.5,
+            "fontSize": 16,
+            "weight": 500,
+            "foreground": "rgb(203, 109, 77)",
+            "background": [
+              250,
+              248,
+              245
+            ]
+          },
+          {
+            "text": "works",
+            "tag": "SPAN",
+            "class": "text-primary font-medium",
+            "ratio": 3.4,
+            "required": 4.5,
+            "fontSize": 16,
+            "weight": 500,
+            "foreground": "rgb(203, 109, 77)",
+            "background": [
+              250,
+              248,
+              245
+            ]
+          },
+          {
+            "text": "good",
+            "tag": "SPAN",
+            "class": "text-primary font-medium",
+            "ratio": 3.4,
+            "required": 4.5,
+            "fontSize": 16,
+            "weight": 500,
+            "foreground": "rgb(203, 109, 77)",
+            "background": [
+              250,
+              248,
+              245
+            ]
+          },
+          {
+            "text": "there's always something new to learn",
+            "tag": "SPAN",
+            "class": "text-primary font-medium",
+            "ratio": 3.4,
+            "required": 4.5,
+            "fontSize": 16,
+            "weight": 500,
+            "foreground": "rgb(203, 109, 77)",
+            "background": [
+              250,
+              248,
+              245
+            ]
+          },
+          {
+            "text": "Let's connect →",
+            "tag": "A",
+            "class": "inline-flex items-center gap-2 px-8 py-3 bg-primary text-primary-foreground rounded-full font-medium hover:bg-primary/90 transition-colors",
+            "ratio": 3.4,
+            "required": 4.5,
+            "fontSize": 16,
+            "weight": 500,
+            "foreground": "rgb(250, 248, 245)",
+            "background": [
+              203,
+              109,
+              77
+            ]
+          },
+          {
+            "text": "rusiru",
+            "tag": "SPAN",
+            "class": "text-primary",
+            "ratio": 3.4,
+            "required": 4.5,
+            "fontSize": 18,
+            "weight": 700,
+            "foreground": "rgb(203, 109, 77)",
+            "background": [
+              250,
+              248,
+              245
+            ]
+          }
+        ]
+      },
+      "errors": []
+    },
+    {
+      "name": "contact",
+      "path": "/p/contact.html",
+      "width": 1440,
+      "status": 200,
+      "title": "Contact",
+      "canonical": "https://ru5iru.blogspot.com/p/contact.html",
+      "description": "Software engineering, career lessons, side projects, and developer life by Rusiru Rathmina.",
+      "h1": [
+        "Contact Rusiru Rathmina"
+      ],
+      "overflow": false,
+      "headingOrder": [
+        {
+          "tag": "H1",
+          "text": "Contact Rusiru Rathmina"
+        },
+        {
+          "tag": "H2",
+          "text": "Get in touch"
+        },
+        {
+          "tag": "H2",
+          "text": "Find me online"
+        },
+        {
+          "tag": "H3",
+          "text": "iamrusiru"
+        },
+        {
+          "tag": "H4",
+          "text": "Quick Links"
+        },
+        {
+          "tag": "H4",
+          "text": "Legal Stuff"
+        },
+        {
+          "tag": "H4",
+          "text": "Connect"
+        }
+      ],
+      "images": [],
+      "faqQuestions": 0,
+      "tocLinks": 0,
+      "codeButtons": 0,
+      "targets": [
+        {
+          "text": "Home",
+          "tag": "A",
+          "width": 38,
+          "height": 20
+        },
+        {
+          "text": "About me",
+          "tag": "A",
+          "width": 61,
+          "height": 20
+        },
+        {
+          "text": "Portfolio (opens in new tab)",
+          "tag": "A",
+          "width": 55,
+          "height": 20
+        },
+        {
+          "text": "Home",
+          "tag": "A",
+          "width": 252,
+          "height": 20
+        },
+        {
+          "text": "About me",
+          "tag": "A",
+          "width": 252,
+          "height": 20
+        },
+        {
+          "text": "Portfolio",
+          "tag": "A",
+          "width": 252,
+          "height": 20
+        },
+        {
+          "text": "Contact",
+          "tag": "A",
+          "width": 252,
+          "height": 20
+        },
+        {
+          "text": "Privacy Policy",
+          "tag": "A",
+          "width": 252,
+          "height": 20
+        },
+        {
+          "text": "Cookie Policy",
+          "tag": "A",
+          "width": 252,
+          "height": 20
+        },
+        {
+          "text": "Twitter / X",
+          "tag": "A",
+          "width": 252,
+          "height": 20
+        },
+        {
+          "text": "GitHub",
+          "tag": "A",
+          "width": 252,
+          "height": 20
+        },
+        {
+          "text": "LinkedIn",
+          "tag": "A",
+          "width": 252,
+          "height": 20
+        },
+        {
+          "text": "Facebook",
+          "tag": "A",
+          "width": 252,
+          "height": 20
+        },
+        {
+          "text": "Instagram",
+          "tag": "A",
+          "width": 252,
+          "height": 20
+        },
+        {
+          "text": "RSS Feed",
+          "tag": "A",
+          "width": 252,
+          "height": 20
+        }
+      ],
+      "unnamedControls": [],
+      "lang": "en",
+      "resources": [
+        {
+          "name": "https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Roboto:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500;600&display=swap",
+          "transferSize": 0,
+          "decodedBodySize": 31515,
+          "duration": 0
+        },
+        {
+          "name": "https://www.blogger.com/dyncss/483525992596231392/authorization.css?zx=c9f11d91-e786-4f70-9cfd-c6e3084f4104",
+          "transferSize": 0,
+          "decodedBodySize": 0,
+          "duration": 277
+        },
+        {
+          "name": "https://fonts.gstatic.com/s/dmserifdisplay/v17/-nFnOHM81r4j6k0gjAW3mujVU2B2G_Bx0g.woff2",
+          "transferSize": 0,
+          "decodedBodySize": 24744,
+          "duration": 0
+        },
+        {
+          "name": "https://fonts.gstatic.com/s/jetbrainsmono/v24/tDbv2o-flEEny0FZhsfKu5WU4zr3E_BX0PnT8RD8yKwBNntkaToggR7BYRbKPxDcwg.woff2",
+          "transferSize": 0,
+          "decodedBodySize": 31432,
+          "duration": 0
+        },
+        {
+          "name": "https://fonts.gstatic.com/s/roboto/v51/KFO7CnqEu92Fr1ME7kSn66aGLdTylUAMawCUBGEe.woff2",
+          "transferSize": 0,
+          "decodedBodySize": 41348,
+          "duration": 0
+        },
+        {
+          "name": "https://fonts.gstatic.com/s/roboto/v51/KFO7CnqEu92Fr1ME7kSn66aGLdTylUAMaxKUBGEe.woff2",
+          "transferSize": 0,
+          "decodedBodySize": 20556,
+          "duration": 0
+        },
+        {
+          "name": "https://fonts.gstatic.com/s/roboto/v51/KFO7CnqEu92Fr1ME7kSn66aGLdTylUAMa3yUBA.woff2",
+          "transferSize": 0,
+          "decodedBodySize": 43136,
+          "duration": 0
+        },
+        {
+          "name": "https://www.blogger.com/static/v1/widgets/648255196-widgets.js",
+          "transferSize": 0,
+          "decodedBodySize": 0,
+          "duration": 0
+        },
+        {
+          "name": "https://ru5iru.blogspot.com/favicon.ico",
+          "transferSize": 0,
+          "decodedBodySize": 9662,
+          "duration": 1
+        }
+      ],
+      "contrast": {
+        "tested": 32,
+        "skipped": 0,
+        "failures": [
+          {
+            "text": "Contact Me",
+            "tag": "A",
+            "class": "px-5 py-2 text-sm font-medium border border-divider rounded-full hover:border-primary hover:text-primary",
+            "ratio": 3.4,
+            "required": 4.5,
+            "fontSize": 14,
+            "weight": 500,
+            "foreground": "rgb(203, 109, 77)",
+            "background": [
+              250,
+              248,
+              245
+            ]
+          },
+          {
+            "text": "Contact",
+            "tag": "SPAN",
+            "class": "text-sm font-medium text-primary uppercase tracking-widest",
+            "ratio": 3.4,
+            "required": 4.5,
+            "fontSize": 14,
+            "weight": 500,
+            "foreground": "rgb(203, 109, 77)",
+            "background": [
+              250,
+              248,
+              245
+            ]
+          },
+          {
+            "text": "rusiru",
+            "tag": "SPAN",
+            "class": "text-primary",
+            "ratio": 3.4,
+            "required": 4.5,
+            "fontSize": 18,
+            "weight": 700,
+            "foreground": "rgb(203, 109, 77)",
+            "background": [
+              250,
+              248,
+              245
+            ]
+          }
+        ]
+      },
+      "errors": []
+    },
+    {
+      "name": "home",
+      "path": "/",
+      "width": 768,
+      "status": 200,
+      "title": "Rusiru Rathmina | Software Engineer Blog",
+      "canonical": "https://ru5iru.blogspot.com/",
+      "description": "Software engineering, career lessons, side projects, and developer life by Rusiru Rathmina.",
+      "h1": [
+        "Rusiru'sSoftware Engineering Blog.",
+        "Rusiru Rathmina | Software Engineer Blog"
+      ],
+      "overflow": false,
+      "headingOrder": [
+        {
+          "tag": "H1",
+          "text": "Rusiru'sSoftware Engineering Blog."
+        },
+        {
+          "tag": "H2",
+          "text": "Latest Posts"
+        },
+        {
+          "tag": "H2",
+          "text": "Why Proper Planning Is a Must in a Software Project"
+        },
+        {
+          "tag": "H2",
+          "text": "Injection OWASP Top 10: A03 Explained for Developers"
+        },
+        {
+          "tag": "H2",
+          "text": "Cryptographic Failures: The OWASP A02 Risk Hiding in Your Code"
+        },
+        {
+          "tag": "H2",
+          "text": "Broken Access Control: The OWASP Top 10's Most Dangerous Flaw"
+        },
+        {
+          "tag": "H2",
+          "text": "Work-Life Balance for Developers: Why It Matters and How to Protect It"
+        },
+        {
+          "tag": "H2",
+          "text": "Drupal Caching: Cache Tags, Contexts and Debugging"
+        },
+        {
+          "tag": "H3",
+          "text": "Topics"
+        },
+        {
+          "tag": "H2",
+          "text": "Tags"
+        },
+        {
+          "tag": "H3",
+          "text": "Blog Archive"
+        },
+        {
+          "tag": "H1",
+          "text": "Rusiru Rathmina | Software Engineer Blog"
+        },
+        {
+          "tag": "H3",
+          "text": "Popular"
+        },
+        {
+          "tag": "H3",
+          "text": "About Me"
+        },
+        {
+          "tag": "H3",
+          "text": "Let's connect"
+        },
+        {
+          "tag": "H3",
+          "text": "iamrusiru"
+        },
+        {
+          "tag": "H4",
+          "text": "Quick Links"
+        },
+        {
+          "tag": "H4",
+          "text": "Legal Stuff"
+        },
+        {
+          "tag": "H4",
+          "text": "Connect"
+        }
+      ],
+      "images": [
+        {
+          "src": "data:image/jpeg;base64,/9j/2wBDAAUDBAQEAwUEBAQFBQUGBwwIBwcHBw8LCwkMEQ8SEhEPERETFhwXExQaFRERGCEYGh0dHx8fExciJCIeJBweHx7/2wBDAQUFBQcGBw4ICA4eFBEUHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh7/wAARCAGgAaADASIAAhEBAxEB/8QAHQABAAAHAQE",
+          "complete": true,
+          "naturalWidth": 416,
+          "width": 368,
+          "height": 368,
+          "alt": "Rusiru's profile photo"
+        },
+        {
+          "src": "https://lh3.googleusercontent.com/blogger_img_proxy/AEn0k_s9DXGBQD3e0E1h-2rd2-Bavf6gy6gT9bdKgQfLLJ_Hof_v5u1-tEV_qNc-GgajyikFZmLqaCkNXpFkevacIn71Io2APZgq4O4GqQwgrBUGiRDaf01Wh-yyFLvW_u0_Q2TyAEMQe5oYMyAZf17PRAsKVYfRu3Lv=w384-h256-p-k-no-nu",
+          "complete": true,
+          "naturalWidth": 384,
+          "width": 192,
+          "height": 128,
+          "alt": ""
+        },
+        {
+          "src": "data:image/jpeg;base64,/9j/2wBDAAUDBAQEAwUEBAQFBQUGBwwIBwcHBw8LCwkMEQ8SEhEPERETFhwXExQaFRERGCEYGh0dHx8fExciJCIeJBweHx7/2wBDAQUFBQcGBw4ICA4eFBEUHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh7/wAARCAGgAaADASIAAhEBAxEB/8QAHQABAAAHAQE",
+          "complete": true,
+          "naturalWidth": 416,
+          "width": 28,
+          "height": 28,
+          "alt": ""
+        },
+        {
+          "src": "https://lh3.googleusercontent.com/blogger_img_proxy/AEn0k_v_7wHk8bRInEiz-dbM6169puiM1sRQmPS94g4bANzmVu5gcNShUQ9jvJm7iEtRShZlq_mXcED8x8CeHY8-e-QNqul73dnVAR10cUbIRDN3fLEoM1CcQB81KIspUoqPdehqTdAK2QqJwV2vQNweW3hNMbeN_LsReA=w384-h256-p-k-no-nu",
+          "complete": true,
+          "naturalWidth": 384,
+          "width": 192,
+          "height": 128,
+          "alt": ""
+        },
+        {
+          "src": "data:image/jpeg;base64,/9j/2wBDAAUDBAQEAwUEBAQFBQUGBwwIBwcHBw8LCwkMEQ8SEhEPERETFhwXExQaFRERGCEYGh0dHx8fExciJCIeJBweHx7/2wBDAQUFBQcGBw4ICA4eFBEUHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh7/wAARCAGgAaADASIAAhEBAxEB/8QAHQABAAAHAQE",
+          "complete": true,
+          "naturalWidth": 416,
+          "width": 28,
+          "height": 28,
+          "alt": ""
+        },
+        {
+          "src": "https://lh3.googleusercontent.com/blogger_img_proxy/AEn0k_usG-zT2e4wuIzfjkq0Li6a-etK9eqBoAOY1A0RCr4Zxav0UKunRonCtptpPNskgT923TNF4FP6FNpGc-JIavsYTAzpES-dGR-xB-UCOxguZXfatfBlQluX1vlRym_BSwkSNXdO4uY7TpdXiouZJahsqqahcfMFF5MN3_FstN0N9ocSgY8e=w384-h256-p-k",
+          "complete": true,
+          "naturalWidth": 384,
+          "width": 192,
+          "height": 128,
+          "alt": ""
+        },
+        {
+          "src": "data:image/jpeg;base64,/9j/2wBDAAUDBAQEAwUEBAQFBQUGBwwIBwcHBw8LCwkMEQ8SEhEPERETFhwXExQaFRERGCEYGh0dHx8fExciJCIeJBweHx7/2wBDAQUFBQcGBw4ICA4eFBEUHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh7/wAARCAGgAaADASIAAhEBAxEB/8QAHQABAAAHAQE",
+          "complete": true,
+          "naturalWidth": 416,
+          "width": 28,
+          "height": 28,
+          "alt": ""
+        },
+        {
+          "src": "https://lh3.googleusercontent.com/blogger_img_proxy/AEn0k_tM5ba7dS8jjvsNnsMMXPWW1CXhZe1sJ79KyxHETZsBtNfARW-BBjm7CsOWWib_zOddoz2WBqpTj0BMOBPIY3xrz2kSC97A4XxTfhu86fIoA3VJqfyEFd3B0BD_evTm2Z4-qyXvq61G28HCVP2n9Qh-MiIjYm-oZRy8aE9wJQwI1RXOXJY=w384-h256-p-k-",
+          "complete": true,
+          "naturalWidth": 384,
+          "width": 192,
+          "height": 128,
+          "alt": ""
+        },
+        {
+          "src": "data:image/jpeg;base64,/9j/2wBDAAUDBAQEAwUEBAQFBQUGBwwIBwcHBw8LCwkMEQ8SEhEPERETFhwXExQaFRERGCEYGh0dHx8fExciJCIeJBweHx7/2wBDAQUFBQcGBw4ICA4eFBEUHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh7/wAARCAGgAaADASIAAhEBAxEB/8QAHQABAAAHAQE",
+          "complete": true,
+          "naturalWidth": 416,
+          "width": 28,
+          "height": 28,
+          "alt": ""
+        },
+        {
+          "src": "https://lh3.googleusercontent.com/blogger_img_proxy/AEn0k_v0RHpYryIKyxhKIUyc9TgmTzqryiQ-pHyEFPaY9ZThRNFrNzODsO6E3PzbkcBxjY27Zv5b_Og9R45KHl6BNc_iQQs6Id8V9AXexedtXrAw5ceABRuA9pamxT5xyCA4MgGu0YSlQGBqYcYuHB5i2cToiDuzWSkb6SwZsUWHT8JluA=w384-h256-p-k-no-nu",
+          "complete": true,
+          "naturalWidth": 384,
+          "width": 192,
+          "height": 128,
+          "alt": ""
+        },
+        {
+          "src": "data:image/jpeg;base64,/9j/2wBDAAUDBAQEAwUEBAQFBQUGBwwIBwcHBw8LCwkMEQ8SEhEPERETFhwXExQaFRERGCEYGh0dHx8fExciJCIeJBweHx7/2wBDAQUFBQcGBw4ICA4eFBEUHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh7/wAARCAGgAaADASIAAhEBAxEB/8QAHQABAAAHAQE",
+          "complete": true,
+          "naturalWidth": 416,
+          "width": 28,
+          "height": 28,
+          "alt": ""
+        },
+        {
+          "src": "https://lh3.googleusercontent.com/blogger_img_proxy/AEn0k_sy9CfQkXwcpqtDf_hyS87IfxXFMJVlWYf_ePopO_ZF7U7BezGsbLNxUjY7YqmUilTvfwyvJJ53kN1TGo9IVsmbQ9CrqPEEOmMCXOFGRb32V4XBr_VRB2_m24FrUgUiv48i78sJQ2RgjdOyOQpVkZRHHCZs-kvqt-ayrf5pQw=w384-h256-p-k-no-nu",
+          "complete": true,
+          "naturalWidth": 384,
+          "width": 192,
+          "height": 128,
+          "alt": ""
+        },
+        {
+          "src": "data:image/jpeg;base64,/9j/2wBDAAUDBAQEAwUEBAQFBQUGBwwIBwcHBw8LCwkMEQ8SEhEPERETFhwXExQaFRERGCEYGh0dHx8fExciJCIeJBweHx7/2wBDAQUFBQcGBw4ICA4eFBEUHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh7/wAARCAGgAaADASIAAhEBAxEB/8QAHQABAAAHAQE",
+          "complete": true,
+          "naturalWidth": 416,
+          "width": 28,
+          "height": 28,
+          "alt": ""
+        },
+        {
+          "src": "https://lh3.googleusercontent.com/blogger_img_proxy/AEn0k_s9DXGBQD3e0E1h-2rd2-Bavf6gy6gT9bdKgQfLLJ_Hof_v5u1-tEV_qNc-GgajyikFZmLqaCkNXpFkevacIn71Io2APZgq4O4GqQwgrBUGiRDaf01Wh-yyFLvW_u0_Q2TyAEMQe5oYMyAZf17PRAsKVYfRu3Lv=w80",
+          "complete": true,
+          "naturalWidth": 80,
+          "width": 60,
+          "height": 60,
+          "alt": ""
+        },
+        {
+          "src": "https://lh3.googleusercontent.com/blogger_img_proxy/AEn0k_v_7wHk8bRInEiz-dbM6169puiM1sRQmPS94g4bANzmVu5gcNShUQ9jvJm7iEtRShZlq_mXcED8x8CeHY8-e-QNqul73dnVAR10cUbIRDN3fLEoM1CcQB81KIspUoqPdehqTdAK2QqJwV2vQNweW3hNMbeN_LsReA=w80",
+          "complete": true,
+          "naturalWidth": 80,
+          "width": 60,
+          "height": 60,
+          "alt": ""
+        },
+        {
+          "src": "https://lh3.googleusercontent.com/blogger_img_proxy/AEn0k_uFDHw-wLr-bUrSNP8bobwyGxmmYHOaLbwJiG8SqCNQsEWpN4X2taq8Q4dtJNXWb2lIb9gVD6Vp0we_fsj5uyFpvKrMVGDL_alFOs8q7wtUXLA4WYXxLGbwpXvY_fg1HlnhDpJeTeB9F6AOQU6QuUA-Iwam6ZD7m831MqsGCxpMEALlIQ=w80",
+          "complete": true,
+          "naturalWidth": 80,
+          "width": 60,
+          "height": 60,
+          "alt": ""
+        },
+        {
+          "src": "https://lh3.googleusercontent.com/blogger_img_proxy/AEn0k_usG-zT2e4wuIzfjkq0Li6a-etK9eqBoAOY1A0RCr4Zxav0UKunRonCtptpPNskgT923TNF4FP6FNpGc-JIavsYTAzpES-dGR-xB-UCOxguZXfatfBlQluX1vlRym_BSwkSNXdO4uY7TpdXiouZJahsqqahcfMFF5MN3_FstN0N9ocSgY8e=w80",
+          "complete": true,
+          "naturalWidth": 80,
+          "width": 60,
+          "height": 60,
+          "alt": ""
+        },
+        {
+          "src": "https://lh3.googleusercontent.com/blogger_img_proxy/AEn0k_tM5ba7dS8jjvsNnsMMXPWW1CXhZe1sJ79KyxHETZsBtNfARW-BBjm7CsOWWib_zOddoz2WBqpTj0BMOBPIY3xrz2kSC97A4XxTfhu86fIoA3VJqfyEFd3B0BD_evTm2Z4-qyXvq61G28HCVP2n9Qh-MiIjYm-oZRy8aE9wJQwI1RXOXJY=w80",
+          "complete": true,
+          "naturalWidth": 80,
+          "width": 60,
+          "height": 60,
+          "alt": ""
+        },
+        {
+          "src": "https://lh3.googleusercontent.com/blogger_img_proxy/AEn0k_sy9CfQkXwcpqtDf_hyS87IfxXFMJVlWYf_ePopO_ZF7U7BezGsbLNxUjY7YqmUilTvfwyvJJ53kN1TGo9IVsmbQ9CrqPEEOmMCXOFGRb32V4XBr_VRB2_m24FrUgUiv48i78sJQ2RgjdOyOQpVkZRHHCZs-kvqt-ayrf5pQw=w80",
+          "complete": true,
+          "naturalWidth": 80,
+          "width": 60,
+          "height": 60,
+          "alt": ""
+        },
+        {
+          "src": "https://lh3.googleusercontent.com/blogger_img_proxy/AEn0k_sh-wG4iSlX3ckSYkBZ77DQTo9YjttLLYO2DuQ6BCnWMjyvEyzQWnklt7PRRBPOlJHuzpgKop4_KyT7yUoiwCQGBzdCheqXR0wM-rUu1e6XvBsSgUsZ94EQi4YuBc2SEg0cyHT8R4sne68y3ncaaE0bY5dmMR21kac=w80",
+          "complete": true,
+          "naturalWidth": 80,
+          "width": 60,
+          "height": 60,
+          "alt": ""
+        },
+        {
+          "src": "https://lh3.googleusercontent.com/blogger_img_proxy/AEn0k_sLNhyTmShwXxA8ZDLUa0Ibkg-9zN98RTpmvvLw9kmpMkW1Xdcgj5EsL_7zLDRCUqrKZZ_37ruv7Yk7g0_Rtkc2VqVz3jgJAnZPR9_6CLdpSAeID-T_XfBBja-dtkH5KH-4dS6lZFRUeIvn-Hlr47997l7kb5Y7Flm_8qlM=w80",
+          "complete": true,
+          "naturalWidth": 80,
+          "width": 60,
+          "height": 60,
+          "alt": ""
+        },
+        {
+          "src": "https://lh3.googleusercontent.com/blogger_img_proxy/AEn0k_tF8SI0xzPWgIzzuXzBIHWwAFD4ZP7Ep9xCUWvoDXRly3a6ZqgiOgVhpfAPS-cRjPIBWK6joKt9tfLAAG_TJT-Br2J8j8STwJCTRFkjZLPlxwr_5HwI2NwnQuqU9hegNw6Lq1oVY-J85CEL_b_zzHarD9uDlzUokA=w80",
+          "complete": true,
+          "naturalWidth": 80,
+          "width": 60,
+          "height": 60,
+          "alt": ""
+        },
+        {
+          "src": "https://lh3.googleusercontent.com/blogger_img_proxy/AEn0k_vj6ETbAn2Lfe0OYdtvx0XxesmBLskpIVyBMS4TBkW7UMMCgfGfXGWX_-YS7i7mzWbbo76MD_jxNdKh4BjvGqYG3WYeJGc88jWgx5wePH_6RUrXlhdHlYDYUMrBVEq0_Mxy307i14j-8HwWe08Y2PPrp5rbtjsa=w80",
+          "complete": true,
+          "naturalWidth": 80,
+          "width": 60,
+          "height": 60,
+          "alt": ""
+        }
+      ],
+      "faqQuestions": 0,
+      "tocLinks": 0,
+      "codeButtons": 0,
+      "targets": [
+        {
+          "text": "Home",
+          "tag": "A",
+          "width": 38,
+          "height": 20
+        },
+        {
+          "text": "About me",
+          "tag": "A",
+          "width": 61,
+          "height": 20
+        },
+        {
+          "text": "Portfolio (opens in new tab)",
+          "tag": "A",
+          "width": 55,
+          "height": 20
+        },
+        {
+          "text": "2026\n14",
+          "tag": "A",
+          "width": 54,
+          "height": 17
+        },
+        {
+          "text": "June\n2",
+          "tag": "A",
+          "width": 46,
+          "height": 17
+        },
+        {
+          "text": "Why Proper Planning Is a Must in a Software Project",
+          "tag": "A",
+          "width": 323,
+          "height": 17
+        },
+        {
+          "text": "Injection OWASP Top 10: A03 Explained for Developers",
+          "tag": "A",
+          "width": 340,
+          "height": 17
+        },
+        {
+          "text": "May\n2",
+          "tag": "A",
+          "width": 42,
+          "height": 17
+        },
+        {
+          "text": "April\n4",
+          "tag": "A",
+          "width": 44,
+          "height": 17
+        },
+        {
+          "text": "March\n2",
+          "tag": "A",
+          "width": 55,
+          "height": 17
+        },
+        {
+          "text": "February\n1",
+          "tag": "A",
+          "width": 70,
+          "height": 17
+        },
+        {
+          "text": "January\n3",
+          "tag": "A",
+          "width": 66,
+          "height": 17
+        },
+        {
+          "text": "2025\n9",
+          "tag": "A",
+          "width": 47,
+          "height": 17
+        },
+        {
+          "text": "December\n3",
+          "tag": "A",
+          "width": 80,
+          "height": 17
+        },
+        {
+          "text": "November\n5",
+          "tag": "A",
+          "width": 80,
+          "height": 17
+        },
+        {
+          "text": "October\n1",
+          "tag": "A",
+          "width": 65,
+          "height": 17
+        },
+        {
+          "text": "Why Proper Planning Is a Must in a Software Project",
+          "tag": "A",
+          "width": 337,
+          "height": 18
+        },
+        {
+          "text": "Injection OWASP Top 10: A03 Explained for Developers",
+          "tag": "A",
+          "width": 356,
+          "height": 18
+        },
+        {
+          "text": "Why Integrating a Code Review and Security Analysis Platform Is E",
+          "tag": "A",
+          "width": 581,
+          "height": 18
+        },
+        {
+          "text": "Cryptographic Failures: The OWASP A02 Risk Hiding in Your Code",
+          "tag": "A",
+          "width": 425,
+          "height": 18
+        },
+        {
+          "text": "Broken Access Control: The OWASP Top 10's Most Dangerous Flaw",
+          "tag": "A",
+          "width": 433,
+          "height": 18
+        },
+        {
+          "text": "Drupal Caching: Cache Tags, Contexts and Debugging",
+          "tag": "A",
+          "width": 347,
+          "height": 18
+        },
+        {
+          "text": "Why I Keep a Developer Journal",
+          "tag": "A",
+          "width": 205,
+          "height": 18
+        },
+        {
+          "text": "Why Side Projects Keep Me Sane as a Developer",
+          "tag": "A",
+          "width": 312,
+          "height": 18
+        },
+        {
+          "text": "Building a CLI Tool in Rust: A Weekend Adventure",
+          "tag": "A",
+          "width": 320,
+          "height": 18
+        },
+        {
+          "text": "Burnout, Recovery, and What I Learned",
+          "tag": "A",
+          "width": 250,
+          "height": 18
+        },
+        {
+          "text": "Home",
+          "tag": "A",
+          "width": 156,
+          "height": 20
+        },
+        {
+          "text": "About me",
+          "tag": "A",
+          "width": 156,
+          "height": 20
+        },
+        {
+          "text": "Portfolio",
+          "tag": "A",
+          "width": 156,
+          "height": 20
+        },
+        {
+          "text": "Contact",
+          "tag": "A",
+          "width": 156,
+          "height": 20
+        },
+        {
+          "text": "Privacy Policy",
+          "tag": "A",
+          "width": 156,
+          "height": 20
+        },
+        {
+          "text": "Cookie Policy",
+          "tag": "A",
+          "width": 156,
+          "height": 20
+        },
+        {
+          "text": "Twitter / X",
+          "tag": "A",
+          "width": 156,
+          "height": 20
+        },
+        {
+          "text": "GitHub",
+          "tag": "A",
+          "width": 156,
+          "height": 20
+        },
+        {
+          "text": "LinkedIn",
+          "tag": "A",
+          "width": 156,
+          "height": 20
+        },
+        {
+          "text": "Facebook",
+          "tag": "A",
+          "width": 156,
+          "height": 20
+        },
+        {
+          "text": "Instagram",
+          "tag": "A",
+          "width": 156,
+          "height": 20
+        },
+        {
+          "text": "RSS Feed",
+          "tag": "A",
+          "width": 156,
+          "height": 20
+        }
+      ],
+      "unnamedControls": [],
+      "lang": "en",
+      "resources": [
+        {
+          "name": "https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Roboto:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500;600&display=swap",
+          "transferSize": 0,
+          "decodedBodySize": 31515,
+          "duration": 0
+        },
+        {
+          "name": "https://lh3.googleusercontent.com/blogger_img_proxy/AEn0k_s9DXGBQD3e0E1h-2rd2-Bavf6gy6gT9bdKgQfLLJ_Hof_v5u1-tEV_qNc-GgajyikFZmLqaCkNXpFkevacIn71Io2APZgq4O4GqQwgrBUGiRDaf01Wh-yyFLvW_u0_Q2TyAEMQe5oYMyAZf17PRAsKVYfRu3Lv=w80",
+          "transferSize": 0,
+          "decodedBodySize": 7105,
+          "duration": 1
+        },
+        {
+          "name": "https://lh3.googleusercontent.com/blogger_img_proxy/AEn0k_v_7wHk8bRInEiz-dbM6169puiM1sRQmPS94g4bANzmVu5gcNShUQ9jvJm7iEtRShZlq_mXcED8x8CeHY8-e-QNqul73dnVAR10cUbIRDN3fLEoM1CcQB81KIspUoqPdehqTdAK2QqJwV2vQNweW3hNMbeN_LsReA=w80",
+          "transferSize": 0,
+          "decodedBodySize": 1470,
+          "duration": 1
+        },
+        {
+          "name": "https://lh3.googleusercontent.com/blogger_img_proxy/AEn0k_uFDHw-wLr-bUrSNP8bobwyGxmmYHOaLbwJiG8SqCNQsEWpN4X2taq8Q4dtJNXWb2lIb9gVD6Vp0we_fsj5uyFpvKrMVGDL_alFOs8q7wtUXLA4WYXxLGbwpXvY_fg1HlnhDpJeTeB9F6AOQU6QuUA-Iwam6ZD7m831MqsGCxpMEALlIQ=w80",
+          "transferSize": 0,
+          "decodedBodySize": 2261,
+          "duration": 6
+        },
+        {
+          "name": "https://lh3.googleusercontent.com/blogger_img_proxy/AEn0k_usG-zT2e4wuIzfjkq0Li6a-etK9eqBoAOY1A0RCr4Zxav0UKunRonCtptpPNskgT923TNF4FP6FNpGc-JIavsYTAzpES-dGR-xB-UCOxguZXfatfBlQluX1vlRym_BSwkSNXdO4uY7TpdXiouZJahsqqahcfMFF5MN3_FstN0N9ocSgY8e=w80",
+          "transferSize": 0,
+          "decodedBodySize": 1659,
+          "duration": 7
+        },
+        {
+          "name": "https://lh3.googleusercontent.com/blogger_img_proxy/AEn0k_tM5ba7dS8jjvsNnsMMXPWW1CXhZe1sJ79KyxHETZsBtNfARW-BBjm7CsOWWib_zOddoz2WBqpTj0BMOBPIY3xrz2kSC97A4XxTfhu86fIoA3VJqfyEFd3B0BD_evTm2Z4-qyXvq61G28HCVP2n9Qh-MiIjYm-oZRy8aE9wJQwI1RXOXJY=w80",
+          "transferSize": 0,
+          "decodedBodySize": 1230,
+          "duration": 9
+        },
+        {
+          "name": "https://lh3.googleusercontent.com/blogger_img_proxy/AEn0k_sy9CfQkXwcpqtDf_hyS87IfxXFMJVlWYf_ePopO_ZF7U7BezGsbLNxUjY7YqmUilTvfwyvJJ53kN1TGo9IVsmbQ9CrqPEEOmMCXOFGRb32V4XBr_VRB2_m24FrUgUiv48i78sJQ2RgjdOyOQpVkZRHHCZs-kvqt-ayrf5pQw=w80",
+          "transferSize": 0,
+          "decodedBodySize": 1156,
+          "duration": 9
+        },
+        {
+          "name": "https://lh3.googleusercontent.com/blogger_img_proxy/AEn0k_sh-wG4iSlX3ckSYkBZ77DQTo9YjttLLYO2DuQ6BCnWMjyvEyzQWnklt7PRRBPOlJHuzpgKop4_KyT7yUoiwCQGBzdCheqXR0wM-rUu1e6XvBsSgUsZ94EQi4YuBc2SEg0cyHT8R4sne68y3ncaaE0bY5dmMR21kac=w80",
+          "transferSize": 0,
+          "decodedBodySize": 1471,
+          "duration": 17
+        },
+        {
+          "name": "https://lh3.googleusercontent.com/blogger_img_proxy/AEn0k_sLNhyTmShwXxA8ZDLUa0Ibkg-9zN98RTpmvvLw9kmpMkW1Xdcgj5EsL_7zLDRCUqrKZZ_37ruv7Yk7g0_Rtkc2VqVz3jgJAnZPR9_6CLdpSAeID-T_XfBBja-dtkH5KH-4dS6lZFRUeIvn-Hlr47997l7kb5Y7Flm_8qlM=w80",
+          "transferSize": 0,
+          "decodedBodySize": 1972,
+          "duration": 18
+        },
+        {
+          "name": "https://lh3.googleusercontent.com/blogger_img_proxy/AEn0k_tF8SI0xzPWgIzzuXzBIHWwAFD4ZP7Ep9xCUWvoDXRly3a6ZqgiOgVhpfAPS-cRjPIBWK6joKt9tfLAAG_TJT-Br2J8j8STwJCTRFkjZLPlxwr_5HwI2NwnQuqU9hegNw6Lq1oVY-J85CEL_b_zzHarD9uDlzUokA=w80",
+          "transferSize": 0,
+          "decodedBodySize": 864,
+          "duration": 18
+        },
+        {
+          "name": "https://lh3.googleusercontent.com/blogger_img_proxy/AEn0k_vj6ETbAn2Lfe0OYdtvx0XxesmBLskpIVyBMS4TBkW7UMMCgfGfXGWX_-YS7i7mzWbbo76MD_jxNdKh4BjvGqYG3WYeJGc88jWgx5wePH_6RUrXlhdHlYDYUMrBVEq0_Mxy307i14j-8HwWe08Y2PPrp5rbtjsa=w80",
+          "transferSize": 0,
+          "decodedBodySize": 1911,
+          "duration": 18
+        },
+        {
+          "name": "https://www.blogger.com/static/v1/widgets/648255196-widgets.js",
+          "transferSize": 0,
+          "decodedBodySize": 0,
+          "duration": 0
+        },
+        {
+          "name": "https://fonts.gstatic.com/s/dmserifdisplay/v17/-nFnOHM81r4j6k0gjAW3mujVU2B2G_Bx0g.woff2",
+          "transferSize": 0,
+          "decodedBodySize": 24744,
+          "duration": 0
+        },
+        {
+          "name": "https://fonts.gstatic.com/s/jetbrainsmono/v24/tDbv2o-flEEny0FZhsfKu5WU4zr3E_BX0PnT8RD8yKwBNntkaToggR7BYRbKPxDcwg.woff2",
+          "transferSize": 0,
+          "decodedBodySize": 31432,
+          "duration": 0
+        },
+        {
+          "name": "https://fonts.gstatic.com/s/roboto/v51/KFO7CnqEu92Fr1ME7kSn66aGLdTylUAMawCUBGEe.woff2",
+          "transferSize": 0,
+          "decodedBodySize": 41348,
+          "duration": 0
+        },
+        {
+          "name": "https://fonts.gstatic.com/s/roboto/v51/KFO7CnqEu92Fr1ME7kSn66aGLdTylUAMaxKUBGEe.woff2",
+          "transferSize": 0,
+          "decodedBodySize": 20556,
+          "duration": 0
+        },
+        {
+          "name": "https://fonts.gstatic.com/s/roboto/v51/KFO7CnqEu92Fr1ME7kSn66aGLdTylUAMa3yUBA.woff2",
+          "transferSize": 0,
+          "decodedBodySize": 43136,
+          "duration": 0
+        },
+        {
+          "name": "https://lh3.googleusercontent.com/blogger_img_proxy/AEn0k_s9DXGBQD3e0E1h-2rd2-Bavf6gy6gT9bdKgQfLLJ_Hof_v5u1-tEV_qNc-GgajyikFZmLqaCkNXpFkevacIn71Io2APZgq4O4GqQwgrBUGiRDaf01Wh-yyFLvW_u0_Q2TyAEMQe5oYMyAZf17PRAsKVYfRu3Lv=w384-h256-p-k-no-nu",
+          "transferSize": 0,
+          "decodedBodySize": 123551,
+          "duration": 1
+        },
+        {
+          "name": "https://lh3.googleusercontent.com/blogger_img_proxy/AEn0k_v_7wHk8bRInEiz-dbM6169puiM1sRQmPS94g4bANzmVu5gcNShUQ9jvJm7iEtRShZlq_mXcED8x8CeHY8-e-QNqul73dnVAR10cUbIRDN3fLEoM1CcQB81KIspUoqPdehqTdAK2QqJwV2vQNweW3hNMbeN_LsReA=w384-h256-p-k-no-nu",
+          "transferSize": 0,
+          "decodedBodySize": 17255,
+          "duration": 2
+        },
+        {
+          "name": "https://lh3.googleusercontent.com/blogger_img_proxy/AEn0k_usG-zT2e4wuIzfjkq0Li6a-etK9eqBoAOY1A0RCr4Zxav0UKunRonCtptpPNskgT923TNF4FP6FNpGc-JIavsYTAzpES-dGR-xB-UCOxguZXfatfBlQluX1vlRym_BSwkSNXdO4uY7TpdXiouZJahsqqahcfMFF5MN3_FstN0N9ocSgY8e=w384-h256-p-k-no-nu",
+          "transferSize": 0,
+          "decodedBodySize": 23226,
+          "duration": 2
+        },
+        {
+          "name": "https://lh3.googleusercontent.com/blogger_img_proxy/AEn0k_tM5ba7dS8jjvsNnsMMXPWW1CXhZe1sJ79KyxHETZsBtNfARW-BBjm7CsOWWib_zOddoz2WBqpTj0BMOBPIY3xrz2kSC97A4XxTfhu86fIoA3VJqfyEFd3B0BD_evTm2Z4-qyXvq61G28HCVP2n9Qh-MiIjYm-oZRy8aE9wJQwI1RXOXJY=w384-h256-p-k-no-nu",
+          "transferSize": 0,
+          "decodedBodySize": 17603,
+          "duration": 3
+        },
+        {
+          "name": "https://lh3.googleusercontent.com/blogger_img_proxy/AEn0k_v0RHpYryIKyxhKIUyc9TgmTzqryiQ-pHyEFPaY9ZThRNFrNzODsO6E3PzbkcBxjY27Zv5b_Og9R45KHl6BNc_iQQs6Id8V9AXexedtXrAw5ceABRuA9pamxT5xyCA4MgGu0YSlQGBqYcYuHB5i2cToiDuzWSkb6SwZsUWHT8JluA=w384-h256-p-k-no-nu",
+          "transferSize": 0,
+          "decodedBodySize": 11185,
+          "duration": 4
+        },
+        {
+          "name": "https://lh3.googleusercontent.com/blogger_img_proxy/AEn0k_sy9CfQkXwcpqtDf_hyS87IfxXFMJVlWYf_ePopO_ZF7U7BezGsbLNxUjY7YqmUilTvfwyvJJ53kN1TGo9IVsmbQ9CrqPEEOmMCXOFGRb32V4XBr_VRB2_m24FrUgUiv48i78sJQ2RgjdOyOQpVkZRHHCZs-kvqt-ayrf5pQw=w384-h256-p-k-no-nu",
+          "transferSize": 0,
+          "decodedBodySize": 12576,
+          "duration": 4
+        },
+        {
+          "name": "https://ru5iru.blogspot.com/favicon.ico",
+          "transferSize": 0,
+          "decodedBodySize": 9662,
+          "duration": 2
+        }
+      ],
+      "contrast": {
+        "tested": 173,
+        "skipped": 0,
+        "failures": [
+          {
+            "text": "Home",
+            "tag": "A",
+            "class": "text-sm font-medium text-caption hover:text-primary",
+            "ratio": 3.4,
+            "required": 4.5,
+            "fontSize": 14,
+            "weight": 500,
+            "foreground": "rgb(203, 109, 77)",
+            "background": [
+              250,
+              248,
+              245
+            ]
+          },
+          {
+            "text": "Contact me",
+            "tag": "A",
+            "class": "inline-flex items-center gap-2 px-7 py-3 bg-primary text-primary-foreground rounded-full font-medium hover:bg-primary/90 transition-colors",
+            "ratio": 3.4,
+            "required": 4.5,
+            "fontSize": 16,
+            "weight": 500,
+            "foreground": "rgb(250, 248, 245)",
+            "background": [
+              203,
+              109,
+              77
+            ]
+          },
+          {
+            "text": "Older posts →",
+            "tag": "A",
+            "class": "px-8 py-3 bg-primary text-primary-foreground rounded-full",
+            "ratio": 3.4,
+            "required": 4.5,
+            "fontSize": 16,
+            "weight": 400,
+            "foreground": "rgb(250, 248, 245)",
+            "background": [
+              203,
+              109,
+              77
+            ]
+          },
+          {
+            "text": "Search",
+            "tag": "BUTTON",
+            "class": "px-4 py-2 bg-primary text-primary-foreground rounded-full",
+            "ratio": 3.4,
+            "required": 4.5,
+            "fontSize": 16,
+            "weight": 400,
+            "foreground": "rgb(250, 248, 245)",
+            "background": [
+              203,
+              109,
+              77
+            ]
+          },
+          {
+            "text": "rusiru",
+            "tag": "SPAN",
+            "class": "text-primary",
+            "ratio": 3.4,
+            "required": 4.5,
+            "fontSize": 18,
+            "weight": 700,
+            "foreground": "rgb(203, 109, 77)",
+            "background": [
+              250,
+              248,
+              245
+            ]
+          }
+        ]
+      },
+      "errors": []
+    },
+    {
+      "name": "article",
+      "path": "/2026/06/injection.html",
+      "width": 768,
+      "status": 200,
+      "title": "Injection OWASP Top 10: A03 Explained for Developers",
+      "canonical": "https://ru5iru.blogspot.com/2026/06/injection.html",
+      "description": "Software engineering, career lessons, side projects, and developer life by Rusiru Rathmina.",
+      "h1": [
+        "Injection OWASP Top 10: A03 Explained for Developers"
+      ],
+      "overflow": false,
+      "headingOrder": [
+        {
+          "tag": "H1",
+          "text": "Injection OWASP Top 10: A03 Explained for Developers"
+        },
+        {
+          "tag": "H2",
+          "text": "What injection actually is"
+        },
+        {
+          "tag": "H2",
+          "text": "Why A03 still matters"
+        },
+        {
+          "tag": "H2",
+          "text": "How injection works under the hood"
+        },
+        {
+          "tag": "H2",
+          "text": "Common pitfalls I keep finding in reviews"
+        },
+        {
+          "tag": "H2",
+          "text": "The OWASP LLM Top 10 prompt injection twist"
+        },
+        {
+          "tag": "H2",
+          "text": "Practical recommendations"
+        },
+        {
+          "tag": "H2",
+          "text": "A small story"
+        },
+        {
+          "tag": "H2",
+          "text": "Conclusion"
+        },
+        {
+          "tag": "H2",
+          "text": "More from the blog"
+        },
+        {
+          "tag": "H2",
+          "text": "Cite this post"
+        },
+        {
+          "tag": "H2",
+          "text": "You might also like"
+        },
+        {
+          "tag": "H3",
+          "text": "Cryptographic Failures: The OWASP A02 Risk Hiding in Your Code"
+        },
+        {
+          "tag": "H3",
+          "text": "Broken Access Control: The OWASP Top 10's Most Dangerous Flaw"
+        },
+        {
+          "tag": "H3",
+          "text": "OWASP Top 10 (2025): A Developer's Practical Guide"
+        },
+        {
+          "tag": "H2",
+          "text": "Frequently Asked Questions"
+        },
+        {
+          "tag": "H3",
+          "text": "What is injection in the OWASP Top 10?"
+        },
+        {
+          "tag": "H3",
+          "text": "Is injection still relevant in the OWASP Top 10 2025?"
+        },
+        {
+          "tag": "H3",
+          "text": "How do I prevent SQL injection in practice?"
+        },
+        {
+          "tag": "H3",
+          "text": "What is prompt injection in the OWASP LLM Top 10?"
+        },
+        {
+          "tag": "H3",
+          "text": "Are ORMs enough to stop injection?"
+        },
+        {
+          "tag": "H3",
+          "text": "How does command injection differ from SQL injection?"
+        },
+        {
+          "tag": "H3",
+          "text": "What tools help me catch injection bugs early?"
+        },
+        {
+          "tag": "H3",
+          "text": "Comments"
+        },
+        {
+          "tag": "H4",
+          "text": "Post a Comment"
+        },
+        {
+          "tag": "H2",
+          "text": "Contents"
+        },
+        {
+          "tag": "H3",
+          "text": "iamrusiru"
+        },
+        {
+          "tag": "H4",
+          "text": "Quick Links"
+        },
+        {
+          "tag": "H4",
+          "text": "Legal Stuff"
+        },
+        {
+          "tag": "H4",
+          "text": "Connect"
+        }
+      ],
+      "images": [
+        {
+          "src": "data:image/jpeg;base64,/9j/2wBDAAUDBAQEAwUEBAQFBQUGBwwIBwcHBw8LCwkMEQ8SEhEPERETFhwXExQaFRERGCEYGh0dHx8fExciJCIeJBweHx7/2wBDAQUFBQcGBw4ICA4eFBEUHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh7/wAARCAGgAaADASIAAhEBAxEB/8QAHQABAAAHAQE",
+          "complete": true,
+          "naturalWidth": 416,
+          "width": 40,
+          "height": 40,
+          "alt": ""
+        },
+        {
+          "src": "https://raw.githubusercontent.com/ru5iru/iamrusiru/main/src/assets/post-injection.jpg",
+          "complete": true,
+          "naturalWidth": 1024,
+          "width": 720,
+          "height": 400,
+          "alt": "Cover image for Injection OWASP Top 10: A03 Explained for Developers"
+        },
+        {
+          "src": "data:image/jpeg;base64,/9j/2wBDAAUDBAQEAwUEBAQFBQUGBwwIBwcHBw8LCwkMEQ8SEhEPERETFhwXExQaFRERGCEYGh0dHx8fExciJCIeJBweHx7/2wBDAQUFBQcGBw4ICA4eFBEUHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh7/wAARCAGgAaADASIAAhEBAxEB/8QAHQABAAAHAQE",
+          "complete": true,
+          "naturalWidth": 416,
+          "width": 56,
+          "height": 56,
+          "alt": "Rusiru Rathmina"
+        }
+      ],
+      "faqQuestions": 7,
+      "tocLinks": 9,
+      "codeButtons": 3,
+      "author": "Rusiru Rathmina",
+      "targets": [
+        {
+          "text": "Home",
+          "tag": "A",
+          "width": 38,
+          "height": 20
+        },
+        {
+          "text": "About me",
+          "tag": "A",
+          "width": 61,
+          "height": 20
+        },
+        {
+          "text": "Portfolio (opens in new tab)",
+          "tag": "A",
+          "width": 55,
+          "height": 20
+        },
+        {
+          "text": "Back to all posts",
+          "tag": "A",
+          "width": 127,
+          "height": 16
+        },
+        {
+          "text": "Broken Access Control: The OWASP Top 10's Most Dangerous Flaw",
+          "tag": "A",
+          "width": 536,
+          "height": 22
+        },
+        {
+          "text": "Cryptographic Failures: The OWASP A02 Risk Hiding in Your Code",
+          "tag": "A",
+          "width": 521,
+          "height": 22
+        },
+        {
+          "text": "OWASP Top 10 (2025): A Developer's Practical Guide",
+          "tag": "A",
+          "width": 420,
+          "height": 22
+        },
+        {
+          "text": "Learn more about me →",
+          "tag": "A",
+          "width": 151,
+          "height": 17
+        },
+        {
+          "text": "Home",
+          "tag": "A",
+          "width": 156,
+          "height": 20
+        },
+        {
+          "text": "About me",
+          "tag": "A",
+          "width": 156,
+          "height": 20
+        },
+        {
+          "text": "Portfolio",
+          "tag": "A",
+          "width": 156,
+          "height": 20
+        },
+        {
+          "text": "Contact",
+          "tag": "A",
+          "width": 156,
+          "height": 20
+        },
+        {
+          "text": "Privacy Policy",
+          "tag": "A",
+          "width": 156,
+          "height": 20
+        },
+        {
+          "text": "Cookie Policy",
+          "tag": "A",
+          "width": 156,
+          "height": 20
+        },
+        {
+          "text": "Twitter / X",
+          "tag": "A",
+          "width": 156,
+          "height": 20
+        },
+        {
+          "text": "GitHub",
+          "tag": "A",
+          "width": 156,
+          "height": 20
+        },
+        {
+          "text": "LinkedIn",
+          "tag": "A",
+          "width": 156,
+          "height": 20
+        },
+        {
+          "text": "Facebook",
+          "tag": "A",
+          "width": 156,
+          "height": 20
+        },
+        {
+          "text": "Instagram",
+          "tag": "A",
+          "width": 156,
+          "height": 20
+        },
+        {
+          "text": "RSS Feed",
+          "tag": "A",
+          "width": 156,
+          "height": 20
+        }
+      ],
+      "unnamedControls": [],
+      "lang": "en",
+      "resources": [
+        {
+          "name": "https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Roboto:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500;600&display=swap",
+          "transferSize": 0,
+          "decodedBodySize": 31515,
+          "duration": 0
+        },
+        {
+          "name": "https://www.blogger.com/static/v1/jsbin/2103827977-comment_from_post_iframe.js",
+          "transferSize": 0,
+          "decodedBodySize": 0,
+          "duration": 0
+        },
+        {
+          "name": "https://www.blogger.com/static/v1/widgets/648255196-widgets.js",
+          "transferSize": 0,
+          "decodedBodySize": 0,
+          "duration": 0
+        },
+        {
+          "name": "https://www.blogger.com/dyncss/483525992596231392/authorization.css?zx=c9f11d91-e786-4f70-9cfd-c6e3084f4104",
+          "transferSize": 0,
+          "decodedBodySize": 0,
+          "duration": 299
+        },
+        {
+          "name": "https://fonts.gstatic.com/s/dmserifdisplay/v17/-nFnOHM81r4j6k0gjAW3mujVU2B2G_Bx0g.woff2",
+          "transferSize": 0,
+          "decodedBodySize": 24744,
+          "duration": 0
+        },
+        {
+          "name": "https://fonts.gstatic.com/s/jetbrainsmono/v24/tDbv2o-flEEny0FZhsfKu5WU4zr3E_BX0PnT8RD8yKwBNntkaToggR7BYRbKPxDcwg.woff2",
+          "transferSize": 0,
+          "decodedBodySize": 31432,
+          "duration": 0
+        },
+        {
+          "name": "https://fonts.gstatic.com/s/roboto/v51/KFO7CnqEu92Fr1ME7kSn66aGLdTylUAMawCUBGEe.woff2",
+          "transferSize": 0,
+          "decodedBodySize": 41348,
+          "duration": 0
+        },
+        {
+          "name": "https://fonts.gstatic.com/s/roboto/v51/KFO7CnqEu92Fr1ME7kSn66aGLdTylUAMaxKUBGEe.woff2",
+          "transferSize": 0,
+          "decodedBodySize": 20556,
+          "duration": 0
+        },
+        {
+          "name": "https://fonts.gstatic.com/s/roboto/v51/KFO7CnqEu92Fr1ME7kSn66aGLdTylUAMa3yUBA.woff2",
+          "transferSize": 0,
+          "decodedBodySize": 43136,
+          "duration": 0
+        },
+        {
+          "name": "https://www.blogger.com/comment/frame/483525992596231392?po=36492420276489900&hl=en&saa=85391&origin=https%3A%2F%2Fru5iru.blogspot.com&blogspotRpcToken=5014306#%7B%22color%22%3A%22rgb(42%2C%2038%2C%2034)%22%2C%22backgroundColor%22%3A%22rgb(250%2C%20248%2C%20245)%22%2C%22unvisitedLinkColor%22%3A%22rgb(203%2C%20109%2C%2077)%22%2C%22fontFamily%22%3A%22Roboto%2C%20-apple-system%2C%20sans-serif%22%7D",
+          "transferSize": 0,
+          "decodedBodySize": 0,
+          "duration": 437
+        },
+        {
+          "name": "https://ru5iru.blogspot.com/feeds/posts/default/-/best%20practices?alt=json&max-results=6",
+          "transferSize": 300,
+          "decodedBodySize": 137367,
+          "duration": 336
+        },
+        {
+          "name": "https://raw.githubusercontent.com/ru5iru/iamrusiru/main/src/assets/post-injection.jpg",
+          "transferSize": 0,
+          "decodedBodySize": 0,
+          "duration": 1
+        },
+        {
+          "name": "https://ru5iru.blogspot.com/favicon.ico",
+          "transferSize": 0,
+          "decodedBodySize": 9662,
+          "duration": 1
+        }
+      ],
+      "contrast": {
+        "tested": 120,
+        "skipped": 0,
+        "failures": [
+          {
+            "text": "TL;DR",
+            "tag": "P",
+            "class": "text-sm font-semibold text-primary uppercase tracking-wider mb-2",
+            "ratio": 3.22,
+            "required": 4.5,
+            "fontSize": 14,
+            "weight": 600,
+            "foreground": "rgb(203, 109, 77)",
+            "background": [
+              248,
+              241,
+              237
+            ]
+          },
+          {
+            "text": "Broken Access Control: The OWASP Top 10's Most Dangerous Flaw",
+            "tag": "A",
+            "class": "",
+            "ratio": 3.4,
+            "required": 4.5,
+            "fontSize": 18,
+            "weight": 400,
+            "foreground": "rgb(203, 109, 77)",
+            "background": [
+              250,
+              248,
+              245
+            ]
+          },
+          {
+            "text": "Cryptographic Failures: The OWASP A02 Risk Hiding in Your Code",
+            "tag": "A",
+            "class": "",
+            "ratio": 3.4,
+            "required": 4.5,
+            "fontSize": 18,
+            "weight": 400,
+            "foreground": "rgb(203, 109, 77)",
+            "background": [
+              250,
+              248,
+              245
+            ]
+          },
+          {
+            "text": "OWASP Top 10 (2025): A Developer's Practical Guide",
+            "tag": "A",
+            "class": "",
+            "ratio": 3.4,
+            "required": 4.5,
+            "fontSize": 18,
+            "weight": 400,
+            "foreground": "rgb(203, 109, 77)",
+            "background": [
+              250,
+              248,
+              245
+            ]
+          },
+          {
+            "text": "Learn more about me →",
+            "tag": "A",
+            "class": "text-primary font-medium",
+            "ratio": 3.25,
+            "required": 4.5,
+            "fontSize": 14,
+            "weight": 500,
+            "foreground": "rgb(203, 109, 77)",
+            "background": [
+              245,
+              243,
+              239
+            ]
+          },
+          {
+            "text": "Older posts →",
+            "tag": "A",
+            "class": "px-8 py-3 bg-primary text-primary-foreground rounded-full",
+            "ratio": 3.4,
+            "required": 4.5,
+            "fontSize": 16,
+            "weight": 400,
+            "foreground": "rgb(250, 248, 245)",
+            "background": [
+              203,
+              109,
+              77
+            ]
+          },
+          {
+            "text": "rusiru",
+            "tag": "SPAN",
+            "class": "text-primary",
+            "ratio": 3.4,
+            "required": 4.5,
+            "fontSize": 18,
+            "weight": 700,
+            "foreground": "rgb(203, 109, 77)",
+            "background": [
+              250,
+              248,
+              245
+            ]
+          }
+        ]
+      },
+      "errors": []
+    },
+    {
+      "name": "about",
+      "path": "/p/about.html",
+      "width": 768,
+      "status": 200,
+      "title": "About me",
+      "canonical": "https://ru5iru.blogspot.com/p/about.html",
+      "description": "Software engineering, career lessons, side projects, and developer life by Rusiru Rathmina.",
+      "h1": [
+        "About Rusiru Rathmina"
+      ],
+      "overflow": false,
+      "headingOrder": [
+        {
+          "tag": "H1",
+          "text": "About Rusiru Rathmina"
+        },
+        {
+          "tag": "H2",
+          "text": "How it all started"
+        },
+        {
+          "tag": "H2",
+          "text": "The first real leap"
+        },
+        {
+          "tag": "H2",
+          "text": "Where I am now"
+        },
+        {
+          "tag": "H2",
+          "text": "What drives me"
+        },
+        {
+          "tag": "H2",
+          "text": "What I'm learning"
+        },
+        {
+          "tag": "H3",
+          "text": "iamrusiru"
+        },
+        {
+          "tag": "H4",
+          "text": "Quick Links"
+        },
+        {
+          "tag": "H4",
+          "text": "Legal Stuff"
+        },
+        {
+          "tag": "H4",
+          "text": "Connect"
+        }
+      ],
+      "images": [],
+      "faqQuestions": 0,
+      "tocLinks": 0,
+      "codeButtons": 0,
+      "targets": [
+        {
+          "text": "Home",
+          "tag": "A",
+          "width": 38,
+          "height": 20
+        },
+        {
+          "text": "About me",
+          "tag": "A",
+          "width": 61,
+          "height": 20
+        },
+        {
+          "text": "Portfolio (opens in new tab)",
+          "tag": "A",
+          "width": 55,
+          "height": 20
+        },
+        {
+          "text": "Home",
+          "tag": "A",
+          "width": 156,
+          "height": 20
+        },
+        {
+          "text": "About me",
+          "tag": "A",
+          "width": 156,
+          "height": 20
+        },
+        {
+          "text": "Portfolio",
+          "tag": "A",
+          "width": 156,
+          "height": 20
+        },
+        {
+          "text": "Contact",
+          "tag": "A",
+          "width": 156,
+          "height": 20
+        },
+        {
+          "text": "Privacy Policy",
+          "tag": "A",
+          "width": 156,
+          "height": 20
+        },
+        {
+          "text": "Cookie Policy",
+          "tag": "A",
+          "width": 156,
+          "height": 20
+        },
+        {
+          "text": "Twitter / X",
+          "tag": "A",
+          "width": 156,
+          "height": 20
+        },
+        {
+          "text": "GitHub",
+          "tag": "A",
+          "width": 156,
+          "height": 20
+        },
+        {
+          "text": "LinkedIn",
+          "tag": "A",
+          "width": 156,
+          "height": 20
+        },
+        {
+          "text": "Facebook",
+          "tag": "A",
+          "width": 156,
+          "height": 20
+        },
+        {
+          "text": "Instagram",
+          "tag": "A",
+          "width": 156,
+          "height": 20
+        },
+        {
+          "text": "RSS Feed",
+          "tag": "A",
+          "width": 156,
+          "height": 20
+        }
+      ],
+      "unnamedControls": [],
+      "lang": "en",
+      "resources": [
+        {
+          "name": "https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Roboto:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500;600&display=swap",
+          "transferSize": 0,
+          "decodedBodySize": 31515,
+          "duration": 0
+        },
+        {
+          "name": "https://www.blogger.com/static/v1/widgets/648255196-widgets.js",
+          "transferSize": 0,
+          "decodedBodySize": 0,
+          "duration": 0
+        },
+        {
+          "name": "https://www.blogger.com/dyncss/483525992596231392/authorization.css?zx=c9f11d91-e786-4f70-9cfd-c6e3084f4104",
+          "transferSize": 0,
+          "decodedBodySize": 0,
+          "duration": 300
+        },
+        {
+          "name": "https://fonts.gstatic.com/s/dmserifdisplay/v17/-nFnOHM81r4j6k0gjAW3mujVU2B2G_Bx0g.woff2",
+          "transferSize": 0,
+          "decodedBodySize": 24744,
+          "duration": 0
+        },
+        {
+          "name": "https://fonts.gstatic.com/s/jetbrainsmono/v24/tDbv2o-flEEny0FZhsfKu5WU4zr3E_BX0PnT8RD8yKwBNntkaToggR7BYRbKPxDcwg.woff2",
+          "transferSize": 0,
+          "decodedBodySize": 31432,
+          "duration": 0
+        },
+        {
+          "name": "https://fonts.gstatic.com/s/roboto/v51/KFO7CnqEu92Fr1ME7kSn66aGLdTylUAMawCUBGEe.woff2",
+          "transferSize": 0,
+          "decodedBodySize": 41348,
+          "duration": 0
+        },
+        {
+          "name": "https://fonts.gstatic.com/s/roboto/v51/KFO7CnqEu92Fr1ME7kSn66aGLdTylUAMaxKUBGEe.woff2",
+          "transferSize": 0,
+          "decodedBodySize": 20556,
+          "duration": 0
+        },
+        {
+          "name": "https://fonts.gstatic.com/s/roboto/v51/KFO7CnqEu92Fr1ME7kSn66aGLdTylUAMa3yUBA.woff2",
+          "transferSize": 0,
+          "decodedBodySize": 43136,
+          "duration": 0
+        },
+        {
+          "name": "https://ru5iru.blogspot.com/favicon.ico",
+          "transferSize": 0,
+          "decodedBodySize": 9662,
+          "duration": 1
+        }
+      ],
+      "contrast": {
+        "tested": 56,
+        "skipped": 0,
+        "failures": [
+          {
+            "text": "About me",
+            "tag": "A",
+            "class": "text-sm font-medium text-caption hover:text-primary",
+            "ratio": 3.4,
+            "required": 4.5,
+            "fontSize": 14,
+            "weight": 500,
+            "foreground": "rgb(203, 109, 77)",
+            "background": [
+              250,
+              248,
+              245
+            ]
+          },
+          {
+            "text": "solve real problems",
+            "tag": "SPAN",
+            "class": "text-primary font-medium",
+            "ratio": 3.4,
+            "required": 4.5,
+            "fontSize": 16,
+            "weight": 500,
+            "foreground": "rgb(203, 109, 77)",
+            "background": [
+              250,
+              248,
+              245
+            ]
+          },
+          {
+            "text": "React",
+            "tag": "SPAN",
+            "class": "text-primary font-medium",
+            "ratio": 3.4,
+            "required": 4.5,
+            "fontSize": 16,
+            "weight": 500,
+            "foreground": "rgb(203, 109, 77)",
+            "background": [
+              250,
+              248,
+              245
+            ]
+          },
+          {
+            "text": "PHP",
+            "tag": "SPAN",
+            "class": "text-primary font-medium",
+            "ratio": 3.4,
+            "required": 4.5,
+            "fontSize": 16,
+            "weight": 500,
+            "foreground": "rgb(203, 109, 77)",
+            "background": [
+              250,
+              248,
+              245
+            ]
+          },
+          {
+            "text": "Drupal",
+            "tag": "SPAN",
+            "class": "text-primary font-medium",
+            "ratio": 3.4,
+            "required": 4.5,
+            "fontSize": 16,
+            "weight": 500,
+            "foreground": "rgb(203, 109, 77)",
+            "background": [
+              250,
+              248,
+              245
+            ]
+          },
+          {
+            "text": "works",
+            "tag": "SPAN",
+            "class": "text-primary font-medium",
+            "ratio": 3.4,
+            "required": 4.5,
+            "fontSize": 16,
+            "weight": 500,
+            "foreground": "rgb(203, 109, 77)",
+            "background": [
+              250,
+              248,
+              245
+            ]
+          },
+          {
+            "text": "good",
+            "tag": "SPAN",
+            "class": "text-primary font-medium",
+            "ratio": 3.4,
+            "required": 4.5,
+            "fontSize": 16,
+            "weight": 500,
+            "foreground": "rgb(203, 109, 77)",
+            "background": [
+              250,
+              248,
+              245
+            ]
+          },
+          {
+            "text": "there's always something new to learn",
+            "tag": "SPAN",
+            "class": "text-primary font-medium",
+            "ratio": 3.4,
+            "required": 4.5,
+            "fontSize": 16,
+            "weight": 500,
+            "foreground": "rgb(203, 109, 77)",
+            "background": [
+              250,
+              248,
+              245
+            ]
+          },
+          {
+            "text": "Let's connect →",
+            "tag": "A",
+            "class": "inline-flex items-center gap-2 px-8 py-3 bg-primary text-primary-foreground rounded-full font-medium hover:bg-primary/90 transition-colors",
+            "ratio": 3.4,
+            "required": 4.5,
+            "fontSize": 16,
+            "weight": 500,
+            "foreground": "rgb(250, 248, 245)",
+            "background": [
+              203,
+              109,
+              77
+            ]
+          },
+          {
+            "text": "rusiru",
+            "tag": "SPAN",
+            "class": "text-primary",
+            "ratio": 3.4,
+            "required": 4.5,
+            "fontSize": 18,
+            "weight": 700,
+            "foreground": "rgb(203, 109, 77)",
+            "background": [
+              250,
+              248,
+              245
+            ]
+          }
+        ]
+      },
+      "errors": []
+    },
+    {
+      "name": "contact",
+      "path": "/p/contact.html",
+      "width": 768,
+      "status": 200,
+      "title": "Contact",
+      "canonical": "https://ru5iru.blogspot.com/p/contact.html",
+      "description": "Software engineering, career lessons, side projects, and developer life by Rusiru Rathmina.",
+      "h1": [
+        "Contact Rusiru Rathmina"
+      ],
+      "overflow": false,
+      "headingOrder": [
+        {
+          "tag": "H1",
+          "text": "Contact Rusiru Rathmina"
+        },
+        {
+          "tag": "H2",
+          "text": "Get in touch"
+        },
+        {
+          "tag": "H2",
+          "text": "Find me online"
+        },
+        {
+          "tag": "H3",
+          "text": "iamrusiru"
+        },
+        {
+          "tag": "H4",
+          "text": "Quick Links"
+        },
+        {
+          "tag": "H4",
+          "text": "Legal Stuff"
+        },
+        {
+          "tag": "H4",
+          "text": "Connect"
+        }
+      ],
+      "images": [],
+      "faqQuestions": 0,
+      "tocLinks": 0,
+      "codeButtons": 0,
+      "targets": [
+        {
+          "text": "Home",
+          "tag": "A",
+          "width": 38,
+          "height": 20
+        },
+        {
+          "text": "About me",
+          "tag": "A",
+          "width": 61,
+          "height": 20
+        },
+        {
+          "text": "Portfolio (opens in new tab)",
+          "tag": "A",
+          "width": 55,
+          "height": 20
+        },
+        {
+          "text": "Home",
+          "tag": "A",
+          "width": 156,
+          "height": 20
+        },
+        {
+          "text": "About me",
+          "tag": "A",
+          "width": 156,
+          "height": 20
+        },
+        {
+          "text": "Portfolio",
+          "tag": "A",
+          "width": 156,
+          "height": 20
+        },
+        {
+          "text": "Contact",
+          "tag": "A",
+          "width": 156,
+          "height": 20
+        },
+        {
+          "text": "Privacy Policy",
+          "tag": "A",
+          "width": 156,
+          "height": 20
+        },
+        {
+          "text": "Cookie Policy",
+          "tag": "A",
+          "width": 156,
+          "height": 20
+        },
+        {
+          "text": "Twitter / X",
+          "tag": "A",
+          "width": 156,
+          "height": 20
+        },
+        {
+          "text": "GitHub",
+          "tag": "A",
+          "width": 156,
+          "height": 20
+        },
+        {
+          "text": "LinkedIn",
+          "tag": "A",
+          "width": 156,
+          "height": 20
+        },
+        {
+          "text": "Facebook",
+          "tag": "A",
+          "width": 156,
+          "height": 20
+        },
+        {
+          "text": "Instagram",
+          "tag": "A",
+          "width": 156,
+          "height": 20
+        },
+        {
+          "text": "RSS Feed",
+          "tag": "A",
+          "width": 156,
+          "height": 20
+        }
+      ],
+      "unnamedControls": [],
+      "lang": "en",
+      "resources": [
+        {
+          "name": "https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Roboto:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500;600&display=swap",
+          "transferSize": 0,
+          "decodedBodySize": 31515,
+          "duration": 0
+        },
+        {
+          "name": "https://www.blogger.com/static/v1/widgets/648255196-widgets.js",
+          "transferSize": 0,
+          "decodedBodySize": 0,
+          "duration": 0
+        },
+        {
+          "name": "https://www.blogger.com/dyncss/483525992596231392/authorization.css?zx=c9f11d91-e786-4f70-9cfd-c6e3084f4104",
+          "transferSize": 0,
+          "decodedBodySize": 0,
+          "duration": 305
+        },
+        {
+          "name": "https://fonts.gstatic.com/s/dmserifdisplay/v17/-nFnOHM81r4j6k0gjAW3mujVU2B2G_Bx0g.woff2",
+          "transferSize": 0,
+          "decodedBodySize": 24744,
+          "duration": 0
+        },
+        {
+          "name": "https://fonts.gstatic.com/s/jetbrainsmono/v24/tDbv2o-flEEny0FZhsfKu5WU4zr3E_BX0PnT8RD8yKwBNntkaToggR7BYRbKPxDcwg.woff2",
+          "transferSize": 0,
+          "decodedBodySize": 31432,
+          "duration": 0
+        },
+        {
+          "name": "https://fonts.gstatic.com/s/roboto/v51/KFO7CnqEu92Fr1ME7kSn66aGLdTylUAMawCUBGEe.woff2",
+          "transferSize": 0,
+          "decodedBodySize": 41348,
+          "duration": 0
+        },
+        {
+          "name": "https://fonts.gstatic.com/s/roboto/v51/KFO7CnqEu92Fr1ME7kSn66aGLdTylUAMaxKUBGEe.woff2",
+          "transferSize": 0,
+          "decodedBodySize": 20556,
+          "duration": 0
+        },
+        {
+          "name": "https://fonts.gstatic.com/s/roboto/v51/KFO7CnqEu92Fr1ME7kSn66aGLdTylUAMa3yUBA.woff2",
+          "transferSize": 0,
+          "decodedBodySize": 43136,
+          "duration": 0
+        },
+        {
+          "name": "https://ru5iru.blogspot.com/favicon.ico",
+          "transferSize": 0,
+          "decodedBodySize": 9662,
+          "duration": 1
+        }
+      ],
+      "contrast": {
+        "tested": 32,
+        "skipped": 0,
+        "failures": [
+          {
+            "text": "Contact Me",
+            "tag": "A",
+            "class": "px-5 py-2 text-sm font-medium border border-divider rounded-full hover:border-primary hover:text-primary",
+            "ratio": 3.4,
+            "required": 4.5,
+            "fontSize": 14,
+            "weight": 500,
+            "foreground": "rgb(203, 109, 77)",
+            "background": [
+              250,
+              248,
+              245
+            ]
+          },
+          {
+            "text": "Contact",
+            "tag": "SPAN",
+            "class": "text-sm font-medium text-primary uppercase tracking-widest",
+            "ratio": 3.4,
+            "required": 4.5,
+            "fontSize": 14,
+            "weight": 500,
+            "foreground": "rgb(203, 109, 77)",
+            "background": [
+              250,
+              248,
+              245
+            ]
+          },
+          {
+            "text": "rusiru",
+            "tag": "SPAN",
+            "class": "text-primary",
+            "ratio": 3.4,
+            "required": 4.5,
+            "fontSize": 18,
+            "weight": 700,
+            "foreground": "rgb(203, 109, 77)",
+            "background": [
+              250,
+              248,
+              245
+            ]
+          }
+        ]
+      },
+      "errors": []
+    },
+    {
+      "name": "home",
+      "path": "/",
+      "width": 390,
+      "status": 200,
+      "title": "Rusiru Rathmina | Software Engineer Blog",
+      "canonical": "https://ru5iru.blogspot.com/",
+      "description": "Software engineering, career lessons, side projects, and developer life by Rusiru Rathmina.",
+      "h1": [
+        "Rusiru'sSoftware Engineering Blog.",
+        "Rusiru Rathmina | Software Engineer Blog"
+      ],
+      "overflow": false,
+      "headingOrder": [
+        {
+          "tag": "H1",
+          "text": "Rusiru'sSoftware Engineering Blog."
+        },
+        {
+          "tag": "H2",
+          "text": "Latest Posts"
+        },
+        {
+          "tag": "H2",
+          "text": "Why Proper Planning Is a Must in a Software Project"
+        },
+        {
+          "tag": "H2",
+          "text": "Injection OWASP Top 10: A03 Explained for Developers"
+        },
+        {
+          "tag": "H2",
+          "text": "Cryptographic Failures: The OWASP A02 Risk Hiding in Your Code"
+        },
+        {
+          "tag": "H2",
+          "text": "Broken Access Control: The OWASP Top 10's Most Dangerous Flaw"
+        },
+        {
+          "tag": "H2",
+          "text": "Work-Life Balance for Developers: Why It Matters and How to Protect It"
+        },
+        {
+          "tag": "H2",
+          "text": "Drupal Caching: Cache Tags, Contexts and Debugging"
+        },
+        {
+          "tag": "H3",
+          "text": "Topics"
+        },
+        {
+          "tag": "H2",
+          "text": "Tags"
+        },
+        {
+          "tag": "H3",
+          "text": "Blog Archive"
+        },
+        {
+          "tag": "H1",
+          "text": "Rusiru Rathmina | Software Engineer Blog"
+        },
+        {
+          "tag": "H3",
+          "text": "Popular"
+        },
+        {
+          "tag": "H3",
+          "text": "About Me"
+        },
+        {
+          "tag": "H3",
+          "text": "Let's connect"
+        },
+        {
+          "tag": "H3",
+          "text": "iamrusiru"
+        },
+        {
+          "tag": "H4",
+          "text": "Quick Links"
+        },
+        {
+          "tag": "H4",
+          "text": "Legal Stuff"
+        },
+        {
+          "tag": "H4",
+          "text": "Connect"
+        }
+      ],
+      "images": [
+        {
+          "src": "data:image/jpeg;base64,/9j/2wBDAAUDBAQEAwUEBAQFBQUGBwwIBwcHBw8LCwkMEQ8SEhEPERETFhwXExQaFRERGCEYGh0dHx8fExciJCIeJBweHx7/2wBDAQUFBQcGBw4ICA4eFBEUHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh7/wAARCAGgAaADASIAAhEBAxEB/8QAHQABAAAHAQE",
+          "complete": true,
+          "naturalWidth": 416,
+          "width": 240,
+          "height": 240,
+          "alt": "Rusiru's profile photo"
+        },
+        {
+          "src": "https://lh3.googleusercontent.com/blogger_img_proxy/AEn0k_s9DXGBQD3e0E1h-2rd2-Bavf6gy6gT9bdKgQfLLJ_Hof_v5u1-tEV_qNc-GgajyikFZmLqaCkNXpFkevacIn71Io2APZgq4O4GqQwgrBUGiRDaf01Wh-yyFLvW_u0_Q2TyAEMQe5oYMyAZf17PRAsKVYfRu3Lv=w384-h256-p-k-no-nu",
+          "complete": true,
+          "naturalWidth": 384,
+          "width": 192,
+          "height": 128,
+          "alt": ""
+        },
+        {
+          "src": "data:image/jpeg;base64,/9j/2wBDAAUDBAQEAwUEBAQFBQUGBwwIBwcHBw8LCwkMEQ8SEhEPERETFhwXExQaFRERGCEYGh0dHx8fExciJCIeJBweHx7/2wBDAQUFBQcGBw4ICA4eFBEUHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh7/wAARCAGgAaADASIAAhEBAxEB/8QAHQABAAAHAQE",
+          "complete": true,
+          "naturalWidth": 416,
+          "width": 28,
+          "height": 28,
+          "alt": ""
+        },
+        {
+          "src": "https://lh3.googleusercontent.com/blogger_img_proxy/AEn0k_v_7wHk8bRInEiz-dbM6169puiM1sRQmPS94g4bANzmVu5gcNShUQ9jvJm7iEtRShZlq_mXcED8x8CeHY8-e-QNqul73dnVAR10cUbIRDN3fLEoM1CcQB81KIspUoqPdehqTdAK2QqJwV2vQNweW3hNMbeN_LsReA=w384-h256-p-k-no-nu",
+          "complete": true,
+          "naturalWidth": 384,
+          "width": 192,
+          "height": 128,
+          "alt": ""
+        },
+        {
+          "src": "data:image/jpeg;base64,/9j/2wBDAAUDBAQEAwUEBAQFBQUGBwwIBwcHBw8LCwkMEQ8SEhEPERETFhwXExQaFRERGCEYGh0dHx8fExciJCIeJBweHx7/2wBDAQUFBQcGBw4ICA4eFBEUHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh7/wAARCAGgAaADASIAAhEBAxEB/8QAHQABAAAHAQE",
+          "complete": true,
+          "naturalWidth": 416,
+          "width": 28,
+          "height": 28,
+          "alt": ""
+        },
+        {
+          "src": "https://lh3.googleusercontent.com/blogger_img_proxy/AEn0k_usG-zT2e4wuIzfjkq0Li6a-etK9eqBoAOY1A0RCr4Zxav0UKunRonCtptpPNskgT923TNF4FP6FNpGc-JIavsYTAzpES-dGR-xB-UCOxguZXfatfBlQluX1vlRym_BSwkSNXdO4uY7TpdXiouZJahsqqahcfMFF5MN3_FstN0N9ocSgY8e=w384-h256-p-k",
+          "complete": true,
+          "naturalWidth": 384,
+          "width": 192,
+          "height": 128,
+          "alt": ""
+        },
+        {
+          "src": "data:image/jpeg;base64,/9j/2wBDAAUDBAQEAwUEBAQFBQUGBwwIBwcHBw8LCwkMEQ8SEhEPERETFhwXExQaFRERGCEYGh0dHx8fExciJCIeJBweHx7/2wBDAQUFBQcGBw4ICA4eFBEUHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh7/wAARCAGgAaADASIAAhEBAxEB/8QAHQABAAAHAQE",
+          "complete": true,
+          "naturalWidth": 416,
+          "width": 28,
+          "height": 28,
+          "alt": ""
+        },
+        {
+          "src": "https://lh3.googleusercontent.com/blogger_img_proxy/AEn0k_tM5ba7dS8jjvsNnsMMXPWW1CXhZe1sJ79KyxHETZsBtNfARW-BBjm7CsOWWib_zOddoz2WBqpTj0BMOBPIY3xrz2kSC97A4XxTfhu86fIoA3VJqfyEFd3B0BD_evTm2Z4-qyXvq61G28HCVP2n9Qh-MiIjYm-oZRy8aE9wJQwI1RXOXJY=w384-h256-p-k-",
+          "complete": true,
+          "naturalWidth": 384,
+          "width": 192,
+          "height": 128,
+          "alt": ""
+        },
+        {
+          "src": "data:image/jpeg;base64,/9j/2wBDAAUDBAQEAwUEBAQFBQUGBwwIBwcHBw8LCwkMEQ8SEhEPERETFhwXExQaFRERGCEYGh0dHx8fExciJCIeJBweHx7/2wBDAQUFBQcGBw4ICA4eFBEUHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh7/wAARCAGgAaADASIAAhEBAxEB/8QAHQABAAAHAQE",
+          "complete": true,
+          "naturalWidth": 416,
+          "width": 28,
+          "height": 28,
+          "alt": ""
+        },
+        {
+          "src": "https://lh3.googleusercontent.com/blogger_img_proxy/AEn0k_v0RHpYryIKyxhKIUyc9TgmTzqryiQ-pHyEFPaY9ZThRNFrNzODsO6E3PzbkcBxjY27Zv5b_Og9R45KHl6BNc_iQQs6Id8V9AXexedtXrAw5ceABRuA9pamxT5xyCA4MgGu0YSlQGBqYcYuHB5i2cToiDuzWSkb6SwZsUWHT8JluA=w384-h256-p-k-no-nu",
+          "complete": true,
+          "naturalWidth": 384,
+          "width": 192,
+          "height": 128,
+          "alt": ""
+        },
+        {
+          "src": "data:image/jpeg;base64,/9j/2wBDAAUDBAQEAwUEBAQFBQUGBwwIBwcHBw8LCwkMEQ8SEhEPERETFhwXExQaFRERGCEYGh0dHx8fExciJCIeJBweHx7/2wBDAQUFBQcGBw4ICA4eFBEUHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh7/wAARCAGgAaADASIAAhEBAxEB/8QAHQABAAAHAQE",
+          "complete": true,
+          "naturalWidth": 416,
+          "width": 28,
+          "height": 28,
+          "alt": ""
+        },
+        {
+          "src": "https://lh3.googleusercontent.com/blogger_img_proxy/AEn0k_sy9CfQkXwcpqtDf_hyS87IfxXFMJVlWYf_ePopO_ZF7U7BezGsbLNxUjY7YqmUilTvfwyvJJ53kN1TGo9IVsmbQ9CrqPEEOmMCXOFGRb32V4XBr_VRB2_m24FrUgUiv48i78sJQ2RgjdOyOQpVkZRHHCZs-kvqt-ayrf5pQw=w384-h256-p-k-no-nu",
+          "complete": true,
+          "naturalWidth": 384,
+          "width": 192,
+          "height": 128,
+          "alt": ""
+        },
+        {
+          "src": "data:image/jpeg;base64,/9j/2wBDAAUDBAQEAwUEBAQFBQUGBwwIBwcHBw8LCwkMEQ8SEhEPERETFhwXExQaFRERGCEYGh0dHx8fExciJCIeJBweHx7/2wBDAQUFBQcGBw4ICA4eFBEUHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh7/wAARCAGgAaADASIAAhEBAxEB/8QAHQABAAAHAQE",
+          "complete": true,
+          "naturalWidth": 416,
+          "width": 28,
+          "height": 28,
+          "alt": ""
+        },
+        {
+          "src": "https://lh3.googleusercontent.com/blogger_img_proxy/AEn0k_s9DXGBQD3e0E1h-2rd2-Bavf6gy6gT9bdKgQfLLJ_Hof_v5u1-tEV_qNc-GgajyikFZmLqaCkNXpFkevacIn71Io2APZgq4O4GqQwgrBUGiRDaf01Wh-yyFLvW_u0_Q2TyAEMQe5oYMyAZf17PRAsKVYfRu3Lv=w80",
+          "complete": true,
+          "naturalWidth": 80,
+          "width": 60,
+          "height": 60,
+          "alt": ""
+        },
+        {
+          "src": "https://lh3.googleusercontent.com/blogger_img_proxy/AEn0k_v_7wHk8bRInEiz-dbM6169puiM1sRQmPS94g4bANzmVu5gcNShUQ9jvJm7iEtRShZlq_mXcED8x8CeHY8-e-QNqul73dnVAR10cUbIRDN3fLEoM1CcQB81KIspUoqPdehqTdAK2QqJwV2vQNweW3hNMbeN_LsReA=w80",
+          "complete": true,
+          "naturalWidth": 80,
+          "width": 60,
+          "height": 60,
+          "alt": ""
+        },
+        {
+          "src": "https://lh3.googleusercontent.com/blogger_img_proxy/AEn0k_uFDHw-wLr-bUrSNP8bobwyGxmmYHOaLbwJiG8SqCNQsEWpN4X2taq8Q4dtJNXWb2lIb9gVD6Vp0we_fsj5uyFpvKrMVGDL_alFOs8q7wtUXLA4WYXxLGbwpXvY_fg1HlnhDpJeTeB9F6AOQU6QuUA-Iwam6ZD7m831MqsGCxpMEALlIQ=w80",
+          "complete": true,
+          "naturalWidth": 80,
+          "width": 60,
+          "height": 60,
+          "alt": ""
+        },
+        {
+          "src": "https://lh3.googleusercontent.com/blogger_img_proxy/AEn0k_usG-zT2e4wuIzfjkq0Li6a-etK9eqBoAOY1A0RCr4Zxav0UKunRonCtptpPNskgT923TNF4FP6FNpGc-JIavsYTAzpES-dGR-xB-UCOxguZXfatfBlQluX1vlRym_BSwkSNXdO4uY7TpdXiouZJahsqqahcfMFF5MN3_FstN0N9ocSgY8e=w80",
+          "complete": true,
+          "naturalWidth": 80,
+          "width": 60,
+          "height": 60,
+          "alt": ""
+        },
+        {
+          "src": "https://lh3.googleusercontent.com/blogger_img_proxy/AEn0k_tM5ba7dS8jjvsNnsMMXPWW1CXhZe1sJ79KyxHETZsBtNfARW-BBjm7CsOWWib_zOddoz2WBqpTj0BMOBPIY3xrz2kSC97A4XxTfhu86fIoA3VJqfyEFd3B0BD_evTm2Z4-qyXvq61G28HCVP2n9Qh-MiIjYm-oZRy8aE9wJQwI1RXOXJY=w80",
+          "complete": true,
+          "naturalWidth": 80,
+          "width": 60,
+          "height": 60,
+          "alt": ""
+        },
+        {
+          "src": "https://lh3.googleusercontent.com/blogger_img_proxy/AEn0k_sy9CfQkXwcpqtDf_hyS87IfxXFMJVlWYf_ePopO_ZF7U7BezGsbLNxUjY7YqmUilTvfwyvJJ53kN1TGo9IVsmbQ9CrqPEEOmMCXOFGRb32V4XBr_VRB2_m24FrUgUiv48i78sJQ2RgjdOyOQpVkZRHHCZs-kvqt-ayrf5pQw=w80",
+          "complete": true,
+          "naturalWidth": 80,
+          "width": 60,
+          "height": 60,
+          "alt": ""
+        },
+        {
+          "src": "https://lh3.googleusercontent.com/blogger_img_proxy/AEn0k_sh-wG4iSlX3ckSYkBZ77DQTo9YjttLLYO2DuQ6BCnWMjyvEyzQWnklt7PRRBPOlJHuzpgKop4_KyT7yUoiwCQGBzdCheqXR0wM-rUu1e6XvBsSgUsZ94EQi4YuBc2SEg0cyHT8R4sne68y3ncaaE0bY5dmMR21kac=w80",
+          "complete": true,
+          "naturalWidth": 80,
+          "width": 60,
+          "height": 60,
+          "alt": ""
+        },
+        {
+          "src": "https://lh3.googleusercontent.com/blogger_img_proxy/AEn0k_sLNhyTmShwXxA8ZDLUa0Ibkg-9zN98RTpmvvLw9kmpMkW1Xdcgj5EsL_7zLDRCUqrKZZ_37ruv7Yk7g0_Rtkc2VqVz3jgJAnZPR9_6CLdpSAeID-T_XfBBja-dtkH5KH-4dS6lZFRUeIvn-Hlr47997l7kb5Y7Flm_8qlM=w80",
+          "complete": true,
+          "naturalWidth": 80,
+          "width": 60,
+          "height": 60,
+          "alt": ""
+        },
+        {
+          "src": "https://lh3.googleusercontent.com/blogger_img_proxy/AEn0k_tF8SI0xzPWgIzzuXzBIHWwAFD4ZP7Ep9xCUWvoDXRly3a6ZqgiOgVhpfAPS-cRjPIBWK6joKt9tfLAAG_TJT-Br2J8j8STwJCTRFkjZLPlxwr_5HwI2NwnQuqU9hegNw6Lq1oVY-J85CEL_b_zzHarD9uDlzUokA=w80",
+          "complete": true,
+          "naturalWidth": 80,
+          "width": 60,
+          "height": 60,
+          "alt": ""
+        },
+        {
+          "src": "https://lh3.googleusercontent.com/blogger_img_proxy/AEn0k_vj6ETbAn2Lfe0OYdtvx0XxesmBLskpIVyBMS4TBkW7UMMCgfGfXGWX_-YS7i7mzWbbo76MD_jxNdKh4BjvGqYG3WYeJGc88jWgx5wePH_6RUrXlhdHlYDYUMrBVEq0_Mxy307i14j-8HwWe08Y2PPrp5rbtjsa=w80",
+          "complete": true,
+          "naturalWidth": 80,
+          "width": 60,
+          "height": 60,
+          "alt": ""
+        }
+      ],
+      "faqQuestions": 0,
+      "tocLinks": 0,
+      "codeButtons": 0,
+      "targets": [
+        {
+          "text": "2026\n14",
+          "tag": "A",
+          "width": 54,
+          "height": 17
+        },
+        {
+          "text": "June\n2",
+          "tag": "A",
+          "width": 46,
+          "height": 17
+        },
+        {
+          "text": "May\n2",
+          "tag": "A",
+          "width": 42,
+          "height": 17
+        },
+        {
+          "text": "April\n4",
+          "tag": "A",
+          "width": 44,
+          "height": 17
+        },
+        {
+          "text": "March\n2",
+          "tag": "A",
+          "width": 55,
+          "height": 17
+        },
+        {
+          "text": "February\n1",
+          "tag": "A",
+          "width": 70,
+          "height": 17
+        },
+        {
+          "text": "January\n3",
+          "tag": "A",
+          "width": 66,
+          "height": 17
+        },
+        {
+          "text": "2025\n9",
+          "tag": "A",
+          "width": 47,
+          "height": 17
+        },
+        {
+          "text": "December\n3",
+          "tag": "A",
+          "width": 80,
+          "height": 17
+        },
+        {
+          "text": "November\n5",
+          "tag": "A",
+          "width": 80,
+          "height": 17
+        },
+        {
+          "text": "October\n1",
+          "tag": "A",
+          "width": 65,
+          "height": 17
+        },
+        {
+          "text": "Why I Keep a Developer Journal",
+          "tag": "A",
+          "width": 205,
+          "height": 18
+        },
+        {
+          "text": "Burnout, Recovery, and What I Learned",
+          "tag": "A",
+          "width": 250,
+          "height": 18
+        },
+        {
+          "text": "Home",
+          "tag": "A",
+          "width": 155,
+          "height": 20
+        },
+        {
+          "text": "About me",
+          "tag": "A",
+          "width": 155,
+          "height": 20
+        },
+        {
+          "text": "Portfolio",
+          "tag": "A",
+          "width": 155,
+          "height": 20
+        },
+        {
+          "text": "Contact",
+          "tag": "A",
+          "width": 155,
+          "height": 20
+        },
+        {
+          "text": "Privacy Policy",
+          "tag": "A",
+          "width": 155,
+          "height": 20
+        },
+        {
+          "text": "Cookie Policy",
+          "tag": "A",
+          "width": 155,
+          "height": 20
+        },
+        {
+          "text": "Twitter / X",
+          "tag": "A",
+          "width": 155,
+          "height": 20
+        },
+        {
+          "text": "GitHub",
+          "tag": "A",
+          "width": 155,
+          "height": 20
+        },
+        {
+          "text": "LinkedIn",
+          "tag": "A",
+          "width": 155,
+          "height": 20
+        },
+        {
+          "text": "Facebook",
+          "tag": "A",
+          "width": 155,
+          "height": 20
+        },
+        {
+          "text": "Instagram",
+          "tag": "A",
+          "width": 155,
+          "height": 20
+        },
+        {
+          "text": "RSS Feed",
+          "tag": "A",
+          "width": 155,
+          "height": 20
+        }
+      ],
+      "unnamedControls": [],
+      "lang": "en",
+      "resources": [
+        {
+          "name": "https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Roboto:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500;600&display=swap",
+          "transferSize": 0,
+          "decodedBodySize": 31515,
+          "duration": 0
+        },
+        {
+          "name": "https://lh3.googleusercontent.com/blogger_img_proxy/AEn0k_s9DXGBQD3e0E1h-2rd2-Bavf6gy6gT9bdKgQfLLJ_Hof_v5u1-tEV_qNc-GgajyikFZmLqaCkNXpFkevacIn71Io2APZgq4O4GqQwgrBUGiRDaf01Wh-yyFLvW_u0_Q2TyAEMQe5oYMyAZf17PRAsKVYfRu3Lv=w80",
+          "transferSize": 0,
+          "decodedBodySize": 7105,
+          "duration": 0
+        },
+        {
+          "name": "https://lh3.googleusercontent.com/blogger_img_proxy/AEn0k_v_7wHk8bRInEiz-dbM6169puiM1sRQmPS94g4bANzmVu5gcNShUQ9jvJm7iEtRShZlq_mXcED8x8CeHY8-e-QNqul73dnVAR10cUbIRDN3fLEoM1CcQB81KIspUoqPdehqTdAK2QqJwV2vQNweW3hNMbeN_LsReA=w80",
+          "transferSize": 0,
+          "decodedBodySize": 1470,
+          "duration": 0
+        },
+        {
+          "name": "https://lh3.googleusercontent.com/blogger_img_proxy/AEn0k_uFDHw-wLr-bUrSNP8bobwyGxmmYHOaLbwJiG8SqCNQsEWpN4X2taq8Q4dtJNXWb2lIb9gVD6Vp0we_fsj5uyFpvKrMVGDL_alFOs8q7wtUXLA4WYXxLGbwpXvY_fg1HlnhDpJeTeB9F6AOQU6QuUA-Iwam6ZD7m831MqsGCxpMEALlIQ=w80",
+          "transferSize": 0,
+          "decodedBodySize": 2261,
+          "duration": 0
+        },
+        {
+          "name": "https://lh3.googleusercontent.com/blogger_img_proxy/AEn0k_usG-zT2e4wuIzfjkq0Li6a-etK9eqBoAOY1A0RCr4Zxav0UKunRonCtptpPNskgT923TNF4FP6FNpGc-JIavsYTAzpES-dGR-xB-UCOxguZXfatfBlQluX1vlRym_BSwkSNXdO4uY7TpdXiouZJahsqqahcfMFF5MN3_FstN0N9ocSgY8e=w80",
+          "transferSize": 0,
+          "decodedBodySize": 1659,
+          "duration": 0
+        },
+        {
+          "name": "https://lh3.googleusercontent.com/blogger_img_proxy/AEn0k_tM5ba7dS8jjvsNnsMMXPWW1CXhZe1sJ79KyxHETZsBtNfARW-BBjm7CsOWWib_zOddoz2WBqpTj0BMOBPIY3xrz2kSC97A4XxTfhu86fIoA3VJqfyEFd3B0BD_evTm2Z4-qyXvq61G28HCVP2n9Qh-MiIjYm-oZRy8aE9wJQwI1RXOXJY=w80",
+          "transferSize": 0,
+          "decodedBodySize": 1230,
+          "duration": 0
+        },
+        {
+          "name": "https://lh3.googleusercontent.com/blogger_img_proxy/AEn0k_sy9CfQkXwcpqtDf_hyS87IfxXFMJVlWYf_ePopO_ZF7U7BezGsbLNxUjY7YqmUilTvfwyvJJ53kN1TGo9IVsmbQ9CrqPEEOmMCXOFGRb32V4XBr_VRB2_m24FrUgUiv48i78sJQ2RgjdOyOQpVkZRHHCZs-kvqt-ayrf5pQw=w80",
+          "transferSize": 0,
+          "decodedBodySize": 1156,
+          "duration": 0
+        },
+        {
+          "name": "https://lh3.googleusercontent.com/blogger_img_proxy/AEn0k_sh-wG4iSlX3ckSYkBZ77DQTo9YjttLLYO2DuQ6BCnWMjyvEyzQWnklt7PRRBPOlJHuzpgKop4_KyT7yUoiwCQGBzdCheqXR0wM-rUu1e6XvBsSgUsZ94EQi4YuBc2SEg0cyHT8R4sne68y3ncaaE0bY5dmMR21kac=w80",
+          "transferSize": 0,
+          "decodedBodySize": 1471,
+          "duration": 0
+        },
+        {
+          "name": "https://lh3.googleusercontent.com/blogger_img_proxy/AEn0k_sLNhyTmShwXxA8ZDLUa0Ibkg-9zN98RTpmvvLw9kmpMkW1Xdcgj5EsL_7zLDRCUqrKZZ_37ruv7Yk7g0_Rtkc2VqVz3jgJAnZPR9_6CLdpSAeID-T_XfBBja-dtkH5KH-4dS6lZFRUeIvn-Hlr47997l7kb5Y7Flm_8qlM=w80",
+          "transferSize": 0,
+          "decodedBodySize": 1972,
+          "duration": 0
+        },
+        {
+          "name": "https://lh3.googleusercontent.com/blogger_img_proxy/AEn0k_tF8SI0xzPWgIzzuXzBIHWwAFD4ZP7Ep9xCUWvoDXRly3a6ZqgiOgVhpfAPS-cRjPIBWK6joKt9tfLAAG_TJT-Br2J8j8STwJCTRFkjZLPlxwr_5HwI2NwnQuqU9hegNw6Lq1oVY-J85CEL_b_zzHarD9uDlzUokA=w80",
+          "transferSize": 0,
+          "decodedBodySize": 864,
+          "duration": 0
+        },
+        {
+          "name": "https://lh3.googleusercontent.com/blogger_img_proxy/AEn0k_vj6ETbAn2Lfe0OYdtvx0XxesmBLskpIVyBMS4TBkW7UMMCgfGfXGWX_-YS7i7mzWbbo76MD_jxNdKh4BjvGqYG3WYeJGc88jWgx5wePH_6RUrXlhdHlYDYUMrBVEq0_Mxy307i14j-8HwWe08Y2PPrp5rbtjsa=w80",
+          "transferSize": 0,
+          "decodedBodySize": 1911,
+          "duration": 0
+        },
+        {
+          "name": "https://www.blogger.com/static/v1/widgets/648255196-widgets.js",
+          "transferSize": 0,
+          "decodedBodySize": 0,
+          "duration": 0
+        },
+        {
+          "name": "https://lh3.googleusercontent.com/blogger_img_proxy/AEn0k_s9DXGBQD3e0E1h-2rd2-Bavf6gy6gT9bdKgQfLLJ_Hof_v5u1-tEV_qNc-GgajyikFZmLqaCkNXpFkevacIn71Io2APZgq4O4GqQwgrBUGiRDaf01Wh-yyFLvW_u0_Q2TyAEMQe5oYMyAZf17PRAsKVYfRu3Lv=w384-h256-p-k-no-nu",
+          "transferSize": 0,
+          "decodedBodySize": 123551,
+          "duration": 0
+        },
+        {
+          "name": "https://lh3.googleusercontent.com/blogger_img_proxy/AEn0k_v_7wHk8bRInEiz-dbM6169puiM1sRQmPS94g4bANzmVu5gcNShUQ9jvJm7iEtRShZlq_mXcED8x8CeHY8-e-QNqul73dnVAR10cUbIRDN3fLEoM1CcQB81KIspUoqPdehqTdAK2QqJwV2vQNweW3hNMbeN_LsReA=w384-h256-p-k-no-nu",
+          "transferSize": 0,
+          "decodedBodySize": 17255,
+          "duration": 0
+        },
+        {
+          "name": "https://lh3.googleusercontent.com/blogger_img_proxy/AEn0k_usG-zT2e4wuIzfjkq0Li6a-etK9eqBoAOY1A0RCr4Zxav0UKunRonCtptpPNskgT923TNF4FP6FNpGc-JIavsYTAzpES-dGR-xB-UCOxguZXfatfBlQluX1vlRym_BSwkSNXdO4uY7TpdXiouZJahsqqahcfMFF5MN3_FstN0N9ocSgY8e=w384-h256-p-k-no-nu",
+          "transferSize": 0,
+          "decodedBodySize": 23226,
+          "duration": 0
+        },
+        {
+          "name": "https://lh3.googleusercontent.com/blogger_img_proxy/AEn0k_tM5ba7dS8jjvsNnsMMXPWW1CXhZe1sJ79KyxHETZsBtNfARW-BBjm7CsOWWib_zOddoz2WBqpTj0BMOBPIY3xrz2kSC97A4XxTfhu86fIoA3VJqfyEFd3B0BD_evTm2Z4-qyXvq61G28HCVP2n9Qh-MiIjYm-oZRy8aE9wJQwI1RXOXJY=w384-h256-p-k-no-nu",
+          "transferSize": 0,
+          "decodedBodySize": 17603,
+          "duration": 0
+        },
+        {
+          "name": "https://lh3.googleusercontent.com/blogger_img_proxy/AEn0k_v0RHpYryIKyxhKIUyc9TgmTzqryiQ-pHyEFPaY9ZThRNFrNzODsO6E3PzbkcBxjY27Zv5b_Og9R45KHl6BNc_iQQs6Id8V9AXexedtXrAw5ceABRuA9pamxT5xyCA4MgGu0YSlQGBqYcYuHB5i2cToiDuzWSkb6SwZsUWHT8JluA=w384-h256-p-k-no-nu",
+          "transferSize": 0,
+          "decodedBodySize": 11185,
+          "duration": 0
+        },
+        {
+          "name": "https://lh3.googleusercontent.com/blogger_img_proxy/AEn0k_sy9CfQkXwcpqtDf_hyS87IfxXFMJVlWYf_ePopO_ZF7U7BezGsbLNxUjY7YqmUilTvfwyvJJ53kN1TGo9IVsmbQ9CrqPEEOmMCXOFGRb32V4XBr_VRB2_m24FrUgUiv48i78sJQ2RgjdOyOQpVkZRHHCZs-kvqt-ayrf5pQw=w384-h256-p-k-no-nu",
+          "transferSize": 0,
+          "decodedBodySize": 12576,
+          "duration": 0
+        },
+        {
+          "name": "https://fonts.gstatic.com/s/dmserifdisplay/v17/-nFnOHM81r4j6k0gjAW3mujVU2B2G_Bx0g.woff2",
+          "transferSize": 0,
+          "decodedBodySize": 24744,
+          "duration": 0
+        },
+        {
+          "name": "https://fonts.gstatic.com/s/jetbrainsmono/v24/tDbv2o-flEEny0FZhsfKu5WU4zr3E_BX0PnT8RD8yKwBNntkaToggR7BYRbKPxDcwg.woff2",
+          "transferSize": 0,
+          "decodedBodySize": 31432,
+          "duration": 0
+        },
+        {
+          "name": "https://fonts.gstatic.com/s/roboto/v51/KFO7CnqEu92Fr1ME7kSn66aGLdTylUAMawCUBGEe.woff2",
+          "transferSize": 0,
+          "decodedBodySize": 41348,
+          "duration": 0
+        },
+        {
+          "name": "https://fonts.gstatic.com/s/roboto/v51/KFO7CnqEu92Fr1ME7kSn66aGLdTylUAMaxKUBGEe.woff2",
+          "transferSize": 0,
+          "decodedBodySize": 20556,
+          "duration": 0
+        },
+        {
+          "name": "https://fonts.gstatic.com/s/roboto/v51/KFO7CnqEu92Fr1ME7kSn66aGLdTylUAMa3yUBA.woff2",
+          "transferSize": 0,
+          "decodedBodySize": 43136,
+          "duration": 0
+        },
+        {
+          "name": "https://ru5iru.blogspot.com/favicon.ico",
+          "transferSize": 0,
+          "decodedBodySize": 9662,
+          "duration": 1
+        }
+      ],
+      "contrast": {
+        "tested": 168,
+        "skipped": 0,
+        "failures": [
+          {
+            "text": "Contact me",
+            "tag": "A",
+            "class": "inline-flex items-center gap-2 px-7 py-3 bg-primary text-primary-foreground rounded-full font-medium hover:bg-primary/90 transition-colors",
+            "ratio": 3.4,
+            "required": 4.5,
+            "fontSize": 16,
+            "weight": 500,
+            "foreground": "rgb(250, 248, 245)",
+            "background": [
+              203,
+              109,
+              77
+            ]
+          },
+          {
+            "text": "Older posts →",
+            "tag": "A",
+            "class": "px-8 py-3 bg-primary text-primary-foreground rounded-full",
+            "ratio": 3.4,
+            "required": 4.5,
+            "fontSize": 16,
+            "weight": 400,
+            "foreground": "rgb(250, 248, 245)",
+            "background": [
+              203,
+              109,
+              77
+            ]
+          },
+          {
+            "text": "Search",
+            "tag": "BUTTON",
+            "class": "px-4 py-2 bg-primary text-primary-foreground rounded-full",
+            "ratio": 3.4,
+            "required": 4.5,
+            "fontSize": 16,
+            "weight": 400,
+            "foreground": "rgb(250, 248, 245)",
+            "background": [
+              203,
+              109,
+              77
+            ]
+          },
+          {
+            "text": "rusiru",
+            "tag": "SPAN",
+            "class": "text-primary",
+            "ratio": 3.4,
+            "required": 4.5,
+            "fontSize": 18,
+            "weight": 700,
+            "foreground": "rgb(203, 109, 77)",
+            "background": [
+              250,
+              248,
+              245
+            ]
+          }
+        ]
+      },
+      "errors": []
+    },
+    {
+      "name": "article",
+      "path": "/2026/06/injection.html",
+      "width": 390,
+      "status": 200,
+      "title": "Injection OWASP Top 10: A03 Explained for Developers",
+      "canonical": "https://ru5iru.blogspot.com/2026/06/injection.html",
+      "description": "Software engineering, career lessons, side projects, and developer life by Rusiru Rathmina.",
+      "h1": [
+        "Injection OWASP Top 10: A03 Explained for Developers"
+      ],
+      "overflow": false,
+      "headingOrder": [
+        {
+          "tag": "H1",
+          "text": "Injection OWASP Top 10: A03 Explained for Developers"
+        },
+        {
+          "tag": "H2",
+          "text": "What injection actually is"
+        },
+        {
+          "tag": "H2",
+          "text": "Why A03 still matters"
+        },
+        {
+          "tag": "H2",
+          "text": "How injection works under the hood"
+        },
+        {
+          "tag": "H2",
+          "text": "Common pitfalls I keep finding in reviews"
+        },
+        {
+          "tag": "H2",
+          "text": "The OWASP LLM Top 10 prompt injection twist"
+        },
+        {
+          "tag": "H2",
+          "text": "Practical recommendations"
+        },
+        {
+          "tag": "H2",
+          "text": "A small story"
+        },
+        {
+          "tag": "H2",
+          "text": "Conclusion"
+        },
+        {
+          "tag": "H2",
+          "text": "More from the blog"
+        },
+        {
+          "tag": "H2",
+          "text": "Cite this post"
+        },
+        {
+          "tag": "H2",
+          "text": "You might also like"
+        },
+        {
+          "tag": "H3",
+          "text": "Cryptographic Failures: The OWASP A02 Risk Hiding in Your Code"
+        },
+        {
+          "tag": "H3",
+          "text": "Broken Access Control: The OWASP Top 10's Most Dangerous Flaw"
+        },
+        {
+          "tag": "H3",
+          "text": "OWASP Top 10 (2025): A Developer's Practical Guide"
+        },
+        {
+          "tag": "H2",
+          "text": "Frequently Asked Questions"
+        },
+        {
+          "tag": "H3",
+          "text": "What is injection in the OWASP Top 10?"
+        },
+        {
+          "tag": "H3",
+          "text": "Is injection still relevant in the OWASP Top 10 2025?"
+        },
+        {
+          "tag": "H3",
+          "text": "How do I prevent SQL injection in practice?"
+        },
+        {
+          "tag": "H3",
+          "text": "What is prompt injection in the OWASP LLM Top 10?"
+        },
+        {
+          "tag": "H3",
+          "text": "Are ORMs enough to stop injection?"
+        },
+        {
+          "tag": "H3",
+          "text": "How does command injection differ from SQL injection?"
+        },
+        {
+          "tag": "H3",
+          "text": "What tools help me catch injection bugs early?"
+        },
+        {
+          "tag": "H3",
+          "text": "Comments"
+        },
+        {
+          "tag": "H4",
+          "text": "Post a Comment"
+        },
+        {
+          "tag": "H2",
+          "text": "Contents"
+        },
+        {
+          "tag": "H3",
+          "text": "iamrusiru"
+        },
+        {
+          "tag": "H4",
+          "text": "Quick Links"
+        },
+        {
+          "tag": "H4",
+          "text": "Legal Stuff"
+        },
+        {
+          "tag": "H4",
+          "text": "Connect"
+        }
+      ],
+      "images": [
+        {
+          "src": "data:image/jpeg;base64,/9j/2wBDAAUDBAQEAwUEBAQFBQUGBwwIBwcHBw8LCwkMEQ8SEhEPERETFhwXExQaFRERGCEYGh0dHx8fExciJCIeJBweHx7/2wBDAQUFBQcGBw4ICA4eFBEUHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh7/wAARCAGgAaADASIAAhEBAxEB/8QAHQABAAAHAQE",
+          "complete": true,
+          "naturalWidth": 416,
+          "width": 40,
+          "height": 40,
+          "alt": ""
+        },
+        {
+          "src": "https://raw.githubusercontent.com/ru5iru/iamrusiru/main/src/assets/post-injection.jpg",
+          "complete": true,
+          "naturalWidth": 1024,
+          "width": 342,
+          "height": 342,
+          "alt": "Cover image for Injection OWASP Top 10: A03 Explained for Developers"
+        },
+        {
+          "src": "data:image/jpeg;base64,/9j/2wBDAAUDBAQEAwUEBAQFBQUGBwwIBwcHBw8LCwkMEQ8SEhEPERETFhwXExQaFRERGCEYGh0dHx8fExciJCIeJBweHx7/2wBDAQUFBQcGBw4ICA4eFBEUHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh7/wAARCAGgAaADASIAAhEBAxEB/8QAHQABAAAHAQE",
+          "complete": true,
+          "naturalWidth": 416,
+          "width": 56,
+          "height": 56,
+          "alt": "Rusiru Rathmina"
+        }
+      ],
+      "faqQuestions": 7,
+      "tocLinks": 9,
+      "codeButtons": 3,
+      "author": "Rusiru Rathmina",
+      "targets": [
+        {
+          "text": "Back to all posts",
+          "tag": "A",
+          "width": 127,
+          "height": 16
+        },
+        {
+          "text": "Home",
+          "tag": "A",
+          "width": 155,
+          "height": 20
+        },
+        {
+          "text": "About me",
+          "tag": "A",
+          "width": 155,
+          "height": 20
+        },
+        {
+          "text": "Portfolio",
+          "tag": "A",
+          "width": 155,
+          "height": 20
+        },
+        {
+          "text": "Contact",
+          "tag": "A",
+          "width": 155,
+          "height": 20
+        },
+        {
+          "text": "Privacy Policy",
+          "tag": "A",
+          "width": 155,
+          "height": 20
+        },
+        {
+          "text": "Cookie Policy",
+          "tag": "A",
+          "width": 155,
+          "height": 20
+        },
+        {
+          "text": "Twitter / X",
+          "tag": "A",
+          "width": 155,
+          "height": 20
+        },
+        {
+          "text": "GitHub",
+          "tag": "A",
+          "width": 155,
+          "height": 20
+        },
+        {
+          "text": "LinkedIn",
+          "tag": "A",
+          "width": 155,
+          "height": 20
+        },
+        {
+          "text": "Facebook",
+          "tag": "A",
+          "width": 155,
+          "height": 20
+        },
+        {
+          "text": "Instagram",
+          "tag": "A",
+          "width": 155,
+          "height": 20
+        },
+        {
+          "text": "RSS Feed",
+          "tag": "A",
+          "width": 155,
+          "height": 20
+        }
+      ],
+      "unnamedControls": [],
+      "lang": "en",
+      "resources": [
+        {
+          "name": "https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Roboto:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500;600&display=swap",
+          "transferSize": 0,
+          "decodedBodySize": 31515,
+          "duration": 0
+        },
+        {
+          "name": "https://www.blogger.com/static/v1/jsbin/2103827977-comment_from_post_iframe.js",
+          "transferSize": 0,
+          "decodedBodySize": 0,
+          "duration": 0
+        },
+        {
+          "name": "https://www.blogger.com/static/v1/widgets/648255196-widgets.js",
+          "transferSize": 0,
+          "decodedBodySize": 0,
+          "duration": 0
+        },
+        {
+          "name": "https://www.blogger.com/dyncss/483525992596231392/authorization.css?zx=c9f11d91-e786-4f70-9cfd-c6e3084f4104",
+          "transferSize": 0,
+          "decodedBodySize": 0,
+          "duration": 294
+        },
+        {
+          "name": "https://fonts.gstatic.com/s/dmserifdisplay/v17/-nFnOHM81r4j6k0gjAW3mujVU2B2G_Bx0g.woff2",
+          "transferSize": 0,
+          "decodedBodySize": 24744,
+          "duration": 0
+        },
+        {
+          "name": "https://fonts.gstatic.com/s/jetbrainsmono/v24/tDbv2o-flEEny0FZhsfKu5WU4zr3E_BX0PnT8RD8yKwBNntkaToggR7BYRbKPxDcwg.woff2",
+          "transferSize": 0,
+          "decodedBodySize": 31432,
+          "duration": 0
+        },
+        {
+          "name": "https://fonts.gstatic.com/s/roboto/v51/KFO7CnqEu92Fr1ME7kSn66aGLdTylUAMawCUBGEe.woff2",
+          "transferSize": 0,
+          "decodedBodySize": 41348,
+          "duration": 0
+        },
+        {
+          "name": "https://fonts.gstatic.com/s/roboto/v51/KFO7CnqEu92Fr1ME7kSn66aGLdTylUAMaxKUBGEe.woff2",
+          "transferSize": 0,
+          "decodedBodySize": 20556,
+          "duration": 0
+        },
+        {
+          "name": "https://fonts.gstatic.com/s/roboto/v51/KFO7CnqEu92Fr1ME7kSn66aGLdTylUAMa3yUBA.woff2",
+          "transferSize": 0,
+          "decodedBodySize": 43136,
+          "duration": 0
+        },
+        {
+          "name": "https://www.blogger.com/comment/frame/483525992596231392?po=36492420276489900&hl=en&saa=85391&origin=https%3A%2F%2Fru5iru.blogspot.com&blogspotRpcToken=1756330#%7B%22color%22%3A%22rgb(42%2C%2038%2C%2034)%22%2C%22backgroundColor%22%3A%22rgb(250%2C%20248%2C%20245)%22%2C%22unvisitedLinkColor%22%3A%22rgb(203%2C%20109%2C%2077)%22%2C%22fontFamily%22%3A%22Roboto%2C%20-apple-system%2C%20sans-serif%22%7D",
+          "transferSize": 0,
+          "decodedBodySize": 0,
+          "duration": 409
+        },
+        {
+          "name": "https://ru5iru.blogspot.com/feeds/posts/default/-/best%20practices?alt=json&max-results=6",
+          "transferSize": 300,
+          "decodedBodySize": 137367,
+          "duration": 344
+        },
+        {
+          "name": "https://raw.githubusercontent.com/ru5iru/iamrusiru/main/src/assets/post-injection.jpg",
+          "transferSize": 0,
+          "decodedBodySize": 0,
+          "duration": 1
+        },
+        {
+          "name": "https://ru5iru.blogspot.com/favicon.ico",
+          "transferSize": 0,
+          "decodedBodySize": 9662,
+          "duration": 1
+        }
+      ],
+      "contrast": {
+        "tested": 115,
+        "skipped": 0,
+        "failures": [
+          {
+            "text": "TL;DR",
+            "tag": "P",
+            "class": "text-sm font-semibold text-primary uppercase tracking-wider mb-2",
+            "ratio": 3.22,
+            "required": 4.5,
+            "fontSize": 14,
+            "weight": 600,
+            "foreground": "rgb(203, 109, 77)",
+            "background": [
+              248,
+              241,
+              237
+            ]
+          },
+          {
+            "text": "Broken Access Control: The OWASP Top 10's Most Dangerous Flaw",
+            "tag": "A",
+            "class": "",
+            "ratio": 3.4,
+            "required": 4.5,
+            "fontSize": 18,
+            "weight": 400,
+            "foreground": "rgb(203, 109, 77)",
+            "background": [
+              250,
+              248,
+              245
+            ]
+          },
+          {
+            "text": "Cryptographic Failures: The OWASP A02 Risk Hiding in Your Code",
+            "tag": "A",
+            "class": "",
+            "ratio": 3.4,
+            "required": 4.5,
+            "fontSize": 18,
+            "weight": 400,
+            "foreground": "rgb(203, 109, 77)",
+            "background": [
+              250,
+              248,
+              245
+            ]
+          },
+          {
+            "text": "OWASP Top 10 (2025): A Developer's Practical Guide",
+            "tag": "A",
+            "class": "",
+            "ratio": 3.4,
+            "required": 4.5,
+            "fontSize": 18,
+            "weight": 400,
+            "foreground": "rgb(203, 109, 77)",
+            "background": [
+              250,
+              248,
+              245
+            ]
+          },
+          {
+            "text": "Learn more about me →",
+            "tag": "A",
+            "class": "text-primary font-medium",
+            "ratio": 3.25,
+            "required": 4.5,
+            "fontSize": 14,
+            "weight": 500,
+            "foreground": "rgb(203, 109, 77)",
+            "background": [
+              245,
+              243,
+              239
+            ]
+          },
+          {
+            "text": "Older posts →",
+            "tag": "A",
+            "class": "px-8 py-3 bg-primary text-primary-foreground rounded-full",
+            "ratio": 3.4,
+            "required": 4.5,
+            "fontSize": 16,
+            "weight": 400,
+            "foreground": "rgb(250, 248, 245)",
+            "background": [
+              203,
+              109,
+              77
+            ]
+          },
+          {
+            "text": "rusiru",
+            "tag": "SPAN",
+            "class": "text-primary",
+            "ratio": 3.4,
+            "required": 4.5,
+            "fontSize": 18,
+            "weight": 700,
+            "foreground": "rgb(203, 109, 77)",
+            "background": [
+              250,
+              248,
+              245
+            ]
+          }
+        ]
+      },
+      "errors": []
+    },
+    {
+      "name": "about",
+      "path": "/p/about.html",
+      "width": 390,
+      "status": 200,
+      "title": "About me",
+      "canonical": "https://ru5iru.blogspot.com/p/about.html",
+      "description": "Software engineering, career lessons, side projects, and developer life by Rusiru Rathmina.",
+      "h1": [
+        "About Rusiru Rathmina"
+      ],
+      "overflow": false,
+      "headingOrder": [
+        {
+          "tag": "H1",
+          "text": "About Rusiru Rathmina"
+        },
+        {
+          "tag": "H2",
+          "text": "How it all started"
+        },
+        {
+          "tag": "H2",
+          "text": "The first real leap"
+        },
+        {
+          "tag": "H2",
+          "text": "Where I am now"
+        },
+        {
+          "tag": "H2",
+          "text": "What drives me"
+        },
+        {
+          "tag": "H2",
+          "text": "What I'm learning"
+        },
+        {
+          "tag": "H3",
+          "text": "iamrusiru"
+        },
+        {
+          "tag": "H4",
+          "text": "Quick Links"
+        },
+        {
+          "tag": "H4",
+          "text": "Legal Stuff"
+        },
+        {
+          "tag": "H4",
+          "text": "Connect"
+        }
+      ],
+      "images": [],
+      "faqQuestions": 0,
+      "tocLinks": 0,
+      "codeButtons": 0,
+      "targets": [
+        {
+          "text": "Home",
+          "tag": "A",
+          "width": 155,
+          "height": 20
+        },
+        {
+          "text": "About me",
+          "tag": "A",
+          "width": 155,
+          "height": 20
+        },
+        {
+          "text": "Portfolio",
+          "tag": "A",
+          "width": 155,
+          "height": 20
+        },
+        {
+          "text": "Contact",
+          "tag": "A",
+          "width": 155,
+          "height": 20
+        },
+        {
+          "text": "Privacy Policy",
+          "tag": "A",
+          "width": 155,
+          "height": 20
+        },
+        {
+          "text": "Cookie Policy",
+          "tag": "A",
+          "width": 155,
+          "height": 20
+        },
+        {
+          "text": "Twitter / X",
+          "tag": "A",
+          "width": 155,
+          "height": 20
+        },
+        {
+          "text": "GitHub",
+          "tag": "A",
+          "width": 155,
+          "height": 20
+        },
+        {
+          "text": "LinkedIn",
+          "tag": "A",
+          "width": 155,
+          "height": 20
+        },
+        {
+          "text": "Facebook",
+          "tag": "A",
+          "width": 155,
+          "height": 20
+        },
+        {
+          "text": "Instagram",
+          "tag": "A",
+          "width": 155,
+          "height": 20
+        },
+        {
+          "text": "RSS Feed",
+          "tag": "A",
+          "width": 155,
+          "height": 20
+        }
+      ],
+      "unnamedControls": [],
+      "lang": "en",
+      "resources": [
+        {
+          "name": "https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Roboto:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500;600&display=swap",
+          "transferSize": 0,
+          "decodedBodySize": 31515,
+          "duration": 0
+        },
+        {
+          "name": "https://www.blogger.com/static/v1/widgets/648255196-widgets.js",
+          "transferSize": 0,
+          "decodedBodySize": 0,
+          "duration": 0
+        },
+        {
+          "name": "https://www.blogger.com/dyncss/483525992596231392/authorization.css?zx=c9f11d91-e786-4f70-9cfd-c6e3084f4104",
+          "transferSize": 0,
+          "decodedBodySize": 0,
+          "duration": 309
+        },
+        {
+          "name": "https://fonts.gstatic.com/s/dmserifdisplay/v17/-nFnOHM81r4j6k0gjAW3mujVU2B2G_Bx0g.woff2",
+          "transferSize": 0,
+          "decodedBodySize": 24744,
+          "duration": 0
+        },
+        {
+          "name": "https://fonts.gstatic.com/s/jetbrainsmono/v24/tDbv2o-flEEny0FZhsfKu5WU4zr3E_BX0PnT8RD8yKwBNntkaToggR7BYRbKPxDcwg.woff2",
+          "transferSize": 0,
+          "decodedBodySize": 31432,
+          "duration": 0
+        },
+        {
+          "name": "https://fonts.gstatic.com/s/roboto/v51/KFO7CnqEu92Fr1ME7kSn66aGLdTylUAMawCUBGEe.woff2",
+          "transferSize": 0,
+          "decodedBodySize": 41348,
+          "duration": 0
+        },
+        {
+          "name": "https://fonts.gstatic.com/s/roboto/v51/KFO7CnqEu92Fr1ME7kSn66aGLdTylUAMaxKUBGEe.woff2",
+          "transferSize": 0,
+          "decodedBodySize": 20556,
+          "duration": 0
+        },
+        {
+          "name": "https://fonts.gstatic.com/s/roboto/v51/KFO7CnqEu92Fr1ME7kSn66aGLdTylUAMa3yUBA.woff2",
+          "transferSize": 0,
+          "decodedBodySize": 43136,
+          "duration": 0
+        },
+        {
+          "name": "https://ru5iru.blogspot.com/favicon.ico",
+          "transferSize": 0,
+          "decodedBodySize": 9662,
+          "duration": 1
+        }
+      ],
+      "contrast": {
+        "tested": 51,
+        "skipped": 0,
+        "failures": [
+          {
+            "text": "About me",
+            "tag": "SPAN",
+            "class": "text-sm font-medium text-primary uppercase tracking-widest",
+            "ratio": 3.4,
+            "required": 4.5,
+            "fontSize": 14,
+            "weight": 500,
+            "foreground": "rgb(203, 109, 77)",
+            "background": [
+              250,
+              248,
+              245
+            ]
+          },
+          {
+            "text": "solve real problems",
+            "tag": "SPAN",
+            "class": "text-primary font-medium",
+            "ratio": 3.4,
+            "required": 4.5,
+            "fontSize": 16,
+            "weight": 500,
+            "foreground": "rgb(203, 109, 77)",
+            "background": [
+              250,
+              248,
+              245
+            ]
+          },
+          {
+            "text": "React",
+            "tag": "SPAN",
+            "class": "text-primary font-medium",
+            "ratio": 3.4,
+            "required": 4.5,
+            "fontSize": 16,
+            "weight": 500,
+            "foreground": "rgb(203, 109, 77)",
+            "background": [
+              250,
+              248,
+              245
+            ]
+          },
+          {
+            "text": "PHP",
+            "tag": "SPAN",
+            "class": "text-primary font-medium",
+            "ratio": 3.4,
+            "required": 4.5,
+            "fontSize": 16,
+            "weight": 500,
+            "foreground": "rgb(203, 109, 77)",
+            "background": [
+              250,
+              248,
+              245
+            ]
+          },
+          {
+            "text": "Drupal",
+            "tag": "SPAN",
+            "class": "text-primary font-medium",
+            "ratio": 3.4,
+            "required": 4.5,
+            "fontSize": 16,
+            "weight": 500,
+            "foreground": "rgb(203, 109, 77)",
+            "background": [
+              250,
+              248,
+              245
+            ]
+          },
+          {
+            "text": "works",
+            "tag": "SPAN",
+            "class": "text-primary font-medium",
+            "ratio": 3.4,
+            "required": 4.5,
+            "fontSize": 16,
+            "weight": 500,
+            "foreground": "rgb(203, 109, 77)",
+            "background": [
+              250,
+              248,
+              245
+            ]
+          },
+          {
+            "text": "good",
+            "tag": "SPAN",
+            "class": "text-primary font-medium",
+            "ratio": 3.4,
+            "required": 4.5,
+            "fontSize": 16,
+            "weight": 500,
+            "foreground": "rgb(203, 109, 77)",
+            "background": [
+              250,
+              248,
+              245
+            ]
+          },
+          {
+            "text": "there's always something new to learn",
+            "tag": "SPAN",
+            "class": "text-primary font-medium",
+            "ratio": 3.4,
+            "required": 4.5,
+            "fontSize": 16,
+            "weight": 500,
+            "foreground": "rgb(203, 109, 77)",
+            "background": [
+              250,
+              248,
+              245
+            ]
+          },
+          {
+            "text": "Let's connect →",
+            "tag": "A",
+            "class": "inline-flex items-center gap-2 px-8 py-3 bg-primary text-primary-foreground rounded-full font-medium hover:bg-primary/90 transition-colors",
+            "ratio": 3.4,
+            "required": 4.5,
+            "fontSize": 16,
+            "weight": 500,
+            "foreground": "rgb(250, 248, 245)",
+            "background": [
+              203,
+              109,
+              77
+            ]
+          },
+          {
+            "text": "rusiru",
+            "tag": "SPAN",
+            "class": "text-primary",
+            "ratio": 3.4,
+            "required": 4.5,
+            "fontSize": 18,
+            "weight": 700,
+            "foreground": "rgb(203, 109, 77)",
+            "background": [
+              250,
+              248,
+              245
+            ]
+          }
+        ]
+      },
+      "errors": []
+    },
+    {
+      "name": "contact",
+      "path": "/p/contact.html",
+      "width": 390,
+      "status": 200,
+      "title": "Contact",
+      "canonical": "https://ru5iru.blogspot.com/p/contact.html",
+      "description": "Software engineering, career lessons, side projects, and developer life by Rusiru Rathmina.",
+      "h1": [
+        "Contact Rusiru Rathmina"
+      ],
+      "overflow": false,
+      "headingOrder": [
+        {
+          "tag": "H1",
+          "text": "Contact Rusiru Rathmina"
+        },
+        {
+          "tag": "H2",
+          "text": "Get in touch"
+        },
+        {
+          "tag": "H2",
+          "text": "Find me online"
+        },
+        {
+          "tag": "H3",
+          "text": "iamrusiru"
+        },
+        {
+          "tag": "H4",
+          "text": "Quick Links"
+        },
+        {
+          "tag": "H4",
+          "text": "Legal Stuff"
+        },
+        {
+          "tag": "H4",
+          "text": "Connect"
+        }
+      ],
+      "images": [],
+      "faqQuestions": 0,
+      "tocLinks": 0,
+      "codeButtons": 0,
+      "targets": [
+        {
+          "text": "Home",
+          "tag": "A",
+          "width": 155,
+          "height": 20
+        },
+        {
+          "text": "About me",
+          "tag": "A",
+          "width": 155,
+          "height": 20
+        },
+        {
+          "text": "Portfolio",
+          "tag": "A",
+          "width": 155,
+          "height": 20
+        },
+        {
+          "text": "Contact",
+          "tag": "A",
+          "width": 155,
+          "height": 20
+        },
+        {
+          "text": "Privacy Policy",
+          "tag": "A",
+          "width": 155,
+          "height": 20
+        },
+        {
+          "text": "Cookie Policy",
+          "tag": "A",
+          "width": 155,
+          "height": 20
+        },
+        {
+          "text": "Twitter / X",
+          "tag": "A",
+          "width": 155,
+          "height": 20
+        },
+        {
+          "text": "GitHub",
+          "tag": "A",
+          "width": 155,
+          "height": 20
+        },
+        {
+          "text": "LinkedIn",
+          "tag": "A",
+          "width": 155,
+          "height": 20
+        },
+        {
+          "text": "Facebook",
+          "tag": "A",
+          "width": 155,
+          "height": 20
+        },
+        {
+          "text": "Instagram",
+          "tag": "A",
+          "width": 155,
+          "height": 20
+        },
+        {
+          "text": "RSS Feed",
+          "tag": "A",
+          "width": 155,
+          "height": 20
+        }
+      ],
+      "unnamedControls": [],
+      "lang": "en",
+      "resources": [
+        {
+          "name": "https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Roboto:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500;600&display=swap",
+          "transferSize": 0,
+          "decodedBodySize": 31515,
+          "duration": 0
+        },
+        {
+          "name": "https://www.blogger.com/static/v1/widgets/648255196-widgets.js",
+          "transferSize": 0,
+          "decodedBodySize": 0,
+          "duration": 0
+        },
+        {
+          "name": "https://www.blogger.com/dyncss/483525992596231392/authorization.css?zx=c9f11d91-e786-4f70-9cfd-c6e3084f4104",
+          "transferSize": 0,
+          "decodedBodySize": 0,
+          "duration": 305
+        },
+        {
+          "name": "https://fonts.gstatic.com/s/dmserifdisplay/v17/-nFnOHM81r4j6k0gjAW3mujVU2B2G_Bx0g.woff2",
+          "transferSize": 0,
+          "decodedBodySize": 24744,
+          "duration": 0
+        },
+        {
+          "name": "https://fonts.gstatic.com/s/jetbrainsmono/v24/tDbv2o-flEEny0FZhsfKu5WU4zr3E_BX0PnT8RD8yKwBNntkaToggR7BYRbKPxDcwg.woff2",
+          "transferSize": 0,
+          "decodedBodySize": 31432,
+          "duration": 0
+        },
+        {
+          "name": "https://fonts.gstatic.com/s/roboto/v51/KFO7CnqEu92Fr1ME7kSn66aGLdTylUAMawCUBGEe.woff2",
+          "transferSize": 0,
+          "decodedBodySize": 41348,
+          "duration": 0
+        },
+        {
+          "name": "https://fonts.gstatic.com/s/roboto/v51/KFO7CnqEu92Fr1ME7kSn66aGLdTylUAMaxKUBGEe.woff2",
+          "transferSize": 0,
+          "decodedBodySize": 20556,
+          "duration": 0
+        },
+        {
+          "name": "https://fonts.gstatic.com/s/roboto/v51/KFO7CnqEu92Fr1ME7kSn66aGLdTylUAMa3yUBA.woff2",
+          "transferSize": 0,
+          "decodedBodySize": 43136,
+          "duration": 0
+        },
+        {
+          "name": "https://ru5iru.blogspot.com/favicon.ico",
+          "transferSize": 0,
+          "decodedBodySize": 9662,
+          "duration": 1
+        }
+      ],
+      "contrast": {
+        "tested": 27,
+        "skipped": 0,
+        "failures": [
+          {
+            "text": "Contact",
+            "tag": "SPAN",
+            "class": "text-sm font-medium text-primary uppercase tracking-widest",
+            "ratio": 3.4,
+            "required": 4.5,
+            "fontSize": 14,
+            "weight": 500,
+            "foreground": "rgb(203, 109, 77)",
+            "background": [
+              250,
+              248,
+              245
+            ]
+          },
+          {
+            "text": "rusiru",
+            "tag": "SPAN",
+            "class": "text-primary",
+            "ratio": 3.4,
+            "required": 4.5,
+            "fontSize": 18,
+            "weight": 700,
+            "foreground": "rgb(203, 109, 77)",
+            "background": [
+              250,
+              248,
+              245
+            ]
+          }
+        ]
+      },
+      "errors": []
+    }
+  ],
+  "interactions": {
+    "menuOpened": true,
+    "menuClosed": true,
+    "darkEnabled": true,
+    "darkPersisted": true,
+    "firstFocus": {
+      "text": "Skip to main content",
+      "href": "#main-content"
+    }
+  },
+  "darkContrast": {
+    "tested": 115,
+    "skipped": 0,
+    "failures": []
+  }
+}

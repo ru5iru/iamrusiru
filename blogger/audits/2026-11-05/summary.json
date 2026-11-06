@@ -1,0 +1,119 @@
+{
+  "date": "2026-11-05",
+  "timezone": "Asia/Colombo",
+  "sourceCommit": "712eddfd50f0835133b880286f3fe833dcb0ff73",
+  "requests": 236,
+  "requestGroups": {
+    "discovery": 6,
+    "route": 28,
+    "variant": 16,
+    "pagination": 3,
+    "optional": 3,
+    "internal-link": 99,
+    "asset": 40,
+    "ua:Googlebot": 2,
+    "ua:bingbot": 2,
+    "ua:OAI-SearchBot": 2,
+    "ua:Claude-SearchBot": 2,
+    "pagespeed-api": 1,
+    "redirect-hop": 2,
+    "outbound-navigation": 30
+  },
+  "coreRoutes": 28,
+  "posts": 23,
+  "pages": 4,
+  "indexBlocked": 0,
+  "uniqueDescriptions": 1,
+  "uniqueTitles": 28,
+  "canonicalMismatches": 0,
+  "postSchemas": 23,
+  "faqTotal": 129,
+  "externalBodyLinks": 0,
+  "sourcePlaceholderPosts": 3,
+  "ellipsizedGeneratedPostTitles": 18,
+  "discoverablePosts": 23,
+  "browserCases": 12,
+  "browserOverflowCases": 0,
+  "browserPageErrors": 0,
+  "checkedAssets": 40,
+  "failedAssets": 0,
+  "failedLinkedInternalUrls": 0,
+  "performance": [
+    {
+      "path": "/",
+      "navigation": {
+        "ttfb": 603,
+        "domContentLoaded": 3084,
+        "load": 3147,
+        "transferSize": 62685,
+        "decodedBodySize": 370879
+      },
+      "lcp": {
+        "startTime": 1932,
+        "duration": 0,
+        "element": "IMG",
+        "elementClass": "w-full h-full object-cover grayscale",
+        "url": "data:image/jpeg;base64,/9j/2wBDAAUDBAQEAwUEBAQFBQUGBwwIBwcHBw8LCwkMEQ8SEhEPERETFhwXExQaFRERGCEYGh0dH"
+      },
+      "clsSum": 0.18633818062089974,
+      "longTaskMs": 396
+    },
+    {
+      "path": "/2026/06/injection.html",
+      "navigation": {
+        "ttfb": 361,
+        "domContentLoaded": 2947,
+        "load": 6363,
+        "transferSize": 78621,
+        "decodedBodySize": 219633
+      },
+      "lcp": {
+        "startTime": 1248,
+        "duration": 0,
+        "element": "H1",
+        "elementClass": "font-display text-3xl md:text-4xl lg:text-5xl font-semibold leading-tight mb-4",
+        "url": ""
+      },
+      "clsSum": 0.18950607578446127,
+      "longTaskMs": 1037
+    },
+    {
+      "path": "/2026/06/proper-project-planning.html",
+      "navigation": {
+        "ttfb": 813,
+        "domContentLoaded": 2982,
+        "load": 11371,
+        "transferSize": 81519,
+        "decodedBodySize": 226466
+      },
+      "lcp": {
+        "startTime": 1660,
+        "duration": 0,
+        "element": "H1",
+        "elementClass": "font-display text-3xl md:text-4xl lg:text-5xl font-semibold leading-tight mb-4",
+        "url": ""
+      },
+      "clsSum": 0.00018686397416027816,
+      "longTaskMs": 178
+    }
+  ],
+  "sourcePlaceholders": 6,
+  "uniqueSourceReferences": 5,
+  "missingAltImages": 10,
+  "checklistStatusCounts": {
+    "Pass": 71,
+    "Fail": 18,
+    "Partial": 38,
+    "Unverified": 19,
+    "N/A": 4
+  },
+  "scope": "Blogger theme, posts, Pages and settings only",
+  "contentBodiesMatchingLocal": 27,
+  "implementationItems": 50,
+  "implementationComplete": 2,
+  "implementationOpen": 48,
+  "resolvedFindings": [
+    "F01"
+  ],
+  "findings": 16
+}

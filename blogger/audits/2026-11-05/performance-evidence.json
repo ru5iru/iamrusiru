@@ -1,0 +1,249 @@
+{
+  "capturedAt": "2026-11-05T17:57:04.715Z",
+  "method": "Single cold-cache lab navigation per URL; Chrome mobile emulation; 150ms latency, 1.6Mbit/s download, 4x CPU slowdown. CLS is observed sum, not a full session-window CWV assessment. No field INP measured.",
+  "results": [
+    {
+      "path": "/",
+      "title": "Rusiru Rathmina | Software Engineer Blog",
+      "navigation": {
+        "ttfb": 603,
+        "domContentLoaded": 3084,
+        "load": 3147,
+        "transferSize": 62685,
+        "decodedBodySize": 370879
+      },
+      "lcp": {
+        "startTime": 1932,
+        "duration": 0,
+        "element": "IMG",
+        "elementClass": "w-full h-full object-cover grayscale",
+        "url": "data:image/jpeg;base64,/9j/2wBDAAUDBAQEAwUEBAQFBQUGBwwIBwcHBw8LCwkMEQ8SEhEPERETFhwXExQaFRERGCEYGh0dH"
+      },
+      "clsSum": 0.18633818062089974,
+      "longTaskMs": 396,
+      "resourceCount": 13,
+      "resources": [
+        {
+          "url": "https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Roboto:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500;600&display=swap",
+          "ms": 325,
+          "transferSize": 2398,
+          "decodedBytes": 31515
+        },
+        {
+          "url": "https://lh3.googleusercontent.com/blogger_img_proxy/AEn0k_s9DXGBQD3e0E1h-2rd2-Bavf6gy6gT9bdKgQfLLJ_Hof_v5u1-tEV_qNc-GgajyikFZmLqaCkNXpFkevacIn71Io2APZgq4O4GqQwgrBUGiRDaf01Wh-yyFLvW_u0_Q2TyAEMQe5oYMyAZf17PRAsKVYfRu3Lv=w80",
+          "ms": 356,
+          "transferSize": 7405,
+          "decodedBytes": 7105
+        },
+        {
+          "url": "https://lh3.googleusercontent.com/blogger_img_proxy/AEn0k_v_7wHk8bRInEiz-dbM6169puiM1sRQmPS94g4bANzmVu5gcNShUQ9jvJm7iEtRShZlq_mXcED8x8CeHY8-e-QNqul73dnVAR10cUbIRDN3fLEoM1CcQB81KIspUoqPdehqTdAK2QqJwV2vQNweW3hNMbeN_LsReA=w80",
+          "ms": 320,
+          "transferSize": 1770,
+          "decodedBytes": 1470
+        },
+        {
+          "url": "https://lh3.googleusercontent.com/blogger_img_proxy/AEn0k_uFDHw-wLr-bUrSNP8bobwyGxmmYHOaLbwJiG8SqCNQsEWpN4X2taq8Q4dtJNXWb2lIb9gVD6Vp0we_fsj5uyFpvKrMVGDL_alFOs8q7wtUXLA4WYXxLGbwpXvY_fg1HlnhDpJeTeB9F6AOQU6QuUA-Iwam6ZD7m831MqsGCxpMEALlIQ=w80",
+          "ms": 428,
+          "transferSize": 2561,
+          "decodedBytes": 2261
+        },
+        {
+          "url": "https://lh3.googleusercontent.com/blogger_img_proxy/AEn0k_usG-zT2e4wuIzfjkq0Li6a-etK9eqBoAOY1A0RCr4Zxav0UKunRonCtptpPNskgT923TNF4FP6FNpGc-JIavsYTAzpES-dGR-xB-UCOxguZXfatfBlQluX1vlRym_BSwkSNXdO4uY7TpdXiouZJahsqqahcfMFF5MN3_FstN0N9ocSgY8e=w80",
+          "ms": 430,
+          "transferSize": 1959,
+          "decodedBytes": 1659
+        },
+        {
+          "url": "https://lh3.googleusercontent.com/blogger_img_proxy/AEn0k_tM5ba7dS8jjvsNnsMMXPWW1CXhZe1sJ79KyxHETZsBtNfARW-BBjm7CsOWWib_zOddoz2WBqpTj0BMOBPIY3xrz2kSC97A4XxTfhu86fIoA3VJqfyEFd3B0BD_evTm2Z4-qyXvq61G28HCVP2n9Qh-MiIjYm-oZRy8aE9wJQwI1RXOXJY=w80",
+          "ms": 386,
+          "transferSize": 1530,
+          "decodedBytes": 1230
+        },
+        {
+          "url": "https://lh3.googleusercontent.com/blogger_img_proxy/AEn0k_sy9CfQkXwcpqtDf_hyS87IfxXFMJVlWYf_ePopO_ZF7U7BezGsbLNxUjY7YqmUilTvfwyvJJ53kN1TGo9IVsmbQ9CrqPEEOmMCXOFGRb32V4XBr_VRB2_m24FrUgUiv48i78sJQ2RgjdOyOQpVkZRHHCZs-kvqt-ayrf5pQw=w80",
+          "ms": 425,
+          "transferSize": 1456,
+          "decodedBytes": 1156
+        },
+        {
+          "url": "https://lh3.googleusercontent.com/blogger_img_proxy/AEn0k_sh-wG4iSlX3ckSYkBZ77DQTo9YjttLLYO2DuQ6BCnWMjyvEyzQWnklt7PRRBPOlJHuzpgKop4_KyT7yUoiwCQGBzdCheqXR0wM-rUu1e6XvBsSgUsZ94EQi4YuBc2SEg0cyHT8R4sne68y3ncaaE0bY5dmMR21kac=w80",
+          "ms": 456,
+          "transferSize": 1771,
+          "decodedBytes": 1471
+        },
+        {
+          "url": "https://lh3.googleusercontent.com/blogger_img_proxy/AEn0k_sLNhyTmShwXxA8ZDLUa0Ibkg-9zN98RTpmvvLw9kmpMkW1Xdcgj5EsL_7zLDRCUqrKZZ_37ruv7Yk7g0_Rtkc2VqVz3jgJAnZPR9_6CLdpSAeID-T_XfBBja-dtkH5KH-4dS6lZFRUeIvn-Hlr47997l7kb5Y7Flm_8qlM=w80",
+          "ms": 440,
+          "transferSize": 2272,
+          "decodedBytes": 1972
+        },
+        {
+          "url": "https://lh3.googleusercontent.com/blogger_img_proxy/AEn0k_tF8SI0xzPWgIzzuXzBIHWwAFD4ZP7Ep9xCUWvoDXRly3a6ZqgiOgVhpfAPS-cRjPIBWK6joKt9tfLAAG_TJT-Br2J8j8STwJCTRFkjZLPlxwr_5HwI2NwnQuqU9hegNw6Lq1oVY-J85CEL_b_zzHarD9uDlzUokA=w80",
+          "ms": 403,
+          "transferSize": 1164,
+          "decodedBytes": 864
+        },
+        {
+          "url": "https://lh3.googleusercontent.com/blogger_img_proxy/AEn0k_vj6ETbAn2Lfe0OYdtvx0XxesmBLskpIVyBMS4TBkW7UMMCgfGfXGWX_-YS7i7mzWbbo76MD_jxNdKh4BjvGqYG3WYeJGc88jWgx5wePH_6RUrXlhdHlYDYUMrBVEq0_Mxy307i14j-8HwWe08Y2PPrp5rbtjsa=w80",
+          "ms": 443,
+          "transferSize": 2211,
+          "decodedBytes": 1911
+        },
+        {
+          "url": "https://www.blogger.com/static/v1/widgets/648255196-widgets.js",
+          "ms": 1173,
+          "transferSize": 0,
+          "decodedBytes": 0
+        },
+        {
+          "url": "https://ru5iru.blogspot.com/favicon.ico",
+          "ms": 392,
+          "transferSize": 1625,
+          "decodedBytes": 9662
+        }
+      ]
+    },
+    {
+      "path": "/2026/06/injection.html",
+      "title": "Injection OWASP Top 10: A03 Explained for Developers",
+      "navigation": {
+        "ttfb": 361,
+        "domContentLoaded": 2947,
+        "load": 6363,
+        "transferSize": 78621,
+        "decodedBodySize": 219633
+      },
+      "lcp": {
+        "startTime": 1248,
+        "duration": 0,
+        "element": "H1",
+        "elementClass": "font-display text-3xl md:text-4xl lg:text-5xl font-semibold leading-tight mb-4",
+        "url": ""
+      },
+      "clsSum": 0.18950607578446127,
+      "longTaskMs": 1037,
+      "resourceCount": 8,
+      "resources": [
+        {
+          "url": "https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Roboto:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500;600&display=swap",
+          "ms": 169,
+          "transferSize": 2398,
+          "decodedBytes": 31515
+        },
+        {
+          "url": "https://www.blogger.com/dyncss/483525992596231392/authorization.css?zx=c9f11d91-e786-4f70-9cfd-c6e3084f4104",
+          "ms": 976,
+          "transferSize": 0,
+          "decodedBytes": 0
+        },
+        {
+          "url": "https://raw.githubusercontent.com/ru5iru/iamrusiru/main/src/assets/post-injection.jpg",
+          "ms": 784,
+          "transferSize": 0,
+          "decodedBytes": 0
+        },
+        {
+          "url": "https://www.blogger.com/static/v1/jsbin/2103827977-comment_from_post_iframe.js",
+          "ms": 256,
+          "transferSize": 0,
+          "decodedBytes": 0
+        },
+        {
+          "url": "https://www.blogger.com/static/v1/widgets/648255196-widgets.js",
+          "ms": 629,
+          "transferSize": 0,
+          "decodedBytes": 0
+        },
+        {
+          "url": "https://www.blogger.com/comment/frame/483525992596231392?po=36492420276489900&hl=en&saa=85391&origin=https%3A%2F%2Fru5iru.blogspot.com&blogspotRpcToken=3378137#%7B%22color%22%3A%22rgb(42%2C%2038%2C%2034)%22%2C%22backgroundColor%22%3A%22rgb(250%2C%20248%2C%20245)%22%2C%22unvisitedLinkColor%22%3A%22rgb(203%2C%20109%2C%2077)%22%2C%22fontFamily%22%3A%22Roboto%2C%20-apple-system%2C%20sans-serif%22%7D",
+          "ms": 3772,
+          "transferSize": 0,
+          "decodedBytes": 0
+        },
+        {
+          "url": "https://ru5iru.blogspot.com/feeds/posts/default/-/best%20practices?alt=json&max-results=6",
+          "ms": 1765,
+          "transferSize": 29896,
+          "decodedBytes": 137367
+        },
+        {
+          "url": "https://ru5iru.blogspot.com/favicon.ico",
+          "ms": 340,
+          "transferSize": 1625,
+          "decodedBytes": 9662
+        }
+      ]
+    },
+    {
+      "path": "/2026/06/proper-project-planning.html",
+      "title": "Why Proper Planning Is a Must in a Software Project",
+      "navigation": {
+        "ttfb": 813,
+        "domContentLoaded": 2982,
+        "load": 11371,
+        "transferSize": 81519,
+        "decodedBodySize": 226466
+      },
+      "lcp": {
+        "startTime": 1660,
+        "duration": 0,
+        "element": "H1",
+        "elementClass": "font-display text-3xl md:text-4xl lg:text-5xl font-semibold leading-tight mb-4",
+        "url": ""
+      },
+      "clsSum": 0.00018686397416027816,
+      "longTaskMs": 178,
+      "resourceCount": 8,
+      "resources": [
+        {
+          "url": "https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Roboto:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500;600&display=swap",
+          "ms": 178,
+          "transferSize": 2398,
+          "decodedBytes": 31515
+        },
+        {
+          "url": "https://www.blogger.com/static/v1/jsbin/2103827977-comment_from_post_iframe.js",
+          "ms": 197,
+          "transferSize": 0,
+          "decodedBytes": 0
+        },
+        {
+          "url": "https://www.blogger.com/dyncss/483525992596231392/authorization.css?zx=c9f11d91-e786-4f70-9cfd-c6e3084f4104",
+          "ms": 1378,
+          "transferSize": 0,
+          "decodedBytes": 0
+        },
+        {
+          "url": "https://raw.githubusercontent.com/ru5iru/iamrusiru/main/src/assets/post-planning.png",
+          "ms": 9716,
+          "transferSize": 0,
+          "decodedBytes": 0
+        },
+        {
+          "url": "https://www.blogger.com/static/v1/widgets/648255196-widgets.js",
+          "ms": 1155,
+          "transferSize": 0,
+          "decodedBytes": 0
+        },
+        {
+          "url": "https://www.blogger.com/comment/frame/483525992596231392?po=2455474854724771522&hl=en&saa=85391&origin=https%3A%2F%2Fru5iru.blogspot.com&blogspotRpcToken=1932044#%7B%22color%22%3A%22rgb(42%2C%2038%2C%2034)%22%2C%22backgroundColor%22%3A%22rgb(250%2C%20248%2C%20245)%22%2C%22unvisitedLinkColor%22%3A%22rgb(203%2C%20109%2C%2077)%22%2C%22fontFamily%22%3A%22Roboto%2C%20-apple-system%2C%20sans-serif%22%7D",
+          "ms": 1223,
+          "transferSize": 0,
+          "decodedBytes": 0
+        },
+        {
+          "url": "https://ru5iru.blogspot.com/feeds/posts/default/-/Engineering?alt=json&max-results=6",
+          "ms": 1069,
+          "transferSize": 38659,
+          "decodedBytes": 160100
+        },
+        {
+          "url": "https://ru5iru.blogspot.com/favicon.ico",
+          "ms": 328,
+          "transferSize": 1625,
+          "decodedBytes": 9662
+        }
+      ]
+    }
+  ]
+}
