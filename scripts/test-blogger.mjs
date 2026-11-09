@@ -568,7 +568,7 @@ test('Privacy update uses the configured Blogger identity and exposes a separate
   assert.equal((await fs.readFile(path.join(out, 'page-updates/privacy-policy.html'), 'utf8')).trim(), privacy.body.trim());
 });
 
-test('generated responsive assets match their descriptors and configured variants reach covers/cards/related content', async () => {
+test('all generated image mappings including the embedded portrait rebuild and reach covers/cards/related content', async () => {
   const plan = JSON.parse(await fs.readFile(path.join(out, 'responsive-image-plan.json'), 'utf8'));
   for (const image of plan.images) for (const variant of image.variants) {
     const metadata = await sharp(path.join(out, variant.file)).metadata();
@@ -577,15 +577,23 @@ test('generated responsive assets match their descriptors and configured variant
   }
   const image = plan.images.find(image => posts[0].imageUrl === image.originalUrl);
   // These URLs are local-test fixture values, never activated in the release.
-  const variants = image.variants.map(variant => ({ width: variant.width, url: 'https://blogger-image-fixture.invalid/' + path.basename(variant.file) }));
-  const related = posts.find(post => post.slug === posts[0].relatedPosts[0]);
-  const relatedImage = plan.images.find(image => image.originalUrl === related.imageUrl);
-  const relatedVariants = relatedImage.variants.map(variant => ({ width: variant.width, url: 'https://blogger-image-fixture.invalid/' + path.basename(variant.file) }));
+  const mappings = Object.fromEntries(plan.images.map(image => [image.source, image.variants.map(variant => ({ width: variant.width, url: 'https://blogger-image-fixture.invalid/' + path.basename(variant.file) }))]));
+  assert.ok(mappings['profile-headshot.jpg']?.length, 'full activation must include the generated portrait variants');
+  const variants = mappings[image.source];
   const fixture = path.join(out, 'responsive-config.test.json');
   const target = path.join(out, 'responsive-verification');
-  await fs.writeFile(fixture, JSON.stringify({ ...config, responsiveImages: { [image.source]: variants, [relatedImage.source]: relatedVariants } }));
+  await fs.writeFile(fixture, JSON.stringify({ ...config, responsiveImages: mappings }));
+  await fs.mkdir(target, { recursive: true });
+  const referenceCsv = path.join(target, 'post-updates.csv');
+  await fs.copyFile(path.join(out, 'post-updates.csv'), referenceCsv);
+  const retainedTime = new Date('2001-01-01T00:00:00Z');
+  await fs.utimes(referenceCsv, retainedTime, retainedTime);
   execFileSync(process.execPath, ['scripts/build-blogger.mjs', '--config', fixture, '--out', target], { cwd: path.resolve(import.meta.dirname, '..'), stdio: 'pipe' });
+  assert.equal((await fs.stat(referenceCsv)).mtimeMs, retainedTime.getTime(), 'unchanged reference CSV must not be rewritten while owners use it');
   const data = JSON.parse(await fs.readFile(path.join(target, 'content.json'), 'utf8'));
+  const exportedMedia = JSON.parse(await fs.readFile(path.join(target, 'media-manifest.json'), 'utf8'));
+  assert.ok(exportedMedia['profile-headshot.jpg']);
+  assert.equal(Object.keys(data.config.responsiveImages).length, plan.images.length);
   const cover = JSDOM.fragment(data.posts[0].body).querySelector('img');
   assert.equal(cover.getAttribute('src'), posts[0].imageUrl);
   assert.equal(cover.getAttribute('srcset'), variants.map(variant => variant.url + ' ' + variant.width + 'w').join(', '));

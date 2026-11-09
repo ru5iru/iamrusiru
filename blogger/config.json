@@ -110,5 +110,343 @@
   "assetBaseUrl": "https://raw.githubusercontent.com/ru5iru/iamrusiru/main/src/assets/",
   "assetUrls": {},
   "title": "iamrusiru",
-  "author": "Rusiru Rathmina"
+  "author": "Rusiru Rathmina",
+  "responsiveImages": {
+    "post-code-review.jpg": [
+      {
+        "width": 384,
+        "url": "https://raw.githubusercontent.com/ru5iru/iamrusiru/main/src/assets/post-code-review-384.webp"
+      },
+      {
+        "width": 768,
+        "url": "https://raw.githubusercontent.com/ru5iru/iamrusiru/main/src/assets/post-code-review-768.webp"
+      },
+      {
+        "width": 1200,
+        "url": "https://raw.githubusercontent.com/ru5iru/iamrusiru/main/src/assets/post-code-review-1200.webp"
+      }
+    ],
+    "post-books-engineer.jpg": [
+      {
+        "width": 384,
+        "url": "https://raw.githubusercontent.com/ru5iru/iamrusiru/main/src/assets/post-books-engineer-384.webp"
+      },
+      {
+        "width": 768,
+        "url": "https://raw.githubusercontent.com/ru5iru/iamrusiru/main/src/assets/post-books-engineer-768.webp"
+      },
+      {
+        "width": 1200,
+        "url": "https://raw.githubusercontent.com/ru5iru/iamrusiru/main/src/assets/post-books-engineer-1200.webp"
+      }
+    ],
+    "post-git-workflow.jpg": [
+      {
+        "width": 384,
+        "url": "https://raw.githubusercontent.com/ru5iru/iamrusiru/main/src/assets/post-git-workflow-384.webp"
+      },
+      {
+        "width": 768,
+        "url": "https://raw.githubusercontent.com/ru5iru/iamrusiru/main/src/assets/post-git-workflow-768.webp"
+      },
+      {
+        "width": 1200,
+        "url": "https://raw.githubusercontent.com/ru5iru/iamrusiru/main/src/assets/post-git-workflow-1200.webp"
+      }
+    ],
+    "post-work-life-balance.jpg": [
+      {
+        "width": 384,
+        "url": "https://raw.githubusercontent.com/ru5iru/iamrusiru/main/src/assets/post-work-life-balance-384.webp"
+      },
+      {
+        "width": 768,
+        "url": "https://raw.githubusercontent.com/ru5iru/iamrusiru/main/src/assets/post-work-life-balance-768.webp"
+      },
+      {
+        "width": 1280,
+        "url": "https://raw.githubusercontent.com/ru5iru/iamrusiru/main/src/assets/post-work-life-balance-1280.webp"
+      }
+    ],
+    "post-journaling.jpg": [
+      {
+        "width": 384,
+        "url": "https://raw.githubusercontent.com/ru5iru/iamrusiru/main/src/assets/post-journaling-384.webp"
+      },
+      {
+        "width": 768,
+        "url": "https://raw.githubusercontent.com/ru5iru/iamrusiru/main/src/assets/post-journaling-768.webp"
+      },
+      {
+        "width": 1200,
+        "url": "https://raw.githubusercontent.com/ru5iru/iamrusiru/main/src/assets/post-journaling-1200.webp"
+      }
+    ],
+    "post-dotfiles.jpg": [
+      {
+        "width": 384,
+        "url": "https://raw.githubusercontent.com/ru5iru/iamrusiru/main/src/assets/post-dotfiles-384.webp"
+      },
+      {
+        "width": 768,
+        "url": "https://raw.githubusercontent.com/ru5iru/iamrusiru/main/src/assets/post-dotfiles-768.webp"
+      },
+      {
+        "width": 1200,
+        "url": "https://raw.githubusercontent.com/ru5iru/iamrusiru/main/src/assets/post-dotfiles-1200.webp"
+      }
+    ],
+    "post-fastapi.jpg": [
+      {
+        "width": 384,
+        "url": "https://raw.githubusercontent.com/ru5iru/iamrusiru/main/src/assets/post-fastapi-384.webp"
+      },
+      {
+        "width": 768,
+        "url": "https://raw.githubusercontent.com/ru5iru/iamrusiru/main/src/assets/post-fastapi-768.webp"
+      },
+      {
+        "width": 1200,
+        "url": "https://raw.githubusercontent.com/ru5iru/iamrusiru/main/src/assets/post-fastapi-1200.webp"
+      }
+    ],
+    "post-react-rsc.jpg": [
+      {
+        "width": 384,
+        "url": "https://raw.githubusercontent.com/ru5iru/iamrusiru/main/src/assets/post-react-rsc-384.webp"
+      },
+      {
+        "width": 768,
+        "url": "https://raw.githubusercontent.com/ru5iru/iamrusiru/main/src/assets/post-react-rsc-768.webp"
+      },
+      {
+        "width": 1200,
+        "url": "https://raw.githubusercontent.com/ru5iru/iamrusiru/main/src/assets/post-react-rsc-1200.webp"
+      }
+    ],
+    "post-docker.jpg": [
+      {
+        "width": 384,
+        "url": "https://raw.githubusercontent.com/ru5iru/iamrusiru/main/src/assets/post-docker-384.webp"
+      },
+      {
+        "width": 768,
+        "url": "https://raw.githubusercontent.com/ru5iru/iamrusiru/main/src/assets/post-docker-768.webp"
+      },
+      {
+        "width": 1200,
+        "url": "https://raw.githubusercontent.com/ru5iru/iamrusiru/main/src/assets/post-docker-1200.webp"
+      }
+    ],
+    "post-debugging.jpg": [
+      {
+        "width": 384,
+        "url": "https://raw.githubusercontent.com/ru5iru/iamrusiru/main/src/assets/post-debugging-384.webp"
+      },
+      {
+        "width": 768,
+        "url": "https://raw.githubusercontent.com/ru5iru/iamrusiru/main/src/assets/post-debugging-768.webp"
+      },
+      {
+        "width": 1200,
+        "url": "https://raw.githubusercontent.com/ru5iru/iamrusiru/main/src/assets/post-debugging-1200.webp"
+      }
+    ],
+    "post-clean-code.jpg": [
+      {
+        "width": 384,
+        "url": "https://raw.githubusercontent.com/ru5iru/iamrusiru/main/src/assets/post-clean-code-384.webp"
+      },
+      {
+        "width": 768,
+        "url": "https://raw.githubusercontent.com/ru5iru/iamrusiru/main/src/assets/post-clean-code-768.webp"
+      },
+      {
+        "width": 1200,
+        "url": "https://raw.githubusercontent.com/ru5iru/iamrusiru/main/src/assets/post-clean-code-1200.webp"
+      }
+    ],
+    "post-vibe-coding.jpg": [
+      {
+        "width": 384,
+        "url": "https://raw.githubusercontent.com/ru5iru/iamrusiru/main/src/assets/post-vibe-coding-384.webp"
+      },
+      {
+        "width": 768,
+        "url": "https://raw.githubusercontent.com/ru5iru/iamrusiru/main/src/assets/post-vibe-coding-768.webp"
+      },
+      {
+        "width": 1200,
+        "url": "https://raw.githubusercontent.com/ru5iru/iamrusiru/main/src/assets/post-vibe-coding-1200.webp"
+      }
+    ],
+    "post-injection.jpg": [
+      {
+        "width": 384,
+        "url": "https://raw.githubusercontent.com/ru5iru/iamrusiru/main/src/assets/post-injection-384.webp"
+      },
+      {
+        "width": 768,
+        "url": "https://raw.githubusercontent.com/ru5iru/iamrusiru/main/src/assets/post-injection-768.webp"
+      },
+      {
+        "width": 1024,
+        "url": "https://raw.githubusercontent.com/ru5iru/iamrusiru/main/src/assets/post-injection-1024.webp"
+      }
+    ],
+    "post-side-projects.jpg": [
+      {
+        "width": 384,
+        "url": "https://raw.githubusercontent.com/ru5iru/iamrusiru/main/src/assets/post-side-projects-384.webp"
+      },
+      {
+        "width": 768,
+        "url": "https://raw.githubusercontent.com/ru5iru/iamrusiru/main/src/assets/post-side-projects-768.webp"
+      },
+      {
+        "width": 1200,
+        "url": "https://raw.githubusercontent.com/ru5iru/iamrusiru/main/src/assets/post-side-projects-1200.webp"
+      }
+    ],
+    "post-cli-rust.jpg": [
+      {
+        "width": 384,
+        "url": "https://raw.githubusercontent.com/ru5iru/iamrusiru/main/src/assets/post-cli-rust-384.webp"
+      },
+      {
+        "width": 768,
+        "url": "https://raw.githubusercontent.com/ru5iru/iamrusiru/main/src/assets/post-cli-rust-768.webp"
+      },
+      {
+        "width": 1200,
+        "url": "https://raw.githubusercontent.com/ru5iru/iamrusiru/main/src/assets/post-cli-rust-1200.webp"
+      }
+    ],
+    "post-owasp.jpg": [
+      {
+        "width": 384,
+        "url": "https://raw.githubusercontent.com/ru5iru/iamrusiru/main/src/assets/post-owasp-384.webp"
+      },
+      {
+        "width": 768,
+        "url": "https://raw.githubusercontent.com/ru5iru/iamrusiru/main/src/assets/post-owasp-768.webp"
+      },
+      {
+        "width": 1200,
+        "url": "https://raw.githubusercontent.com/ru5iru/iamrusiru/main/src/assets/post-owasp-1200.webp"
+      }
+    ],
+    "post-broken-access-control.jpg": [
+      {
+        "width": 384,
+        "url": "https://raw.githubusercontent.com/ru5iru/iamrusiru/main/src/assets/post-broken-access-control-384.webp"
+      },
+      {
+        "width": 768,
+        "url": "https://raw.githubusercontent.com/ru5iru/iamrusiru/main/src/assets/post-broken-access-control-768.webp"
+      },
+      {
+        "width": 1280,
+        "url": "https://raw.githubusercontent.com/ru5iru/iamrusiru/main/src/assets/post-broken-access-control-1280.webp"
+      }
+    ],
+    "post-burnout.jpg": [
+      {
+        "width": 384,
+        "url": "https://raw.githubusercontent.com/ru5iru/iamrusiru/main/src/assets/post-burnout-384.webp"
+      },
+      {
+        "width": 768,
+        "url": "https://raw.githubusercontent.com/ru5iru/iamrusiru/main/src/assets/post-burnout-768.webp"
+      },
+      {
+        "width": 1200,
+        "url": "https://raw.githubusercontent.com/ru5iru/iamrusiru/main/src/assets/post-burnout-1200.webp"
+      }
+    ],
+    "post-planning.png": [
+      {
+        "width": 384,
+        "url": "https://raw.githubusercontent.com/ru5iru/iamrusiru/main/src/assets/post-planning-384.webp"
+      },
+      {
+        "width": 768,
+        "url": "https://raw.githubusercontent.com/ru5iru/iamrusiru/main/src/assets/post-planning-768.webp"
+      },
+      {
+        "width": 1280,
+        "url": "https://raw.githubusercontent.com/ru5iru/iamrusiru/main/src/assets/post-planning-1280.webp"
+      }
+    ],
+    "post-cryptographic-failures.jpg": [
+      {
+        "width": 384,
+        "url": "https://raw.githubusercontent.com/ru5iru/iamrusiru/main/src/assets/post-cryptographic-failures-384.webp"
+      },
+      {
+        "width": 768,
+        "url": "https://raw.githubusercontent.com/ru5iru/iamrusiru/main/src/assets/post-cryptographic-failures-768.webp"
+      },
+      {
+        "width": 1280,
+        "url": "https://raw.githubusercontent.com/ru5iru/iamrusiru/main/src/assets/post-cryptographic-failures-1280.webp"
+      }
+    ],
+    "post-code-review-security.jpg": [
+      {
+        "width": 384,
+        "url": "https://raw.githubusercontent.com/ru5iru/iamrusiru/main/src/assets/post-code-review-security-384.webp"
+      },
+      {
+        "width": 768,
+        "url": "https://raw.githubusercontent.com/ru5iru/iamrusiru/main/src/assets/post-code-review-security-768.webp"
+      },
+      {
+        "width": 1200,
+        "url": "https://raw.githubusercontent.com/ru5iru/iamrusiru/main/src/assets/post-code-review-security-1200.webp"
+      }
+    ],
+    "post-typescript.jpg": [
+      {
+        "width": 384,
+        "url": "https://raw.githubusercontent.com/ru5iru/iamrusiru/main/src/assets/post-typescript-384.webp"
+      },
+      {
+        "width": 768,
+        "url": "https://raw.githubusercontent.com/ru5iru/iamrusiru/main/src/assets/post-typescript-768.webp"
+      },
+      {
+        "width": 1200,
+        "url": "https://raw.githubusercontent.com/ru5iru/iamrusiru/main/src/assets/post-typescript-1200.webp"
+      }
+    ],
+    "post-drupal-caching.jpg": [
+      {
+        "width": 384,
+        "url": "https://raw.githubusercontent.com/ru5iru/iamrusiru/main/src/assets/post-drupal-caching-384.webp"
+      },
+      {
+        "width": 768,
+        "url": "https://raw.githubusercontent.com/ru5iru/iamrusiru/main/src/assets/post-drupal-caching-768.webp"
+      },
+      {
+        "width": 1280,
+        "url": "https://raw.githubusercontent.com/ru5iru/iamrusiru/main/src/assets/post-drupal-caching-1280.webp"
+      }
+    ],
+    "profile-headshot.jpg": [
+      {
+        "width": 384,
+        "url": "https://raw.githubusercontent.com/ru5iru/iamrusiru/main/src/assets/profile-headshot-384.webp"
+      },
+      {
+        "width": 768,
+        "url": "https://raw.githubusercontent.com/ru5iru/iamrusiru/main/src/assets/profile-headshot-768.webp"
+      },
+      {
+        "width": 1024,
+        "url": "https://raw.githubusercontent.com/ru5iru/iamrusiru/main/src/assets/profile-headshot-1024.webp"
+      }
+    ]
+  }
 }

@@ -47,7 +47,12 @@ await build({
   alias: { '@': path.join(root, 'src') },
   plugins: [{ name: 'blogger-static-export', setup(b) {
     b.onResolve({ filter: /\.(jpg|jpeg|png|webp|svg|gif|avif)$/ }, args => ({ path: path.basename(args.path), namespace: 'blogger-image' }));
-    b.onLoad({ filter: /.*/, namespace: 'blogger-image' }, args => ({ contents: `export default ${JSON.stringify(args.path === 'profile-headshot.jpg' ? portrait : mediaUrl(args.path))}`, loader: 'js' }));
+    b.onLoad({ filter: /.*/, namespace: 'blogger-image' }, args => {
+      // The embedded portrait still has a public original and generated variants.
+      // Register every imported asset before validating activated image mappings.
+      const originalUrl = mediaUrl(args.path);
+      return { contents: `export default ${JSON.stringify(args.path === 'profile-headshot.jpg' ? portrait : originalUrl)}`, loader: 'js' };
+    });
     b.onResolve({ filter: /(?:hooks\/useSEO|components\/blog\/(Header|Footer))$/ }, args => {
       if (args.path.includes('useSEO')) return { path: 'seo', namespace: 'blogger-stub' };
       if (args.importer.replaceAll('\\', '/').includes('/src/pages/')) return { path: 'empty', namespace: 'blogger-stub' };
@@ -348,7 +353,21 @@ for (const post of posts) await fs.writeFile(path.join(out, 'post-updates', post
 const publishing = posts.map(post => ({ slug: post.slug, url: config.blogUrl + post.path, title: post.title, searchDescription: post.searchDescription, intent: post.searchIntent, labels: post.labels, htmlFile: 'post-updates/' + post.slug + '.html', editorialRevision: post.updatedDate || null }));
 await fs.writeFile(path.join(out, 'post-updates.json'), JSON.stringify(publishing, null, 2) + '\n');
 const csv = value => '"' + String(value ?? '').replaceAll('"', '""') + '"';
-await fs.writeFile(path.join(out, 'post-updates.csv'), '\uFEFF' + ['url', 'title', 'searchDescription', 'intent', 'labels', 'htmlFile', 'editorialRevision'].map(csv).join(',') + '\r\n' + publishing.map(post => [post.url, post.title, post.searchDescription, post.intent, post.labels.join(', '), post.htmlFile, post.editorialRevision].map(csv).join(',')).join('\r\n'));
+const publishingCsv = '\uFEFF' + ['url', 'title', 'searchDescription', 'intent', 'labels', 'htmlFile', 'editorialRevision'].map(csv).join(',') + '\r\n' + publishing.map(post => [post.url, post.title, post.searchDescription, post.intent, post.labels.join(', '), post.htmlFile, post.editorialRevision].map(csv).join(',')).join('\r\n');
+const csvPath = path.join(out, 'post-updates.csv');
+const previousCsv = await fs.readFile(csvPath, 'utf8').catch(error => {
+  if (error.code === 'ENOENT') return null;
+  throw error;
+});
+// Excel can lock this reference sheet while the owner updates existing posts.
+// Image activation does not change its fields, so avoid an unnecessary write.
+if (previousCsv !== publishingCsv) {
+  try { await fs.writeFile(csvPath, publishingCsv); }
+  catch (error) {
+    if (['EBUSY', 'EPERM', 'EACCES'].includes(error.code)) throw new Error(`Cannot update ${csvPath}. Close the CSV in Excel or rebuild with --out blogger/output-new.`, { cause: error });
+    throw error;
+  }
+}
 await fs.writeFile(path.join(out, 'content.json'), JSON.stringify({ config, posts, pages }, null, 2));
 await fs.writeFile(path.join(out, 'theme-config.json'), JSON.stringify(config, null, 2) + '\n');
 await fs.writeFile(path.join(out, 'seo-routes.json'), JSON.stringify({ language: config.seo.language, homeTitle: config.seo.homeTitle, routes: seo.routes }, null, 2) + '\n');
