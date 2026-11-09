@@ -1,6 +1,7 @@
 // Local-only approximation of the expressions used by our own template.
 // Never run this evaluator against an untrusted template or use it as a server.
 import { JSDOM } from 'jsdom';
+import { googleImageVariant } from './blogger-images.mjs';
 
 export function renderPreview(template, { config, posts, media, kind = 'home', post = posts[0], localAssets = true, assetPrefix = '../assets/', viewTitle, searchDescription, nativeMetaDescription, genericViewDescription = false, requestUrl }) {
   const doc = new JSDOM(template, { contentType: 'text/xml' }).window.document;
@@ -49,7 +50,9 @@ export function renderPreview(template, { config, posts, media, kind = 'home', p
       .replace(/__s(\d+)__/g, (_, index) => strings[Number(index)]);
     const snippet = (html, options) => JSDOM.fragment(html).textContent.replace(/\s+/g, ' ').trim().slice(0, options.length);
     const urlPath = (base, pathname) => new URL(pathname, String(base)).href;
-    return Function('get', 'snippet', 'resizeImage', 'path', 'return (' + js + ');')(get, snippet, value => value, urlPath);
+    const resize = (value, width) => googleImageVariant(value, width) || value;
+    const sourceSet = (value, widths) => googleImageVariant(value, widths[0]) ? widths.map(width => resize(value, width) + ' ' + width + 'w').join(', ') : '';
+    return Function('get', 'snippet', 'resizeImage', 'sourceSet', 'path', 'return (' + js + ');')(get, snippet, resize, sourceSet, urlPath);
   }
   const children = (node, scope) => Array.from(node.childNodes).map(child => render(child, scope)).join('');
   function render(node, scope) {
@@ -90,6 +93,7 @@ export function renderPreview(template, { config, posts, media, kind = 'home', p
       const main = Array.from(node.children).find(el => el.nodeName === 'b:includable' && el.getAttribute('id') === 'main');
       const settings = Object.fromEntries(Array.from(node.getElementsByTagName('b:widget-setting')).map(el => [el.getAttribute('name'), el.textContent]));
       const widgetScope = { ...scope, title: node.getAttribute('title'), ...settings };
+      if (node.getAttribute('type') === 'PopularPosts') widgetScope.posts = posts.slice(0, 10).map(normalize);
       if (!main && node.getAttribute('type') === 'BlogArchive') {
         const months = [...new Set(posts.map(p => p.path.slice(0, 8)))];
         return '<div class="widget" id="BlogArchive1"><h2>Blog Archive</h2><ul>' + months.map(month => '<li><a href="' + escape(config.blogUrl + month + '/') + '">' + escape(month.slice(1).replace('/', ' / ')) + '</a></li>').join('') + '</ul></div>';

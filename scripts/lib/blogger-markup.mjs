@@ -63,7 +63,7 @@ export function validateBloggerExpressions(document) {
       const withoutStrings = attribute.value.replace(/"(?:\\.|[^"\\])*"|'(?:\\.|[^'\\])*'/g, '');
       // Only functions actually used and supported by this template are allowed.
       // Never silently invent a Blogger function in the JavaScript preview.
-      const supportedFunctions = new Set(['snippet', 'resizeImage', 'path']);
+      const supportedFunctions = new Set(['snippet', 'resizeImage', 'sourceSet', 'path']);
       for (const call of withoutStrings.matchAll(/\b([a-zA-Z_]\w*)\s*\(/g)) {
         if (!supportedFunctions.has(call[1])) throw new Error(`${element.nodeName} ${attribute.name}: unsupported Blogger template function ${call[1]}`);
       }

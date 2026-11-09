@@ -2,6 +2,8 @@
 
 The export keeps the existing warm colors, DM Serif Display / Roboto / JetBrains Mono typography, portrait hero, responsive post lists, topics, social links, footer, static pages, and light/dark themes. Blogger renders posts, pages, metadata, label results, search and pagination. React, Supabase and MCP are not required by the installed theme.
 
+**7 November update:** semantic lists in all 23 posts, the OWASP table, contextual links/primary references, Privacy identity, native responsive thumbnails and Popular Posts accessibility repair are prepared. Start with [APPLY-UPDATES.md](APPLY-UPDATES.md). Optimized cover variants require upload and activation through [IMAGE-PUBLISHING.md](IMAGE-PUBLISHING.md).
+
 ## Generated files
 
 For reuse and editing through Blogger Layout, see [CUSTOMIZATION.md](CUSTOMIZATION.md). The current look is retained as the default. A separate `native` preset avoids copying project-specific content into another blog.
@@ -15,6 +17,9 @@ In the downloadable ZIP, the generated files are at the ZIP root rather than ins
 | `about.html`, `contact.html`, `privacy-policy.html`, `cookie-policy.html` | Styled page bodies for manual installation if necessary. |
 | `assets/` | Original image files for moving to another public image host. |
 | `media-manifest.json` | Image filenames and configured public URLs. |
+| `responsive-image-plan.json`, `responsive-images.upload.json`, `IMAGE-PUBLISHING.md` | Generated WebP variants and public upload/verification workflow. Blank URLs are never activated. |
+| `page-updates/`, `page-updates.json`, `page-drafts/`, `page-drafts.json` | Privacy update, reference Page copies, and an optional unpublished Engineering reading guide. |
+| `widget-updates/popular-posts.xml` | Popular Posts repair if Blogger retains an older saved includable. |
 | `redirects.json` | Old React routes and intended Blogger destinations. |
 | `content.json` | Exported data, excerpts and intended permalinks for checking the import. Not a Blogger upload. |
 | `preview/` | Local approximation fixtures. Not Blogger upload files. |

@@ -1,0 +1,96 @@
+{
+  "checkedAt": "2026-11-06T19:00:54.469Z",
+  "scope": "Primary reference destination availability, not comprehensive expert review of tutorial code or every claim",
+  "results": [
+    {
+      "url": "https://google.github.io/eng-practices/review/reviewer/looking-for.html",
+      "status": 200,
+      "finalUrl": "https://google.github.io/eng-practices/review/reviewer/looking-for.html",
+      "title": "What to look for in a code review | eng-practices"
+    },
+    {
+      "url": "https://top10.owasp.org/2025/",
+      "status": 200,
+      "finalUrl": "https://top10.owasp.org/2025/",
+      "title": "OWASP Top 10:2025"
+    },
+    {
+      "url": "https://google.github.io/eng-practices/review/reviewer/",
+      "status": 200,
+      "finalUrl": "https://google.github.io/eng-practices/review/reviewer/",
+      "title": "How to do a code review | eng-practices"
+    },
+    {
+      "url": "https://react.dev/reference/rsc/server-components",
+      "status": 200,
+      "finalUrl": "https://react.dev/reference/rsc/server-components",
+      "title": "Server Components – React"
+    },
+    {
+      "url": "https://fastapi.tiangolo.com/tutorial/",
+      "status": 200,
+      "finalUrl": "https://fastapi.tiangolo.com/tutorial/",
+      "title": "Tutorial - User Guide - FastAPI"
+    },
+    {
+      "url": "https://www.typescriptlang.org/docs/handbook/2/basic-types.html",
+      "status": 200,
+      "finalUrl": "https://www.typescriptlang.org/docs/handbook/2/basic-types.html",
+      "title": "TypeScript: Documentation - The Basics"
+    },
+    {
+      "url": "https://doc.rust-lang.org/book/ch12-00-an-io-project.html",
+      "status": 200,
+      "finalUrl": "https://doc.rust-lang.org/book/ch12-00-an-io-project.html",
+      "title": "An I/O Project: Building a Command Line Program - The Rust Programming Language"
+    },
+    {
+      "url": "https://google.github.io/eng-practices/review/reviewer/comments.html",
+      "status": 200,
+      "finalUrl": "https://google.github.io/eng-practices/review/reviewer/comments.html",
+      "title": "How to write code review comments | eng-practices"
+    },
+    {
+      "url": "https://sqlmodel.tiangolo.com/tutorial/",
+      "status": 200,
+      "finalUrl": "https://sqlmodel.tiangolo.com/tutorial/",
+      "title": "Tutorial - User Guide - SQLModel"
+    },
+    {
+      "url": "https://sre.google/sre-book/effective-troubleshooting/",
+      "status": 200,
+      "finalUrl": "https://sre.google/sre-book/effective-troubleshooting/",
+      "title": "Google SRE - Troubleshooting Methodology: A Learning Path"
+    },
+    {
+      "url": "https://git-scm.com/docs/git-bisect",
+      "status": 200,
+      "finalUrl": "https://git-scm.com/docs/git-bisect",
+      "title": "Git - git-bisect Documentation"
+    },
+    {
+      "url": "https://git-scm.com/docs/git-worktree",
+      "status": 200,
+      "finalUrl": "https://git-scm.com/docs/git-worktree",
+      "title": "Git - git-worktree Documentation"
+    },
+    {
+      "url": "https://docs.docker.com/compose/",
+      "status": 200,
+      "finalUrl": "https://docs.docker.com/compose/",
+      "title": "Docker Compose | Docker Docs"
+    },
+    {
+      "url": "https://www.drupal.org/docs/drupal-apis/cache-api",
+      "status": 200,
+      "finalUrl": "https://www.drupal.org/docs/develop/drupal-apis/cache-api",
+      "title": "Cache API | Drupal APIs | Drupal Wiki guide on Drupal.org"
+    },
+    {
+      "url": "https://git-scm.com/book/en/v2/Git-Basics-Git-Aliases",
+      "status": 200,
+      "finalUrl": "https://git-scm.com/book/en/v2/Git-Basics-Git-Aliases",
+      "title": "Git - Git Aliases"
+    }
+  ]
+}

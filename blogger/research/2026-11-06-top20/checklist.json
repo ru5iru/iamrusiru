@@ -1,0 +1,688 @@
+[
+  {
+    "id": "T01",
+    "control": "Successful public HTTPS home and sample article",
+    "peerObserved": 20,
+    "peerDenominator": 20,
+    "peerExamples": [
+      "B01",
+      "B02",
+      "B03",
+      "B04"
+    ],
+    "code": "Implemented",
+    "live": "Implemented",
+    "action": "Preserve: 28/28 current content URLs return 200. HTTPS availability alone does not prove indexing.",
+    "evidence": "current-theme-evidence.json"
+  },
+  {
+    "id": "T02",
+    "control": "Public root/article crawling allowed by robots policy",
+    "peerObserved": 20,
+    "peerDenominator": 20,
+    "peerExamples": [
+      "B01",
+      "B02",
+      "B03",
+      "B04"
+    ],
+    "code": "Platform",
+    "live": "Implemented",
+    "action": "Maintain Blogger settings; the selected cohort excludes crawler-disallowed roots, so 20/20 here is selection-biased.",
+    "evidence": "request-manifest.json"
+  },
+  {
+    "id": "T03",
+    "control": "Posts sitemap returns URLs",
+    "peerObserved": 20,
+    "peerDenominator": 20,
+    "peerExamples": [
+      "B01",
+      "B02",
+      "B03",
+      "B04"
+    ],
+    "code": "Platform",
+    "live": "Implemented",
+    "action": "Native current posts sitemap contains 23 URLs. Do not generate fake XML endpoints in the theme.",
+    "evidence": "current-theme-evidence.json"
+  },
+  {
+    "id": "T04",
+    "control": "Pages sitemap contains published Pages",
+    "peerObserved": 14,
+    "peerDenominator": 20,
+    "peerExamples": [
+      "B02",
+      "B03",
+      "B05",
+      "B06"
+    ],
+    "code": "Platform",
+    "live": "Implemented",
+    "action": "Current Pages sitemap contains four URLs. An empty peer Pages sitemap can be appropriate when it has no Pages.",
+    "evidence": "extra-request-manifest.json"
+  },
+  {
+    "id": "T05",
+    "control": "One matching HTTPS self-canonical on the article",
+    "peerObserved": 17,
+    "peerDenominator": 20,
+    "peerExamples": [
+      "B01",
+      "B02",
+      "B03",
+      "B05"
+    ],
+    "code": "Implemented",
+    "live": "Implemented",
+    "action": "Preserve 28/28 matching unique core canonicals; do not copy HTTP or duplicate canonical defects.",
+    "evidence": "current-theme-evidence.json"
+  },
+  {
+    "id": "T06",
+    "control": "Mobile ?m=1 consolidates to clean article canonical",
+    "peerObserved": 17,
+    "peerDenominator": 20,
+    "peerExamples": [
+      "B01",
+      "B02",
+      "B03",
+      "B05"
+    ],
+    "code": "Implemented",
+    "live": "Implemented",
+    "action": "Fresh home/post/About mobile samples all consolidate correctly. This is representative coverage, not every query parameter.",
+    "evidence": "current-variants.json"
+  },
+  {
+    "id": "T07",
+    "control": "Intended public content has no accidental index/snippet restriction",
+    "peerObserved": 20,
+    "peerDenominator": 20,
+    "peerExamples": [
+      "B01",
+      "B02",
+      "B03",
+      "B04"
+    ],
+    "code": "Implemented",
+    "live": "Implemented",
+    "action": "26 public content routes allow indexing/previews; two legal Pages intentionally emit noindex. No restrictive X-Robots-Tag remains.",
+    "evidence": "current-theme-evidence.json"
+  },
+  {
+    "id": "T08",
+    "control": "Actual article text exists in raw server HTML",
+    "peerObserved": 20,
+    "peerDenominator": 20,
+    "peerExamples": [
+      "B01",
+      "B02",
+      "B03",
+      "B04"
+    ],
+    "code": "Implemented",
+    "live": "Implemented",
+    "action": "Preserve readable posts/FAQs without client rendering. This criterion is also part of cohort inclusion.",
+    "evidence": "content-verification.json"
+  },
+  {
+    "id": "M01",
+    "control": "Article title differs from homepage title",
+    "peerObserved": 18,
+    "peerDenominator": 20,
+    "peerExamples": [
+      "B01",
+      "B02",
+      "B03",
+      "B04"
+    ],
+    "code": "Implemented",
+    "live": "Partial",
+    "action": "All titles are unique, but rename Injection and Cryptographic Failures to match their corrected editions/body/description.",
+    "evidence": "content-verification.json"
+  },
+  {
+    "id": "M02",
+    "control": "One article-specific head description",
+    "peerObserved": 4,
+    "peerDenominator": 20,
+    "peerExamples": [
+      "B07",
+      "B12",
+      "B13",
+      "B15"
+    ],
+    "code": "Implemented",
+    "live": "Implemented",
+    "action": "28 distinct current descriptions; all 23 article descriptions equal prepared defaults. Native authored-field priority still needs an editor acceptance test.",
+    "evidence": "current-theme-evidence.json"
+  },
+  {
+    "id": "M03",
+    "control": "OG title/type/description/URL/image fields",
+    "peerObserved": 3,
+    "peerDenominator": 20,
+    "peerExamples": [
+      "B12",
+      "B13",
+      "B15"
+    ],
+    "code": "Implemented",
+    "live": "Implemented",
+    "action": "Preserve server output and correct the two native titles, which also feed social titles. No cached social-card rendering was tested.",
+    "evidence": "current-theme-evidence.json"
+  },
+  {
+    "id": "M04",
+    "control": "Twitter card/title/description/image fields",
+    "peerObserved": 3,
+    "peerDenominator": 20,
+    "peerExamples": [
+      "B12",
+      "B13",
+      "B15"
+    ],
+    "code": "Implemented",
+    "live": "Implemented",
+    "action": "Already provided; actual platform preview/caching remains separate.",
+    "evidence": "current-theme-evidence.json"
+  },
+  {
+    "id": "M05",
+    "control": "Representative social-image field is supplied",
+    "peerObserved": 15,
+    "peerDenominator": 20,
+    "peerExamples": [
+      "B01",
+      "B04",
+      "B05",
+      "B06"
+    ],
+    "code": "Implemented",
+    "live": "Implemented",
+    "action": "Image URL presence is measured; peer image fetches, ownership and appropriateness were not certified. Optimize owned assets separately.",
+    "evidence": "current-theme-evidence.json"
+  },
+  {
+    "id": "M06",
+    "control": "HTML language is declared",
+    "peerObserved": 14,
+    "peerDenominator": 20,
+    "peerExamples": [
+      "B01",
+      "B02",
+      "B05",
+      "B07"
+    ],
+    "code": "Implemented",
+    "live": "Implemented",
+    "action": "Keep Blogger language aligned with the reusable SEO language setting.",
+    "evidence": "current-theme-evidence.json"
+  },
+  {
+    "id": "M07",
+    "control": "Viewport metadata supports mobile layout",
+    "peerObserved": 20,
+    "peerDenominator": 20,
+    "peerExamples": [
+      "B01",
+      "B02",
+      "B03",
+      "B04"
+    ],
+    "code": "Implemented",
+    "live": "Implemented",
+    "action": "Preserve current responsive design. Viewport presence does not prove responsive usability on peers.",
+    "evidence": "current-theme-evidence.json"
+  },
+  {
+    "id": "S01",
+    "control": "Article/BlogPosting structured entity",
+    "peerObserved": 19,
+    "peerDenominator": 20,
+    "peerExamples": [
+      "B01",
+      "B02",
+      "B03",
+      "B04"
+    ],
+    "code": "Implemented",
+    "live": "Implemented",
+    "action": "All 23 current posts have BlogPosting. Presence is not a Google eligibility or factual-quality pass.",
+    "evidence": "current-theme-evidence.json"
+  },
+  {
+    "id": "S02",
+    "control": "BreadcrumbList semantic navigation",
+    "peerObserved": 2,
+    "peerDenominator": 20,
+    "peerExamples": [
+      "B06",
+      "B13"
+    ],
+    "code": "Implemented",
+    "live": "Implemented",
+    "action": "Present on current single-item routes. Do not add duplicate JSON-LD merely because peers use that format.",
+    "evidence": "current-theme-evidence.json"
+  },
+  {
+    "id": "S03",
+    "control": "WebSite/Blog semantic identity",
+    "peerObserved": 0,
+    "peerDenominator": 20,
+    "peerExamples": [],
+    "code": "Implemented",
+    "live": "Implemented",
+    "action": "Current site/publisher identities are already rendered server-side.",
+    "evidence": "current-theme-evidence.json"
+  },
+  {
+    "id": "S04",
+    "control": "Structured author property",
+    "peerObserved": 9,
+    "peerDenominator": 20,
+    "peerExamples": [
+      "B04",
+      "B06",
+      "B07",
+      "B08"
+    ],
+    "code": "Implemented",
+    "live": "Implemented",
+    "action": "Markup and About links exist; the truth/currentness of credentials requires owner confirmation.",
+    "evidence": "current-theme-evidence.json"
+  },
+  {
+    "id": "S05",
+    "control": "Machine-readable datePublished",
+    "peerObserved": 15,
+    "peerDenominator": 20,
+    "peerExamples": [
+      "B01",
+      "B04",
+      "B05",
+      "B06"
+    ],
+    "code": "Implemented",
+    "live": "Implemented",
+    "action": "Native publication dates exist on all 23 posts; keep original publication dates when correcting content.",
+    "evidence": "current-theme-evidence.json"
+  },
+  {
+    "id": "S06",
+    "control": "Machine-readable dateModified",
+    "peerObserved": 7,
+    "peerDenominator": 20,
+    "peerExamples": [
+      "B06",
+      "B07",
+      "B12",
+      "B13"
+    ],
+    "code": "Implemented",
+    "live": "Implemented",
+    "action": "Native modification values exist. Do not treat automatic dates or a peer property as evidence of a substantive review.",
+    "evidence": "current-theme-evidence.json"
+  },
+  {
+    "id": "S07",
+    "control": "About/profile destination linked",
+    "peerObserved": 9,
+    "peerDenominator": 20,
+    "peerExamples": [
+      "B04",
+      "B08",
+      "B10",
+      "B12"
+    ],
+    "code": "Implemented",
+    "live": "Implemented",
+    "action": "Current About returns 200 and specializes to AboutPage. A link alone does not verify expertise.",
+    "evidence": "current-theme-evidence.json"
+  },
+  {
+    "id": "S08",
+    "control": "Contact and policy destinations discoverable",
+    "peerObserved": 2,
+    "peerDenominator": 20,
+    "peerExamples": [
+      "B13",
+      "B20"
+    ],
+    "code": "Implemented",
+    "live": "Partial",
+    "action": "Links work; Privacy still mentions iamrusiru.com. Correct destination identity after reviewing actual services.",
+    "evidence": "content-verification.json"
+  },
+  {
+    "id": "A01",
+    "control": "Article has H2/H3 section structure",
+    "peerObserved": 8,
+    "peerDenominator": 20,
+    "peerExamples": [
+      "B02",
+      "B06",
+      "B07",
+      "B09"
+    ],
+    "code": "Implemented",
+    "live": "Implemented",
+    "action": "Keep descriptive headings; avoid adding empty sections to match a numerical score.",
+    "evidence": "current-theme-evidence.json"
+  },
+  {
+    "id": "A02",
+    "control": "Questions are expressed in headings",
+    "peerObserved": 0,
+    "peerDenominator": 20,
+    "peerExamples": [],
+    "code": "Implemented",
+    "live": "Implemented",
+    "action": "Current FAQs provide question headings. Peer count is a punctuation/English-prefix heuristic, not a multilingual comprehension judgment.",
+    "evidence": "peer-evidence.json"
+  },
+  {
+    "id": "A03",
+    "control": "Explicit answer summary/TL;DR block",
+    "peerObserved": 0,
+    "peerDenominator": 20,
+    "peerExamples": [],
+    "code": "Implemented",
+    "live": "Implemented",
+    "action": "Current 23 posts have summaries. Peer detection is conservative; an unmarked opening may still answer the question well.",
+    "evidence": "current-theme-evidence.json"
+  },
+  {
+    "id": "A04",
+    "control": "Explicit FAQ section heading",
+    "peerObserved": 0,
+    "peerDenominator": 20,
+    "peerExamples": [],
+    "code": "Implemented",
+    "live": "Implemented",
+    "action": "Current 23 posts expose visible FAQs; retain only useful questions, not keyword variants.",
+    "evidence": "current-theme-evidence.json"
+  },
+  {
+    "id": "A05",
+    "control": "FAQPage semantics match visible Q/A content",
+    "peerObserved": 0,
+    "peerDenominator": 20,
+    "peerExamples": [],
+    "code": "Implemented",
+    "live": "Implemented",
+    "action": "129 current Q/As retained and post counts match the prepared release. No Google FAQ rich-result promise: the feature was retired.",
+    "evidence": "content-verification.json"
+  },
+  {
+    "id": "A06",
+    "control": "Semantic list elements in article body",
+    "peerObserved": 1,
+    "peerDenominator": 20,
+    "peerExamples": [
+      "B07"
+    ],
+    "code": "Partial",
+    "live": "Partial",
+    "action": "Reusable HTML lists are supported, but all 23 exported posts still have literal bullet/number lists in paragraphs. Render real ul/ol/li in prose while preserving appearance; related/source lists are not a substitute.",
+    "evidence": "content-verification.json"
+  },
+  {
+    "id": "A07",
+    "control": "Semantic comparison/data tables where relevant",
+    "peerObserved": 2,
+    "peerDenominator": 20,
+    "peerExamples": [
+      "B09",
+      "B20"
+    ],
+    "code": "Partial",
+    "live": "Partial",
+    "action": "The table snippet works, but the OWASP guide retains a pipe-delimited Markdown mapping table as paragraph text. Convert that specific table to table/th/td.",
+    "evidence": "content-verification.json"
+  },
+  {
+    "id": "A08",
+    "control": "Accessible TOC component for longer articles",
+    "peerObserved": 0,
+    "peerDenominator": 20,
+    "peerExamples": [],
+    "code": "Implemented",
+    "live": "Implemented",
+    "action": "Current template has the TOC hook and prior matching-build browser evidence. Peers were not browser-tested; no TOC was detected in sampled raw HTML.",
+    "evidence": "../../../blogger/changes/browser-evidence-2026-11-06.json"
+  },
+  {
+    "id": "A09",
+    "control": "Internal links occur inside article body",
+    "peerObserved": 2,
+    "peerDenominator": 20,
+    "peerExamples": [
+      "B03",
+      "B07"
+    ],
+    "code": "Implemented",
+    "live": "Partial",
+    "action": "Related navigation works; only two current posts have prose-level internal links after excluding related/source/FAQ sections. Add contextual links where useful, or a substantial topic hub.",
+    "evidence": "content-verification.json"
+  },
+  {
+    "id": "A10",
+    "control": "Outbound links occur inside article body",
+    "peerObserved": 17,
+    "peerDenominator": 20,
+    "peerExamples": [
+      "B01",
+      "B03",
+      "B04",
+      "B05"
+    ],
+    "code": "Partial",
+    "live": "Partial",
+    "action": "Four current posts contain outbound links, including the corrected references. On peers these can be ads/promotions, not citations. Review primary evidence for claims; never target an arbitrary link count.",
+    "evidence": "current-theme-evidence.json"
+  },
+  {
+    "id": "P01",
+    "control": "Every sampled image has an alt attribute",
+    "peerObserved": 2,
+    "peerDenominator": 19,
+    "peerExamples": [
+      "B03",
+      "B18"
+    ],
+    "code": "Implemented",
+    "live": "Partial",
+    "action": "Current article images have alt; ten live Popular-sidebar thumbnails on home still omit it. Inspect the saved widget; use empty alt for redundant thumbnails.",
+    "evidence": "current-theme-evidence.json"
+  },
+  {
+    "id": "P02",
+    "control": "Images declare intrinsic width and height",
+    "peerObserved": 5,
+    "peerDenominator": 19,
+    "peerExamples": [
+      "B04",
+      "B05",
+      "B08",
+      "B12"
+    ],
+    "code": "Implemented",
+    "live": "Partial",
+    "action": "Current generated images have dimensions; the saved home thumbnails need a reservation review. CSS aspect-ratio can also reserve space; missing attributes alone do not prove CLS.",
+    "evidence": "current-theme-evidence.json"
+  },
+  {
+    "id": "P03",
+    "control": "Lazy-loading attributes are present for images",
+    "peerObserved": 7,
+    "peerDenominator": 19,
+    "peerExamples": [
+      "B02",
+      "B03",
+      "B04",
+      "B05"
+    ],
+    "code": "Implemented",
+    "live": "Implemented",
+    "action": "Already supported. Raw attributes do not establish correct above/below-fold selection; preserve early LCP discovery.",
+    "evidence": "current-theme-evidence.json"
+  },
+  {
+    "id": "P04",
+    "control": "Responsive srcset variants exist",
+    "peerObserved": 6,
+    "peerDenominator": 19,
+    "peerExamples": [
+      "B02",
+      "B03",
+      "B04",
+      "B05"
+    ],
+    "code": "Missing",
+    "live": "Missing",
+    "action": "No current srcset was found. Add owned, genuinely fetchable size variants/sizes and optimize the heavy covers; do not invent unhosted URLs.",
+    "evidence": "current-theme-evidence.json"
+  },
+  {
+    "id": "P05",
+    "control": "ImageObject semantic detail is present",
+    "peerObserved": 7,
+    "peerDenominator": 20,
+    "peerExamples": [
+      "B06",
+      "B11",
+      "B12",
+      "B13"
+    ],
+    "code": "Optional",
+    "live": "Optional",
+    "action": "Current image URL properties are supported schema. ImageObject/dimensions/alt metadata can improve portability if accurate; it is not required simply because peers emit it.",
+    "evidence": "peer-evidence.json"
+  },
+  {
+    "id": "P06",
+    "control": "Preconnect hints for external resources",
+    "peerObserved": 2,
+    "peerDenominator": 20,
+    "peerExamples": [
+      "B12",
+      "B15"
+    ],
+    "code": "Implemented",
+    "live": "Implemented",
+    "action": "Font preconnects already exist. Resource hints are not a substitute for measured LCP/CLS/INP.",
+    "evidence": "current-theme-evidence.json"
+  },
+  {
+    "id": "G01",
+    "control": "Label/topic navigation is discoverable",
+    "peerObserved": 8,
+    "peerDenominator": 20,
+    "peerExamples": [
+      "B04",
+      "B07",
+      "B10",
+      "B12"
+    ],
+    "code": "Implemented",
+    "live": "Implemented",
+    "action": "Current label navigation exists; do not index every search/label archive automatically. Consider a genuinely useful curated native Page instead.",
+    "evidence": "current-theme-evidence.json"
+  },
+  {
+    "id": "G02",
+    "control": "Feed discovery links and pagination exist",
+    "peerObserved": 16,
+    "peerDenominator": 20,
+    "peerExamples": [
+      "B01",
+      "B02",
+      "B03",
+      "B04"
+    ],
+    "code": "Implemented",
+    "live": "Implemented",
+    "action": "Current feeds and listing navigation are present. This research counts peer links, not successful feed subscription or every pagination page.",
+    "evidence": "peer-evidence.json"
+  },
+  {
+    "id": "G03",
+    "control": "llms.txt treated as optional rather than a ranking requirement",
+    "peerObserved": 0,
+    "peerDenominator": 20,
+    "peerExamples": [],
+    "code": "Optional",
+    "live": "Optional",
+    "action": "No genuine llms.txt detected among 20 peers. Google does not require it; themes cannot publish arbitrary root text files. No mandatory fix.",
+    "evidence": "extra-request-manifest.json"
+  },
+  {
+    "id": "G04",
+    "control": "Saved native post/Page description and FAQ round-trip",
+    "peerObserved": null,
+    "peerDenominator": null,
+    "peerExamples": [],
+    "code": "Supported",
+    "live": "Unverified",
+    "action": "Existing hosted route fallbacks work, but a controlled newly saved native post/Page is still needed to prove editor-field priority/retention.",
+    "evidence": "../../../blogger/APPLY-UPDATES.md"
+  },
+  {
+    "id": "G05",
+    "control": "Search Console/Bing actual indexing and AI reports",
+    "peerObserved": null,
+    "peerDenominator": null,
+    "peerExamples": [],
+    "code": "Outside theme",
+    "live": "Unverified",
+    "action": "Owner verifies selected canonicals, sitemap processing, search queries and AI reports. HTML/schema/Tranco ranks cannot establish citations.",
+    "evidence": "SOURCES.md"
+  },
+  {
+    "id": "G06",
+    "control": "Field performance and real-device/accessibility checks",
+    "peerObserved": null,
+    "peerDenominator": null,
+    "peerExamples": [],
+    "code": "Partial",
+    "live": "Unverified",
+    "action": "Prior local diagnostics identify heavy assets/shifts/contrast. No fresh peer browser/CWV, field INP, screen-reader or physical-device certification was performed here.",
+    "evidence": "../../../blogger/audits/2026-11-05/REPORT.md"
+  },
+  {
+    "id": "G07",
+    "control": "Claims, author identity and policy text are accurate",
+    "peerObserved": null,
+    "peerDenominator": null,
+    "peerExamples": [],
+    "code": "Partial",
+    "live": "Partial",
+    "action": "All 23 live post bodies match the corrected local bodies and no placeholders remain. Two titles conflict with corrected content; Privacy identity and comprehensive expert checks remain.",
+    "evidence": "content-verification.json"
+  },
+  {
+    "id": "G08",
+    "control": "Search access, training preference and generative-search controls are deliberate",
+    "peerObserved": null,
+    "peerDenominator": null,
+    "peerExamples": [],
+    "code": "Supported",
+    "live": "Unverified",
+    "action": "Public robots permits discovery. Review owner Search Console generative-AI choice and separate training preference; user-agent text alone is not verified crawler access.",
+    "evidence": "SOURCES.md"
+  },
+  {
+    "id": "G09",
+    "control": "No ranking myths, hidden AI prompts or forced schema formats",
+    "peerObserved": null,
+    "peerDenominator": null,
+    "peerExamples": [],
+    "code": "Implemented",
+    "live": "Implemented",
+    "action": "Keep microdata, natural topic phrases and useful answers. Do not copy legacy keywords, schema stuffing, fake ratings or fabricated update dates from peers. No style changes are required by this research.",
+    "evidence": "SOURCES.md"
+  }
+]

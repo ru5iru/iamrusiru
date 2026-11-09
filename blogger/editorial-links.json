@@ -1,0 +1,180 @@
+{
+  "proper-project-planning": {
+    "heading": "## Security tools added mid-flight, without context",
+    "text": "For the tooling part of that plan, see my [code review and security analysis integration guide](post:code-review-security-platform)."
+  },
+  "injection": {
+    "heading": "## Practical recommendations",
+    "text": "Input handling is only one boundary. Pair these checks with [server-side authorization checks](post:broken-access-control) so a safe query cannot expose another user's records."
+  },
+  "cryptographic-failures": {
+    "heading": "## Password hashing deserves its own section",
+    "text": "Encryption cannot decide who should see a record; the [broken access control guide](post:broken-access-control) covers that separate authorization boundary."
+  },
+  "broken-access-control": {
+    "heading": "## How to test for broken access control",
+    "text": "Authorization checks complement, rather than replace, the [parameterized-query and input-handling checks in the injection guide](post:injection)."
+  },
+  "work-life-balance-for-developers": {
+    "heading": "## The Manager and Team Angle",
+    "text": "When workload keeps expanding, the [project planning account](post:proper-project-planning) illustrates why scope and timeline decisions also need team-level attention."
+  },
+  "drupal-page-caching": {
+    "heading": "## How to Debug Drupal Cache Issues",
+    "text": "For the incident-handling side of a stale-content problem, use the [production debugging workflow](post:debugging-production) alongside the cache metadata checks below.",
+    "references": [
+      {
+        "title": "Drupal: Cache API and cacheability metadata",
+        "url": "https://www.drupal.org/docs/drupal-apis/cache-api"
+      }
+    ]
+  },
+  "code-review-security-platform": {
+    "heading": "## Best Practices for Integration",
+    "text": "Automation still needs human judgment: my [code review etiquette guide](post:code-review-etiquette) covers explaining findings without turning preferences into blockers.",
+    "references": [
+      {
+        "title": "Google Engineering Practices: How to do a code review",
+        "url": "https://google.github.io/eng-practices/review/reviewer/"
+      }
+    ]
+  },
+  "vibe-coding": {
+    "heading": "## My Vibe Coding Workflow",
+    "text": "Before accepting generated changes, apply the same [clean code review principles](post:clean-code-principles) you would use for a colleague's pull request."
+  },
+  "owasp-top-ten": {
+    "heading": "## A05:2025 Injection",
+    "text": "For vulnerable and safer query examples, continue with the [Injection A05 deep dive](post:injection).",
+    "references": [
+      {
+        "title": "OWASP Top 10 2025: official categories and methodology",
+        "url": "https://top10.owasp.org/2025/"
+      }
+    ]
+  },
+  "clean-code-principles": {
+    "heading": "## Write Tests as Documentation",
+    "text": "These principles are easier to apply collaboratively with [review comments that explain the reason for a change](post:code-review-etiquette).",
+    "references": [
+      {
+        "title": "Google Engineering Practices: What to look for in a code review",
+        "url": "https://google.github.io/eng-practices/review/reviewer/looking-for.html"
+      }
+    ]
+  },
+  "switched-to-typescript": {
+    "heading": "## TypeScript Tradeoffs and Limitations",
+    "text": "Types help express intent, while the [clean code principles](post:clean-code-principles) cover naming, scope and tests that static checking cannot decide for you.",
+    "references": [
+      {
+        "title": "TypeScript Handbook: The basics",
+        "url": "https://www.typescriptlang.org/docs/handbook/2/basic-types.html"
+      }
+    ]
+  },
+  "cli-tool-rust": {
+    "heading": "## Publishing and Sharing",
+    "text": "This experiment fits the [small side-project approach](post:side-projects-keep-me-sane): keep the scope narrow enough to finish and learn from it.",
+    "references": [
+      {
+        "title": "The Rust Programming Language: Command line program",
+        "url": "https://doc.rust-lang.org/book/ch12-00-an-io-project.html"
+      }
+    ]
+  },
+  "books-better-engineer": {
+    "heading": "## Why Broad Reading Matters for Engineers",
+    "text": "To turn a useful passage into a repeatable habit, try the short notes format in my [developer journal](post:why-i-journal-as-dev)."
+  },
+  "react-server-components": {
+    "heading": "## How to Migrate Existing React Apps",
+    "text": "A migration also needs a bounded scope and a rollback plan; the [project planning lessons](post:proper-project-planning) explain what happens when those decisions are deferred.",
+    "references": [
+      {
+        "title": "React reference: Server Components",
+        "url": "https://react.dev/reference/rsc/server-components"
+      }
+    ]
+  },
+  "fastapi-quickstart": {
+    "heading": "## Adding a Database With SQLModel",
+    "text": "Once the API needs a database and other services, the [Docker Compose development setup](post:docker-compose-dev) can make that local stack repeatable.",
+    "references": [
+      {
+        "title": "FastAPI official tutorial",
+        "url": "https://fastapi.tiangolo.com/tutorial/"
+      },
+      {
+        "title": "SQLModel official tutorial",
+        "url": "https://sqlmodel.tiangolo.com/tutorial/"
+      }
+    ]
+  },
+  "side-projects-keep-me-sane": {
+    "heading": "## The Rule That Prevents Burnout",
+    "text": "If a hobby starts competing with recovery time, revisit the boundaries in [work-life balance for developers](post:work-life-balance-for-developers)."
+  },
+  "code-review-etiquette": {
+    "heading": "## Distinguish Preferences from Problems",
+    "text": "Agreed [clean code principles](post:clean-code-principles) give reviewers a shared vocabulary for explaining maintainability concerns.",
+    "references": [
+      {
+        "title": "Google Engineering Practices: Writing review comments",
+        "url": "https://google.github.io/eng-practices/review/reviewer/comments.html"
+      }
+    ]
+  },
+  "dotfile-one-liners": {
+    "heading": "## Git Shortcuts",
+    "text": "An alias is most useful once you understand the underlying command; the [Git workflow guide](post:git-workflow-tips) explains rebase, bisect and worktrees.",
+    "references": [
+      {
+        "title": "Git documentation: Git aliases (an alternative to shell aliases)",
+        "url": "https://git-scm.com/book/en/v2/Git-Basics-Git-Aliases"
+      }
+    ]
+  },
+  "burnout-and-recovery": {
+    "heading": "## Lessons Learned About Burnout Prevention",
+    "text": "For the day-to-day boundaries I use after that experience, see [work-life balance for developers](post:work-life-balance-for-developers). This is a personal account, not a diagnosis or treatment plan."
+  },
+  "debugging-production": {
+    "heading": "## Systematic Debugging Approach",
+    "text": "When a regression's starting point is unclear, [Git bisect](post:git-workflow-tips) can help narrow the change history before you investigate the cause.",
+    "references": [
+      {
+        "title": "Google SRE Book: Effective troubleshooting",
+        "url": "https://sre.google/sre-book/effective-troubleshooting/"
+      }
+    ]
+  },
+  "git-workflow-tips": {
+    "heading": "## Git Bisect for Finding Bugs",
+    "text": "Use the identified change as evidence in a [systematic production debugging process](post:debugging-production), then verify the fix against the original failure.",
+    "references": [
+      {
+        "title": "Git documentation: git bisect",
+        "url": "https://git-scm.com/docs/git-bisect"
+      },
+      {
+        "title": "Git documentation: git worktree",
+        "url": "https://git-scm.com/docs/git-worktree"
+      }
+    ]
+  },
+  "why-i-journal-as-dev": {
+    "heading": "## How to Start a Developer Journal",
+    "text": "A journal also gives you somewhere to record and revisit ideas from the [engineering books I found useful](post:books-better-engineer)."
+  },
+  "docker-compose-dev": {
+    "heading": "## Best Practices for Docker Compose in Development",
+    "text": "For a small API to run in that stack, the [FastAPI quickstart](post:fastapi-quickstart) walks through an endpoint and database setup.",
+    "references": [
+      {
+        "title": "Docker documentation: Compose",
+        "url": "https://docs.docker.com/compose/"
+      }
+    ]
+  }
+}

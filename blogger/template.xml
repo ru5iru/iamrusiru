@@ -158,6 +158,7 @@
               <b:includable id='main'><h2 class='font-display text-lg font-semibold mb-4'><data:title/></h2><div class='blogger-labels'><b:loop values='data:labels' var='label'><b:if cond='!(data:label.name in @@TOPICS_SET@@)'><a expr:href='data:label.url' expr:data-label-count='data:label.count'>#<data:label.name/> <span class='sr-only'>(<data:label.count/> posts)</span></a></b:if></b:loop></div></b:includable>
             </b:widget>
             <b:widget id='BlogArchive1' type='BlogArchive' version='2' title='Blog Archive' locked='no'/>
+            @@POPULAR_POSTS@@
           </b:section>
           @@CONNECT@@
           <form expr:action='data:blog.homepageUrl + "search"' method='get' role='search'><label class='font-display text-lg block mb-4' for='blog-search'>Search this blog</label><div class='flex gap-2'><input class='min-w-0 w-full px-3 py-2 rounded-lg border border-divider bg-background' id='blog-search' name='q' placeholder='Search posts…' type='search' expr:value='data:view.search.query'/><button class='px-4 py-2 bg-primary text-primary-foreground rounded-full' type='submit'>Search</button></div></form>

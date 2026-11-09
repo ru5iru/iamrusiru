@@ -1,0 +1,18 @@
+<!-- SEO/accessibility: native PopularPosts data; original saved gadget styles.
+     Empty alt is deliberate: the adjacent link already names the destination.
+     Blogger's image service supplies real responsive thumbnail candidates. -->
+<b:widget id='PopularPosts1' type='PopularPosts' version='2' title='Popular' locked='no'>
+  <b:includable id='main'>
+    <div class='widget'>
+      <div class='widget-title'><h3><data:title/></h3></div>
+      <b:loop values='data:posts' var='post'>
+        <div style='margin-bottom:15px; display:flex; align-items:center; gap:10px;'>
+          <b:if cond='data:post.featuredImage'>
+            <img expr:src='resizeImage(data:post.featuredImage, 120)' expr:srcset='sourceSet(data:post.featuredImage, [60, 120])' sizes='60px' alt='' width='60' height='60' loading='lazy' decoding='async' style='width:60px; height:60px; object-fit:cover; border-radius:6px;'/>
+          </b:if>
+          <div><a expr:href='data:post.url' style='font-weight:600; font-size:0.9rem; line-height:1.2;'><data:post.title/></a></div>
+        </div>
+      </b:loop>
+    </div>
+  </b:includable>
+</b:widget>

@@ -52,7 +52,8 @@ ${summary}
     'snippets/callout-info.html': source.renderCallout({ type: 'callout', variant: 'info', text: 'Replace this with your information note.' }),
     'snippets/callout-warning.html': source.renderCallout({ type: 'callout', variant: 'warning', text: 'Replace this with your warning.' }),
     'snippets/callout-tip.html': source.renderCallout({ type: 'callout', variant: 'tip', text: 'Replace this with your practical tip.' }),
-    'snippets/table.html': '<table><thead><tr><th>Heading one</th><th>Heading two</th></tr></thead><tbody><tr><td>First value</td><td>Second value</td></tr></tbody></table>',
+    'snippets/table.html': '<table><caption>Replace with a descriptive table title</caption><thead><tr><th scope="col">Heading one</th><th scope="col">Heading two</th></tr></thead><tbody><tr><td>First value</td><td>Second value</td></tr></tbody></table>',
+    'snippets/lists.html': '<!-- Keep actual list elements in HTML view; do not type Markdown bullets. -->\n<ul><li>Replace with a related point.</li><li>Replace with another point.</li></ul>\n<ol><li>Replace with the first step.</li><li>Replace with the next step.</li></ol>',
     'snippets/quote.html': '<blockquote><p>Replace this with a quotation you have permission to use.</p></blockquote>',
     'snippets/seo-keywords.html': `<!-- Optional structured keywords for a Page, or phrases separate from post Labels.
 Append at the END of the body. Replace the examples with relevant phrases.

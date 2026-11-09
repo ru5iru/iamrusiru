@@ -1,47 +1,76 @@
-# Apply the Blogger visibility fixes
+# Apply the Blogger theme and post improvements
 
-Prepared 6 November 2026. These are local theme/post changes. They take effect publicly only after you save the theme and update the existing posts in Blogger. The React application and existing CSS/colors/fonts have not been changed.
+Prepared **7 November 2026** from the twenty-site benchmark. This package does not sign in to Blogger or change the public blog. Existing CSS, colors and fonts are retained; lists and the OWASP table now use the existing semantic list/table styles.
 
-## 1. Update the theme
+## 1. Back up
 
-Back up the current theme through Blogger first. In **Theme → Restore**, upload `iamrusiru-blogger.xml` from this package. If Blogger gives a validation error, use **Theme → Edit HTML** to save the XML and capture the exact error. Published posts are separate from the theme.
+Download the current theme from **Blogger → Theme** and back up content under **Settings → Manage blog → Back up content**. Keep copies of newer native edits before replacing bodies.
 
-The update changes native route comparisons to URL-valued `path()` expressions, ignores a repeated site description when selecting an article fallback, uses native Search descriptions, preserves complete titles, improves utility headings and omits malformed error canonical/social URLs. Native compilation and metadata priority still require hosted verification after installation. A successful local preview alone is not proof of that.
+**Do not import feed.atom into the existing live blog.** It is only for an empty/fresh blog and can duplicate entries. Theme restore cannot change saved post bodies, titles, Search descriptions or Pages.
 
-## 2. Update existing posts in place
+## 2. Restore the theme
 
-**Do not reimport `feed.atom` into the current live blog.** It is for a fresh blog import and can duplicate existing entries. Theme restore cannot update saved post bodies or their editor fields.
+In **Theme → Restore**, upload **iamrusiru-blogger.xml** from the extracted package. The project copy is **blogger/output/iamrusiru-blogger.xml**. If Restore hides an error, use **Theme → Edit HTML**, paste that generated XML and Save to see the exact validation message. Do not upload the source template.xml.
 
-Start with Injection, Cryptographic Failures, Broken Access Control and Work-Life Balance. Their body content has corrections to edition labels, statistics, unsupported generalizations and published source placeholders. No tutorial programs or personal experience claims have been independently certified.
+The update retains server-rendered metadata, canonicals, social fields, article/author/breadcrumb/FAQ semantics and intended index rules. It adds native responsive thumbnails and a versioned Popular Posts repair using the existing saved widget's styles.
 
-For each existing post:
+Check **Layout** for the existing header, hero, topics, sidebar and footer. Blogger may retain saved widget settings/custom includables during restore. On home, inspect raw source for **PopularPosts1**: its thumbnails should have empty alt, width 60 and height 60. If old markup remains, find the entire existing PopularPosts1 widget element in **Edit HTML** and replace it with **widget-updates/popular-posts.xml**. Keep its sidebar position and only one widget with that ID. Back up before editing.
 
-1. Find its exact published URL in `post-updates.csv` or `post-updates.json` and open that entry under **Blogger → Posts**.
-2. Preserve its existing permalink and publication date. Copy its current body elsewhere as a backup, especially if you edited it after the source export.
-3. Switch the editor to **HTML view**. Merge the corrections from `post-updates/SLUG.html`, or replace the body only if there are no newer edits to retain. These are body-only files; do not paste a complete document or XML theme into the post.
-4. Set the **Title** and **Search description** from the same inventory row. Keep or refine its existing relevant Labels; do not paste the intent/keyword list into the description. The intent column is an editorial brief.
-5. Preview, then **Update** the existing entry. Check its cover, code, FAQ answers and source links. If Compose normalized optional markup, inspect saved HTML again.
+## 3. Update all 23 existing posts
 
-All 23 posts have a distinct suggested Search description and a reader-intent brief. The four corrected articles retain their existing URLs. Updates use Blogger's real modification timestamp; do not change publication dates to simulate freshness. The exported editorial date records the actual source correction date.
+All exported bodies now contain semantic lists, one relevant contextual internal link, preserved code/FAQs and, where appropriate, additional primary references. The OWASP guide also contains a proper comparison table. The references do not certify every claim or code example.
 
-## 3. New posts and Pages
+For each row in **post-updates.csv** or **post-updates.json**:
 
-Enable **Settings → Meta tags → Enable search description** if needed. In a new post, write a clear title, set one configured topic Label plus useful related Labels, write a unique Search description, and use the optional styled blocks in `editor-templates`. FAQs should be genuine questions with accurate visible answers. Legacy meta keywords are optional and do not improve Google's ranking.
+1. Match its exact published URL and open that existing entry under **Posts**. Preserve its permalink and original publication date.
+2. Back up the current body. In **HTML view**, paste the matching **post-updates/SLUG.html**. If you have newer native edits, merge those deliberately instead of overwriting them. These files contain only body HTML.
+3. Set the **Title** and **Search description** from the same row. If the description field is hidden, enable **Settings → Meta tags → Enable search description**. Keep relevant Labels. The intent column is a writing brief, not a keyword list to paste into the description.
+4. Preview and **Update**. Check the cover, bullets/steps, code copying, FAQ answers and sources. Check the OWASP table on mobile. After Compose editing, inspect HTML again to confirm the semantic markup survived.
 
-Without a saved description or configured route, the head falls back to the native title rather than the site-wide summary; article schema can use a body snippet. This is a fallback, not a substitute for writing a useful Search description. Do not add duplicate H1, description tags or FAQ schema to the body.
+Two titles specifically need native editor updates even if previous body corrections are already live:
 
-Pages use the same native description handling. About/Contact and configured legal routes get their configured semantics/index policy. Policy service claims and any new topic hub still need a separate owner/content review.
+| Existing post | Correct Title |
+| --- | --- |
+| /2026/06/injection.html | Injection OWASP Top 10 2025: A05 Explained for Developers |
+| /2026/05/cryptographic-failures.html | Cryptographic Failures: OWASP A04 (2025) and A02 (2021) |
 
-## 4. Verify the hosted result
+The theme continues to respect native Blogger titles. Installing XML alone cannot rename entries. Native Title also supplies H1, social titles and the structured headline. Blogger records the real modification time; keep publication dates unchanged.
 
-After saving, inspect raw page source for home, the four corrected posts, About/Contact, legal Pages and a genuinely new native post/Page. Check one title/canonical/description per applicable key, topic-specific descriptions and OG/Twitter fields, visible/schema FAQ agreement and intended robots policy. Test `?m=1`, labels/search/archives and a missing URL. Missing URLs must stay 404/noindex.
+## 4. Update the Privacy Page
 
-From the project directory, after rebuilding, run:
+Open the existing **Pages → Privacy Policy** entry and preserve its URL. Use **page-updates/privacy-policy.html** for its body and the Search description from **page-updates.json**. This corrects the destination identity and records the identity edit date. About, Contact and Cookie bodies need no replacement for this release.
+
+Review service, contact, newsletter, analytics, cookie and data-handling claims against what you actually operate. This release does not assume they are all accurate or provide legal-compliance certification.
+
+## 5. Upload and activate responsive cover images
+
+Follow [IMAGE-PUBLISHING.md](IMAGE-PUBLISHING.md): upload the generated WebP files, fill their real public URLs, run the verification/activation command, then rebuild and publish the new XML/post bodies. Until activation, covers retain their working originals; native Blogger thumbnails already have responsive support.
+
+You can publish the semantic theme/post fixes first and activate cover variants later. Do not paste blank upload-map URLs into HTML or point to unpublished GitHub files.
+
+## 6. Optional Engineering reading guide
+
+**page-drafts/engineering-start-here.html** is a prepared native Page grouping existing security, delivery, review and tutorial posts. Create it only if useful to readers. Set Title/Search description from **page-drafts.json**, preview and publish. Then add its **actual published URL** to an appropriate existing navigation gadget in Layout. This release adds no link to an unpublished Page.
+
+## 7. Verify the hosted result
+
+From the project directory run:
 
 ```powershell
 npm run verify:blogger:live
 ```
 
-This read-only comparison checks the configured public blog against `blogger/output` and writes a dated result under `blogger/output/verification`. It will report the current live site as failing until the relevant theme/post updates are installed. Search Console indexing, actual AI visibility and authenticated editor saves remain owner verification tasks.
+The read-only check compares 28 core URLs with the new release: metadata/build ID, titles, canonicals, index rules, structured keywords, FAQ counts, updated body text, semantic lists/table, code examples, widget image attributes and Privacy identity. Dated results are saved under **blogger/output/verification**. A deliberate newer native body/description may need manual reconciliation; do not overwrite it blindly just to pass the check.
 
-The audit baseline is retained under `blogger/audits/2026-11-05`; implementation progress and pending hosted checks are recorded separately under `blogger/changes/2026-11-06.md`.
+Also check home, a post, About and Privacy with **?m=1**; search/label/archive links; an unknown URL returning 404/noindex; and menu, theme toggle, code copying, TOC and comments. A local preview approximates Blogger. Restoring/saving on a test blog and a controlled native post/Page editor round-trip remain final platform checks.
+
+For new content, write a unique native title/Search description, use relevant Labels, and paste optional styled snippets in HTML view. Keep one theme-supplied H1. Use real HTML list/table elements rather than typed Markdown. Keep useful visible FAQs and matching answers. See [WRITING.md](WRITING.md) and [SEO-GUIDE.md](SEO-GUIDE.md).
+
+## 8. Complete owner-only checks
+
+- Keep **Visible to search engines** enabled. Review working robots settings rather than replacing them unnecessarily; robots-txt.example.txt is optional. Theme restore does not change account settings.
+- In Search Console/Bing Webmaster Tools, check **/sitemap.xml**, **/sitemap-pages.xml**, actual indexing and selected canonicals. Inspect corrected post URLs after publishing. Legal Pages remain intentionally noindex.
+- Review search/generative-search controls separately from training preferences and measure actual search/AI citations/referrals where reports are available. Markup alone does not establish them.
+- After image activation, measure PageSpeed/field results and real-device accessibility. Verify layout shifts, LCP and INP using appropriate methods. Color/contrast redesign remains outside this style-preserving release.
+
+The original benchmark is unchanged under **blogger/research/2026-11-06-top20**. Current implementation progress and owner tasks are recorded in [changes/2026-11-07.md](changes/2026-11-07.md).

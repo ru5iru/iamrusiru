@@ -1,0 +1,34 @@
+{
+  "clientDate": "2026-11-07",
+  "buildId": "c04b998812dfa6cbaaf2",
+  "files": [
+    {
+      "file": "2026-11-07.md",
+      "sha256": "a43d25c5859b542870e4d5a60d74b9b575363ce6261f5ebff64b02395dff1cc2"
+    },
+    {
+      "file": "browser-2026-11-07.js",
+      "sha256": "7afdad3b138d6f0bdb2d18ab04587b777e1f69f4b73fec7144eef4ce8226e218"
+    },
+    {
+      "file": "browser-evidence-2026-11-07.json",
+      "sha256": "25eabda2eeba93b3c5cd06f2084b40b3839a02b71826814eb19d88b6ebfb6db3"
+    },
+    {
+      "file": "local-http-2026-11-07.json",
+      "sha256": "23360b2850350911e3c4cef44fb631844def55e54fdacb536b5df79dc137fd04"
+    },
+    {
+      "file": "primary-sources-2026-11-07.json",
+      "sha256": "a4a8bd379382b065a948c7a1879acbb46228bf0e23aaabf76e159a2609c67842"
+    },
+    {
+      "file": "release-verification-2026-11-07.json",
+      "sha256": "eba0414d4441d4ceb62b1b366772d3302c6df4428e287d504f537baef2a7baa9"
+    },
+    {
+      "file": "visual-comparison-2026-11-07.json",
+      "sha256": "d2998c74e506009b67904dc45bae81a905f85580a7c66ba9630e7f737b59bc18"
+    }
+  ]
+}

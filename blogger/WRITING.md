@@ -19,6 +19,8 @@ For keyword choice, Search descriptions, Page metadata, crawler settings and reu
 
 The Blogger editing canvas may not look like the published theme. Use **Preview** to check the actual site styles. Inline formatting pasted from Word or another website can override theme fonts/colors; paste plain text or clear formatting when needed.
 
+Use the editor's actual list controls, or `snippets/lists.html` in HTML view. Typing `- item` or `1. item` as plain text does not create semantic lists in Blogger. For comparisons use `snippets/table.html`, retaining header cells and `scope="col"`. No custom font/color changes are needed. For image variants, see [IMAGE-PUBLISHING.md](IMAGE-PUBLISHING.md).
+
 ## Write a post
 
 1. Open **Posts → New post** and enter the title in Blogger's Title field.

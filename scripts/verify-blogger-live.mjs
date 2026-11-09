@@ -56,6 +56,28 @@ await Promise.all(Array.from({ length: 3 }, async () => {
         if (/\[(?:SOURCE|INTERNAL LINK):/.test(article?.textContent || '')) result.errors.push('Published source/link placeholder remains');
         const keywords = [...(article?.querySelectorAll(':scope > meta[itemprop="keywords"]') || [])].map(node => node.content);
         if (route.seo.keywords.some(keyword => !keywords.includes(keyword))) result.errors.push('Configured structured keywords did not select the expected branch');
+        const body = doc.querySelector('[data-article-body]');
+        const expected = JSDOM.fragment(route.body);
+        const text = node => node?.textContent.replace(/\s+/g, ' ').trim() || '';
+        if (text(body) !== text(expected)) result.errors.push('Post body differs from the prepared update; merge any newer native edits deliberately');
+        result.semanticLists = body?.querySelectorAll('ul,ol').length || 0;
+        result.semanticTables = body?.querySelectorAll('table').length || 0;
+        if (result.semanticLists < expected.querySelectorAll('ul,ol').length) result.errors.push('Prepared semantic lists are missing');
+        if (result.semanticTables !== expected.querySelectorAll('table').length) result.errors.push('Prepared semantic table count differs');
+        const liveCode = [...(body?.querySelectorAll('pre code') || [])].map(code => code.textContent);
+        const expectedCode = [...expected.querySelectorAll('pre code')].map(code => code.textContent);
+        if (JSON.stringify(liveCode) !== JSON.stringify(expectedCode)) result.errors.push('Code example text differs from prepared content');
+        const expectedCover = expected.querySelector('img[srcset]');
+        if (expectedCover && !body?.querySelector('img[srcset]')) result.errors.push('Activated responsive image candidates are missing');
+      }
+      if (route.kind === 'home') {
+        const thumbnails = [...doc.querySelectorAll('#PopularPosts1 img')];
+        result.popularImages = thumbnails.length;
+        if (thumbnails.some(image => !image.hasAttribute('alt') || !image.getAttribute('width') || !image.getAttribute('height'))) result.errors.push('Saved Popular Posts widget still omits image alternatives/dimensions; apply widget repair');
+      }
+      if (route.kind === 'page' && route.slug === 'privacy-policy') {
+        const body = doc.querySelector('.page-body');
+        if (body?.textContent.includes('iamrusiru.com') && !origin.hostname.includes('iamrusiru.com')) result.errors.push('Privacy Page still uses the previous destination identity');
       }
       if (route.seo?.pageType && route.seo.pageType !== 'WebPage' && !doc.querySelector('meta[itemprop="additionalType"][content="https://schema.org/' + route.seo.pageType + '"]')) result.errors.push('Configured Page specialization missing');
       if (route.seo?.description && description !== route.seo.description) result.warnings.push('Description differs from prepared default; confirm this is an intentional native Search description');

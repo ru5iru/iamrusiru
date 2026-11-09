@@ -1,0 +1,396 @@
+{
+  "capturedAt": "2026-11-06T17:54:31.232Z",
+  "source": "https://tranco-list.eu/download/V355N/1000000",
+  "listId": "V355N",
+  "sourcePage": "https://tranco-list.eu/list/V355N",
+  "methodology": "https://tranco-list.eu/",
+  "citation": "Le Pochat et al. (NDSS 2019), doi:10.14722/ndss.2019.23386",
+  "metric": "Tranco aggregate popularity rank with subdomains; not visits, Google rankings, SEO quality or AI citations",
+  "filter": "single-label *.blogspot.com hostnames; excludes aggregate blogspot.com and custom domains",
+  "downloadedBytes": 25836045,
+  "scannedRows": 1000000,
+  "fullFileDownloaded": true,
+  "sourceHeaders": {
+    "alt-svc": "h3=\":443\"; ma=86400",
+    "cache-control": "public, max-age=86400",
+    "cf-cache-status": "HIT",
+    "cf-ray": "a565f6901927351b-CMB",
+    "connection": "keep-alive",
+    "content-disposition": "Attachment;filename=tranco_V355N.csv",
+    "content-encoding": "gzip",
+    "content-type": "text/csv; charset=utf-8",
+    "date": "Fri, 06 Nov 2026 17:54:23 GMT",
+    "last-modified": "Fri, 06 Nov 2026 17:54:23 GMT",
+    "nel": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.0,\"max_age\":604800}",
+    "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=fc2G7z1o61kqxNU5sAblI4cTPOeEItDi3oe1uHw0z%2BKbkAic2lIUZDg2IucipoW4e6jJdIo4zm9spB%2FAE0mUGi1PSr6OzP2Pdt7IoZwCanTaozwSzs%2BJqUVLQahX7MBGrA%3D%3D\"}]}",
+    "server": "cloudflare",
+    "transfer-encoding": "chunked",
+    "vary": "accept-encoding",
+    "x-frame-options": "DENY"
+  },
+  "candidates": [
+    {
+      "selectionOrder": 1,
+      "domain": "bp.blogspot.com",
+      "globalRank": 2069
+    },
+    {
+      "selectionOrder": 2,
+      "domain": "cartaplanbee.blogspot.com",
+      "globalRank": 130766
+    },
+    {
+      "selectionOrder": 3,
+      "domain": "centergagnant.blogspot.com",
+      "globalRank": 130863
+    },
+    {
+      "selectionOrder": 4,
+      "domain": "gazettedupmu2.blogspot.com",
+      "globalRank": 132423
+    },
+    {
+      "selectionOrder": 5,
+      "domain": "pitaronfree.blogspot.com",
+      "globalRank": 135338
+    },
+    {
+      "selectionOrder": 6,
+      "domain": "turulove3738.blogspot.com",
+      "globalRank": 137498
+    },
+    {
+      "selectionOrder": 7,
+      "domain": "uniformesparafts15ydls.blogspot.com",
+      "globalRank": 137599
+    },
+    {
+      "selectionOrder": 8,
+      "domain": "textbooksall.blogspot.com",
+      "globalRank": 157972
+    },
+    {
+      "selectionOrder": 9,
+      "domain": "2027clubz12.blogspot.com",
+      "globalRank": 171932
+    },
+    {
+      "selectionOrder": 10,
+      "domain": "videyfreez.blogspot.com",
+      "globalRank": 236535
+    },
+    {
+      "selectionOrder": 11,
+      "domain": "la-gazete1.blogspot.com",
+      "globalRank": 237867
+    },
+    {
+      "selectionOrder": 12,
+      "domain": "canalnatelinhaonline.blogspot.com",
+      "globalRank": 301660
+    },
+    {
+      "selectionOrder": 13,
+      "domain": "adamjeecoaching.blogspot.com",
+      "globalRank": 303501
+    },
+    {
+      "selectionOrder": 14,
+      "domain": "asupan-link-videy.blogspot.com",
+      "globalRank": 304418
+    },
+    {
+      "selectionOrder": 15,
+      "domain": "base-pronoquinte.blogspot.com",
+      "globalRank": 304715
+    },
+    {
+      "selectionOrder": 16,
+      "domain": "clemillionnairevip.blogspot.com",
+      "globalRank": 305735
+    },
+    {
+      "selectionOrder": 17,
+      "domain": "ictsciencerekha.blogspot.com",
+      "globalRank": 308675
+    },
+    {
+      "selectionOrder": 18,
+      "domain": "islamholyquran.blogspot.com",
+      "globalRank": 309025
+    },
+    {
+      "selectionOrder": 19,
+      "domain": "osamamod2020.blogspot.com",
+      "globalRank": 312021
+    },
+    {
+      "selectionOrder": 20,
+      "domain": "pom-pom-bd24.blogspot.com",
+      "globalRank": 312670
+    },
+    {
+      "selectionOrder": 21,
+      "domain": "rodopi24.blogspot.com",
+      "globalRank": 313608
+    },
+    {
+      "selectionOrder": 22,
+      "domain": "sal900.blogspot.com",
+      "globalRank": 313837
+    },
+    {
+      "selectionOrder": 23,
+      "domain": "senja4d2u.blogspot.com",
+      "globalRank": 314165
+    },
+    {
+      "selectionOrder": 24,
+      "domain": "tamil-online-tamil.blogspot.com",
+      "globalRank": 315359
+    },
+    {
+      "selectionOrder": 25,
+      "domain": "thaisexseries.blogspot.com",
+      "globalRank": 315519
+    },
+    {
+      "selectionOrder": 26,
+      "domain": "trending-zone-420.blogspot.com",
+      "globalRank": 315780
+    },
+    {
+      "selectionOrder": 27,
+      "domain": "virulhubb420.blogspot.com",
+      "globalRank": 316316
+    },
+    {
+      "selectionOrder": 28,
+      "domain": "kltratv13.blogspot.com",
+      "globalRank": 359340
+    },
+    {
+      "selectionOrder": 29,
+      "domain": "atv-alooy7.blogspot.com",
+      "globalRank": 362570
+    },
+    {
+      "selectionOrder": 30,
+      "domain": "bangladeshivideo452.blogspot.com",
+      "globalRank": 362692
+    },
+    {
+      "selectionOrder": 31,
+      "domain": "bangladeshiviralvideo56.blogspot.com",
+      "globalRank": 362693
+    },
+    {
+      "selectionOrder": 32,
+      "domain": "bilingualmediumschools.blogspot.com",
+      "globalRank": 362783
+    },
+    {
+      "selectionOrder": 33,
+      "domain": "fireking2828.blogspot.com",
+      "globalRank": 363827
+    },
+    {
+      "selectionOrder": 34,
+      "domain": "profwarles.blogspot.com",
+      "globalRank": 365987
+    },
+    {
+      "selectionOrder": 35,
+      "domain": "starballtv010.blogspot.com",
+      "globalRank": 366757
+    },
+    {
+      "selectionOrder": 36,
+      "domain": "thenewpinkarua.blogspot.com",
+      "globalRank": 366967
+    },
+    {
+      "selectionOrder": 37,
+      "domain": "viralvideolink234122.blogspot.com",
+      "globalRank": 367303
+    },
+    {
+      "selectionOrder": 38,
+      "domain": "starballtv012.blogspot.com",
+      "globalRank": 377899
+    },
+    {
+      "selectionOrder": 39,
+      "domain": "viralindoo69.blogspot.com",
+      "globalRank": 384331
+    },
+    {
+      "selectionOrder": 40,
+      "domain": "2027clubx12.blogspot.com",
+      "globalRank": 384950
+    },
+    {
+      "selectionOrder": 41,
+      "domain": "2027cluby12.blogspot.com",
+      "globalRank": 384951
+    },
+    {
+      "selectionOrder": 42,
+      "domain": "misterjavang.blogspot.com",
+      "globalRank": 386743
+    },
+    {
+      "selectionOrder": 43,
+      "domain": "viralhotvabi69.blogspot.com",
+      "globalRank": 387902
+    },
+    {
+      "selectionOrder": 44,
+      "domain": "working-player.blogspot.com",
+      "globalRank": 387973
+    },
+    {
+      "selectionOrder": 45,
+      "domain": "zona-media-viral.blogspot.com",
+      "globalRank": 388392
+    },
+    {
+      "selectionOrder": 46,
+      "domain": "almakthab.blogspot.com",
+      "globalRank": 425725
+    },
+    {
+      "selectionOrder": 47,
+      "domain": "bangladeshiviralvideo6.blogspot.com",
+      "globalRank": 425777
+    },
+    {
+      "selectionOrder": 48,
+      "domain": "pompombd29.blogspot.com",
+      "globalRank": 426435
+    },
+    {
+      "selectionOrder": 49,
+      "domain": "video-asupan-viral.blogspot.com",
+      "globalRank": 426742
+    },
+    {
+      "selectionOrder": 50,
+      "domain": "mrjancko3.blogspot.com",
+      "globalRank": 548174
+    },
+    {
+      "selectionOrder": 51,
+      "domain": "arcenturf.blogspot.com",
+      "globalRank": 667506
+    },
+    {
+      "selectionOrder": 52,
+      "domain": "asupanlokal11.blogspot.com",
+      "globalRank": 667534
+    },
+    {
+      "selectionOrder": 53,
+      "domain": "buffalocourses.blogspot.com",
+      "globalRank": 667887
+    },
+    {
+      "selectionOrder": 54,
+      "domain": "formule12.blogspot.com",
+      "globalRank": 668886
+    },
+    {
+      "selectionOrder": 55,
+      "domain": "golperboi56.blogspot.com",
+      "globalRank": 669105
+    },
+    {
+      "selectionOrder": 56,
+      "domain": "kaslan20.blogspot.com",
+      "globalRank": 669702
+    },
+    {
+      "selectionOrder": 57,
+      "domain": "kingbokephd.blogspot.com",
+      "globalRank": 669755
+    },
+    {
+      "selectionOrder": 58,
+      "domain": "ramalanktm4d.blogspot.com",
+      "globalRank": 671381
+    },
+    {
+      "selectionOrder": 59,
+      "domain": "trendingbd86.blogspot.com",
+      "globalRank": 672424
+    },
+    {
+      "selectionOrder": 60,
+      "domain": "trueredireciona.blogspot.com",
+      "globalRank": 672438
+    },
+    {
+      "selectionOrder": 61,
+      "domain": "turfbilto.blogspot.com",
+      "globalRank": 672459
+    },
+    {
+      "selectionOrder": 62,
+      "domain": "videolibre1.blogspot.com",
+      "globalRank": 672688
+    },
+    {
+      "selectionOrder": 63,
+      "domain": "videosviral1108.blogspot.com",
+      "globalRank": 672689
+    },
+    {
+      "selectionOrder": 64,
+      "domain": "almobrmg-almohtref2019.blogspot.com",
+      "globalRank": 797251
+    },
+    {
+      "selectionOrder": 65,
+      "domain": "althouse.blogspot.com",
+      "globalRank": 811699
+    },
+    {
+      "selectionOrder": 66,
+      "domain": "eaudiva09911.blogspot.com",
+      "globalRank": 878052
+    },
+    {
+      "selectionOrder": 67,
+      "domain": "rexwordpuzzle.blogspot.com",
+      "globalRank": 888027
+    },
+    {
+      "selectionOrder": 68,
+      "domain": "shetkarihighschool.blogspot.com",
+      "globalRank": 916235
+    },
+    {
+      "selectionOrder": 69,
+      "domain": "unic43io.blogspot.com",
+      "globalRank": 916292
+    },
+    {
+      "selectionOrder": 70,
+      "domain": "viralok3.blogspot.com",
+      "globalRank": 970509
+    },
+    {
+      "selectionOrder": 71,
+      "domain": "wrlr.blogspot.com",
+      "globalRank": 977204
+    },
+    {
+      "selectionOrder": 72,
+      "domain": "opovocomanoticia.blogspot.com",
+      "globalRank": 998311
+    }
+  ],
+  "listPageStatus": 200,
+  "listComposition": "This list aggregates the ranks from the lists provided by Crux, Farsight, Majestic, Radar, and Umbrella from 07 October 2026 to 05 November 2026 (30 days)",
+  "listGenerated": "The list was first generated on 05 November 2026"
+}

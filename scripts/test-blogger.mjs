@@ -8,6 +8,9 @@ import { renderPreview } from './lib/blogger-preview.mjs';
 import { conditionalMarkup, descriptionMetadata, routeCondition, validateBloggerExpressions, validateBloggerWidgetSettings } from './lib/blogger-markup.mjs';
 import { resolveThemeConfig } from './lib/blogger-config.mjs';
 import { buildBloggerSeo } from './lib/blogger-seo.mjs';
+import { renderBloggerProse } from './lib/blogger-richtext.mjs';
+import { responsiveAttributes, validateResponsiveImages } from './lib/blogger-images.mjs';
+import sharp from 'sharp';
 
 const out = path.resolve(import.meta.dirname, '../blogger/output');
 const xml = await fs.readFile(path.join(out, 'iamrusiru-blogger.xml'), 'utf8');
@@ -505,4 +508,94 @@ test('Blogger post updates preserve URLs, code and FAQ markup while correcting f
   const inventory = JSON.parse(await fs.readFile(path.join(out, 'post-updates.json'), 'utf8'));
   assert.equal(inventory.length, posts.length);
   assert.equal(inventory.find(post => post.slug === 'injection').searchDescription, injection.searchDescription);
+});
+
+test('prose parser separates headings, nested lists and table cells without interpreting code as separators', () => {
+  const escape = value => value.replaceAll('&', '&amp;').replaceAll('<', '&lt;').replaceAll('>', '&gt;');
+  const html = renderBloggerProse('## Checks\nLead\n\n3. First <unsafe>\n   - Nested\n   - Another\n4. Next\n\n| Field | Value |\n| --- | --- |\n| `a|b` | a\\|b |', { inline: escape, heading: (level, text) => `<h${level}>${escape(text)}</h${level}>` });
+  const doc = JSDOM.fragment(html);
+  assert.equal(doc.querySelector('ol').getAttribute('start'), '3');
+  assert.equal(doc.querySelectorAll('ol > li').length, 2);
+  assert.equal(doc.querySelectorAll('ol > li > ul > li').length, 2);
+  assert.equal(doc.querySelectorAll('th[scope="col"]').length, 2);
+  assert.deepEqual([...doc.querySelectorAll('td')].map(cell => cell.textContent), ['`a|b`', 'a|b']);
+  assert.equal(doc.querySelector('unsafe'), null);
+  assert.throws(() => renderBloggerProse('| A | B |\n| --- | --- |\n| one |', { inline: escape, heading: () => '' }), /column count/);
+});
+
+test('all post updates use semantic prose lists and useful local links, with one correctly headed OWASP table', () => {
+  for (const post of posts) {
+    const doc = JSDOM.fragment(post.body);
+    const prose = doc.cloneNode(true);
+    for (const section of prose.querySelectorAll('section')) if (/^(?:More from the blog|Sources and further reading|Frequently Asked Questions)$/.test(section.querySelector('h2')?.textContent || '')) section.remove();
+    assert.ok(prose.querySelector('ul,ol'), post.slug);
+    assert.ok(prose.querySelector('a[href^="/202"]'), post.slug);
+    for (const p of prose.querySelectorAll('p')) assert.doesNotMatch(p.innerHTML.replace(/<br\s*\/?>/g, '\n'), /(?:^|\n)\s*(?:[-*]\s|\d+\.\s)|^\s*\|.*\|/);
+    for (const link of doc.querySelectorAll('a[href^="/202"]')) assert.ok(posts.some(target => target.path === link.getAttribute('href')));
+    assert.doesNotMatch(post.body, /\(post:|OWASP_GUIDE_LINK/);
+  }
+  const table = JSDOM.fragment(posts.find(post => post.slug === 'owasp-top-ten').body).querySelector('table');
+  assert.ok(table.querySelectorAll('th[scope="col"]').length >= 2);
+  assert.ok(table.querySelectorAll('tbody tr').length >= 10);
+});
+
+test('responsive images require real distinct public mappings and native widgets have redundant alt and dimensions', () => {
+  const variants = [{ width: 384, url: 'https://images.example.org/a.webp?x=1&y=2' }, { width: 768, url: 'https://images.example.org/b.webp' }];
+  assert.equal(validateResponsiveImages({ 'cover.jpg': variants })['cover.jpg'], variants);
+  assert.match(responsiveAttributes(variants), /384w, .*768w/);
+  assert.match(responsiveAttributes(variants), /&amp;y=2/);
+  assert.equal(responsiveAttributes(undefined), '');
+  assert.throws(() => validateResponsiveImages({ 'a.jpg': [variants[0], variants[0]] }), /increasing/);
+  assert.throws(() => validateResponsiveImages({ 'a.jpg': [{ width: 384, url: 'http://example.org/a' }, variants[1]] }), /HTTPS/);
+  const home = preview({});
+  for (const image of home.querySelectorAll('#PopularPosts1 img')) {
+    assert.equal(image.getAttribute('alt'), '');
+    assert.equal(image.width, 60); assert.equal(image.height, 60);
+  }
+  assert.equal(home.querySelectorAll('#PopularPosts1 img').length, 10);
+  const fresh = { ...posts[0], path: '/2026/11/native-image.html', imageUrl: 'https://blogger.googleusercontent.com/img/b/example/w1600/cover.jpg' };
+  const native = preview({ posts: [fresh] });
+  // The public Blogger compiler remains the final validation for sourceSet.
+  assert.ok(native.querySelector('#PopularPosts1 img').getAttribute('srcset').includes('/w120/'));
+});
+
+test('Privacy update uses the configured Blogger identity and exposes a separate body-only Page update', async () => {
+  const privacy = pages.find(page => page.slug === 'privacy-policy');
+  assert.doesNotMatch(privacy.body + privacy.seo.description, /iamrusiru\.com/);
+  assert.ok(privacy.body.includes(new URL(config.blogUrl).host));
+  const inventory = JSON.parse(await fs.readFile(path.join(out, 'page-updates.json'), 'utf8'));
+  assert.equal(inventory.filter(page => page.updateRequired).length, 1);
+  assert.equal((await fs.readFile(path.join(out, 'page-updates/privacy-policy.html'), 'utf8')).trim(), privacy.body.trim());
+});
+
+test('generated responsive assets match their descriptors and configured variants reach covers/cards/related content', async () => {
+  const plan = JSON.parse(await fs.readFile(path.join(out, 'responsive-image-plan.json'), 'utf8'));
+  for (const image of plan.images) for (const variant of image.variants) {
+    const metadata = await sharp(path.join(out, variant.file)).metadata();
+    assert.equal(metadata.width, variant.width); assert.equal(metadata.height, variant.height);
+    assert.equal(metadata.format, 'webp');
+  }
+  const image = plan.images.find(image => posts[0].imageUrl === image.originalUrl);
+  // These URLs are local-test fixture values, never activated in the release.
+  const variants = image.variants.map(variant => ({ width: variant.width, url: 'https://blogger-image-fixture.invalid/' + path.basename(variant.file) }));
+  const related = posts.find(post => post.slug === posts[0].relatedPosts[0]);
+  const relatedImage = plan.images.find(image => image.originalUrl === related.imageUrl);
+  const relatedVariants = relatedImage.variants.map(variant => ({ width: variant.width, url: 'https://blogger-image-fixture.invalid/' + path.basename(variant.file) }));
+  const fixture = path.join(out, 'responsive-config.test.json');
+  const target = path.join(out, 'responsive-verification');
+  await fs.writeFile(fixture, JSON.stringify({ ...config, responsiveImages: { [image.source]: variants, [relatedImage.source]: relatedVariants } }));
+  execFileSync(process.execPath, ['scripts/build-blogger.mjs', '--config', fixture, '--out', target], { cwd: path.resolve(import.meta.dirname, '..'), stdio: 'pipe' });
+  const data = JSON.parse(await fs.readFile(path.join(target, 'content.json'), 'utf8'));
+  const cover = JSDOM.fragment(data.posts[0].body).querySelector('img');
+  assert.equal(cover.getAttribute('src'), posts[0].imageUrl);
+  assert.equal(cover.getAttribute('srcset'), variants.map(variant => variant.url + ' ' + variant.width + 'w').join(', '));
+  assert.ok(cover.hasAttribute('sizes'));
+  const markup = await fs.readFile(path.join(target, 'iamrusiru-blogger.xml'), 'utf8');
+  const doc = new JSDOM(withoutCss(renderPreview(markup, { config: data.config, posts: data.posts, media, localAssets: false }))).window.document;
+  assert.ok(doc.querySelector('article img[srcset]').getAttribute('srcset').includes('blogger-image-fixture.invalid'));
+  assert.equal(doc.querySelector('meta[property="og:image"]').content.includes('blogger-image-fixture.invalid'), false);
+  const article = new JSDOM(withoutCss(renderPreview(markup, { config: data.config, posts: data.posts, media, kind: 'post', post: data.posts[0], localAssets: false }))).window.document;
+  const thumbnail = article.querySelector('[data-curated-related] img[srcset]');
+  assert.equal(thumbnail.getAttribute('sizes'), '48px');
+  assert.ok(thumbnail.getAttribute('srcset').includes('blogger-image-fixture.invalid'));
 });

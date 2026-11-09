@@ -1,5 +1,6 @@
 import { escapeXml } from './blogger-markup.mjs';
 import { seoDefaults, validateSeoConfig } from './blogger-seo.mjs';
+import { validateResponsiveImages } from './blogger-images.mjs';
 
 export const themeDefaults = {
   contentMode: 'project',
@@ -34,7 +35,7 @@ export const themeDefaults = {
 
 // Merge only known object keys; arrays replace their defaults as a whole.
 export function resolveThemeConfig(input) {
-  const rootKeys = new Set([...Object.keys(themeDefaults), 'blogUrl', 'assetBaseUrl', 'assetUrls', 'title', 'author']);
+  const rootKeys = new Set([...Object.keys(themeDefaults), 'blogUrl', 'assetBaseUrl', 'assetUrls', 'responsiveImages', 'title', 'author']);
   function merge(defaults, custom, trail = '') {
     if (typeof custom !== 'object' || custom === null || Array.isArray(custom)) throw new Error(`${trail || 'config'} must be an object`);
     // Configs must never share nested defaults: one owner's changes must not
@@ -52,6 +53,7 @@ export function resolveThemeConfig(input) {
     return result;
   }
   const config = merge(themeDefaults, input);
+  config.responsiveImages = validateResponsiveImages(config.responsiveImages);
   if (!['project', 'native'].includes(config.contentMode)) throw new Error('contentMode must be project or native');
   const checkText = (value, name) => { if (typeof value !== 'string') throw new Error(name + ' must be text'); };
   for (const key of ['title', 'author', 'description']) checkText(config[key], key);

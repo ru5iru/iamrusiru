@@ -1,0 +1,106 @@
+{
+  "capturedAt": "2026-11-06T18:13:04.075Z",
+  "scope": "Fresh public Blogger variants, no private editor or browser interaction",
+  "results": [
+    {
+      "url": "https://ru5iru.blogspot.com/?m=1",
+      "status": 200,
+      "canonical": [
+        "https://ru5iru.blogspot.com/"
+      ],
+      "title": "Rusiru Rathmina | Software Engineer Blog",
+      "mainHeadings": [
+        "Rusiru'sSoftware Engineering Blog.",
+        "Rusiru Rathmina | Software Engineer Blog"
+      ],
+      "robots": "index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1",
+      "xRobots": "",
+      "buildId": "31c41a6463051a21979f"
+    },
+    {
+      "url": "https://ru5iru.blogspot.com/2026/06/injection.html?m=1",
+      "status": 200,
+      "canonical": [
+        "https://ru5iru.blogspot.com/2026/06/injection.html"
+      ],
+      "title": "Injection OWASP Top 10: A03 Explained for Developers",
+      "mainHeadings": [
+        "Injection OWASP Top 10: A03 Explained for Developers"
+      ],
+      "robots": "index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1",
+      "xRobots": "",
+      "buildId": "31c41a6463051a21979f"
+    },
+    {
+      "url": "https://ru5iru.blogspot.com/p/about.html?m=1",
+      "status": 200,
+      "canonical": [
+        "https://ru5iru.blogspot.com/p/about.html"
+      ],
+      "title": "About me",
+      "mainHeadings": [
+        "About Rusiru Rathmina"
+      ],
+      "robots": "index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1",
+      "xRobots": "",
+      "buildId": "31c41a6463051a21979f"
+    },
+    {
+      "url": "https://ru5iru.blogspot.com/search?q=Drupal",
+      "status": 200,
+      "canonical": [
+        "https://ru5iru.blogspot.com/search?q=Drupal"
+      ],
+      "title": "Rusiru Rathmina | Software Engineer Blog",
+      "mainHeadings": [
+        "Search results for: Drupal",
+        "Rusiru Rathmina | Software Engineer Blog"
+      ],
+      "robots": "noindex,follow",
+      "xRobots": "",
+      "buildId": "31c41a6463051a21979f"
+    },
+    {
+      "url": "https://ru5iru.blogspot.com/search/label/Engineering",
+      "status": 200,
+      "canonical": [
+        "https://ru5iru.blogspot.com/search/label/Engineering"
+      ],
+      "title": "Rusiru Rathmina | Software Engineer Blog",
+      "mainHeadings": [
+        "Posts tagged: Engineering",
+        "Rusiru Rathmina | Software Engineer Blog"
+      ],
+      "robots": "noindex,follow",
+      "xRobots": "",
+      "buildId": "31c41a6463051a21979f"
+    },
+    {
+      "url": "https://ru5iru.blogspot.com/2026/06/",
+      "status": 200,
+      "canonical": [
+        "https://ru5iru.blogspot.com/2026/06/"
+      ],
+      "title": "Rusiru Rathmina | Software Engineer Blog",
+      "mainHeadings": [
+        "Archive: June 2026",
+        "Rusiru Rathmina | Software Engineer Blog"
+      ],
+      "robots": "noindex,follow",
+      "xRobots": "",
+      "buildId": "31c41a6463051a21979f"
+    },
+    {
+      "url": "https://ru5iru.blogspot.com/research-missing-20261106.html",
+      "status": 404,
+      "canonical": [],
+      "title": "Rusiru Rathmina | Software Engineer Blog",
+      "mainHeadings": [
+        "Page not found"
+      ],
+      "robots": "noindex,follow",
+      "xRobots": "",
+      "buildId": "31c41a6463051a21979f"
+    }
+  ]
+}

@@ -1,6 +1,6 @@
 # Blogger SEO, AEO and GEO audit
 
-**Implementation update, 6 November:** theme/post fixes are prepared and tested locally. See the [change record](changes/2026-11-06.md) and [installation/post-update guide](APPLY-UPDATES.md). They are not live until installed and verified on Blogger. The dated audit below remains the pre-fix baseline.
+**Implementation update, 7 November:** the benchmark confirmed the previous release was installed. The next improvements are prepared locally; see the [current change record](changes/2026-11-07.md) and [publishing guide](APPLY-UPDATES.md). Public verification of this new release follows installation. The dated audit below remains the original pre-fix baseline.
 
 The current audit covers **only the Blogger theme, posts, Pages and settings** at https://ru5iru.blogspot.com/. Earlier separate-application findings/comparisons have been removed from current reports.
 

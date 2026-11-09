@@ -1,7 +1,7 @@
 // Blogger-only editorial changes. Shared application post records are not mutated.
 // Replacements are exact and fail on drift so a source revision cannot silently
 // leave a factual correction half-applied. Never transform code examples here.
-export function prepareBloggerPosts(sourcePosts, metadata) {
+export function prepareBloggerPosts(sourcePosts, metadata, editorialLinks = {}) {
   const posts = structuredClone(sourcePosts);
   const replace = (post, from, to) => {
     let count = 0;
@@ -78,6 +78,22 @@ export function prepareBloggerPosts(sourcePosts, metadata) {
       .replaceAll('[INTERNAL LINK: OWASP Top 10 guide]', 'OWASP_GUIDE_LINK')
       .replaceAll('[INTERNAL LINK: broken access control deep dive]', 'ACCESS_CONTROL_LINK')
       .replaceAll('[INTERNAL LINK: deep work techniques for developers]', 'For a related personal account, see BURNOUT_LINK.') : block);
+    const editorial = editorialLinks[post.slug];
+    if (editorial) {
+      let matches = 0;
+      post.content = post.content.map(block => {
+        if (typeof block !== 'string' || !(block === editorial.heading || block.startsWith(editorial.heading + '\n'))) return block;
+        matches++;
+        const paragraphs = block.split(/\n\n+/);
+        // Keep the paragraph in its relevant section, before any following list.
+        paragraphs.splice(Math.min(2, paragraphs.length), 0, editorial.text);
+        return paragraphs.join('\n\n');
+      });
+      if (matches !== 1) throw new Error('Blogger editorial link anchor drift: ' + post.slug);
+      post.references = [...new Map([...(post.references || []), ...(editorial.references || [])].map(reference => [reference.url, reference])).values()];
+      post.updatedDate = '2026-11-07';
+    }
   }
+  for (const slug of Object.keys(editorialLinks)) if (!posts.some(post => post.slug === slug)) throw new Error('Unknown Blogger editorial post: ' + slug);
   return posts;
 }

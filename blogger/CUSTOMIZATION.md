@@ -4,6 +4,8 @@ The current design is the default: colors, fonts, spacing, breakpoints, icons, c
 
 Configuration/build commands require this project's source, Node 22 and its installed dependencies. Installing the XML and editing its Blogger Layout gadgets do not require Node. Each build writes `theme-config.json` as a copy of its resolved settings.
 
+Responsive images use the optional root `responsiveImages` map: source filename to an increasing array of `{ "width": 384, "url": "https://your-host/actual-upload.webp" }` entries. Supply at least two genuinely different sizes. [IMAGE-PUBLISHING.md](IMAGE-PUBLISHING.md) explains generation, public upload and validation before activation. The default empty map keeps public originals working.
+
 ## Update your existing blog
 
 Upload `output/iamrusiru-blogger.xml` through **Theme → Restore**, then open **Layout**. Do not import the posts again. This export keeps your existing content and its migration fallbacks.

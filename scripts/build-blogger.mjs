@@ -15,6 +15,9 @@ import { personalizeFragment } from './lib/blogger-personalize.mjs';
 import { editorTemplates } from './lib/blogger-editor.mjs';
 import { buildBloggerSeo } from './lib/blogger-seo.mjs';
 import { prepareBloggerPosts } from './lib/blogger-content.mjs';
+import { renderBloggerProse } from './lib/blogger-richtext.mjs';
+import { responsiveAttributes } from './lib/blogger-images.mjs';
+import { engineeringHub } from './lib/blogger-hub.mjs';
 
 const root = path.resolve(import.meta.dirname, '..');
 const args = process.argv.slice(2);
@@ -56,11 +59,27 @@ await build({
 });
 const source = await import(pathToFileURL(path.join(out, 'source.mjs')).href + '?v=' + Date.now());
 const themePosts = config.contentMode === 'project'
-  ? prepareBloggerPosts(source.posts, JSON.parse(await fs.readFile(path.join(root, 'blogger/post-metadata.json'), 'utf8')))
+  ? prepareBloggerPosts(source.posts, JSON.parse(await fs.readFile(path.join(root, 'blogger/post-metadata.json'), 'utf8')), JSON.parse(await fs.readFile(path.join(root, 'blogger/editorial-links.json'), 'utf8')))
   : [];
+for (const post of themePosts) {
+  const name = [...media].find(([, url]) => url === post.imageUrl)?.[0];
+  if (name) {
+    const dimensions = await sharp(path.join(root, 'src/assets', name)).metadata();
+    post.coverDimensions = { width: dimensions.width, height: dimensions.height };
+  }
+}
+if (config.contentMode === 'project') for (const name of Object.keys(config.responsiveImages)) {
+  if (!media.has(name)) throw new Error('Responsive image mapping does not match a project asset: ' + name);
+}
 if (config.contentMode === 'native') media.clear();
 await fs.unlink(path.join(out, 'source.mjs'));
 const { document } = new JSDOM('').window;
+// Correct Blogger policy identity only; service/legal assertions need owner review.
+const themeSource = { ...source, pages: source.pages.map(page => page.slug !== 'privacy-policy' ? page : {
+  ...page,
+  html: page.html.replaceAll('iamrusiru.com', new URL(config.blogUrl).host).replace('Last updated: March 30, 2026', 'Last updated: November 7, 2026'),
+  seo: { ...page.seo, description: `Privacy Policy for ${new URL(config.blogUrl).host} - how ${config.author} handles personal information.` },
+}) };
 const escape = value => String(value ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&apos;' }[c]));
 function fragment(html) {
   const box = document.createElement('div');
@@ -74,6 +93,19 @@ function fragment(html) {
 }
 function xmlFragment(html) {
   return Array.from(fragment(html).childNodes).map(node => new document.defaultView.XMLSerializer().serializeToString(node)).join('');
+}
+const imageVariants = src => config.responsiveImages[[...media].find(([, url]) => url === src)?.[0]];
+function responsiveFragment(html, role) {
+  const box = fragment(html);
+  for (const image of box.querySelectorAll('img[src]')) {
+    const variants = imageVariants(image.getAttribute('src'));
+    if (variants?.length) {
+      const attrs = fragment('<img' + responsiveAttributes(variants, role) + '>').firstElementChild;
+      image.setAttribute('srcset', attrs.getAttribute('srcset'));
+      image.setAttribute('sizes', attrs.getAttribute('sizes'));
+    }
+  }
+  return box.innerHTML;
 }
 const sidebar = fragment(source.sidebar).firstElementChild;
 const topics = sidebar.children[0];
@@ -141,7 +173,7 @@ const relatedMarkup = p => {
   if (related.firstElementChild) related.firstElementChild.setAttribute('data-curated-related', '');
   const heading = related.querySelector('#related-heading');
   if (heading) { heading.id = 'related-' + p.slug; related.firstElementChild.setAttribute('aria-labelledby', heading.id); }
-  return xmlFragment(related.innerHTML);
+  return xmlFragment(responsiveFragment(related.innerHTML, 'related'));
 };
 const uiPosts = themePosts.map(p => ({ path: postPath(p), title: p.title, excerpt: p.excerpt, date: p.date, readTime: source.readingTimes[p.slug], tags: p.tags, category: p.category, imageUrl: p.imageUrl, related: p.relatedPosts || [] }));
 const cssConfig = loadConfig(path.join(root, 'tailwind.config.ts'));
@@ -149,10 +181,11 @@ cssConfig.content = [path.join(root, 'src/**/*.{ts,tsx}'), path.join(root, 'blog
 const originalCss = (await fs.readFile(path.join(root, 'src/index.css'), 'utf8')).replace(/@import\s+url\([^\r\n]*\);/g, '');
 const css = (await postcss([tailwindcss(cssConfig)]).process(originalCss, { from: path.join(root, 'src/index.css') })).css + '\n' + await fs.readFile(path.join(root, 'blogger/styles.css'), 'utf8');
 const socialImage = config.socialImageUrl || config.profile.portraitUrl || (config.contentMode === 'project' ? mediaUrl('profile-headshot.jpg') : '');
-const seo = buildBloggerSeo(config, source, themePosts, postPath, socialImage);
+const seo = buildBloggerSeo(config, themeSource, themePosts, postPath, socialImage);
 const templateSource = await fs.readFile(path.join(root, 'blogger/template.xml'), 'utf8');
 const enhancementScript = await fs.readFile(path.join(root, 'blogger/enhancements.js'), 'utf8');
-const buildId = createHash('sha256').update(templateSource).update(css).update(enhancementScript).update(JSON.stringify({ config, regions, routes: seo.routes, posts: themePosts })).digest('hex').slice(0, 20);
+const popularMarkup = await fs.readFile(path.join(root, 'blogger/fragments/popular-posts.xml'), 'utf8');
+const buildId = createHash('sha256').update(templateSource).update(css).update(enhancementScript).update(popularMarkup).update(JSON.stringify({ config, regions, routes: seo.routes, posts: themePosts })).digest('hex').slice(0, 20);
 const substitutions = {
   BUILD_ID: buildId,
   CSS: css,
@@ -161,6 +194,7 @@ const substitutions = {
   FOOTER: editableRegion('themeFooter', 'HTML105', 'Footer — text and links', regions.footer),
   TOPICS: editableRegion('themeTopics', 'HTML103', 'Topics — label links', regions.topics),
   CONNECT: editableRegion('themeConnect', 'HTML104', 'Social links', regions.connect),
+  POPULAR_POSTS: popularMarkup,
   TOPICS_SET: escape(topicsSet),
   PROFILE_ROLE: escape(config.profile.role), PROFILE_JOB: escape(config.profile.job), PROFILE_BIO: escape(config.profile.bio),
   AUTHOR_NAME: escape(config.author), ABOUT_URL: escape(config.links.about),
@@ -170,7 +204,8 @@ const substitutions = {
   POST_DATA: JSON.stringify(uiPosts).replace(/</g, '\\u003c').replace(/>/g, '\\u003e').replace(/&/g, '\\u0026'),
   CARD_TAGS: conditionalMarkup(routeBranches(p => tags(p, 4)), nativeTags(4)),
   ARTICLE_TAGS: conditionalMarkup(routeBranches(p => tags(p)), nativeTags()),
-  CARD_IMAGE: conditionalMarkup(routeBranches(p => `<a href='${postPath(p)}' class='hidden sm:block flex-shrink-0 w-40 h-28 md:w-48 md:h-32 rounded-lg overflow-hidden' tabindex='-1' aria-hidden='true'><img src='${escape(p.imageUrl)}' alt='' width='192' height='128' class='w-full h-full object-cover transition-transform duration-500 group-hover:scale-105' loading='lazy'/></a>`), `<b:if cond='data:post.featuredImage'><a expr:href='data:post.url' class='hidden sm:block flex-shrink-0 w-40 h-28 md:w-48 md:h-32 rounded-lg overflow-hidden' tabindex='-1' aria-hidden='true'><img expr:src='resizeImage(data:post.featuredImage, 384, "3:2")' alt='' width='192' height='128' class='w-full h-full object-cover' loading='lazy'/></a></b:if>`),
+  // Responsive native Blogger thumbnails use actual hosted image variants.
+  CARD_IMAGE: conditionalMarkup(routeBranches(p => `<a href='${postPath(p)}' class='hidden sm:block flex-shrink-0 w-40 h-28 md:w-48 md:h-32 rounded-lg overflow-hidden' tabindex='-1' aria-hidden='true'><img src='${escape(p.imageUrl)}'${responsiveAttributes(imageVariants(p.imageUrl), 'card')} alt='' width='192' height='128' class='w-full h-full object-cover transition-transform duration-500 group-hover:scale-105' loading='lazy'/></a>`), `<b:if cond='data:post.featuredImage'><a expr:href='data:post.url' class='hidden sm:block flex-shrink-0 w-40 h-28 md:w-48 md:h-32 rounded-lg overflow-hidden' tabindex='-1' aria-hidden='true'><img expr:src='resizeImage(data:post.featuredImage, 384, "3:2")' expr:srcset='sourceSet(data:post.featuredImage, [192, 384, 768], "3:2")' sizes='(min-width: 768px) 192px, 160px' alt='' width='192' height='128' class='w-full h-full object-cover' loading='lazy'/></a></b:if>`),
   DATE_MARKUP: conditionalMarkup(routeBranches(p => `<time datetime='${date(p.date).slice(0, 10)}'>${escape(p.date)}</time>`), '<time expr:datetime="data:post.date.iso8601"><data:post.date/></time>'),
   RELATED_POSTS: conditionalMarkup(routeBranches(relatedMarkup), `<b:loop values='data:post.labels' var='label' index='i'><b:if cond='data:i == 0'><section class='my-12' data-related='' expr:data-label='data:label.name' hidden='hidden'><h2 class='font-display text-2xl font-semibold mb-6'>You might also like</h2><div class='related-grid' data-related-list=''/></section></b:if></b:loop>`),
   RECENT_POSTS: themePosts.length ? '<section class="mt-16 text-left"><h2 class="font-display text-xl font-semibold mb-4">Recent posts</h2><ul class="space-y-3">' + themePosts.slice(0, 3).map(p => `<li class="border-b border-divider pb-3"><a href="${postPath(p)}" class="block hover:text-primary"><p class="font-display text-base font-medium">${escape(p.title)}</p><time class="text-xs text-muted-foreground">${escape(p.date)}</time></a></li>`).join('') + '</ul></section>' : '',
@@ -228,6 +263,11 @@ function body(post) {
     return `<h${level} id="${id}">${inline(text)}</h${level}>`;
   }
   const resolveLinks = text => {
+    text = text.replace(/\[([^\]]+)\]\(post:([\w-]+)\)/g, (_, label, slug) => {
+      const linked = themePosts.find(item => item.slug === slug);
+      if (!linked) throw new Error('Unknown contextual Blogger link: ' + slug);
+      return '[' + label + '](' + postPath(linked) + ')';
+    });
     for (const [marker, slug, label] of [['OWASP_GUIDE_LINK', 'owasp-top-ten', 'OWASP Top 10 2025 guide'], ['ACCESS_CONTROL_LINK', 'broken-access-control', 'broken access control deep dive'], ['BURNOUT_LINK', 'burnout-and-recovery', 'burnout and recovery']]) {
       const linked = themePosts.find(item => item.slug === slug);
       text = text.replaceAll(marker, linked ? '[' + label + '](' + postPath(linked) + ')' : label);
@@ -235,10 +275,7 @@ function body(post) {
     return text;
   };
   const blocks = post.content.map(block => {
-    if (typeof block === 'string') return resolveLinks(block).split(/\n\n+/).map(part => {
-      const match = part.match(/^(#{2,3})\s+([^\n]+)(?:\n([\s\S]*))?$/);
-      return match ? heading(match[1].length, match[2]) + (match[3] ? '<p>' + inline(match[3]).replaceAll('\n', '<br/>') + '</p>' : '') : '<p>' + inline(part).replaceAll('\n', '<br/>') + '</p>';
-    }).join('\n');
+    if (typeof block === 'string') return renderBloggerProse(resolveLinks(block), { inline, heading });
     if (block.type === 'heading') return heading(block.level, block.text);
     if (block.type === 'code') {
       const code = fragment(source.renderCode(block));
@@ -249,7 +286,7 @@ function body(post) {
     if (block.type === 'callout') return source.renderCallout(block);
     if (block.type === 'image') {
       const src = block.src.startsWith('/assets/') ? mediaUrl(path.basename(block.src)) : block.src;
-      return source.renderImage({ ...block, src });
+      return responsiveFragment(source.renderImage({ ...block, src }), 'cover');
     }
     throw new Error('Unhandled content block ' + block.type);
   }).join('\n');
@@ -257,12 +294,12 @@ function body(post) {
   const related = (post.relatedPosts || []).map(slug => themePosts.find(p => p.slug === slug)).filter(Boolean);
   const references = post.references?.length ? '<section class="mt-12"><h2>Sources and further reading</h2><ul>' + post.references.map(reference => '<li><a href="' + escape(reference.url) + '">' + escape(reference.title) + '</a></li>').join('') + '</ul></section>' : '';
   return `<div class="post-summary rounded-xl bg-primary/5 border border-primary/10 px-6 py-5 mb-10"><p class="text-sm font-semibold text-primary uppercase tracking-wider mb-2">TL;DR</p><p class="text-body text-base leading-relaxed">${escape(post.excerpt)}</p></div>
-<img class="rounded-xl w-full mb-10" style="max-height:400px;object-fit:cover" src="${escape(post.imageUrl)}" alt="${escape('Cover image for ' + post.title)}" width="800" height="400"/>
+<img class="rounded-xl w-full mb-10" style="max-height:400px;object-fit:cover" src="${escape(post.imageUrl)}"${responsiveAttributes(imageVariants(post.imageUrl))} alt="${escape('Cover image for ' + post.title)}" width="${post.coverDimensions?.width || 800}" height="${post.coverDimensions?.height || 400}" fetchpriority="high"/>
 ${blocks}\n${references}\n${faq}
 ${related.length ? '<section class="mt-12"><h2>More from the blog</h2><ul>' + related.map(p => `<li><a href="${postPath(p)}">${escape(p.title)}</a></li>`).join('') + '</ul></section>' : ''}`;
 }
 const posts = themePosts.map(p => ({ ...p, seo: seo.routes.find(route => route.path === postPath(p)), path: postPath(p), published: date(p.date), updated: date(p.updatedDate || p.date), body: body(p), labels: [...new Set([p.category, ...p.tags])] }));
-const pages = (config.contentMode === 'project' ? source.pages : []).map(page => {
+const pages = (config.contentMode === 'project' ? themeSource.pages : []).map(page => {
   const main = fragment(page.html).querySelector('main');
   const box = fragment(main.innerHTML);
   return { ...page, seo: seo.routes.find(route => route.path === '/p/' + page.slug + '.html'), path: '/p/' + page.slug + '.html', body: `<div data-migrated-page="true" class="page-body ${main.className.replace('px-6', '').replace('py-16', '')}">${box.innerHTML}</div>` };
@@ -278,7 +315,32 @@ await fs.writeFile(path.join(out, 'media-manifest.json'), JSON.stringify(Object.
 const redirects = [...posts.map(p => ({ from: '/post/' + p.slug, to: p.path })), ...pages.map(p => ({ from: '/' + p.slug, to: p.path }))];
 await fs.writeFile(path.join(out, 'redirects.json'), JSON.stringify(redirects, null, 2) + '\n');
 for (const [name] of media) await fs.copyFile(path.join(root, 'src/assets', name), path.join(out, 'assets', name));
+// Generate real uploadable assets, but never activate fictional public URLs.
+const imagePlan = [];
+for (const [name, originalUrl] of media) {
+  const input = path.join(root, 'src/assets', name);
+  const info = await sharp(input).metadata();
+  const variants = [];
+  for (const width of [...new Set([384, 768, Math.min(1280, info.width)])].filter(width => width <= info.width).sort((a, b) => a - b)) {
+    const filename = path.parse(name).name + '-' + width + '.webp';
+    const target = path.join(out, 'assets', filename);
+    await sharp(input).rotate().resize({ width, withoutEnlargement: true }).webp({ quality: 82 }).toFile(target);
+    const actual = await sharp(target).metadata();
+    variants.push({ width: actual.width, height: actual.height, file: 'assets/' + filename, bytes: (await fs.stat(target)).size, url: config.responsiveImages[name]?.find(variant => variant.width === actual.width)?.url || '' });
+  }
+  imagePlan.push({ source: name, originalUrl, originalBytes: (await fs.stat(input)).size, variants, active: Boolean(config.responsiveImages[name]?.length) });
+}
+await fs.writeFile(path.join(out, 'responsive-image-plan.json'), JSON.stringify({ note: 'Upload the files, fill their public HTTPS URLs, then activate with scripts/activate-blogger-images.mjs. Empty URLs are never emitted into posts.', images: imagePlan }, null, 2) + '\n');
+await fs.writeFile(path.join(out, 'responsive-images.upload.json'), JSON.stringify(Object.fromEntries(imagePlan.map(image => [image.source, image.variants.map(({ width, url }) => ({ width, url }))])), null, 2) + '\n');
 for (const page of pages) await fs.writeFile(path.join(out, page.slug + '.html'), page.body);
+await fs.mkdir(path.join(out, 'page-updates'), { recursive: true });
+for (const page of pages) await fs.writeFile(path.join(out, 'page-updates', page.slug + '.html'), page.body + '\n');
+await fs.writeFile(path.join(out, 'page-updates.json'), JSON.stringify(pages.map(page => ({ slug: page.slug, url: config.blogUrl + page.path, title: page.title, searchDescription: page.seo.description, htmlFile: 'page-updates/' + page.slug + '.html', updateRequired: page.slug === 'privacy-policy', note: page.slug === 'privacy-policy' ? 'Destination identity corrected. Owner must review actual service/data-handling claims.' : 'Reference copy; no body update required by this release.' })), null, 2) + '\n');
+if (themePosts.length) {
+  await fs.mkdir(path.join(out, 'page-drafts'), { recursive: true });
+  await fs.writeFile(path.join(out, 'page-drafts/engineering-start-here.html'), engineeringHub(themePosts, postPath, escape) + '\n');
+  await fs.writeFile(path.join(out, 'page-drafts.json'), JSON.stringify([{ title: 'Engineering: Start Here', suggestedPath: '/p/engineering-start-here.html', searchDescription: 'Find practical guides to application security, delivery, production debugging, code reviews and small engineering experiments.', htmlFile: 'page-drafts/engineering-start-here.html', status: 'Optional unpublished draft; publish before adding its actual URL to navigation.' }], null, 2) + '\n');
+}
 // Existing publications must be edited in place. These are body-only update
 // files, not a second import feed; metadata fields are supplied separately.
 await fs.mkdir(path.join(out, 'post-updates'), { recursive: true });
@@ -295,6 +357,8 @@ await fs.writeFile(path.join(out, 'seo-routes.json'), JSON.stringify({ language:
 await fs.writeFile(path.join(out, 'robots-txt.example.txt'), `# Optional Blogger Settings > Crawlers and indexing > Custom robots.txt\n# Review before saving; this allows public content to be crawled.\nUser-agent: *\nDisallow: /search\nDisallow: /share-widget\nAllow: /\n\nSitemap: ${config.blogUrl}/sitemap.xml\nSitemap: ${config.blogUrl}/sitemap-pages.xml\n`);
 await fs.mkdir(path.join(out, 'editable-regions'), { recursive: true });
 for (const [name, html] of Object.entries(regions)) await fs.writeFile(path.join(out, 'editable-regions', name + '.html'), html);
+await fs.mkdir(path.join(out, 'widget-updates'), { recursive: true });
+await fs.copyFile(path.join(root, 'blogger/fragments/popular-posts.xml'), path.join(out, 'widget-updates/popular-posts.xml'));
 for (const [name, html] of Object.entries(editorTemplates(source))) {
   const target = path.join(out, 'editor-templates', name);
   await fs.mkdir(path.dirname(target), { recursive: true });
@@ -312,10 +376,12 @@ await fs.copyFile(path.join(root, 'blogger/UI-COMPARISON.md'), path.join(out, 'U
 await fs.copyFile(path.join(root, 'blogger/CUSTOMIZATION.md'), path.join(out, 'CUSTOMIZATION.md'));
 await fs.copyFile(path.join(root, 'blogger/WRITING.md'), path.join(out, 'WRITING.md'));
 await fs.copyFile(path.join(root, 'blogger/SEO-GUIDE.md'), path.join(out, 'SEO-GUIDE.md'));
+await fs.copyFile(path.join(root, 'blogger/IMAGE-PUBLISHING.md'), path.join(out, 'IMAGE-PUBLISHING.md'));
 if (config.contentMode === 'project') {
   await fs.copyFile(path.join(root, 'blogger/SEO-AUDIT.md'), path.join(out, 'SEO-AUDIT.md'));
   await fs.cp(path.join(root, 'blogger/audits'), path.join(out, 'audits'), { recursive: true });
   await fs.cp(path.join(root, 'blogger/changes'), path.join(out, 'changes'), { recursive: true });
+  await fs.cp(path.join(root, 'blogger/research'), path.join(out, 'research'), { recursive: true });
 } else {
   await fs.writeFile(path.join(out, 'SEO-AUDIT.md'), '# Verify this Blogger theme\n\nThis clean native-content package has no imported project articles or project audit data. After restore, verify native titles/Search descriptions, canonical/social fields, Labels, FAQ markup, robots policy and new post/Page editing on your own blog. Local tests do not certify Blogger compilation, indexing or AI citations. See [APPLY-UPDATES.md](APPLY-UPDATES.md) and [SEO-GUIDE.md](SEO-GUIDE.md).\n');
 }
