@@ -1,0 +1,170 @@
+[
+  {
+    "oldRoute": "https://iamrusiru.lovable.app/",
+    "redirectRoute": "https://newsite.com/",
+    "isRedirectEnabled": false,
+    "newDummyRoute": "https://iamrusiru.lovable.app/home-dummy"
+  },
+  {
+    "oldRoute": "https://iamrusiru.lovable.app/about",
+    "redirectRoute": "https://newsite.com/about",
+    "isRedirectEnabled": false,
+    "newDummyRoute": "https://iamrusiru.lovable.app/about-dummy"
+  },
+  {
+    "oldRoute": "https://iamrusiru.lovable.app/contact",
+    "redirectRoute": "https://newsite.com/contact",
+    "isRedirectEnabled": false,
+    "newDummyRoute": "https://iamrusiru.lovable.app/contact-dummy"
+  },
+  {
+    "oldRoute": "https://iamrusiru.lovable.app/privacy-policy",
+    "redirectRoute": "https://newsite.com/privacy-policy",
+    "isRedirectEnabled": false,
+    "newDummyRoute": "https://iamrusiru.lovable.app/privacy-policy-dummy"
+  },
+  {
+    "oldRoute": "https://iamrusiru.lovable.app/cookie-policy",
+    "redirectRoute": "https://newsite.com/cookie-policy",
+    "isRedirectEnabled": false,
+    "newDummyRoute": "https://iamrusiru.lovable.app/cookie-policy-dummy"
+  },
+  {
+    "oldRoute": "https://iamrusiru.lovable.app/post/books-better-engineer",
+    "redirectRoute": "https://newsite.com/post/books-better-engineer",
+    "isRedirectEnabled": false,
+    "newDummyRoute": "https://iamrusiru.lovable.app/post/books-better-engineer-dummy"
+  },
+  {
+    "oldRoute": "https://iamrusiru.lovable.app/post/broken-access-control",
+    "redirectRoute": "https://newsite.com/post/broken-access-control",
+    "isRedirectEnabled": false,
+    "newDummyRoute": "https://iamrusiru.lovable.app/post/broken-access-control-dummy"
+  },
+  {
+    "oldRoute": "https://iamrusiru.lovable.app/post/burnout-and-recovery",
+    "redirectRoute": "https://newsite.com/post/burnout-and-recovery",
+    "isRedirectEnabled": false,
+    "newDummyRoute": "https://iamrusiru.lovable.app/post/burnout-and-recovery-dummy"
+  },
+  {
+    "oldRoute": "https://iamrusiru.lovable.app/post/clean-code-principles",
+    "redirectRoute": "https://newsite.com/post/clean-code-principles",
+    "isRedirectEnabled": false,
+    "newDummyRoute": "https://iamrusiru.lovable.app/post/clean-code-principles-dummy"
+  },
+  {
+    "oldRoute": "https://iamrusiru.lovable.app/post/cli-tool-rust",
+    "redirectRoute": "https://newsite.com/post/cli-tool-rust",
+    "isRedirectEnabled": false,
+    "newDummyRoute": "https://iamrusiru.lovable.app/post/cli-tool-rust-dummy"
+  },
+  {
+    "oldRoute": "https://iamrusiru.lovable.app/post/code-review-etiquette",
+    "redirectRoute": "https://newsite.com/post/code-review-etiquette",
+    "isRedirectEnabled": false,
+    "newDummyRoute": "https://iamrusiru.lovable.app/post/code-review-etiquette-dummy"
+  },
+  {
+    "oldRoute": "https://iamrusiru.lovable.app/post/code-review-security-platform",
+    "redirectRoute": "https://newsite.com/post/code-review-security-platform",
+    "isRedirectEnabled": false,
+    "newDummyRoute": "https://iamrusiru.lovable.app/post/code-review-security-platform-dummy"
+  },
+  {
+    "oldRoute": "https://iamrusiru.lovable.app/post/cryptographic-failures",
+    "redirectRoute": "https://newsite.com/post/cryptographic-failures",
+    "isRedirectEnabled": false,
+    "newDummyRoute": "https://iamrusiru.lovable.app/post/cryptographic-failures-dummy"
+  },
+  {
+    "oldRoute": "https://iamrusiru.lovable.app/post/debugging-production",
+    "redirectRoute": "https://newsite.com/post/debugging-production",
+    "isRedirectEnabled": false,
+    "newDummyRoute": "https://iamrusiru.lovable.app/post/debugging-production-dummy"
+  },
+  {
+    "oldRoute": "https://iamrusiru.lovable.app/post/docker-compose-dev",
+    "redirectRoute": "https://newsite.com/post/docker-compose-dev",
+    "isRedirectEnabled": false,
+    "newDummyRoute": "https://iamrusiru.lovable.app/post/docker-compose-dev-dummy"
+  },
+  {
+    "oldRoute": "https://iamrusiru.lovable.app/post/dotfile-one-liners",
+    "redirectRoute": "https://newsite.com/post/dotfile-one-liners",
+    "isRedirectEnabled": false,
+    "newDummyRoute": "https://iamrusiru.lovable.app/post/dotfile-one-liners-dummy"
+  },
+  {
+    "oldRoute": "https://iamrusiru.lovable.app/post/drupal-page-caching",
+    "redirectRoute": "https://newsite.com/post/drupal-page-caching",
+    "isRedirectEnabled": false,
+    "newDummyRoute": "https://iamrusiru.lovable.app/post/drupal-page-caching-dummy"
+  },
+  {
+    "oldRoute": "https://iamrusiru.lovable.app/post/fastapi-quickstart",
+    "redirectRoute": "https://newsite.com/post/fastapi-quickstart",
+    "isRedirectEnabled": false,
+    "newDummyRoute": "https://iamrusiru.lovable.app/post/fastapi-quickstart-dummy"
+  },
+  {
+    "oldRoute": "https://iamrusiru.lovable.app/post/git-workflow-tips",
+    "redirectRoute": "https://newsite.com/post/git-workflow-tips",
+    "isRedirectEnabled": false,
+    "newDummyRoute": "https://iamrusiru.lovable.app/post/git-workflow-tips-dummy"
+  },
+  {
+    "oldRoute": "https://iamrusiru.lovable.app/post/injection",
+    "redirectRoute": "https://newsite.com/post/injection",
+    "isRedirectEnabled": false,
+    "newDummyRoute": "https://iamrusiru.lovable.app/post/injection-dummy"
+  },
+  {
+    "oldRoute": "https://iamrusiru.lovable.app/post/owasp-top-ten",
+    "redirectRoute": "https://newsite.com/post/owasp-top-ten",
+    "isRedirectEnabled": false,
+    "newDummyRoute": "https://iamrusiru.lovable.app/post/owasp-top-ten-dummy"
+  },
+  {
+    "oldRoute": "https://iamrusiru.lovable.app/post/proper-project-planning",
+    "redirectRoute": "https://newsite.com/post/proper-project-planning",
+    "isRedirectEnabled": false,
+    "newDummyRoute": "https://iamrusiru.lovable.app/post/proper-project-planning-dummy"
+  },
+  {
+    "oldRoute": "https://iamrusiru.lovable.app/post/react-server-components",
+    "redirectRoute": "https://newsite.com/post/react-server-components",
+    "isRedirectEnabled": false,
+    "newDummyRoute": "https://iamrusiru.lovable.app/post/react-server-components-dummy"
+  },
+  {
+    "oldRoute": "https://iamrusiru.lovable.app/post/side-projects-keep-me-sane",
+    "redirectRoute": "https://newsite.com/post/side-projects-keep-me-sane",
+    "isRedirectEnabled": false,
+    "newDummyRoute": "https://iamrusiru.lovable.app/post/side-projects-keep-me-sane-dummy"
+  },
+  {
+    "oldRoute": "https://iamrusiru.lovable.app/post/switched-to-typescript",
+    "redirectRoute": "https://newsite.com/post/switched-to-typescript",
+    "isRedirectEnabled": false,
+    "newDummyRoute": "https://iamrusiru.lovable.app/post/switched-to-typescript-dummy"
+  },
+  {
+    "oldRoute": "https://iamrusiru.lovable.app/post/vibe-coding",
+    "redirectRoute": "https://newsite.com/post/vibe-coding",
+    "isRedirectEnabled": false,
+    "newDummyRoute": "https://iamrusiru.lovable.app/post/vibe-coding-dummy"
+  },
+  {
+    "oldRoute": "https://iamrusiru.lovable.app/post/why-i-journal-as-dev",
+    "redirectRoute": "https://newsite.com/post/why-i-journal-as-dev",
+    "isRedirectEnabled": false,
+    "newDummyRoute": "https://iamrusiru.lovable.app/post/why-i-journal-as-dev-dummy"
+  },
+  {
+    "oldRoute": "https://iamrusiru.lovable.app/post/work-life-balance-for-developers",
+    "redirectRoute": "https://newsite.com/post/work-life-balance-for-developers",
+    "isRedirectEnabled": false,
+    "newDummyRoute": "https://iamrusiru.lovable.app/post/work-life-balance-for-developers-dummy"
+  }
+]
