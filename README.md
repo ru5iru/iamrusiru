@@ -2,7 +2,7 @@
 
 A fast, file-based personal blog for **Rusiru Rathmina** built on React 18, Vite 5, TypeScript 5, Tailwind CSS v3, and shadcn/ui. Content is authored as TypeScript files in `src/data/posts/`, prerendered at build time for SEO, and served as a single-page app.
 
-**Blogger conversion:** run `npm run build:blogger` to generate an installable XML theme and content import while retaining the current design. See [installation instructions](blogger/README.md) and [compatibility verification](blogger/COMPATIBILITY.md).
+**Blogger has moved:** the private blog is maintained in [ru5iru/iamrusiru-blog](https://github.com/ru5iru/iamrusiru-blog); the reusable MIT template is in [ru5iru/blogger-template](https://github.com/ru5iru/blogger-template). Both build independently. See [migration notes](BLOGGER-MIGRATION.md).
 
 > Live: https://iamrusiru.lovable.app
 
