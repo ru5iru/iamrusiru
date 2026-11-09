@@ -4,6 +4,12 @@ The export keeps the existing warm colors, DM Serif Display / Roboto / JetBrains
 
 **7 November update:** semantic lists in all 23 posts, the OWASP table, contextual links/primary references, Privacy identity, native responsive thumbnails and Popular Posts accessibility repair are prepared. Start with [APPLY-UPDATES.md](APPLY-UPDATES.md). Optimized cover variants require upload and activation through [IMAGE-PUBLISHING.md](IMAGE-PUBLISHING.md).
 
+## Authoring skills
+
+Use [SKILL.md](SKILL.md) to turn supplied content into a complete native Blogger post/Page packet: body HTML, Title, Search description, Labels, keyword planning, permalink guidance, cover details, relevant FAQs/sources and publishing steps. Drafts go in `blogger/drafts/SLUG/`, outside generated build output. Validate a packet with `node blogger/scripts/validate-draft.mjs blogger/drafts/SLUG`.
+
+Companion skills cover [SEO/AEO/GEO review](skills/blogger-seo-review/SKILL.md), [images and GitHub variants](skills/blogger-images/SKILL.md), and [publishing/live verification](skills/blogger-publishing/SKILL.md). These tools require the source checkout; generated theme packages do not include them, and they are not automatically installed global skills. Example request: **Use `blogger/SKILL.md` to turn the following content into a complete Blogger post matching this theme: …**
+
 ## Generated files
 
 For reuse and editing through Blogger Layout, see [CUSTOMIZATION.md](CUSTOMIZATION.md). The current look is retained as the default. A separate `native` preset avoids copying project-specific content into another blog.

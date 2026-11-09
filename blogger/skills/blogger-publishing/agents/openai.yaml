@@ -1,0 +1,4 @@
+interface:
+  display_name: "Blogger publishing"
+  short_description: "Publish updates and verify Blogger output correctly"
+  default_prompt: "Use $blogger-publishing to prepare or complete the authorized Blogger update and verify its public result."

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Blogger images"
+  short_description: "Prepare covers and verify responsive Blogger images"
+  default_prompt: "Use $blogger-images to prepare accessible images and real responsive variants for this Blogger content."

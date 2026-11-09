@@ -1,0 +1,4 @@
+interface:
+  display_name: "Blogger SEO review"
+  short_description: "Review SEO, answer clarity, FAQs and source evidence"
+  default_prompt: "Use $blogger-seo-review to check this Blogger content and identify concrete SEO, AEO and GEO improvements."

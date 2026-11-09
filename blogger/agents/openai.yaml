@@ -1,0 +1,4 @@
+interface:
+  display_name: "Blogger authoring"
+  short_description: "Create styled posts and complete publishing fields"
+  default_prompt: "Use $blogger to turn my supplied content into a complete Blogger publishing packet matching the existing theme."
