@@ -4,6 +4,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import { useEffect, lazy, Suspense } from "react";
 import PageSkeleton from "@/components/blog/PageSkeleton";
+import { findRedirectForDummy, findRedirectForOld } from "@/lib/redirects";
 
 const Index = lazy(() => import("./pages/Index"));
 const BlogPost = lazy(() => import("./pages/BlogPost"));
@@ -21,6 +22,22 @@ const ScrollToTop = () => {
   return null;
 };
 
+/**
+ * Browser redirect for old routes with an enabled redirect, and dummy routes
+ * that render the original page without redirecting.
+ */
+const RedirectAwareRoutes = ({ children }: { children: React.ReactNode }) => {
+  const location = useLocation();
+  const redirect = findRedirectForOld(location.pathname);
+  useEffect(() => {
+    if (redirect) window.location.replace(redirect.target);
+  }, [redirect]);
+  if (redirect) return null;
+  const dummy = findRedirectForDummy(location.pathname);
+  const effective = dummy ? { ...location, pathname: dummy.oldPath } : location;
+  return <Routes location={effective}>{children}</Routes>;
+};
+
 const App = () => (
   <TooltipProvider>
     <Toaster />
@@ -34,7 +51,7 @@ const App = () => (
       </a>
       <ScrollToTop />
       <Suspense fallback={<PageSkeleton />}>
-        <Routes>
+        <RedirectAwareRoutes>
           <Route path="/" element={<Index />} />
           <Route path="/post/:slug" element={<BlogPost />} />
           <Route path="/about" element={<About />} />
@@ -43,7 +60,7 @@ const App = () => (
           <Route path="/cookie-policy" element={<CookiePolicy />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
-        </Routes>
+        </RedirectAwareRoutes>
       </Suspense>
     </BrowserRouter>
   </TooltipProvider>
