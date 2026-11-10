@@ -8,10 +8,14 @@ pnpm-debug.log*
 lerna-debug.log*
 
 node_modules
+repository-migration/
 dist
 dist-ssr
 *.local
 .netlify/
+output/playwright/
+.taste-skill/
+.playwright-cli/
 
 # Editor directories and files
 .vscode/*
