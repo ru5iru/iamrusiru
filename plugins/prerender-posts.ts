@@ -12,6 +12,8 @@
 import type { Plugin } from "vite";
 import fs from "fs";
 import path from "path";
+import redirectEntries from "../src/data/redirects.json";
+import { resolveRedirects, type RedirectEntry, type ResolvedRedirect } from "../src/lib/redirects";
 
 const SITE = "https://iamrusiru.lovable.app";
 
@@ -558,8 +560,7 @@ function buildCookiePolicyPage(template: string): string {
 
 // ── Sitemap ─────────────────────────────────────────────────────────
 
-function buildSitemap(posts: PostMeta[]): string {
-  const today = new Date().toISOString().split("T")[0];
+function buildSitemap(posts: PostMeta[], excluded: Set<string> = new Set()): string {
 
   const staticPages = [
     { loc: `${SITE}/`, priority: "1.0", changefreq: "weekly" },
@@ -570,18 +571,16 @@ function buildSitemap(posts: PostMeta[]): string {
   ];
 
   const urls = [
-    ...staticPages.map(
+    ...staticPages.filter((p) => !excluded.has(p.loc.replace(SITE, "").replace(/(.)\/$/, "$1") || "/")).map(
       (p) => `  <url>
     <loc>${p.loc}</loc>
-    <lastmod>${today}</lastmod>
     <changefreq>${p.changefreq}</changefreq>
     <priority>${p.priority}</priority>
   </url>`
     ),
-    ...posts.map(
+    ...posts.filter((p) => !excluded.has(`/post/${p.slug}`)).map(
       (p) => `  <url>
     <loc>${SITE}/post/${p.slug}</loc>
-    <lastmod>${today}</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -702,6 +701,42 @@ ${sections.join("\n\n---\n\n")}
 `;
 }
 
+// ── Redirects (browser redirect + canonical to the new site) ────────
+
+function upsertHeadTag(h: string, pattern: RegExp, tag: string): string {
+  return h.replace(pattern, "").replace("</head>", `${tag}\n</head>`);
+}
+
+function pointCanonicalAt(html: string, target: string): string {
+  let h = upsertHeadTag(html, /<link\b[^>]*rel=["']canonical["'][^>]*>/gi, `<link rel="canonical" href="${esc(target)}" />`);
+  h = upsertHeadTag(h, /<meta\b(?=[^>]*\bproperty\s*=\s*["']og:url["'])[^>]*>/gi, `<meta property="og:url" content="${esc(target)}" />`);
+  return h;
+}
+
+/** Old route: canonical to new URL, instant meta refresh + JS redirect. */
+export function applyRedirectToHtml(html: string, target: string): string {
+  let h = pointCanonicalAt(html, target);
+  h = upsertHeadTag(h, /<meta\b[^>]*http-equiv=["']refresh["'][^>]*>/gi, `<meta http-equiv="refresh" content="0; url=${esc(target)}" />`);
+  h = h.replace(/<head([^>]*)>/i, `<head$1>\n<script>window.location.replace(${JSON.stringify(target).replace(/</g, "\\u003c")});</script>`);
+  return h;
+}
+
+/** Dummy route: same page, no redirect, canonical to new URL, never indexed. */
+export function buildDummyHtml(html: string, target: string): string {
+  let h = pointCanonicalAt(html, target);
+  h = upsertHeadTag(h, /<meta\b(?=[^>]*\bname\s*=\s*["']robots["'])[^>]*>/gi, `<meta name="robots" content="noindex, nofollow" />`);
+  return h;
+}
+
+function routeFile(distDir: string, route: string): string {
+  return route === "/" ? path.join(distDir, "index.html") : path.join(distDir, route.slice(1), "index.html");
+}
+
+export function buildNewSitemap(redirects: ResolvedRedirect[]): string {
+  const urls = redirects.map((r) => `  <url>\n    <loc>${esc(r.target)}</loc>\n  </url>`);
+  return `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls.join("\n")}\n</urlset>\n`;
+}
+
 // ── Prerender validation ────────────────────────────────────────────
 
 function validatePage(route: string, html: string, expectArticle: boolean): void {
@@ -804,8 +839,25 @@ export default function prerenderPosts(): Plugin {
         console.log(`[prerender] ✓ /post/${post.slug}`);
       }
 
-      // 7. Generate sitemap
-      const sitemap = buildSitemap(posts);
+      // 6b. Redirects: dummy copies first (from the original page), then old routes
+      const redirects = resolveRedirects(redirectEntries as RedirectEntry[], SITE);
+      for (const r of redirects) {
+        const src = routeFile(distDir, r.oldPath);
+        if (!fs.existsSync(src)) {
+          console.warn(`[prerender] WARNING redirect ${r.oldPath}: no prerendered page, skipped`);
+          continue;
+        }
+        const original = fs.readFileSync(src, "utf-8");
+        const dummyFile = routeFile(distDir, r.dummyPath);
+        fs.mkdirSync(path.dirname(dummyFile), { recursive: true });
+        fs.writeFileSync(dummyFile, buildDummyHtml(original, r.target), "utf-8");
+        fs.writeFileSync(src, applyRedirectToHtml(original, r.target), "utf-8");
+        console.log(`[prerender] ↪ ${r.oldPath} -> ${r.target} (preview at ${r.dummyPath})`);
+      }
+      fs.writeFileSync(path.join(distDir, "sitemap-new.xml"), buildNewSitemap(redirects), "utf-8");
+
+      // 7. Generate sitemap (redirected pages removed)
+      const sitemap = buildSitemap(posts, new Set(redirects.map((r) => r.oldPath)));
       fs.writeFileSync(path.join(distDir, "sitemap.xml"), sitemap, "utf-8");
       console.log(`[prerender] ✓ sitemap.xml (${posts.length} posts)`);
 
