@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { findRedirectForDummy, findRedirectForOld } from "@/lib/redirects";
 
 interface SEOProps {
   title: string;
@@ -88,13 +89,20 @@ export function useSEO({
     const canonicalLinks = document.querySelectorAll('link[rel="canonical"]');
     let link = canonicalLinks[0] as HTMLLinkElement | null;
     for (let i = 1; i < canonicalLinks.length; i++) canonicalLinks[i].remove();
-    if (canonical) {
+    // When a page has an enabled redirect, canonical + og:url point to the new URL.
+    const redirect = canonical ? findRedirectForOld(canonical) : undefined;
+    const canonicalUrl = canonical ? redirect?.target ?? `${BASE_URL}${canonical}` : undefined;
+    if (canonicalUrl) {
       if (!link) {
         link = document.createElement("link");
         link.rel = "canonical";
         document.head.appendChild(link);
       }
-      link.href = `${BASE_URL}${canonical}`;
+      link.href = canonicalUrl;
+    }
+    // Dummy preview routes are never indexed.
+    if (findRedirectForDummy(window.location.pathname)) {
+      robots.setAttribute("content", "noindex, nofollow");
     }
 
 
@@ -119,7 +127,7 @@ export function useSEO({
     setMeta("og:title", ogTitleVal);
     setMeta("og:description", description);
     setMeta("og:type", ogType);
-    if (canonical) setMeta("og:url", `${BASE_URL}${canonical}`);
+    if (canonicalUrl) setMeta("og:url", canonicalUrl);
     if (ogImage) setMeta("og:image", ogImage);
 
     setMeta("twitter:title", ogTitleVal);
