@@ -78,5 +78,8 @@ Disallow: /admin
 Disallow: /api
 Disallow: /drafts
 Disallow: /private
+# Redirect preview copies (dummy routes): never crawl or index
+Disallow: /home-dummy
+Disallow: /*-dummy
 
 Sitemap: https://iamrusiru.lovable.app/sitemap.xml
