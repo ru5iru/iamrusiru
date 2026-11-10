@@ -7,13 +7,13 @@
   },
   {
     "oldRoute": "https://iamrusiru.lovable.app/about",
-    "redirectRoute": "https://blog.rusiru.cc/p/about",
+    "redirectRoute": "https://blog.rusiru.cc/p/about.html",
     "isRedirectEnabled": true,
     "newDummyRoute": "https://iamrusiru.lovable.app/about-dummy"
   },
   {
     "oldRoute": "https://iamrusiru.lovable.app/contact",
-    "redirectRoute": "https://blog.rusiru.cc/p/contact",
+    "redirectRoute": "https://blog.rusiru.cc/p/contact.html",
     "isRedirectEnabled": true,
     "newDummyRoute": "https://iamrusiru.lovable.app/contact-dummy"
   },
@@ -25,7 +25,7 @@
   },
   {
     "oldRoute": "https://iamrusiru.lovable.app/cookie-policy",
-    "redirectRoute": "https://blog.rusiru.cc/p/cookie-policy",
+    "redirectRoute": "https://blog.rusiru.cc/p/cookie-policy.html",
     "isRedirectEnabled": true,
     "newDummyRoute": "https://iamrusiru.lovable.app/cookie-policy-dummy"
   },
