@@ -166,7 +166,7 @@ bun run preview
    ];
    ```
 
-4. **Add it to `public/sitemap.xml`** as a new `<url>` entry with today's `<lastmod>` and bump the homepage `<lastmod>` to today.
+4. **Sitemaps are generated automatically** from the post registry at build time. Never use today's date, build time, or generation time as a `<lastmod>` fallback. Add `<lastmod>` only when an authoritative, page-specific timestamp records a significant content change; otherwise omit it.
 5. **Update `public/llms.txt`**: add the new post under "Latest Post" / "Posts" with title, slug URL, and one-line summary.
 6. **Verify**: run `bun run dev`, open `/blog/<slug>`, check the meta tags in DevTools, and confirm the post appears on the homepage and in related posts.
 7. **Build**: run `bun run build` to confirm the prerender plugin emits the static HTML for the new route.
@@ -217,7 +217,7 @@ REQUIRED STRUCTURE (in this exact order):
 8. FAQ section: 5-7 question-and-answer pairs. Each answer 40-120 words, complete sentences, no bullet points.
 
 ALSO PRODUCE (after the post body):
-A. SITEMAP XML SNIPPET — a single `<url>` block for `https://iamrusiru.lovable.app/blog/<SLUG>` with `<lastmod>` set to today's ISO date and `<changefreq>monthly</changefreq>`, `<priority>0.8</priority>`. Also emit an updated `<lastmod>` line for the homepage URL.
+A. SITEMAP XML SNIPPET — a single `<url>` block for `https://iamrusiru.lovable.app/post/<SLUG>` with `<changefreq>monthly</changefreq>` and `<priority>0.8</priority>`. Omit `<lastmod>` unless an authoritative, page-specific timestamp for a significant content change is supplied. Never substitute today's date or update the homepage timestamp without evidence of a significant homepage change.
 B. LLMS.TXT ENTRY — one line in the format: `- [<Title>](https://iamrusiru.lovable.app/blog/<SLUG>) — <one-sentence summary>`
 C. FAQ JSON-LD — a valid `application/ld+json` block for the FAQ section using the `FAQPage` schema. JSON only, double quotes, no trailing commas.
 D. POST FILE PAYLOAD — a TypeScript object literal that I can paste directly into `src/data/posts/<SLUG>.ts`, matching the BlogPost type:
@@ -239,7 +239,7 @@ After the LLM responds, follow the steps in [How to Add a New Post](#how-to-add-
 ## Editing an Existing Post
 
 - Edit the file at `src/data/posts/<slug>.ts`.
-- Bump `updatedDate` (optional) and update the matching `<lastmod>` in `public/sitemap.xml`.
+- Update `updatedDate` only for a significant content change. Sitemaps are generated at build time; a `<lastmod>` value requires an authoritative, page-specific timestamp, never a current-date fallback.
 - If the title or excerpt changed, update the corresponding line in `public/llms.txt`.
 
 ---

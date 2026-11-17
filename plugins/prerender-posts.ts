@@ -560,7 +560,7 @@ function buildCookiePolicyPage(template: string): string {
 
 // ── Sitemap ─────────────────────────────────────────────────────────
 
-function buildSitemap(posts: PostMeta[], excluded: Set<string> = new Set()): string {
+export function buildSitemap(posts: Pick<PostMeta, "slug" | "imageUrl" | "title" | "excerpt">[]): string {
 
   const staticPages = [
     { loc: `${SITE}/`, priority: "1.0", changefreq: "weekly" },
@@ -571,14 +571,14 @@ function buildSitemap(posts: PostMeta[], excluded: Set<string> = new Set()): str
   ];
 
   const urls = [
-    ...staticPages.filter((p) => !excluded.has(p.loc.replace(SITE, "").replace(/(.)\/$/, "$1") || "/")).map(
+    ...staticPages.map(
       (p) => `  <url>
     <loc>${p.loc}</loc>
     <changefreq>${p.changefreq}</changefreq>
     <priority>${p.priority}</priority>
   </url>`
     ),
-    ...posts.filter((p) => !excluded.has(`/post/${p.slug}`)).map(
+    ...posts.map(
       (p) => `  <url>
     <loc>${SITE}/post/${p.slug}</loc>
     <changefreq>monthly</changefreq>
@@ -733,7 +733,7 @@ function routeFile(distDir: string, route: string): string {
 }
 
 export function buildNewSitemap(redirects: ResolvedRedirect[]): string {
-  const urls = redirects.map((r) => `  <url>\n    <loc>${esc(r.target)}</loc>\n  </url>`);
+  const urls = [...new Set(redirects.map((r) => r.target))].map((target) => `  <url>\n    <loc>${esc(target)}</loc>\n  </url>`);
   return `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls.join("\n")}\n</urlset>\n`;
 }
 
@@ -856,8 +856,9 @@ export default function prerenderPosts(): Plugin {
       }
       fs.writeFileSync(path.join(distDir, "sitemap-new.xml"), buildNewSitemap(redirects), "utf-8");
 
-      // 7. Generate sitemap (redirected pages removed)
-      const sitemap = buildSitemap(posts, new Set(redirects.map((r) => r.oldPath)));
+      // 7. Keep old URLs discoverable during migration so crawlers see redirects.
+      // Dummy routes are never included; destination URLs live in sitemap-new.xml.
+      const sitemap = buildSitemap(posts);
       fs.writeFileSync(path.join(distDir, "sitemap.xml"), sitemap, "utf-8");
       console.log(`[prerender] ✓ sitemap.xml (${posts.length} posts)`);
 

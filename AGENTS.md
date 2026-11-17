@@ -1,2 +1,4 @@
 # Project rules
+- Keep original page URLs in sitemap.xml during migration so crawlers can discover their redirects; sitemap-new.xml lists unique enabled targets and neither includes dummy routes. This prevents an all-pages migration from producing an empty source sitemap.
+- Omit sitemap lastmod unless supported by an authoritative page-specific significant-change timestamp; never derive it from build or generation time, which misrepresents content freshness.
 - Generate route-specific social metadata at build time with format-independent, deduplicating upserts in the prerender plugin; social crawlers must not depend on client-side JavaScript.- Site migration redirects are driven only by src/data/redirects.json (resolved in src/lib/redirects.ts, applied at build in the prerender plugin and in the app router); invalid, looping or chained entries are skipped, so the JSON is the single switch for each page.
